@@ -1,0 +1,644 @@
+{
+  "id": "mercury",
+  "name": "Mercury",
+  "tagline": "Iron heart, shrinking skin",
+  "physical": {
+    "radius_km": 2439.7,
+    "mass_kg": 3.301e+23,
+    "sidereal_day_h": 1407.6,
+    "orbital_period_d": 87.969,
+    "axial_tilt_deg": 0.034,
+    "mean_temp_c": 167,
+    "moons": 0,
+    "semi_major_axis_au": 0.387
+  },
+  "events": [
+    {
+      "id": "formation",
+      "year": -4500000000,
+      "label": "4.5 billion years ago",
+      "title": "Mercury forms",
+      "line": "Rock and iron gather",
+      "detail": "Mercury formed about 4.5 billion years ago when gravity pulled gas and dust together in the inner solar nebula. Its young surface was molten.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.85,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": "#7a5a48",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Mercury facts",
+          "url": "https://science.nasa.gov/mercury/facts/"
+        }
+      ]
+    },
+    {
+      "id": "hit-and-run",
+      "year": -4480000000,
+      "label": "~4.5 billion years ago",
+      "title": "Stripped mantle?",
+      "line": "A giant collision, maybe",
+      "detail": "Mercury's iron core spans about 85% of its radius, far more than any other rocky planet. One idea is that a giant impact (or a \"hit-and-run\" glancing collision) stripped away much of its rocky mantle; others argue the iron-rich mix was set by where and how it formed. None is settled.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.7,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.1,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": "#7a5a48",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Mercury facts",
+          "url": "https://science.nasa.gov/mercury/facts/"
+        },
+        {
+          "title": "Benz et al. 2007, The Origin of Mercury, Space Science Reviews",
+          "url": "https://doi.org/10.1007/s11214-007-9284-1"
+        },
+        {
+          "title": "Asphaug & Reufer 2014, Mercury and other iron-rich bodies as relics of inefficient accretion, Nature Geoscience",
+          "url": "https://doi.org/10.1038/ngeo2189"
+        },
+        {
+          "title": "Smith et al. 2012, Gravity field and internal structure of Mercury from MESSENGER, Science",
+          "url": "https://doi.org/10.1126/science.1218809"
+        }
+      ]
+    },
+    {
+      "id": "graphite-crust",
+      "year": -4400000000,
+      "label": "~4.4 billion years ago",
+      "title": "Dark carbon crust",
+      "line": "Graphite floats to the top",
+      "detail": "MESSENGER found that Mercury's darkest terrain is rich in carbon, most likely graphite. Researchers interpret it as remnants of an ancient crust that floated on the cooling magma ocean, which would help explain why Mercury is so dark.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.25,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.3,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": "#4a4644",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Peplowski et al. 2016, Remote sensing evidence for an ancient carbon-bearing crust on Mercury, Nature Geoscience",
+          "url": "https://doi.org/10.1038/ngeo2669"
+        }
+      ]
+    },
+    {
+      "id": "bombardment",
+      "year": -4050000000,
+      "label": "4.1–4.0 billion years ago",
+      "title": "Heavy bombardment",
+      "line": "Impacts and lava repave everything",
+      "detail": "Crater statistics from MESSENGER indicate Mercury's oldest surviving terrains date to about 4.0–4.1 billion years ago: an era of intense impacts and volcanism erased anything older.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.3,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.85,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": "#5e5853",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Marchi et al. 2013, Global resurfacing of Mercury 4.0–4.1 billion years ago, Nature",
+          "url": "https://doi.org/10.1038/nature12280"
+        }
+      ]
+    },
+    {
+      "id": "caloris",
+      "year": -3850000000,
+      "label": "~3.9 billion years ago",
+      "title": "Caloris impact",
+      "line": "A 1,550 km basin blasted",
+      "detail": "An asteroid impact carved the Caloris basin, about 1,550 km across and one of the largest impact basins in the solar system. The density of craters on its floor dates it to roughly 3.8–3.9 billion years ago, late in the heavy bombardment.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.3,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.9,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Mercury facts",
+          "url": "https://science.nasa.gov/mercury/facts/"
+        },
+        {
+          "title": "NASA/JPL Photojournal PIA10935: Young Cunningham crater in old Caloris basin",
+          "url": "https://photojournal.jpl.nasa.gov/catalog/PIA10935"
+        }
+      ]
+    },
+    {
+      "id": "flood-volcanism",
+      "year": -3700000000,
+      "label": "~3.7 billion years ago",
+      "title": "Flood lavas",
+      "line": "Lava buries the northern plains",
+      "detail": "Vast sheets of runny lava flooded Mercury's northern high latitudes, covering about 6% of the planet with smooth volcanic plains up to kilometres thick. Lava also filled the interior of Caloris.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.55,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.75,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Head et al. 2011, Flood volcanism in the northern high latitudes of Mercury revealed by MESSENGER, Science",
+          "url": "https://doi.org/10.1126/science.1211997"
+        }
+      ]
+    },
+    {
+      "id": "volcanism-ends",
+      "year": -3500000000,
+      "label": "~3.5 billion years ago",
+      "title": "Lavas go quiet",
+      "line": "Widespread eruptions shut down",
+      "detail": "Crater-count ages of Mercury's smooth plains suggest large-scale effusive volcanism ended by about 3.5 billion years ago, as the shrinking planet squeezed shut the paths magma used to reach the surface.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.9,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Byrne et al. 2016, Widespread effusive volcanism on Mercury likely ended by about 3.5 Ga, Geophysical Research Letters",
+          "url": "https://doi.org/10.1002/2016GL069412"
+        }
+      ]
+    },
+    {
+      "id": "contraction",
+      "year": -3000000000,
+      "label": "Over ~3.9 billion years",
+      "title": "Planet shrinks",
+      "line": "Cooling core wrinkles the crust",
+      "detail": "As its interior cooled, Mercury contracted, pushing up long cliffs (lobate scarps), some more than a kilometre high, across the globe. MESSENGER mapping implies the radius shrank by up to about 7 km.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.92,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Mercury facts",
+          "url": "https://science.nasa.gov/mercury/facts/"
+        },
+        {
+          "title": "Byrne et al. 2014, Mercury's global contraction much greater than earlier estimates, Nature Geoscience",
+          "url": "https://doi.org/10.1038/ngeo2097"
+        }
+      ]
+    },
+    {
+      "id": "still-shrinking",
+      "year": -50000000,
+      "label": "Last ~50 million years",
+      "title": "Still shrinking",
+      "line": "Fresh small scarps appear",
+      "detail": "Small, crisp thrust-fault scarps seen in MESSENGER's lowest-altitude images are geologically young, under about 50 million years old, suggesting Mercury is still contracting today.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.92,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Watters et al. 2016, Recent tectonic activity on Mercury revealed by small thrust fault scarps, Nature Geoscience",
+          "url": "https://doi.org/10.1038/ngeo2814"
+        }
+      ]
+    },
+    {
+      "id": "mariner-10",
+      "year": 1974,
+      "label": "29 March 1974",
+      "title": "Mariner 10",
+      "line": "First close-up of Mercury",
+      "detail": "NASA's Mariner 10 made the first of three flybys of Mercury, eventually photographing about 45% of the surface and discovering its magnetic field.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.92,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Mariner 10",
+          "url": "https://science.nasa.gov/mission/mariner-10/"
+        }
+      ]
+    },
+    {
+      "id": "messenger-orbit",
+      "year": 2011,
+      "label": "18 March 2011",
+      "title": "MESSENGER arrives",
+      "line": "First spacecraft to orbit Mercury",
+      "detail": "MESSENGER became the first spacecraft to orbit Mercury and went on to map the whole planet. It found bright \"hollows\", shallow pits that appear to form as volatile material escapes and may still be forming today.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.92,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: MESSENGER",
+          "url": "https://science.nasa.gov/mission/messenger/"
+        },
+        {
+          "title": "Blewett et al. 2011, Hollows on Mercury: MESSENGER evidence for geologically recent volatile-related activity, Science",
+          "url": "https://doi.org/10.1126/science.1211681"
+        }
+      ]
+    },
+    {
+      "id": "polar-ice",
+      "year": 2012,
+      "label": "29 November 2012",
+      "title": "Polar ice",
+      "line": "Ice hides in shadowed craters",
+      "detail": "MESSENGER confirmed that water ice is the main constituent of deposits in permanently shadowed craters near Mercury's poles, often buried under a dark layer 10–20 cm thick. The planet nearest the Sun keeps ice because its axis is barely tilted.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.15,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.92,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Johns Hopkins APL: MESSENGER finds new evidence for water ice at Mercury's poles (2012)",
+          "url": "https://www.jhuapl.edu/news/news-releases/121129-messenger-finds-new-evidence-water-ice-mercurys-poles"
+        },
+        {
+          "title": "Lawrence et al. 2013, Evidence for water ice near Mercury's north pole, Science",
+          "url": "https://doi.org/10.1126/science.1229953"
+        }
+      ]
+    },
+    {
+      "id": "messenger-impact",
+      "year": 2015,
+      "label": "30 April 2015",
+      "title": "MESSENGER ends",
+      "line": "Probe crashes, making a crater",
+      "detail": "Out of fuel, MESSENGER was allowed to crash into Mercury's surface after more than four years in orbit, ending the mission.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.15,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.92,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: MESSENGER",
+          "url": "https://science.nasa.gov/mission/messenger/"
+        }
+      ]
+    },
+    {
+      "id": "today",
+      "year": 2026,
+      "label": "Today",
+      "title": "Today",
+      "line": "BepiColombo weeks from arrival",
+      "detail": "Mercury is an airless, cratered world with a vast iron core, polar ice and a surface that swings between about 430 °C by day and −180 °C by night. ESA and JAXA's BepiColombo shed its transfer module on 3 September 2026 and is closing in on orbit insertion.",
+      "kind": "present",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.15,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.92,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Mercury facts",
+          "url": "https://science.nasa.gov/mercury/facts/"
+        },
+        {
+          "title": "ESA: Latest updates – BepiColombo's arrival at Mercury",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/BepiColombo/Latest_updates_BepiColombo_s_arrival_at_Mercury"
+        }
+      ]
+    },
+    {
+      "id": "bepicolombo",
+      "year": 2026.89,
+      "label": "21 November 2026",
+      "title": "BepiColombo arrives",
+      "line": "Two orbiters captured at Mercury",
+      "detail": "ESA plans to capture the joined MPO and JAXA Mio orbiters into polar orbit on 21 November 2026, release Mio on 9–10 December, and reach MPO's final science orbit in March 2027. Arrival slipped from December 2025 after a 2024 thruster power problem.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "ESA BepiColombo mission timeline, September 2026",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.15,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.92,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "ESA: Latest updates – BepiColombo's arrival at Mercury",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/BepiColombo/Latest_updates_BepiColombo_s_arrival_at_Mercury"
+        }
+      ]
+    },
+    {
+      "id": "orbital-chaos",
+      "year": 5000000000,
+      "label": "Within 5 billion years",
+      "title": "Orbital chaos?",
+      "line": "About a 1% chance",
+      "detail": "In 2,501 simulations of the solar system, about 1% sent Mercury's orbit so eccentric within 5 billion years that it could collide with Venus or the Sun, or destabilise the inner planets. In the other 99% it carries on as today.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "Jacques Laskar & Mickaël Gastineau, Nature, June 2009",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.15,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.92,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#c9bba8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Laskar & Gastineau 2009, Existence of collisional trajectories of Mercury, Mars and Venus with the Earth, Nature",
+          "url": "https://doi.org/10.1038/nature08096"
+        }
+      ]
+    },
+    {
+      "id": "engulfed",
+      "year": 7590000000,
+      "label": "In ~7.6 billion years",
+      "title": "Swallowed by Sun",
+      "line": "The red giant engulfs it",
+      "detail": "As the Sun swells into a red giant near the tip of its red-giant branch, about 7.6 billion years from now, models show it engulfing Mercury and Venus. The planet would be heated, vaporised and dragged inward.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "K.-P. Schröder & R. C. Smith, MNRAS, 2008",
+      "visual": {
+        "lava": 1,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.2,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.6,
+        "atmosphere_tint": "#ff7a2e",
+        "surface_tint": "#a23c1c",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Schröder & Smith 2008, Distant future of the Sun and Earth revisited, MNRAS",
+          "url": "https://doi.org/10.1111/j.1365-2966.2008.13022.x"
+        }
+      ]
+    }
+  ]
+}

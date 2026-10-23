@@ -1,0 +1,90 @@
+{
+  "encoding": "8-bit greyscale, value = clamp(floor((elev_m + 6000) / 12000 * 255 + 0.5), 0, 255); decode elev_m = value / 255 * 12000 - 6000 (step 47.06 m). Sea level (0 m) maps to 127.5 exactly; with round-half-up, value 127 covers [-47.06, 0) m and value 128 covers [0, +47.06) m, so value >= 128 <=> elev >= 0 m (land) and value <= 127 <=> elev < 0 m (sea). In a shader (texel = value/255): land = texel >= 0.5. Elevations beyond -6000/+6000 m are clamped (source range is about -9000..+6000 m). Each slice is 512x256 equirectangular, lon -180 at left edge to +180 at right edge, lat +90 at top edge to -90 at bottom edge, pixel centres at half-pixel offsets; bilinearly resampled from the 1 deg grid. Slices are stacked vertically in 'index' order: slice i occupies rows [256*i, 256*i+255] of the 512 x (256*N) image.",
+  "width": 512,
+  "slice_height": 256,
+  "height": 3328,
+  "elev_min_m": -6000.0,
+  "elev_max_m": 6000.0,
+  "sea_level_value": 127.5,
+  "source": "Scotese, C.R., Wright, N., 2018, PALEOMAP Paleodigital Elevation Models (PaleoDEMS) for the Phanerozoic, Zenodo, doi:10.5281/zenodo.5460860 (1deg x 1deg netCDF v2), CC BY 4.0",
+  "slices": [
+    {
+      "ma": 0,
+      "index": 0,
+      "source_ma": 0,
+      "source_file": "Map01_PALEOMAP_1deg_Holocene_0Ma.nc"
+    },
+    {
+      "ma": 20,
+      "index": 1,
+      "source_ma": 20,
+      "source_file": "Map07_PALEOMAP_1deg_Early_Miocene_20Ma.nc"
+    },
+    {
+      "ma": 66,
+      "index": 2,
+      "source_ma": 65,
+      "source_file": "Map16_PALEOMAP_1deg_KT_Boundary_65Ma.nc"
+    },
+    {
+      "ma": 100,
+      "index": 3,
+      "source_ma": 100,
+      "source_file": "Map23_PALEOMAP_1deg_Early_Cretaceous_100Ma.nc"
+    },
+    {
+      "ma": 150,
+      "index": 4,
+      "source_ma": 150,
+      "source_file": "Map33_PALEOMAP_1deg_Late_Jurassic_150Ma.nc"
+    },
+    {
+      "ma": 200,
+      "index": 5,
+      "source_ma": 200,
+      "source_file": "Map43_PALEOMAP_1deg_Late_Triassic_200Ma.nc"
+    },
+    {
+      "ma": 250,
+      "index": 6,
+      "source_ma": 250,
+      "source_file": "Map49_PALEOMAP_1deg_Permo-Triassic Boundary_250Ma.nc"
+    },
+    {
+      "ma": 300,
+      "index": 7,
+      "source_ma": 300,
+      "source_file": "Map57_PALEOMAP_1deg_Late_Pennsylvanian_300Ma.nc"
+    },
+    {
+      "ma": 350,
+      "index": 8,
+      "source_ma": 350,
+      "source_file": "Map64_PALEOMAP_1deg_Early_Mississippian_350Ma.nc"
+    },
+    {
+      "ma": 400,
+      "index": 9,
+      "source_ma": 400,
+      "source_file": "Map70_PALEOMAP_1deg_Early_Devonian_400Ma.nc"
+    },
+    {
+      "ma": 450,
+      "index": 10,
+      "source_ma": 450,
+      "source_file": "Map78_PALEOMAP_1deg_Late_Ordovician_450Ma.nc"
+    },
+    {
+      "ma": 500,
+      "index": 11,
+      "source_ma": 500,
+      "source_file": "Map84_PALEOMAP_1deg_late_Middle_Cambrian_500Ma.nc"
+    },
+    {
+      "ma": 540,
+      "index": 12,
+      "source_ma": 540,
+      "source_file": "Map88_PALEOMAP_1deg_Cambrian_Precambrian boundary_540Ma.nc"
+    }
+  ]
+}

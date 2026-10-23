@@ -1,0 +1,69 @@
+{
+  "site": "AP-9, Arcadia Planitia (SpaceX Starship candidate landing site)",
+  "extent_km": 4.0,
+  "center": {
+    "lat": 40.02,
+    "lon": -156.65
+  },
+  "center_requested": {
+    "lat": 40.02,
+    "lon": -156.65
+  },
+  "center_shift_km": {
+    "east": 0.0,
+    "north": 0.0
+  },
+  "extent_deg": {
+    "lat": [
+      39.98625,
+      40.05374
+    ],
+    "lon": [
+      -156.69408,
+      -156.60592
+    ]
+  },
+  "height_range_m": [
+    -3924,
+    -3913
+  ],
+  "height_encoding": "rg16",
+  "height_decode": "v = R*256 + G (B = 0); metres = lo + v/65535*(hi-lo); relative to the MOLA areoid",
+  "files": {
+    "diorama-color.webp": [
+      1024,
+      1024
+    ],
+    "diorama-tint.webp": [
+      64,
+      64
+    ],
+    "diorama-height.png": [
+      256,
+      256
+    ]
+  },
+  "pixel_m": {
+    "color": 3.90625,
+    "tint": 62.5,
+    "height": 15.625
+  },
+  "sources": [
+    {
+      "title": "Murray Lab Global CTX Mosaic of Mars V01 (Dickson et al. 2024, Earth and Space Science, doi:10.1029/2024EA003555)",
+      "url": "https://murray-lab.caltech.edu/CTX/",
+      "licence": "Free to use with citation (CTX images NASA/JPL-Caltech/MSSS; mosaic Caltech Murray Lab)"
+    },
+    {
+      "title": "Viking MDIM 2.1 Colour Mosaic 232 m (USGS), via NASA Mars Trek WMTS",
+      "url": "https://trek.nasa.gov/tiles/Mars/EQ/Mars_Viking_MDIM21_ClrMosaic_global_232m/1.0.0/WMTSCapabilities.xml",
+      "licence": "Public domain (NASA/USGS)"
+    },
+    {
+      "title": "Mars HRSC MOLA Blended DEM Global 200m v2 (Fergason, Hare & Laura 2018), USGS Astrogeology",
+      "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_mex_hrsc_blended_dem_global_200m",
+      "licence": "Public domain (USGS); HRSC data ESA/DLR/FU Berlin, MOLA NASA/GSFC"
+    }
+  ],
+  "notes": "Diorama tile: 4 km x 4 km in the same orthographic tangent-plane frame as meta.json (centred on center, north up, +x = east, row 0 = north edge, pixel centres at ((i+0.5)/n - 0.5)*extent). diorama-color.webp: Murray Lab CTX mosaic V01 at native 5.0 m/px (quads E-160_N40, E-160_N36 joined into one buffer, single bicubic pass) resampled to 3.91 m/px (slight upsampling, so finest detail is ~10 m); greyscale; gentle stretch: DN 126-165 (0.5-99.5 pct) mapped linearly to 18-237, tails (1.0% of px) rolled off smoothly toward 0/255, no clipping. diorama-tint.webp: Viking MDIM 2.1 colour (Trek zoom 7, ~325 m/px), bilinear to 62.5 m/px; a near-uniform muted red-brown over 4 km (RGB ~101-117, 84-96, 86-97); use as a low-frequency colour multiplier. diorama-height.png: HRSC/MOLA blended DEM 200 m, Gaussian-smoothed (sigma 0.75 px = 150 m) on the DEM grid, then bicubic to 15.6 m/px. Only ~20 DEM samples span the tile, so it is a gentle low-frequency surface; the small craters and ripples visible in CTX have no DEM expression (derive fine relief from diorama-color.webp if needed). Metres relative to the MOLA areoid; decode metres = lo + (R*256+G)/65535*(hi-lo). Not curvature-corrected (drop at the tile corner ~r^2/2R = 1.2 m). The CTX quad boundary (40.0 N) crosses the tile at colour row ~815; both quads are tiles of one continuous mosaic on the same grid and were stitched before resampling, so there is no tonal or geometric seam."
+}

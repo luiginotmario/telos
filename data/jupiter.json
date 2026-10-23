@@ -1,0 +1,535 @@
+{
+  "id": "jupiter",
+  "name": "Jupiter",
+  "tagline": "The oldest planet",
+  "physical": {
+    "radius_km": 69911,
+    "mass_kg": 1.898e+27,
+    "sidereal_day_h": 9.925,
+    "orbital_period_d": 4332.59,
+    "axial_tilt_deg": 3.13,
+    "mean_temp_c": -110,
+    "moons": 115,
+    "semi_major_axis_au": 5.203
+  },
+  "events": [
+    {
+      "id": "core",
+      "year": -4567000000,
+      "label": "4.567 billion years ago",
+      "title": "First planet",
+      "line": "A core within 1 million years",
+      "detail": "Isotopes in meteorites show two separate reservoirs in the early solar system, which researchers attribute to Jupiter's growing core opening a gap. It reached about 20 Earth masses within 1 million years of the solar system's birth, making Jupiter the oldest planet.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0.8,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.6,
+        "atmosphere_tint": "#c8b49a",
+        "surface_tint": null,
+        "base": "none",
+        "bands": 0.15,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Kruijer et al. 2017, Age of Jupiter inferred from the distinct genetics and formation times of meteorites, PNAS",
+          "url": "https://doi.org/10.1073/pnas.1704461114"
+        }
+      ]
+    },
+    {
+      "id": "grand-tack",
+      "year": -4560000000,
+      "label": "~4.56 billion years ago?",
+      "title": "Grand Tack?",
+      "line": "Drifts inward, then back out",
+      "detail": "In the \"Grand Tack\" model, the young Jupiter migrated inward to about 1.5 AU before Saturn's pull reversed it outward, which would explain why Mars is so small. It is one of several competing models of early migration.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#e8cfa8",
+        "surface_tint": null,
+        "base": "none",
+        "bands": 0.4,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Walsh et al. 2011, A low mass for Mars from Jupiter's early gas-driven migration, Nature",
+          "url": "https://doi.org/10.1038/nature10201"
+        }
+      ]
+    },
+    {
+      "id": "galileo-moons",
+      "year": 1610,
+      "label": "January 1610",
+      "title": "Galileo's moons",
+      "line": "Four moons circle another world",
+      "detail": "Galileo Galilei saw four moons orbiting Jupiter — Io, Europa, Ganymede and Callisto — the first objects found orbiting another planet. Jupiter now has 115 officially recognised moons.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.35,
+        "atmosphere_tint": "#e8cfa8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.9,
+        "storm": 0,
+        "rings": 0.08
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Jupiter moons",
+          "url": "https://science.nasa.gov/jupiter/jupiter-moons/"
+        }
+      ]
+    },
+    {
+      "id": "permanent-spot",
+      "year": 1665,
+      "label": "1665–1713",
+      "title": "Cassini's spot",
+      "line": "A dark oval, later lost",
+      "detail": "Giovanni Domenico Cassini recorded a dark \"Permanent Spot\" at the latitude of today's Great Red Spot, followed until 1713. A 2024 analysis of its size and motion found it is very unlikely to be the same storm.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.35,
+        "atmosphere_tint": "#e8cfa8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.9,
+        "storm": 0.5,
+        "rings": 0.08
+      },
+      "sources": [
+        {
+          "title": "Sánchez-Lavega et al. 2024, The origin of Jupiter's Great Red Spot, Geophysical Research Letters",
+          "url": "https://doi.org/10.1029/2024GL108993"
+        },
+        {
+          "title": "AGU: Jupiter's Great Red Spot is not the same one Cassini observed in the 1600s",
+          "url": "https://news.agu.org/press-release/jupiters-great-red-spot-reborn-1800s/"
+        }
+      ]
+    },
+    {
+      "id": "great-red-spot",
+      "year": 1831,
+      "label": "1831",
+      "title": "Great Red Spot",
+      "line": "Today's storm first recorded",
+      "detail": "The current Great Red Spot was first observed in 1831. By 1879 its long axis measured about 39,000–41,000 km, more than three Earths wide.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.35,
+        "atmosphere_tint": "#e8cfa8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.9,
+        "storm": 1,
+        "rings": 0.08
+      },
+      "sources": [
+        {
+          "title": "Sánchez-Lavega et al. 2024, The origin of Jupiter's Great Red Spot, Geophysical Research Letters",
+          "url": "https://doi.org/10.1029/2024GL108993"
+        },
+        {
+          "title": "NASA: Hubble shows Jupiter's Great Red Spot is smaller than ever measured (2014)",
+          "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-shows-jupiters-great-red-spot-is-smaller-than-ever-measured/"
+        }
+      ]
+    },
+    {
+      "id": "voyager",
+      "year": 1979,
+      "label": "March 1979",
+      "title": "Voyager flybys",
+      "line": "Faint rings, volcanic Io",
+      "detail": "Voyager 1 and 2 discovered Jupiter's faint dusty rings and active volcanoes on Io, and measured the Great Red Spot at about 23,300 km across.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.35,
+        "atmosphere_tint": "#e8cfa8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.9,
+        "storm": 0.8,
+        "rings": 0.08
+      },
+      "sources": [
+        {
+          "title": "NASA: Hubble shows Jupiter's Great Red Spot is smaller than ever measured (2014)",
+          "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-shows-jupiters-great-red-spot-is-smaller-than-ever-measured/"
+        },
+        {
+          "title": "NASA Science: Voyager 1",
+          "url": "https://science.nasa.gov/mission/voyager/voyager-1/"
+        }
+      ]
+    },
+    {
+      "id": "shoemaker-levy-9",
+      "year": 1994,
+      "label": "16–22 July 1994",
+      "title": "Comet impacts",
+      "line": "Dark scars wider than Earth",
+      "detail": "More than 20 fragments of comet Shoemaker-Levy 9 slammed into Jupiter's southern hemisphere, leaving dark debris clouds, some larger than Earth, that lingered for months. It was the first collision of two solar-system bodies ever observed.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0.45,
+        "atmosphere": 0.35,
+        "atmosphere_tint": "#e8cfa8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.9,
+        "storm": 0.7,
+        "rings": 0.08
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Comet Shoemaker-Levy 9",
+          "url": "https://science.nasa.gov/solar-system/comets/p-shoemaker-levy-9/"
+        }
+      ]
+    },
+    {
+      "id": "galileo-probe",
+      "year": 1995.93,
+      "label": "7 December 1995",
+      "title": "Galileo probe",
+      "line": "First dive into a giant",
+      "detail": "Galileo's probe descended into Jupiter's atmosphere, transmitting for about 58 minutes, while the orbiter studied the system until it was deliberately plunged into Jupiter in 2003.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.35,
+        "atmosphere_tint": "#e8cfa8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.9,
+        "storm": 0.7,
+        "rings": 0.08
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Galileo",
+          "url": "https://science.nasa.gov/mission/galileo/"
+        }
+      ]
+    },
+    {
+      "id": "belt-fades",
+      "year": 2010,
+      "label": "2010",
+      "title": "A belt vanishes",
+      "line": "South Equatorial Belt fades white",
+      "detail": "Jupiter's dark South Equatorial Belt faded away, hidden under higher white ammonia clouds, then began returning in late 2010. Such fades have happened repeatedly since 1901.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.35,
+        "atmosphere_tint": "#e8cfa8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.55,
+        "storm": 0.6,
+        "rings": 0.08
+      },
+      "sources": [
+        {
+          "title": "NASA APOD (29 Nov 2010): Dark belt reappearing on Jupiter",
+          "url": "https://science.nasa.gov/image-article/apod-2010-november-29-dark-belt-reappearing-on-jupiter/"
+        },
+        {
+          "title": "Sky & Telescope: Disappearing act on Jupiter",
+          "url": "https://skyandtelescope.org/astronomy-news/observing-news/disappearing-act-on-jupiter/"
+        }
+      ]
+    },
+    {
+      "id": "spot-shrinks",
+      "year": 2014,
+      "label": "May 2014",
+      "title": "Spot shrinks",
+      "line": "Smallest ever measured",
+      "detail": "Hubble measured the Great Red Spot at just under 16,500 km across, the smallest ever, and amateurs showed it shrinking about 930 km a year and turning from an oval into a circle.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.35,
+        "atmosphere_tint": "#e8cfa8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.9,
+        "storm": 0.5,
+        "rings": 0.08
+      },
+      "sources": [
+        {
+          "title": "NASA: Hubble shows Jupiter's Great Red Spot is smaller than ever measured (2014)",
+          "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-shows-jupiters-great-red-spot-is-smaller-than-ever-measured/"
+        }
+      ]
+    },
+    {
+      "id": "juno",
+      "year": 2016.5,
+      "label": "4 July 2016",
+      "title": "Juno arrives",
+      "line": "Polar cyclones revealed",
+      "detail": "NASA's Juno entered a polar orbit, revealing clusters of giant cyclones at both poles and showing the Great Red Spot is shallow compared with its width, about 500 km deep.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.35,
+        "atmosphere_tint": "#e8cfa8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.9,
+        "storm": 0.5,
+        "rings": 0.08
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Juno",
+          "url": "https://science.nasa.gov/mission/juno/"
+        },
+        {
+          "title": "AGU: Jupiter's Great Red Spot is not the same one Cassini observed in the 1600s",
+          "url": "https://news.agu.org/press-release/jupiters-great-red-spot-reborn-1800s/"
+        }
+      ]
+    },
+    {
+      "id": "today",
+      "year": 2026,
+      "label": "Today",
+      "title": "Today",
+      "line": "Juno still orbiting",
+      "detail": "The Great Red Spot is about 14,000 km across and still shrinking. In February 2026, Juno radio-occultation data showed Jupiter is about 8 km narrower at the equator and 24 km flatter at the poles than thought.",
+      "kind": "present",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.35,
+        "atmosphere_tint": "#e8cfa8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.9,
+        "storm": 0.45,
+        "rings": 0.08
+      },
+      "sources": [
+        {
+          "title": "NASA Science (4 Feb 2026): Juno redefines size and shape of Jupiter",
+          "url": "https://science.nasa.gov/blogs/science-news/2026/02/04/nasas-juno-mission-redefines-size-shape-of-jupiter/"
+        },
+        {
+          "title": "AGU: Jupiter's Great Red Spot is not the same one Cassini observed in the 1600s",
+          "url": "https://news.agu.org/press-release/jupiters-great-red-spot-reborn-1800s/"
+        }
+      ]
+    },
+    {
+      "id": "europa-clipper",
+      "year": 2030.28,
+      "label": "11 April 2030",
+      "title": "Europa Clipper",
+      "line": "Arrives for 49 Europa flybys",
+      "detail": "NASA's Europa Clipper is scheduled to reach Jupiter on 11 April 2030 and make 49 close flybys of Europa to judge whether its ocean could support life.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA/JPL Europa Clipper mission plan (launched 14 Oct 2024)",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.35,
+        "atmosphere_tint": "#e8cfa8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.9,
+        "storm": 0.45,
+        "rings": 0.08
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Europa Clipper",
+          "url": "https://science.nasa.gov/mission/europa-clipper/"
+        },
+        {
+          "title": "NASA JPL: Europa Clipper press kit – mission",
+          "url": "https://www.jpl.nasa.gov/press-kits/europa-clipper/mission/"
+        }
+      ]
+    },
+    {
+      "id": "juice",
+      "year": 2031.5,
+      "label": "July 2031",
+      "title": "JUICE arrives",
+      "line": "Bound for orbit at Ganymede",
+      "detail": "ESA's JUICE is due at Jupiter in July 2031 to study Ganymede, Callisto and Europa, then enter orbit around Ganymede in December 2034, the first spacecraft to orbit another planet's moon.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "ESA JUICE mission plan (launched 14 Apr 2023)",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.35,
+        "atmosphere_tint": "#e8cfa8",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.9,
+        "storm": 0.45,
+        "rings": 0.08
+      },
+      "sources": [
+        {
+          "title": "ESA Cosmos: JUICE overview",
+          "url": "https://www.cosmos.esa.int/web/juice/overview"
+        }
+      ]
+    }
+  ]
+}

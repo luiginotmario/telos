@@ -1,0 +1,20 @@
+{
+  "name": "telos",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5288",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 5289"
+  },
+  "dependencies": {
+    "astronomy-engine": "^2.1.19",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@types/three": "^0.186.0",
+    "typescript": "5.9",
+    "vite": "^8.3.5"
+  }
+}

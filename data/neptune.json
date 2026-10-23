@@ -1,0 +1,496 @@
+{
+  "id": "neptune",
+  "name": "Neptune",
+  "tagline": "Windiest world",
+  "physical": {
+    "radius_km": 24622,
+    "mass_kg": 1.024e+26,
+    "sidereal_day_h": 16.11,
+    "orbital_period_d": 60182,
+    "axial_tilt_deg": 28.32,
+    "mean_temp_c": -200,
+    "moons": 16,
+    "semi_major_axis_au": 30.07
+  },
+  "events": [
+    {
+      "id": "formation",
+      "year": -4500000000,
+      "label": "4.5 billion years ago",
+      "title": "Neptune forms",
+      "line": "Born closer, then pushed out",
+      "detail": "Neptune formed about 4.5 billion years ago. Leading models such as the Nice model suggest it formed closer to the Sun and migrated outward through interactions with the other giants and a disk of icy bodies.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.1,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "none",
+        "bands": 0.25,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Neptune facts",
+          "url": "https://science.nasa.gov/neptune/facts/"
+        },
+        {
+          "title": "Tsiganis et al. 2005, Origin of the orbital architecture of the giant planets of the Solar System, Nature",
+          "url": "https://doi.org/10.1038/nature03539"
+        }
+      ]
+    },
+    {
+      "id": "triton-capture",
+      "year": -4400000000,
+      "label": "Early solar system",
+      "title": "Triton captured",
+      "line": "A stolen moon orbits backwards",
+      "detail": "Triton orbits Neptune backwards, a sign it was captured rather than born there. A leading model has Neptune splitting a passing binary pair, keeping Triton and flinging its partner away.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.2,
+        "haze": 0.4,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "none",
+        "bands": 0.25,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Agnor & Hamilton 2006, Neptune's capture of its moon Triton in a binary–planet gravitational encounter, Nature",
+          "url": "https://doi.org/10.1038/nature04792"
+        }
+      ]
+    },
+    {
+      "id": "galileo",
+      "year": 1612.96,
+      "label": "December 1612",
+      "title": "Galileo's \"star\"",
+      "line": "Seen, but not recognised",
+      "detail": "Galileo's notebooks record Neptune near Jupiter in December 1612 and January 1613. He noted it as a fixed star, though one sketch hints he saw it move.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.35,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.25,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Kowal & Drake 1980, Galileo's observations of Neptune, Nature",
+          "url": "https://doi.org/10.1038/287311a0"
+        }
+      ]
+    },
+    {
+      "id": "discovery",
+      "year": 1846.73,
+      "label": "23 September 1846",
+      "title": "Found by maths",
+      "line": "Le Verrier predicts, Galle finds",
+      "detail": "Urbain Le Verrier calculated where an unseen planet must be to tug on Uranus; Johann Galle found Neptune on his first night of searching, and Triton was spotted 17 days later.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.35,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.25,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Neptune facts",
+          "url": "https://science.nasa.gov/neptune/facts/"
+        }
+      ]
+    },
+    {
+      "id": "voyager-2",
+      "year": 1989.65,
+      "label": "25 August 1989",
+      "title": "Voyager 2",
+      "line": "A Great Dark Spot",
+      "detail": "Voyager 2 made the only flyby of Neptune, finding an Earth-sized Great Dark Spot, the fastest winds in the solar system at about 2,000 km/h, and confirming its faint rings.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.5,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.25,
+        "storm": 1,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Voyager 2",
+          "url": "https://science.nasa.gov/mission/voyager/voyager-2/"
+        },
+        {
+          "title": "NASA Science: Neptune facts",
+          "url": "https://science.nasa.gov/neptune/facts/"
+        }
+      ]
+    },
+    {
+      "id": "spot-vanishes",
+      "year": 1994.84,
+      "label": "November 1994",
+      "title": "Spot vanishes",
+      "line": "Hubble finds the storm gone",
+      "detail": "When Hubble looked, the Great Dark Spot had disappeared, and a new dark spot had appeared in the northern hemisphere. Neptune's storms come and go within a few years.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.5,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.25,
+        "storm": 0.3,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Hubble discovers new dark spot on Neptune",
+          "url": "https://science.nasa.gov/missions/hubble/hubble-discovers-new-dark-spot-on-neptune/"
+        },
+        {
+          "title": "NASA APOD (8 May 1996): Neptune's Great Dark Spot – gone but not forgotten",
+          "url": "https://apod.nasa.gov/apod/ap960508.html"
+        }
+      ]
+    },
+    {
+      "id": "first-orbit",
+      "year": 2011.53,
+      "label": "12 July 2011",
+      "title": "One Neptune year",
+      "line": "First full orbit since discovery",
+      "detail": "Neptune completed its first 165-year orbit of the Sun since its discovery in 1846.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.5,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.25,
+        "storm": 0.15,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "ESA/Hubble heic1113: Hubble makes one complete orbit of Neptune",
+          "url": "https://esahubble.org/news/heic1113/"
+        }
+      ]
+    },
+    {
+      "id": "new-dark-spot",
+      "year": 2018.75,
+      "label": "September 2018",
+      "title": "New dark storm",
+      "line": "Wider than the Atlantic",
+      "detail": "Hubble spotted a new dark vortex in the northern hemisphere, about 7,400 km across. In 2020 it unexpectedly U-turned northward and appeared to shed a smaller fragment.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.45,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.25,
+        "storm": 0.55,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Hubble tracks the lifecycle of giant storms on Neptune",
+          "url": "https://science.nasa.gov/missions/hubble/hubble-tracks-the-lifecycle-of-giant-storms-on-neptune/"
+        },
+        {
+          "title": "AURA: Dark storm on Neptune reverses direction (Dec 2020)",
+          "url": "https://www.aura-astronomy.org/blog/2020/12/15/dark-storm-on-neptune-reverses-direction-possibly-shedding-a-fragment/"
+        }
+      ]
+    },
+    {
+      "id": "clouds-vanish",
+      "year": 2020,
+      "label": "2019–2020",
+      "title": "Clouds vanish",
+      "line": "Cloud cover hits record low",
+      "detail": "Neptune's clouds faded from the mid-latitudes within months and by 2020 almost all were gone except near the south pole. Nearly 30 years of images tie cloud cover to the Sun's 11-year cycle, lagging by about two years.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.05,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.25,
+        "storm": 0.3,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Chavez et al. 2023, Evolution of Neptune at near-infrared wavelengths from 1994 through 2022, Icarus",
+          "url": "https://doi.org/10.1016/j.icarus.2023.115667"
+        },
+        {
+          "title": "W. M. Keck Observatory: Clouds on Neptune perform a surprise disappearing act",
+          "url": "https://keckobservatory.org/clouds-on-neptune-perform-a-surprise-disappearing-act/"
+        }
+      ]
+    },
+    {
+      "id": "webb-rings",
+      "year": 2022.72,
+      "label": "September 2022",
+      "title": "Webb sees rings",
+      "line": "Clearest view since Voyager",
+      "detail": "JWST's first image of Neptune showed its narrow rings and faint dust bands more clearly than at any time since Voyager 2, along with seven moons.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.1,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.25,
+        "storm": 0.2,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: New Webb image captures clearest view of Neptune's rings in decades",
+          "url": "https://science.nasa.gov/missions/webb/new-webb-image-captures-clearest-view-of-neptunes-rings-in-decades/"
+        }
+      ]
+    },
+    {
+      "id": "true-colour",
+      "year": 2024.01,
+      "label": "January 2024",
+      "title": "True colours",
+      "line": "Paler than Voyager suggested",
+      "detail": "Reprocessed Voyager images calibrated with Hubble and VLT data show Neptune is a pale greenish blue, only slightly bluer than Uranus. The famous deep blue came from contrast-enhanced images.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.1,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.25,
+        "storm": 0.2,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Irwin et al. 2024, Modelling the seasonal cycle of Uranus's colour and magnitude, and comparison with Neptune, MNRAS",
+          "url": "https://doi.org/10.1093/mnras/stad3761"
+        },
+        {
+          "title": "University of Oxford Physics: True colours – Neptune and Uranus",
+          "url": "https://www.physics.ox.ac.uk/news/true-colours-neptune-and-uranus"
+        }
+      ]
+    },
+    {
+      "id": "today",
+      "year": 2026,
+      "label": "Today",
+      "title": "Today",
+      "line": "Fastest winds in the solar system",
+      "detail": "Neptune, 30 times farther from the Sun than Earth, has 16 known moons and winds reaching about 2,000 km/h. A Neptune year lasts 165 Earth years.",
+      "kind": "present",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.15,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.25,
+        "storm": 0.2,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Neptune facts",
+          "url": "https://science.nasa.gov/neptune/facts/"
+        }
+      ]
+    },
+    {
+      "id": "triton-ring",
+      "year": 3600000000,
+      "label": "In ~3.6 billion years",
+      "title": "Triton torn apart",
+      "line": "A moon becomes a ring",
+      "detail": "Tides are slowly dragging Triton inward. For nominal parameters, Chyba and colleagues found it would reach Neptune's Roche limit in about 3.6 billion years (1.4 billion in another case), where tides could shred it into a ring.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "Chyba, Jankowski & Nicholson, Astronomy & Astrophysics, 1989",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.15,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.25,
+        "storm": 0.2,
+        "rings": 0.9
+      },
+      "sources": [
+        {
+          "title": "NASA NTRS: Chyba, Jankowski & Nicholson 1989, Tidal evolution in the Neptune-Triton system",
+          "url": "https://ntrs.nasa.gov/citations/19890064536"
+        }
+      ]
+    }
+  ]
+}

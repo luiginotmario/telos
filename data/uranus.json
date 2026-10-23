@@ -1,0 +1,492 @@
+{
+  "id": "uranus",
+  "name": "Uranus",
+  "tagline": "Rolling on its side",
+  "physical": {
+    "radius_km": 25362,
+    "mass_kg": 8.681e+25,
+    "sidereal_day_h": -17.248,
+    "orbital_period_d": 30688.5,
+    "axial_tilt_deg": 97.77,
+    "mean_temp_c": -195,
+    "moons": 29,
+    "semi_major_axis_au": 19.19
+  },
+  "events": [
+    {
+      "id": "formation",
+      "year": -4500000000,
+      "label": "4.5 billion years ago",
+      "title": "Uranus forms",
+      "line": "An ice giant takes shape",
+      "detail": "Uranus formed about 4.5 billion years ago, building a core of rock and ices (water, methane, ammonia) beneath a hydrogen-helium envelope.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "none",
+        "bands": 0.1,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Uranus facts",
+          "url": "https://science.nasa.gov/uranus/facts/"
+        }
+      ]
+    },
+    {
+      "id": "tipped",
+      "year": -4400000000,
+      "label": "~4.4 billion years ago?",
+      "title": "Knocked sideways",
+      "line": "Something tipped it 98°",
+      "detail": "Uranus spins tipped over by about 98°. The leading explanation is a giant impact by an Earth-sized body early on; alternatives include a slow tilt driven by a migrating ancient moon. Neither is confirmed.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0.4,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "none",
+        "bands": 0.1,
+        "storm": 0,
+        "rings": 0.1
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Uranus facts",
+          "url": "https://science.nasa.gov/uranus/facts/"
+        },
+        {
+          "title": "Kegerreis et al. 2018, Consequences of giant impacts on early Uranus, ApJ",
+          "url": "https://doi.org/10.3847/1538-4357/aac725"
+        },
+        {
+          "title": "Saillenfest et al. 2022, Tilting Uranus via the migration of an ancient satellite (arXiv)",
+          "url": "https://arxiv.org/abs/2209.10590"
+        }
+      ]
+    },
+    {
+      "id": "herschel",
+      "year": 1781,
+      "label": "13 March 1781",
+      "title": "Herschel's discovery",
+      "line": "First planet found by telescope",
+      "detail": "William Herschel spotted Uranus from his garden in Bath, at first thinking it a comet. It was the first planet discovered with a telescope, doubling the known size of the solar system.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.45,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.1,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Uranus facts",
+          "url": "https://science.nasa.gov/uranus/facts/"
+        }
+      ]
+    },
+    {
+      "id": "rings",
+      "year": 1977,
+      "label": "10 March 1977",
+      "title": "Rings discovered",
+      "line": "A star blinks behind them",
+      "detail": "Watching Uranus pass in front of a star, astronomers saw the starlight blink on and off several times on each side of the planet, revealing narrow dark rings.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.45,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.1,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Elliot, Dunham & Mink 1977, The rings of Uranus, Nature",
+          "url": "https://doi.org/10.1038/267328a0"
+        }
+      ]
+    },
+    {
+      "id": "voyager-2",
+      "year": 1986.07,
+      "label": "24 January 1986",
+      "title": "Voyager 2",
+      "line": "A bland cyan ball",
+      "detail": "Voyager 2 made the only close flyby of Uranus, near southern summer solstice, finding a nearly featureless globe, 10 new moons and two new rings.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.45,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.03,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Voyager 2",
+          "url": "https://science.nasa.gov/mission/voyager/voyager-2/"
+        },
+        {
+          "title": "NASA Science: Uranus facts",
+          "url": "https://science.nasa.gov/uranus/facts/"
+        }
+      ]
+    },
+    {
+      "id": "equinox",
+      "year": 2007.93,
+      "label": "7 December 2007",
+      "title": "Equinox weather",
+      "line": "Bands and clouds emerge",
+      "detail": "Around Uranus's 2007 equinox, Keck and Hubble images showed bright bands, many discrete clouds and evolving storms, far more activity than Voyager saw.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.35,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.45,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.35,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Sromovsky et al. 2015, Uranus at equinox: cloud morphology and dynamics (arXiv)",
+          "url": "https://arxiv.org/abs/1503.01957"
+        }
+      ]
+    },
+    {
+      "id": "storms-2014",
+      "year": 2014.6,
+      "label": "August 2014",
+      "title": "Storm outbreak",
+      "line": "Brightest storm ever seen there",
+      "detail": "Keck imaged eight large storms in Uranus's northern hemisphere, including the brightest ever seen there at 2.2 microns, surprising astronomers who expected activity to wane after equinox.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.45,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.35,
+        "storm": 0.3,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "de Pater et al. 2015, Record-breaking storm activity on Uranus in 2014 (arXiv)",
+          "url": "https://arxiv.org/abs/1501.01309"
+        }
+      ]
+    },
+    {
+      "id": "polar-cap",
+      "year": 2022.86,
+      "label": "November 2022",
+      "title": "North pole brightens",
+      "line": "A polar haze cap thickens",
+      "detail": "Hubble showed a thickening photochemical haze over Uranus's sunlit north pole, brighter each year since 2014 as northern summer approaches.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.35,
+        "haze": 0.55,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.45,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.3,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Uranus, Nov 2014 and Nov 2022 (Hubble)",
+          "url": "https://science.nasa.gov/asset/hubble/uranus-nov-2014-and-nov-2022/"
+        }
+      ]
+    },
+    {
+      "id": "webb-rings",
+      "year": 2023.96,
+      "label": "December 2023",
+      "title": "Webb's view",
+      "line": "Rings and polar cap glow",
+      "detail": "JWST's infrared view showed 11 of Uranus's 13 known rings, the bright north polar cap and storms near its edge.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.35,
+        "haze": 0.55,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.45,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.3,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Webb rings in holidays with ringed planet Uranus",
+          "url": "https://science.nasa.gov/missions/webb/nasas-webb-rings-in-holidays-with-ringed-planet-uranus/"
+        }
+      ]
+    },
+    {
+      "id": "voyager-anomaly",
+      "year": 2024.86,
+      "label": "11 November 2024",
+      "title": "Unlucky snapshot",
+      "line": "Voyager met a solar storm",
+      "detail": "Reanalysis showed Voyager 2 arrived days after an intense solar wind event that compressed Uranus's magnetosphere, conditions present only about 4% of the time, so its \"weird\" magnetosphere data may be unrepresentative.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.35,
+        "haze": 0.55,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.45,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.3,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Jasinski et al. 2024, The anomalous state of Uranus's magnetosphere during the Voyager 2 flyby, Nature Astronomy",
+          "url": "https://doi.org/10.1038/s41550-024-02389-3"
+        }
+      ]
+    },
+    {
+      "id": "today",
+      "year": 2026,
+      "label": "Today",
+      "title": "Today",
+      "line": "Northern summer approaches",
+      "detail": "Uranus has 29 known moons, the newest found by JWST in 2025. Its colour drifts slightly greener near solstices and bluer near equinoxes, because the poles hold less methane and more icy haze.",
+      "kind": "present",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.35,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.45,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.3,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Uranus moons",
+          "url": "https://science.nasa.gov/uranus/moons/"
+        },
+        {
+          "title": "Irwin et al. 2024, Modelling the seasonal cycle of Uranus's colour and magnitude, and comparison with Neptune, MNRAS",
+          "url": "https://doi.org/10.1093/mnras/stad3761"
+        }
+      ]
+    },
+    {
+      "id": "solstice",
+      "year": 2028,
+      "label": "2028",
+      "title": "Northern solstice",
+      "line": "North pole faces the Sun",
+      "detail": "Uranus reaches northern summer solstice in 2028, its north pole aimed nearly at the Sun and Earth. Hubble scientists said the polar cap may grow brighter still and the rings will appear face-on.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA/ESA Hubble team, March 2023",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.3,
+        "haze": 0.7,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.45,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.25,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "ESA/Hubble: Uranus (November 2022), heic2303i",
+          "url": "https://esahubble.org/images/heic2303i/"
+        }
+      ]
+    },
+    {
+      "id": "uranus-orbiter",
+      "year": 2045,
+      "label": "Mid-2040s (proposed)",
+      "title": "Uranus Orbiter?",
+      "line": "Top-priority flagship, unfunded",
+      "detail": "The decadal survey ranked a Uranus Orbiter and Probe as NASA's top new flagship mission. A launch in 2031–2032 using a Jupiter flyby would reach Uranus in the mid-2040s, but as of 2026 the mission has not started development.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "US National Academies planetary decadal survey, April 2022",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.3,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.45,
+        "atmosphere_tint": "#ffffff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.25,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "National Academies: Origins, Worlds, and Life (2022 decadal survey)",
+          "url": "https://nap.nationalacademies.org/catalog/26522/origins-worlds-and-life-a-decadal-strategy-for-planetary-science-and-astrobiology-2023-2032"
+        },
+        {
+          "title": "SpacePolicyOnline: NASA embraces planetary science decadal recommendations, with caveats",
+          "url": "https://spacepolicyonline.com/news/nasa-embraces-planetary-science-decadal-recommendations-with-caveats/"
+        }
+      ]
+    }
+  ]
+}

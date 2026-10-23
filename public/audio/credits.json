@@ -1,0 +1,12 @@
+{
+  "sun": "the Sun’s 5-minute oscillations, SOHO MDI data sped up 42,000× · ESA & NASA / A. Kosovichev",
+  "mercury": "BepiColombo magnetometer, 2021 flyby, sonified · ESA/BepiColombo/MPO-MAG",
+  "venus": "radio emission from Venus’ ionosphere, Parker Solar Probe 2020 · NASA/GSFC SVS",
+  "earth": "chorus waves in Earth’s radiation belts, Van Allen Probes EMFISIS · NASA / Univ. of Iowa",
+  "moon": "not lunar sound: radio interference heard aboard Apollo 10, 1969 · NASA",
+  "mars": "real wind on Mars, Perseverance SuperCam microphone, sol 4 · NASA/JPL-Caltech/LANL/CNES/IRAP",
+  "jupiter": "Juno radio waves at Ganymede, shifted into hearing range · NASA/JPL-Caltech/SwRI/Univ. of Iowa",
+  "saturn": "Cassini plasma waves between Saturn and Enceladus, 2017 · NASA/JPL-Caltech/Univ. of Iowa",
+  "uranus": "Voyager 2 plasma waves inside Uranus’ magnetosphere, 1986 · NASA/JPL/Univ. of Iowa",
+  "neptune": "Voyager 2 plasma waves inside Neptune’s magnetosphere, 1989 · NASA/JPL/Univ. of Iowa"
+}

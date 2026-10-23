@@ -1,0 +1,88 @@
+{
+  "site": "AP-9, Arcadia Planitia (SpaceX Starship candidate landing site)",
+  "id": "arcadia-ap9",
+  "lat": 40.02,
+  "lon": -156.65,
+  "extent_km": 58.0,
+  "extent_deg": {
+    "lat": [
+      39.529,
+      40.50925
+    ],
+    "lon": [
+      -157.29349,
+      -156.00651
+    ]
+  },
+  "height_range_m": [
+    -4073,
+    -3764
+  ],
+  "height_encoding": "rg16",
+  "height_decode": "v = R*256 + G (B = 0); metres = lo + v/65535*(hi-lo); metres are relative to the MOLA areoid",
+  "files": {
+    "height.png": [
+      1024,
+      1024
+    ],
+    "color.webp": [
+      2048,
+      2048
+    ],
+    "tint.webp": [
+      256,
+      256
+    ],
+    "context-height.png": [
+      512,
+      512
+    ],
+    "context-color.webp": [
+      1024,
+      1024
+    ]
+  },
+  "projection": "orthographic (tangent plane) centred on (lat, lon) on the 3396.19 km Mars 2000 sphere; image row 0 = north edge, +x = east, +y = north; pixel centres at ((i+0.5)/n - 0.5)*extent. Heights are NOT curvature-corrected: the sphere falls away from the tangent plane by r^2/(2R) (~66 m at 20 km, ~13.2 km at the 300 km context edge).",
+  "pixel_m": {
+    "height": 56.640625,
+    "color": 28.3203125,
+    "context_height": 1171.875,
+    "context_color": 585.9375
+  },
+  "context": {
+    "extent_km": 600.0,
+    "height_range_m": [
+      -4993,
+      -3482
+    ],
+    "extent_deg": {
+      "lat": [
+        34.776,
+        45.0878
+      ],
+      "lon": [
+        -163.8117,
+        -149.4883
+      ]
+    },
+    "height_encoding": "rg16"
+  },
+  "sources": [
+    {
+      "title": "Mars HRSC MOLA Blended DEM Global 200m v2 (Fergason, Hare & Laura 2018), USGS Astrogeology",
+      "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_mex_hrsc_blended_dem_global_200m",
+      "licence": "Public domain (USGS); HRSC data ESA/DLR/FU Berlin, MOLA NASA/GSFC"
+    },
+    {
+      "title": "Murray Lab Global CTX Mosaic of Mars V01 (Dickson et al. 2024, Earth and Space Science, doi:10.1029/2024EA003555)",
+      "url": "https://murray-lab.caltech.edu/CTX/",
+      "licence": "Free to use with citation (CTX images NASA/JPL-Caltech/MSSS; mosaic Caltech Murray Lab)"
+    },
+    {
+      "title": "Viking MDIM 2.1 Colour Mosaic 232 m (USGS), via NASA Mars Trek WMTS",
+      "url": "https://trek.nasa.gov/tiles/Mars/EQ/Mars_Viking_MDIM21_ClrMosaic_global_232m/1.0.0/WMTSCapabilities.xml",
+      "licence": "Public domain (NASA/USGS)"
+    }
+  ],
+  "notes": "height.png: HRSC/MOLA blended DEM 200 m, bilinear to 56.6 m/px. color.webp: Murray Lab global CTX mosaic V01 (5 m/px, quads E-160_N40, E-160_N36), 5x5 box-averaged then bilinear to 28.3 m/px, greyscale, 0.5-99.5 percentile stretch. tint.webp and context-color.webp: Viking MDIM 2.1 colour mosaic (~232 m native, Trek zoom 7 ~325 m/px); use tint as a low-frequency colour multiplier for the greyscale CTX. context-height.png: HRSC/MOLA blend, 1 km box-averaged, bilinear to 1172 m/px. CTX nodata (0.01% of color.webp) filled with Viking luminance. No HiRISE/CTX DTM is openly published for AP-9, so height is the 200 m HRSC/MOLA blend only. Over these very smooth plains (~300 m total relief) the HRSC strips show as rectangular patches of ~10-20 m stereo noise against smoother MOLA-only areas; low-relief features seen in CTX (e.g. the ~7 km bright-rimmed ghost crater near the north edge) have little or no DEM expression. Let CTX carry the fine detail (e.g. derive a normal map from color.webp). color.webp crosses the CTX quad seam at 40.0 N (row ~1064 of 2048); it is tone-continuous. Extent is 58 km (not 60) so the patch stays inside CTX quad E-160 (lon < -156 E)."
+}

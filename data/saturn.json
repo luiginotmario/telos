@@ -1,0 +1,465 @@
+{
+  "id": "saturn",
+  "name": "Saturn",
+  "tagline": "Rings of ice",
+  "physical": {
+    "radius_km": 58232,
+    "mass_kg": 5.683e+26,
+    "sidereal_day_h": 10.561,
+    "orbital_period_d": 10759.22,
+    "axial_tilt_deg": 26.73,
+    "mean_temp_c": -140,
+    "moons": 293,
+    "semi_major_axis_au": 9.537
+  },
+  "events": [
+    {
+      "id": "formation",
+      "year": -4500000000,
+      "label": "4.5 billion years ago",
+      "title": "Saturn forms",
+      "line": "Second giant gathers gas",
+      "detail": "Saturn formed about 4.5 billion years ago, growing a core and pulling in hydrogen and helium. Whether it had its bright rings from the start is debated; this view shows it without them.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0.8,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ead9ab",
+        "surface_tint": null,
+        "base": "none",
+        "bands": 0.15,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Saturn facts",
+          "url": "https://science.nasa.gov/saturn/facts/"
+        }
+      ]
+    },
+    {
+      "id": "rings-appear",
+      "year": -400000000,
+      "label": "≤400 million years ago?",
+      "title": "Rings appear?",
+      "line": "Young ice, or ancient?",
+      "detail": "Cassini's measurement of ring mass and of the dust falling onto the rings suggests they are only about 100–400 million years old. A 2024 study countered that impacting dust vaporises and mostly escapes, so clean rings could still be 4.5 billion years old.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.3,
+        "atmosphere_tint": "#ead9ab",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.5,
+        "storm": 0,
+        "rings": 1
+      },
+      "sources": [
+        {
+          "title": "Iess et al. 2019, Measurement and implications of Saturn's gravity field and ring mass, Science",
+          "url": "https://doi.org/10.1126/science.aat2965"
+        },
+        {
+          "title": "Kempf et al. 2023, Micrometeoroid infall onto Saturn's rings constrains their age, Science Advances",
+          "url": "https://doi.org/10.1126/sciadv.adf8537"
+        },
+        {
+          "title": "Hyodo, Genda & Madeira 2024, Pollution resistance of Saturn's ring particles during micrometeoroid impact, Nature Geoscience",
+          "url": "https://doi.org/10.1038/s41561-024-01598-9"
+        }
+      ]
+    },
+    {
+      "id": "galileo",
+      "year": 1610,
+      "label": "July 1610",
+      "title": "Saturn's \"ears\"",
+      "line": "Galileo sees odd bulges",
+      "detail": "Through his small telescope Galileo saw Saturn flanked by two bulges he could not explain. In 1655 Christiaan Huygens, with a better telescope, identified them as a ring and also discovered Titan.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.3,
+        "atmosphere_tint": "#ead9ab",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.5,
+        "storm": 0,
+        "rings": 1
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Saturn exploration",
+          "url": "https://science.nasa.gov/saturn/exploration/"
+        },
+        {
+          "title": "NASA Science: Saturn facts",
+          "url": "https://science.nasa.gov/saturn/facts/"
+        }
+      ]
+    },
+    {
+      "id": "hexagon",
+      "year": 1981,
+      "label": "1980–1981",
+      "title": "Polar hexagon",
+      "line": "A six-sided jet stream",
+      "detail": "Voyager images revealed a six-sided jet stream circling Saturn's north pole, each side wider than Earth. Cassini later showed it still in place decades on.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.3,
+        "atmosphere_tint": "#ead9ab",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.5,
+        "storm": 0.15,
+        "rings": 1
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Saturn's hexagon in motion",
+          "url": "https://science.nasa.gov/mission/cassini/science/saturn/hexagon-in-motion/"
+        }
+      ]
+    },
+    {
+      "id": "cassini",
+      "year": 2004.5,
+      "label": "1 July 2004",
+      "title": "Cassini arrives",
+      "line": "13 years in orbit begin",
+      "detail": "NASA-ESA-ASI's Cassini entered orbit around Saturn and in January 2005 delivered ESA's Huygens probe to the surface of Titan.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.3,
+        "atmosphere_tint": "#ead9ab",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.5,
+        "storm": 0,
+        "rings": 1
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Cassini",
+          "url": "https://science.nasa.gov/mission/cassini/"
+        }
+      ]
+    },
+    {
+      "id": "great-white-spot",
+      "year": 2010.93,
+      "label": "December 2010",
+      "title": "Great White Spot",
+      "line": "A storm wraps the planet",
+      "detail": "A giant storm erupted in Saturn's northern hemisphere and within months stretched around the whole planet. Such \"Great White Spots\" have appeared roughly once per Saturn year, about every 30 years; the previous one was in 1990.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.5,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.3,
+        "atmosphere_tint": "#ead9ab",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.5,
+        "storm": 0.9,
+        "rings": 1
+      },
+      "sources": [
+        {
+          "title": "Sánchez-Lavega et al. 2011, Deep winds beneath Saturn's upper clouds from a seasonal long-lived planetary-scale storm, Nature",
+          "url": "https://doi.org/10.1038/nature10203"
+        }
+      ]
+    },
+    {
+      "id": "pole-turns-gold",
+      "year": 2016,
+      "label": "2012–2016",
+      "title": "Pole turns gold",
+      "line": "Seasonal haze tints the hexagon",
+      "detail": "Cassini images showed the region inside the north polar hexagon change from bluish to golden as northern summer approached, most likely as sunlight built up photochemical haze.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0.35,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.3,
+        "atmosphere_tint": "#e6c98a",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.5,
+        "storm": 0.15,
+        "rings": 1
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Changing colors in Saturn's north",
+          "url": "https://science.nasa.gov/resource/changing-colors-in-saturns-north/"
+        }
+      ]
+    },
+    {
+      "id": "grand-finale",
+      "year": 2017.7,
+      "label": "15 September 2017",
+      "title": "Grand Finale",
+      "line": "Cassini dives into Saturn",
+      "detail": "After 22 orbits through the gap between Saturn and its rings, which let scientists weigh the rings for the first time, Cassini plunged into Saturn's atmosphere.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0.35,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.3,
+        "atmosphere_tint": "#e6c98a",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.5,
+        "storm": 0.15,
+        "rings": 1
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Cassini Grand Finale",
+          "url": "https://science.nasa.gov/mission/cassini/grand-finale/"
+        },
+        {
+          "title": "Iess et al. 2019, Measurement and implications of Saturn's gravity field and ring mass, Science",
+          "url": "https://doi.org/10.1126/science.aat2965"
+        }
+      ]
+    },
+    {
+      "id": "ring-plane-crossing",
+      "year": 2025.22,
+      "label": "23 March 2025",
+      "title": "Rings edge-on",
+      "line": "Rings vanish from Earth's view",
+      "detail": "Earth passed through Saturn's ring plane, so the rings, typically about 10 m thick, were seen edge-on and nearly disappeared, as they do every 13–15 years. The same month, 128 newly confirmed moons were announced.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.3,
+        "atmosphere_tint": "#ead9ab",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.5,
+        "storm": 0.15,
+        "rings": 1
+      },
+      "sources": [
+        {
+          "title": "BBC Sky at Night: Why Saturn's rings are vanishing",
+          "url": "https://www.skyatnightmagazine.com/space-science/saturn-ring-plane-crossing"
+        },
+        {
+          "title": "NASA Science: Saturn moons",
+          "url": "https://science.nasa.gov/saturn/moons/"
+        }
+      ]
+    },
+    {
+      "id": "today",
+      "year": 2026,
+      "label": "Today",
+      "title": "Today",
+      "line": "293 known moons",
+      "detail": "Saturn has 293 confirmed moons, more than any other planet, and rings stretching up to 282,000 km from the planet. Since the May 2025 equinox, its southern hemisphere has been entering spring.",
+      "kind": "present",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.3,
+        "atmosphere_tint": "#ead9ab",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.5,
+        "storm": 0.15,
+        "rings": 1
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Saturn moons",
+          "url": "https://science.nasa.gov/saturn/moons/"
+        },
+        {
+          "title": "NASA Science: Saturn facts",
+          "url": "https://science.nasa.gov/saturn/facts/"
+        }
+      ]
+    },
+    {
+      "id": "dragonfly",
+      "year": 2028.5,
+      "label": "July 2028",
+      "title": "Dragonfly launches",
+      "line": "A rotorcraft bound for Titan",
+      "detail": "NASA confirmed a July 2028 launch for Dragonfly, a nuclear-powered rotorcraft that will reach Saturn's moon Titan in 2034 and fly between sites on its surface.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA, mission confirmation, April 2024",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.3,
+        "atmosphere_tint": "#ead9ab",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.5,
+        "storm": 0.15,
+        "rings": 1
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Dragonfly",
+          "url": "https://science.nasa.gov/mission/dragonfly/"
+        },
+        {
+          "title": "Johns Hopkins APL: NASA confirms Dragonfly mission to Titan (April 2024)",
+          "url": "https://www.jhuapl.edu/news/news-releases/240417-nasa-confirms-apl-led-dragonfly-mission-to-saturn-moon-titan"
+        }
+      ]
+    },
+    {
+      "id": "rings-gone",
+      "year": 300000000,
+      "label": "In ~300 million years",
+      "title": "Rings drain away",
+      "line": "Ring rain empties the rings",
+      "detail": "Ice from the rings rains into Saturn along its magnetic field. O'Donoghue estimated ring rain alone would remove the rings in 300 million years, and under 100 million once material falling into the equator is included.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "James O'Donoghue (NASA Goddard), NASA release, December 2018",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.3,
+        "atmosphere_tint": "#ead9ab",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0.5,
+        "storm": 0.1,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA: Saturn is losing its rings at \"worst-case-scenario\" rate (2018)",
+          "url": "https://science.nasa.gov/solar-system/nasa-research-reveals-saturn-is-losing-its-rings-at-worst-case-scenario-rate/"
+        }
+      ]
+    }
+  ]
+}

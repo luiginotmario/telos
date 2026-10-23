@@ -1,0 +1,392 @@
+{
+ "version": 1,
+ "convention": "Equirectangular 2:1. Left edge = 180 deg W (-180), centre = 0 deg longitude (prime meridian), top = +90 deg (north). East longitude increases to the right. With three.js SphereGeometry default UVs (+Y = north pole), u=0.5 (lon 0) lies on +X and u=0.75 (90E) on -Z, so east = positive rotation about +Y (prograde). Apply the body's own prime-meridian angle W(t) as a rotation about +Y.",
+ "tiers": {
+  "2k": [
+   2048,
+   1024
+  ],
+  "4k": [
+   4096,
+   2048
+  ]
+ },
+ "bodies": {
+  "sun": {
+   "color": {
+    "2k": {
+     "file": "textures/sun/color-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 250436
+    },
+    "4k": {
+     "file": "textures/sun/color-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 704652
+    },
+    "source": "Solar System Scope 8k_sun (artwork based on SDO imagery), CC BY 4.0"
+   }
+  },
+  "mercury": {
+   "color": {
+    "2k": {
+     "file": "textures/mercury/color-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 410634
+    },
+    "4k": {
+     "file": "textures/mercury/color-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 1991424
+    },
+    "source": "Solar System Scope 8k_mercury (based on NASA MESSENGER mosaics), CC BY 4.0"
+   }
+  },
+  "venus": {
+   "color": {
+    "2k": {
+     "file": "textures/venus/color-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 319864
+    },
+    "4k": {
+     "file": "textures/venus/color-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 1327702
+    },
+    "source": "Solar System Scope 8k_venus_surface (based on NASA Magellan radar; colours are artistic, not true colour), CC BY 4.0"
+   },
+   "atmosphere": {
+    "2k": {
+     "file": "textures/venus/atmosphere-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 33342
+    },
+    "4k": {
+     "file": "textures/venus/atmosphere-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 106982
+    },
+    "source": "Solar System Scope 4k_venus_atmosphere (artistic cloud-top map), CC BY 4.0"
+   }
+  },
+  "earth": {
+   "color": {
+    "2k": {
+     "file": "textures/earth/color-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 139110
+    },
+    "4k": {
+     "file": "textures/earth/color-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 440344
+    },
+    "source": "NASA Blue Marble: Next Generation, June 2004 (world.200406.3x5400x2700)"
+   },
+   "night": {
+    "2k": {
+     "file": "textures/earth/night-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 50880
+    },
+    "4k": {
+     "file": "textures/earth/night-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 184158
+    },
+    "source": "NASA Black Marble 2016 (BlackMarble_2016_3km), moonlit-land base removed (lights only)"
+   },
+   "clouds": {
+    "2k": {
+     "file": "textures/earth/clouds-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 482244
+    },
+    "4k": {
+     "file": "textures/earth/clouds-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 1696486
+    },
+    "source": "NASA Blue Marble cloud_combined_8192 (greyscale)"
+   },
+   "specular": {
+    "2k": {
+     "file": "textures/earth/specular-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 94532
+    },
+    "4k": {
+     "file": "textures/earth/specular-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 238930
+    },
+    "source": "Solar System Scope 8k_earth_specular_map (white = water), CC BY 4.0"
+   },
+   "normal": {
+    "2k": {
+     "file": "textures/earth/normal-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 33216
+    },
+    "4k": {
+     "file": "textures/earth/normal-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 258576
+    },
+    "source": "Solar System Scope 8k_earth_normal_map (tangent space), CC BY 4.0"
+   },
+   "elevation": {
+    "2k": {
+     "file": "textures/earth/elevation-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 165800
+    },
+    "4k": {
+     "file": "textures/earth/elevation-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 428874
+    },
+    "range_m": [
+     -8000.0,
+     6400.0
+    ],
+    "encoding": "greyscale 8-bit lossy WebP (q90); metres = lo + v/255*(hi-lo)",
+    "seaLevel_m": 0,
+    "seaLevelValue": 141.67,
+    "source": "NASA Blue Marble GEBCO_08 topography (0..6400 m) + bathymetry (-8000..0 m), merged"
+   }
+  },
+  "moon": {
+   "color": {
+    "2k": {
+     "file": "textures/moon/color-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 237286
+    },
+    "4k": {
+     "file": "textures/moon/color-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 950046
+    },
+    "source": "NASA SVS CGI Moon Kit (4720), LROC WAC colour, 2025 version (lroc_color_16bit_srgb_4k)"
+   },
+   "elevation": {
+    "2k": {
+     "file": "textures/moon/elevation-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 208774
+    },
+    "4k": {
+     "file": "textures/moon/elevation-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 495552
+    },
+    "range_m": [
+     -8982.0,
+     10686.0
+    ],
+    "encoding": "greyscale 8-bit lossy WebP (q90); metres = lo + v/255*(hi-lo)",
+    "source": "NASA SVS CGI Moon Kit (4720), LOLA ldem_16_uint (16 px/deg); metres relative to 1737.4 km sphere"
+   },
+   "normal": {
+    "2k": {
+     "file": "textures/moon/normal-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 457434,
+     "derivedFrom": "elevation",
+     "exaggeration": 3.0,
+     "poleFade": "slopes faded to flat between 82 and 88 deg latitude"
+    },
+    "4k": {
+     "file": "textures/moon/normal-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 1642256,
+     "derivedFrom": "elevation",
+     "exaggeration": 3.0,
+     "poleFade": "slopes faded to flat between 82 and 88 deg latitude"
+    },
+    "source": "derived from the LOLA elevation map in this repo"
+   }
+  },
+  "mars": {
+   "color": {
+    "2k": {
+     "file": "textures/mars/color-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 235562
+    },
+    "4k": {
+     "file": "textures/mars/color-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 798676
+    },
+    "source": "Solar System Scope 8k_mars (based on NASA Viking/MGS imagery; colour enhanced), CC BY 4.0"
+   },
+   "elevation": {
+    "2k": {
+     "file": "textures/mars/elevation-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 63962
+    },
+    "4k": {
+     "file": "textures/mars/elevation-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 165312
+    },
+    "range_m": [
+     -8177.0,
+     21171.0
+    ],
+    "encoding": "greyscale 8-bit lossy WebP (q90); metres = lo + v/255*(hi-lo)",
+    "source": "NASA PDS MGS MOLA MEGDR megt90n000eb (16 px/deg); metres relative to the MOLA areoid"
+   },
+   "normal": {
+    "2k": {
+     "file": "textures/mars/normal-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 113286,
+     "derivedFrom": "elevation",
+     "exaggeration": 3.0,
+     "poleFade": "slopes faded to flat between 82 and 88 deg latitude"
+    },
+    "4k": {
+     "file": "textures/mars/normal-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 479654,
+     "derivedFrom": "elevation",
+     "exaggeration": 3.0,
+     "poleFade": "slopes faded to flat between 82 and 88 deg latitude"
+    },
+    "source": "derived from the MOLA elevation map in this repo"
+   }
+  },
+  "jupiter": {
+   "color": {
+    "2k": {
+     "file": "textures/jupiter/color-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 120734
+    },
+    "4k": {
+     "file": "textures/jupiter/color-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 328802
+    },
+    "source": "Solar System Scope 8k_jupiter (based on NASA Cassini imagery), CC BY 4.0"
+   }
+  },
+  "saturn": {
+   "color": {
+    "2k": {
+     "file": "textures/saturn/color-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 30136
+    },
+    "4k": {
+     "file": "textures/saturn/color-4k.webp",
+     "width": 4096,
+     "height": 2048,
+     "bytes": 97052
+    },
+    "source": "Solar System Scope 8k_saturn (based on NASA Cassini imagery), CC BY 4.0"
+   },
+   "ring": {
+    "2k": {
+     "file": "textures/saturn/ring-2k.webp",
+     "width": 2048,
+     "height": 125,
+     "bytes": 5538
+    },
+    "4k": {
+     "file": "textures/saturn/ring-4k.webp",
+     "width": 4096,
+     "height": 250,
+     "bytes": 12752
+    },
+    "source": "Solar System Scope 8k_saturn_ring_alpha (RGBA strip), CC BY 4.0",
+    "layout": "u (x) runs radially: u=0 inner edge, u=1 outer edge; v (y) is uniform. Not 2:1. Fitted against ring features (B-ring outer edge, Encke gap, A-ring outer edge): u=0 ~ 72,200 km (1.20 Rs), u=1 ~ 140,500 km (2.33 Rs), Rs = 60,268 km. Approximate (+/-1%)."
+   }
+  },
+  "uranus": {
+   "color": {
+    "2k": {
+     "file": "textures/uranus/color-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 7640
+    },
+    "source": "Solar System Scope 2k_uranus (based on Voyager 2 imagery), CC BY 4.0",
+    "note": "Only a 2k source exists; no 4k tier (fall back to 2k)."
+   }
+  },
+  "neptune": {
+   "color": {
+    "2k": {
+     "file": "textures/neptune/color-2k.webp",
+     "width": 2048,
+     "height": 1024,
+     "bytes": 15980
+    },
+    "source": "Solar System Scope 2k_neptune (based on Voyager 2 imagery), CC BY 4.0",
+    "note": "Only a 2k source exists; no 4k tier (fall back to 2k)."
+   }
+  }
+ },
+ "sky": {
+  "milkyway": {
+   "2k": {
+    "file": "textures/milkyway-2k.webp",
+    "width": 2048,
+    "height": 1024,
+    "bytes": 225018
+   },
+   "4k": {
+    "file": "textures/milkyway-4k.webp",
+    "width": 4096,
+    "height": 2048,
+    "bytes": 1715542
+   },
+   "source": "NASA SVS Deep Star Maps 2020 (4851), milkyway_2020_4k.exr (celestial, Milky Way without Hipparcos/Tycho bright stars), linear -> sRGB, no tone curve",
+   "frame": "Celestial (equatorial, ICRF/J2000), plate carree. Image centre = RA 0h, dec 0; RA increases to the LEFT (sky seen from inside); top = +90 dec. Pixel x -> RA = (0.5 - x/W) * 360 deg mod 360; y -> dec = 90 - y/H*180. Verified: LMC lands at RA~80 deg, dec~-69."
+  }
+ },
+ "other": {
+  "earth/paleo-atlas.png, earth/paleo-atlas.json": "present in the folder but not produced by this sourcing pass"
+ }
+}

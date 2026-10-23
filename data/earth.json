@@ -1,0 +1,1105 @@
+{
+  "id": "earth",
+  "name": "Earth",
+  "tagline": "8.3 billion people",
+  "physical": {
+    "radius_km": 6371.0,
+    "mass_kg": 5.9722e+24,
+    "sidereal_day_h": 23.9345,
+    "orbital_period_d": 365.256,
+    "axial_tilt_deg": 23.44,
+    "mean_temp_c": 15,
+    "moons": 1,
+    "semi_major_axis_au": 1.0
+  },
+  "physical_source": {
+    "title": "NASA NSSDCA – Earth Fact Sheet",
+    "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html"
+  },
+  "events": [
+    {
+      "id": "big-bang",
+      "year": -13787000000.0,
+      "label": "13.8 billion years ago",
+      "title": "Big Bang",
+      "line": "Space, time and matter begin",
+      "detail": "The universe begins expanding from a hot, dense state. Planck satellite data put its age at 13.787 ± 0.020 billion years; the atoms that will build Earth are mostly forged later, inside generations of stars.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": "#0b0b12",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Planck Collaboration 2020, A&A 641 A6 – Planck 2018 results VI: Cosmological parameters",
+          "url": "https://doi.org/10.1051/0004-6361/201833910"
+        },
+        {
+          "title": "NASA WMAP – How old is the universe?",
+          "url": "https://wmap.gsfc.nasa.gov/universe/uni_age.html"
+        }
+      ]
+    },
+    {
+      "id": "solar-nebula",
+      "year": -4567000000.0,
+      "label": "4.57 billion years ago",
+      "title": "Sun ignites",
+      "line": "Dust disk around a newborn star",
+      "detail": "The oldest solids in the Solar System, calcium-aluminium-rich inclusions in meteorites, date to 4,567.3 ± 0.16 million years ago. Dust and planetesimals in the disk around the young Sun begin colliding and sticking together.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.3,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.5,
+        "lights": 0,
+        "dust": 1,
+        "atmosphere": 0,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": "#5a4a3f",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Connelly et al. 2012, Science – The absolute chronology and thermal processing of solids in the solar protoplanetary disk",
+          "url": "https://doi.org/10.1126/science.1226919"
+        },
+        {
+          "title": "NASA – Sun facts",
+          "url": "https://science.nasa.gov/sun/facts/"
+        }
+      ]
+    },
+    {
+      "id": "earth-forms",
+      "year": -4540000000.0,
+      "label": "4.54 billion years ago",
+      "title": "Earth forms",
+      "line": "Planetesimals collide into a planet",
+      "detail": "Earth assembles from colliding planetesimals. Radiometric dating of meteorites and the oldest terrestrial and lunar samples gives an age of 4.54 ± 0.05 billion years.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.8,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.8,
+        "lights": 0,
+        "dust": 0.5,
+        "atmosphere": 0.2,
+        "atmosphere_tint": "#ff8a3d",
+        "surface_tint": "#3b2a22",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "USGS – Age of the Earth",
+          "url": "https://pubs.usgs.gov/gip/geotime/age.html"
+        }
+      ]
+    },
+    {
+      "id": "theia-impact",
+      "year": -4510000000.0,
+      "label": "4.51 billion years ago",
+      "title": "Theia impact",
+      "line": "A Mars-sized body hits Earth",
+      "detail": "A Mars-sized body, often called Theia, strikes the young Earth; debris thrown into orbit gathers into the Moon. Zircons from Apollo 14 samples imply the Moon formed by about 4.51 billion years ago. The giant-impact model is the leading explanation, though its details are still debated.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 1,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0.5,
+        "vegetation": 0,
+        "craters": 0.3,
+        "lights": 0,
+        "dust": 0.8,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#ff8a3d",
+        "surface_tint": "#2a1810",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Canup & Asphaug 2001, Nature – Origin of the Moon in a giant impact near the end of the Earth's formation",
+          "url": "https://doi.org/10.1038/35089010"
+        },
+        {
+          "title": "Barboni et al. 2017, Science Advances – Early formation of the Moon 4.51 billion years ago",
+          "url": "https://doi.org/10.1126/sciadv.1602365"
+        },
+        {
+          "title": "NASA – How the Moon formed",
+          "url": "https://science.nasa.gov/moon/formation/"
+        }
+      ]
+    },
+    {
+      "id": "magma-ocean",
+      "year": -4500000000.0,
+      "label": "4.5 billion years ago",
+      "title": "Magma ocean",
+      "line": "The surface is molten",
+      "detail": "Energy from the giant impact melts much of the planet, leaving a global ocean of magma under a thick, hot atmosphere. As it cools and crystallises, Earth's mantle and early atmosphere take shape.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 1,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.6,
+        "atmosphere_tint": "#ff9a5a",
+        "surface_tint": "#2a1810",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Elkins-Tanton 2012, Annual Review of Earth and Planetary Sciences – Magma oceans in the inner solar system",
+          "url": "https://doi.org/10.1146/annurev-earth-042711-105503"
+        }
+      ]
+    },
+    {
+      "id": "first-oceans",
+      "year": -4400000000.0,
+      "label": "4.4 billion years ago",
+      "title": "First oceans",
+      "line": "Water pools on a cooling crust",
+      "detail": "A detrital zircon crystal from the Jack Hills, Western Australia, is 4.404 billion years old, and its oxygen isotopes point to liquid water at the surface. Earth may have had oceans within about 150 million years of forming.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.15,
+        "ocean": 1,
+        "ice": 0,
+        "clouds": 0.6,
+        "haze": 0.3,
+        "vegetation": 0,
+        "craters": 0.3,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.7,
+        "atmosphere_tint": "#d8b88a",
+        "surface_tint": "#3a3430",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Wilde et al. 2001, Nature – Evidence from detrital zircons for the existence of continental crust and oceans on the Earth 4.4 Gyr ago",
+          "url": "https://doi.org/10.1038/35051550"
+        },
+        {
+          "title": "Mojzsis et al. 2001, Nature – Oxygen-isotope evidence from ancient zircons for liquid water at the Earth's surface 4,300 Myr ago",
+          "url": "https://doi.org/10.1038/35051557"
+        },
+        {
+          "title": "Valley et al. 2014, Nature Geoscience – Hadean age for a post-magma-ocean zircon confirmed by atom-probe tomography",
+          "url": "https://doi.org/10.1038/ngeo2075"
+        }
+      ]
+    },
+    {
+      "id": "late-heavy-bombardment",
+      "year": -3900000000.0,
+      "label": "About 3.9 billion years ago",
+      "title": "Heavy bombardment",
+      "line": "Asteroids batter the inner planets",
+      "detail": "Lunar impact-melt ages cluster around 4.1–3.8 billion years ago, which was read as a spike in impacts across the inner Solar System. Whether this was a true cataclysm or the tail of a slowly declining bombardment is debated.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.1,
+        "ocean": 0.95,
+        "ice": 0,
+        "clouds": 0.5,
+        "haze": 0.3,
+        "vegetation": 0,
+        "craters": 0.7,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.7,
+        "atmosphere_tint": "#d8b88a",
+        "surface_tint": "#3a3430",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Bottke & Norman 2017, Annual Review of Earth and Planetary Sciences – The Late Heavy Bombardment",
+          "url": "https://doi.org/10.1146/annurev-earth-063016-020131"
+        }
+      ]
+    },
+    {
+      "id": "first-life",
+      "year": -3480000000.0,
+      "label": "3.48 billion years ago",
+      "title": "First life",
+      "line": "Microbes build stromatolites",
+      "detail": "Stromatolites and microbial textures in 3.48-billion-year-old hot-spring rocks of the Dresser Formation, Western Australia, are among the oldest widely accepted signs of life. Older claims, such as 3.7-billion-year-old structures in Greenland, are contested.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.95,
+        "ice": 0,
+        "clouds": 0.5,
+        "haze": 0.4,
+        "vegetation": 0,
+        "craters": 0.2,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.7,
+        "atmosphere_tint": "#d8b88a",
+        "surface_tint": "#4a4038",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Djokic et al. 2017, Nature Communications – Earliest signs of life on land preserved in ca. 3.5 Ga hot spring deposits",
+          "url": "https://doi.org/10.1038/ncomms15263"
+        },
+        {
+          "title": "Allwood et al. 2006, Nature – Stromatolite reef from the Early Archaean era of Australia",
+          "url": "https://doi.org/10.1038/nature04764"
+        },
+        {
+          "title": "Nutman et al. 2016, Nature – Rapid emergence of life shown by discovery of 3,700-million-year-old microbial structures",
+          "url": "https://doi.org/10.1038/nature19355"
+        },
+        {
+          "title": "Allwood et al. 2018, Nature – Reassessing evidence of life in 3,700-million-year-old rocks of Greenland",
+          "url": "https://doi.org/10.1038/s41586-018-0610-4"
+        }
+      ]
+    },
+    {
+      "id": "archean-haze",
+      "year": -2600000000.0,
+      "label": "About 2.6 billion years ago",
+      "title": "Hazy skies",
+      "line": "An orange organic haze",
+      "detail": "Sulphur and carbon isotopes from South African rocks suggest that, between about 2.65 and 2.5 billion years ago, Earth's oxygen-poor, methane-rich atmosphere repeatedly flipped into a state with a hydrocarbon haze, like Saturn's moon Titan. The evidence is indirect, so the idea is debated.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.9,
+        "ice": 0,
+        "clouds": 0.4,
+        "haze": 0.8,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#e0a050",
+        "surface_tint": "#4a4038",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Zerkle et al. 2012, Nature Geoscience – A bistable organic-rich atmosphere on the Neoarchaean Earth",
+          "url": "https://doi.org/10.1038/ngeo1425"
+        }
+      ]
+    },
+    {
+      "id": "continents-rise",
+      "year": -2500000000.0,
+      "label": "2.5 billion years ago",
+      "title": "Continents rise",
+      "line": "Large landmasses stand above sea",
+      "detail": "Oxygen isotopes in shales record a sharp shift around 2.5 billion years ago, interpreted as large continents emerging above sea level and a modern-style water cycle switching on.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.85,
+        "ice": 0,
+        "clouds": 0.5,
+        "haze": 0.5,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#e0a050",
+        "surface_tint": "#6a5a4a",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Bindeman et al. 2018, Nature – Rapid emergence of subaerial landmasses and onset of a modern hydrologic cycle 2.5 billion years ago",
+          "url": "https://doi.org/10.1038/s41586-018-0131-1"
+        }
+      ]
+    },
+    {
+      "id": "great-oxidation",
+      "year": -2430000000.0,
+      "label": "2.43 billion years ago",
+      "title": "Great Oxidation",
+      "line": "Oxygen enters the air",
+      "detail": "Oxygen made by photosynthetic microbes first accumulates in the atmosphere around 2.43 billion years ago. Oxygen levels then fluctuated and became permanently established only around 2.22 billion years ago.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.85,
+        "ice": 0,
+        "clouds": 0.6,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#8fb8ff",
+        "surface_tint": "#7a5a45",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Poulton et al. 2021, Nature – A 200-million-year delay in permanent atmospheric oxygenation",
+          "url": "https://doi.org/10.1038/s41586-021-03393-7"
+        }
+      ]
+    },
+    {
+      "id": "rodinia",
+      "year": -1000000000.0,
+      "label": "1 billion years ago",
+      "title": "Rodinia",
+      "line": "A barren supercontinent",
+      "detail": "Collisions between about 1.3 and 0.9 billion years ago gather nearly all continental blocks into the supercontinent Rodinia, which rifts apart between about 825 and 740 million years ago. With no land plants yet, the land is bare rock and sediment.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.75,
+        "ice": 0,
+        "clouds": 0.5,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#8fb8ff",
+        "surface_tint": "#8a6f55",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Li et al. 2008, Precambrian Research – Assembly, configuration, and break-up history of Rodinia: A synthesis",
+          "url": "https://doi.org/10.1016/j.precamres.2007.04.021"
+        }
+      ]
+    },
+    {
+      "id": "sturtian-snowball",
+      "year": -717000000.0,
+      "label": "717 million years ago",
+      "title": "Snowball Earth",
+      "line": "Ice reaches the equator",
+      "detail": "The Sturtian glaciation lasts from about 717 to 660 million years ago. Glacial deposits formed at tropical latitudes show that ice reached the equator, as the snowball Earth hypothesis predicts.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.9,
+        "ice": 1,
+        "clouds": 0.3,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.7,
+        "atmosphere_tint": "#a8c8ff",
+        "surface_tint": "#8a6f55",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Rooney et al. 2015, Geology – A Cryogenian chronology: Two long-lasting synchronous Neoproterozoic glaciations",
+          "url": "https://doi.org/10.1130/G36511.1"
+        },
+        {
+          "title": "Hoffman et al. 2017, Science Advances – Snowball Earth climate dynamics and Cryogenian geology-geobiology",
+          "url": "https://doi.org/10.1126/sciadv.1600983"
+        }
+      ]
+    },
+    {
+      "id": "marinoan-snowball",
+      "year": -640000000.0,
+      "label": "About 640 million years ago",
+      "title": "Second snowball",
+      "line": "The Marinoan freeze",
+      "detail": "A second global glaciation, the Marinoan, ends 635 million years ago after lasting at least 4 million years. Its start is less certain, with estimates from about 657 to 639 million years ago. The ice-free interval between the two snowballs lasted 20 million years or less.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.9,
+        "ice": 1,
+        "clouds": 0.3,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.7,
+        "atmosphere_tint": "#a8c8ff",
+        "surface_tint": "#8a6f55",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Rooney et al. 2015, Geology – A Cryogenian chronology: Two long-lasting synchronous Neoproterozoic glaciations",
+          "url": "https://doi.org/10.1130/G36511.1"
+        },
+        {
+          "title": "Prave et al. 2016, Geology – Duration and nature of the end-Cryogenian (Marinoan) glaciation",
+          "url": "https://doi.org/10.1130/G38089.1"
+        },
+        {
+          "title": "Hoffman et al. 2017, Science Advances – Snowball Earth climate dynamics and Cryogenian geology-geobiology",
+          "url": "https://doi.org/10.1126/sciadv.1600983"
+        }
+      ]
+    },
+    {
+      "id": "cambrian-explosion",
+      "year": -538800000.0,
+      "label": "539 million years ago",
+      "title": "Cambrian explosion",
+      "line": "Animals diversify in the seas",
+      "detail": "The Cambrian Period begins 538.8 ± 0.2 million years ago. Over the next tens of millions of years, fossils of most major animal groups appear abruptly, although molecular clocks suggest the groups themselves diverged earlier. The land is still bare.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.8,
+        "ice": 0,
+        "clouds": 0.5,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.85,
+        "atmosphere_tint": "#8fb8ff",
+        "surface_tint": "#8a6f55",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "International Commission on Stratigraphy – International Chronostratigraphic Chart",
+          "url": "https://stratigraphy.org/chart"
+        },
+        {
+          "title": "Erwin et al. 2011, Science – The Cambrian conundrum: early divergence and later ecological success in the early history of animals",
+          "url": "https://doi.org/10.1126/science.1206375"
+        }
+      ]
+    },
+    {
+      "id": "plants-on-land",
+      "year": -472000000.0,
+      "label": "472 million years ago",
+      "title": "Plants on land",
+      "line": "The first green on the continents",
+      "detail": "Cryptospores from Argentina, about 473–471 million years old, are the oldest direct fossil evidence of plants on land. Molecular clocks suggest land plants originated earlier, between the middle Cambrian and the Early Ordovician.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.8,
+        "ice": 0,
+        "clouds": 0.5,
+        "haze": 0,
+        "vegetation": 0.15,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.85,
+        "atmosphere_tint": "#8fb8ff",
+        "surface_tint": "#8a6f55",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Rubinstein et al. 2010, New Phytologist – Early Middle Ordovician evidence for land plants in Argentina (eastern Gondwana)",
+          "url": "https://doi.org/10.1111/j.1469-8137.2010.03433.x"
+        },
+        {
+          "title": "Morris et al. 2018, PNAS – The timescale of early land plant evolution",
+          "url": "https://doi.org/10.1073/pnas.1719588115"
+        }
+      ]
+    },
+    {
+      "id": "first-forests",
+      "year": -386000000.0,
+      "label": "386 million years ago",
+      "title": "First forests",
+      "line": "Trees spread across the land",
+      "detail": "Fossil root systems in a Middle Devonian soil at Cairo, New York, about 386 million years old, mark the oldest known forest. They include Archaeopteris, whose deep, extensive roots resemble those of modern seed plants.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.8,
+        "ice": 0,
+        "clouds": 0.55,
+        "haze": 0,
+        "vegetation": 0.5,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.9,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": "#6f6a4a",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Stein et al. 2020, Current Biology – Mid-Devonian Archaeopteris roots signal revolutionary change in earliest fossil forests",
+          "url": "https://doi.org/10.1016/j.cub.2019.11.067"
+        }
+      ]
+    },
+    {
+      "id": "pangaea",
+      "year": -252000000.0,
+      "label": "252 million years ago",
+      "title": "Pangaea",
+      "line": "One supercontinent, one ocean",
+      "detail": "Most land is joined in the supercontinent Pangaea, surrounded by the Panthalassa ocean. At the end of the Permian, 251.9 million years ago, the largest mass extinction in Earth's history wipes out most marine species. Pangaea starts breaking apart roughly 200 million years ago.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.7,
+        "ice": 0,
+        "clouds": 0.45,
+        "haze": 0,
+        "vegetation": 0.3,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.9,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": "#b08a5a",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Burgess et al. 2014, PNAS – High-precision timeline for Earth's most severe extinction",
+          "url": "https://doi.org/10.1073/pnas.1317692111"
+        },
+        {
+          "title": "USGS – This Dynamic Earth: Historical perspective",
+          "url": "https://pubs.usgs.gov/gip/dynamic/historical.html"
+        }
+      ]
+    },
+    {
+      "id": "chicxulub",
+      "year": -66040000.0,
+      "label": "66 million years ago",
+      "title": "Chicxulub impact",
+      "line": "An asteroid ends the dinosaurs",
+      "detail": "An asteroid roughly 10 km across hits what is now the Yucatán Peninsula, leaving a crater about 180 km wide. It triggers the mass extinction that ends the non-avian dinosaurs, dated to 66.043 ± 0.011 million years ago.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.8,
+        "ice": 0,
+        "clouds": 0.6,
+        "haze": 0.6,
+        "vegetation": 0.6,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0.8,
+        "atmosphere": 0.7,
+        "atmosphere_tint": "#b0a090",
+        "surface_tint": "#5a6a3a",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Renne et al. 2013, Science – Time scales of critical events around the Cretaceous-Paleogene boundary",
+          "url": "https://doi.org/10.1126/science.1230492"
+        },
+        {
+          "title": "Schulte et al. 2010, Science – The Chicxulub asteroid impact and mass extinction at the Cretaceous-Paleogene boundary",
+          "url": "https://doi.org/10.1126/science.1177265"
+        }
+      ]
+    },
+    {
+      "id": "antarctic-ice",
+      "year": -34000000.0,
+      "label": "34 million years ago",
+      "title": "Antarctica freezes",
+      "line": "A permanent ice sheet forms",
+      "detail": "At the Eocene–Oligocene boundary, about 34 million years ago, a continental ice sheet rapidly grows over Antarctica. Climate models link it to falling atmospheric CO₂.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.85,
+        "ice": 0.15,
+        "clouds": 0.55,
+        "haze": 0,
+        "vegetation": 0.8,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.95,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": "#5a6a3a",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "DeConto & Pollard 2003, Nature – Rapid Cenozoic glaciation of Antarctica induced by declining atmospheric CO2",
+          "url": "https://doi.org/10.1038/nature01290"
+        }
+      ]
+    },
+    {
+      "id": "ice-ages",
+      "year": -2580000.0,
+      "label": "2.58 million years ago",
+      "title": "Ice ages begin",
+      "line": "Glaciers advance and retreat",
+      "detail": "The Quaternary Period begins 2.58 million years ago, as large ice sheets start to grow and shrink repeatedly over the Northern Hemisphere. By now the continents are close to their present positions.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.25,
+        "clouds": 0.55,
+        "haze": 0,
+        "vegetation": 0.75,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Gibbard et al. 2010, Journal of Quaternary Science – Formal ratification of the Quaternary System/Period with a base at 2.58 Ma",
+          "url": "https://doi.org/10.1002/jqs.1338"
+        },
+        {
+          "title": "International Commission on Stratigraphy – International Chronostratigraphic Chart",
+          "url": "https://stratigraphy.org/chart"
+        }
+      ]
+    },
+    {
+      "id": "last-glacial-maximum",
+      "year": -21000,
+      "label": "21,000 years ago",
+      "title": "Last Glacial Maximum",
+      "line": "Ice sheets at their peak",
+      "detail": "Between about 26,500 and 19,000 years ago ice sheets reach their greatest extent, covering much of North America and northern Europe. Global sea level falls roughly 125–134 m below today's, exposing land bridges such as Beringia.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.95,
+        "ice": 0.4,
+        "clouds": 0.5,
+        "haze": 0,
+        "vegetation": 0.55,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Clark et al. 2009, Science – The Last Glacial Maximum",
+          "url": "https://doi.org/10.1126/science.1172873"
+        },
+        {
+          "title": "Lambeck et al. 2014, PNAS – Sea level and global ice volumes from the Last Glacial Maximum to the Holocene",
+          "url": "https://doi.org/10.1073/pnas.1411762111"
+        }
+      ]
+    },
+    {
+      "id": "holocene",
+      "year": -9700,
+      "label": "11,700 years ago",
+      "title": "Holocene begins",
+      "line": "The ice retreats; a stable climate",
+      "detail": "The current warm interval, the Holocene, formally begins 11,700 years before 2000 CE, defined in a Greenland ice core. Ice sheets retreat toward their present size and sea level rises.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.12,
+        "clouds": 0.55,
+        "haze": 0,
+        "vegetation": 0.95,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Walker et al. 2009, Journal of Quaternary Science – Formal definition and dating of the GSSP for the base of the Holocene",
+          "url": "https://doi.org/10.1002/jqs.1227"
+        },
+        {
+          "title": "International Commission on Stratigraphy – International Chronostratigraphic Chart",
+          "url": "https://stratigraphy.org/chart"
+        }
+      ]
+    },
+    {
+      "id": "industrial-era",
+      "year": 1850,
+      "label": "1850",
+      "title": "Industrial era",
+      "line": "Coal smoke and rising CO₂",
+      "detail": "Burning coal, and later oil and gas, begins to raise atmospheric CO₂ from its pre-industrial level of about 280 ppm. The IPCC uses 1850–1900 as its pre-industrial baseline for global warming.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.11,
+        "clouds": 0.55,
+        "haze": 0.05,
+        "vegetation": 0.95,
+        "craters": 0,
+        "lights": 0.15,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "IPCC AR6 WG1 – Summary for Policymakers (2021)",
+          "url": "https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/"
+        },
+        {
+          "title": "NOAA Global Monitoring Laboratory – Trends in atmospheric CO2",
+          "url": "https://gml.noaa.gov/ccgg/trends/"
+        }
+      ]
+    },
+    {
+      "id": "today",
+      "year": 2026,
+      "label": "2026",
+      "title": "Today",
+      "line": "8.3 billion people",
+      "detail": "About 8.3 billion people live on Earth (UN World Population Prospects 2024 projection for 2026). Global-average CO₂ reached 425.6 ppm in 2025 (NOAA). 2024 was the warmest year on record, about 1.55 °C above pre-industrial, and 2025 was about 1.43 °C above (WMO).",
+      "kind": "present",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.1,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 1,
+        "craters": 0,
+        "lights": 1,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "UN DESA – World Population Prospects 2024",
+          "url": "https://population.un.org/wpp/"
+        },
+        {
+          "title": "Our World in Data – Population with UN projections",
+          "url": "https://ourworldindata.org/grapher/population-with-un-projections"
+        },
+        {
+          "title": "NOAA GML – Global annual mean CO2",
+          "url": "https://gml.noaa.gov/ccgg/trends/global.html"
+        },
+        {
+          "title": "WMO – 2024 confirmed as warmest year on record at about 1.55°C above pre-industrial level",
+          "url": "https://wmo.int/news/media-centre/wmo-confirms-2024-warmest-year-record-about-155degc-above-pre-industrial-level"
+        },
+        {
+          "title": "IISD SDG Knowledge Hub – WMO State of the Global Climate 2025 report (23 March 2026)",
+          "url": "https://sdg.iisd.org/news/wmo-flagship-highlights-earths-energy-imbalance/"
+        }
+      ]
+    },
+    {
+      "id": "ipcc-2100",
+      "year": 2100,
+      "label": "2100",
+      "title": "Warmer world",
+      "line": "1.0–5.7 °C warmer, by scenario",
+      "detail": "IPCC AR6 projects that by 2081–2100 global temperature will be 1.0–1.8 °C above 1850–1900 under very low emissions (SSP1-1.9), 2.1–3.5 °C under intermediate emissions (SSP2-4.5), and 3.3–5.7 °C under very high emissions (SSP5-8.5). It projects 2100 sea level likely 0.28–1.01 m above 1995–2014, depending on the scenario.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "IPCC Sixth Assessment Report, Working Group I, Summary for Policymakers, August 2021",
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.07,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 0.95,
+        "craters": 0,
+        "lights": 1,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "IPCC AR6 WG1 – Summary for Policymakers (2021)",
+          "url": "https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/"
+        }
+      ]
+    },
+    {
+      "id": "oceans-lost",
+      "year": 1000000000.0,
+      "label": "About 1 billion years from now",
+      "title": "Oceans boil",
+      "line": "A brighter Sun ends liquid water",
+      "detail": "The Sun slowly brightens as it ages. A 3D climate model puts Earth's runaway-greenhouse threshold at about 375 W/m² of absorbed sunlight, up from about 341 W/m² today, which the authors estimate is reached in about a billion years. Beyond it, the oceans evaporate.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "Leconte, Forget, Charnay, Wordsworth & Pottier, Nature, December 2013",
+      "visual": {
+        "lava": 0,
+        "ocean": 0.1,
+        "ice": 0,
+        "clouds": 0.9,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.9,
+        "atmosphere_tint": "#e8d8c0",
+        "surface_tint": "#8a6a50",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Leconte et al. 2013, Nature – Increased insolation threshold for runaway greenhouse processes on Earth-like planets",
+          "url": "https://doi.org/10.1038/nature12827"
+        },
+        {
+          "title": "Leconte et al. 2013 – arXiv preprint",
+          "url": "https://arxiv.org/abs/1312.3337"
+        }
+      ]
+    },
+    {
+      "id": "red-giant",
+      "year": 5000000000.0,
+      "label": "About 5 billion years from now",
+      "title": "Red giant",
+      "line": "The Sun swells toward Earth",
+      "detail": "NASA estimates the Sun has about 5 billion years left before it becomes a white dwarf; first it will swell into a red giant, engulfing Mercury and Venus and possibly Earth. One stellar-evolution model has the Sun reaching its largest red-giant size about 7.6 billion years from now, probably swallowing Earth.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA Science (Sun facts page); Schröder & Smith, MNRAS, 2008",
+      "visual": {
+        "lava": 1,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0.2,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.3,
+        "atmosphere_tint": "#ff6a3d",
+        "surface_tint": "#5a2a1a",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA – Sun facts",
+          "url": "https://science.nasa.gov/sun/facts/"
+        },
+        {
+          "title": "Schröder & Smith 2008, MNRAS – Distant future of the Sun and Earth revisited",
+          "url": "https://doi.org/10.1111/j.1365-2966.2008.13022.x"
+        }
+      ]
+    }
+  ]
+}

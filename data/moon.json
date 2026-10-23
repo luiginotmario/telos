@@ -1,0 +1,1450 @@
+{
+  "id": "moon",
+  "name": "Moon",
+  "tagline": "Twelve have walked here",
+  "physical": {
+    "radius_km": 1737.4,
+    "mass_kg": 7.346e+22,
+    "sidereal_day_h": 655.72,
+    "orbital_period_d": 27.3217,
+    "axial_tilt_deg": 6.68,
+    "mean_temp_c": null,
+    "moons": 0,
+    "semi_major_axis_au": 0.00257
+  },
+  "events": [
+    {
+      "id": "giant-impact",
+      "year": -4500000000.0,
+      "label": "4.5 billion years ago",
+      "title": "Giant impact",
+      "line": "Theia strikes the young Earth",
+      "detail": "The leading explanation is that a Mars-sized body, Theia, struck the young Earth about 4.5 billion years ago. Debris thrown into orbit gathered into the Moon. Rock ages suggest this happened roughly 60 million years after the solar system began to form.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 1,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0.3,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#ff9a5a",
+        "surface_tint": "#3a1a10",
+        "base": "none"
+      },
+      "sources": [
+        {
+          "title": "NASA Science: How the Moon formed",
+          "url": "https://science.nasa.gov/moon/formation/"
+        }
+      ]
+    },
+    {
+      "id": "magma-ocean",
+      "year": -4450000000.0,
+      "label": "4.5–4.4 billion years ago",
+      "title": "Magma ocean",
+      "line": "A molten surface, then a crust",
+      "detail": "A magma ocean hundreds to thousands of kilometres deep covered the Moon for tens to hundreds of millions of years. Light anorthosite crystals floated to the top and formed the bright crust; the first crust dates to about 4.4 billion years ago.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.6,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0.1,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#ff9a5a",
+        "surface_tint": "#c9c2b5",
+        "base": "none"
+      },
+      "sources": [
+        {
+          "title": "NASA Science: How the Moon formed",
+          "url": "https://science.nasa.gov/moon/formation/"
+        }
+      ]
+    },
+    {
+      "id": "late-heavy-bombardment",
+      "year": -3900000000.0,
+      "label": "~3.9 billion years ago (debated)",
+      "title": "Heavy bombardment",
+      "line": "A spike of impacts? Debated",
+      "detail": "Apollo rock ages cluster near 3.9 billion years, which was read as a 'Late Heavy Bombardment', a spike of basin-forming impacts. Boehnke & Harrison (2016) showed argon loss could fake that cluster from a steadily declining impact rate. Chang'e-6 far-side samples also found no clear spike. Whether there was a cataclysm or a slow decline is unresolved.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.05,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.9,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": "#d6d0c4",
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Boehnke & Harrison (2016), Illusory Late Heavy Bombardments, PNAS",
+          "url": "https://doi.org/10.1073/pnas.1611535113"
+        },
+        {
+          "title": "Science News: Different moon rocks tell different tales about a long-ago bombardment",
+          "url": "https://www.sciencenews.org/article/farside-moon-rocks-late-heavy-battering"
+        }
+      ]
+    },
+    {
+      "id": "maria",
+      "year": -3500000000.0,
+      "label": "~4–2 billion years ago",
+      "title": "Dark seas",
+      "line": "Lava floods the giant basins",
+      "detail": "Basalt lava rose from the mantle and flooded huge impact basins, forming the dark maria seen from Earth. Apollo, Luna and Chang'e-5 samples show near-side volcanism between about 4 and 2 billion years ago. Chang'e-6 found far-side basalts about 2.8 billion years old, plus one about 4.2 billion.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.3,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.5,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Li et al. (2024), Lunar farside volcanism 2.8 billion years ago from Chang'e-6 basalts, Nature",
+          "url": "https://doi.org/10.1038/s41586-024-08382-0"
+        },
+        {
+          "title": "Scimex: Volcanoes erupted on the far side of the Moon for at least 1.4 billion years",
+          "url": "https://www.scimex.org/newsfeed/volcanos-erupted-on-the-dark-side-of-moon-around-2-8-billion-years-ago"
+        },
+        {
+          "title": "Li et al. (2021), Two-billion-year-old volcanism on the Moon from Chang'e-5 basalts, Nature",
+          "url": "https://doi.org/10.1038/s41586-021-04100-2"
+        }
+      ]
+    },
+    {
+      "id": "copernicus",
+      "year": -800000000.0,
+      "label": "~800 million years ago",
+      "title": "Copernicus",
+      "line": "A bright rayed crater forms",
+      "detail": "The 93 km Copernicus crater is thought to be about 800 million years old. That age comes from Apollo 12 samples believed to be its ejecta; the link to the crater is inferred.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.2,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Copernicus crater",
+          "lat": 9.62,
+          "lon": -20.08,
+          "kind": "feature",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Copernicus_(lunar_crater)"
+        }
+      ],
+      "sources": [
+        {
+          "title": "LROC: Copernicus central peak",
+          "url": "https://www.lroc.asu.edu/images/675"
+        },
+        {
+          "title": "Copernicus (lunar crater): coordinates",
+          "url": "https://en.wikipedia.org/wiki/Copernicus_(lunar_crater)"
+        }
+      ]
+    },
+    {
+      "id": "tycho",
+      "year": -108000000.0,
+      "label": "~108 million years ago",
+      "title": "Tycho",
+      "line": "The youngest big crater",
+      "detail": "Tycho, 85 km wide, has bright rays that cross much of the near side. Apollo 17 samples thought to be Tycho ejecta show about 108 million years of exposure, which dates the crater to the age of the dinosaurs.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0.1,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Tycho crater",
+          "lat": -43.31,
+          "lon": -11.36,
+          "kind": "feature",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Tycho_(lunar_crater)"
+        }
+      ],
+      "sources": [
+        {
+          "title": "LROC: The floor of Tycho",
+          "url": "https://www.lroc.asu.edu/images/209"
+        },
+        {
+          "title": "Tycho (lunar crater): coordinates",
+          "url": "https://en.wikipedia.org/wiki/Tycho_(lunar_crater)"
+        }
+      ]
+    },
+    {
+      "id": "luna-2",
+      "year": 1959.7,
+      "label": "14 September 1959",
+      "title": "Luna 2",
+      "line": "First object to reach the Moon",
+      "detail": "The Soviet Luna 2 probe struck the Moon near Palus Putredinis on 14 September 1959. It was the first human-made object to reach another world.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Luna 2 (impact)",
+          "lat": 29.1,
+          "lon": 0.0,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunarussr.html"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA NSSDC: Soviet lunar missions",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunarussr.html"
+        }
+      ]
+    },
+    {
+      "id": "luna-9",
+      "year": 1966.09,
+      "label": "3 February 1966",
+      "title": "Luna 9",
+      "line": "First soft landing",
+      "detail": "Luna 9 made the first soft landing on the Moon, in Oceanus Procellarum on 3 February 1966, and sent back the first pictures from the lunar surface.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Luna 9",
+          "lat": 7.08,
+          "lon": -64.37,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunarussr.html"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA NSSDC: Soviet lunar missions",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunarussr.html"
+        }
+      ]
+    },
+    {
+      "id": "apollo-11",
+      "year": 1969.55,
+      "label": "20 July 1969",
+      "title": "Apollo 11",
+      "line": "First humans on the Moon",
+      "detail": "Neil Armstrong and Buzz Aldrin landed the lunar module Eagle in Mare Tranquillitatis on 20 July 1969, while Michael Collins orbited above.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Apollo 11",
+          "lat": 0.67416,
+          "lon": 23.47314,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA NSSDC: Apollo landing site coordinates",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
+        },
+        {
+          "title": "NASA NSSDC: Apollo missions",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo.html"
+        }
+      ]
+    },
+    {
+      "id": "lunokhod",
+      "year": 1970.88,
+      "label": "1970 and 1973",
+      "title": "Lunokhods 1–2",
+      "line": "First robot rovers",
+      "detail": "Luna 17 landed in Mare Imbrium on 17 November 1970 and released Lunokhod 1, the first rover on another world. Luna 21 delivered Lunokhod 2 to Le Monnier crater on 15 January 1973. Both were driven remotely from Earth.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Lunokhod 1 (Luna 17)",
+          "lat": 38.28,
+          "lon": -35.0,
+          "kind": "rover",
+          "status": "real",
+          "source": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunarussr.html"
+        },
+        {
+          "name": "Lunokhod 2 (Luna 21)",
+          "lat": 25.85,
+          "lon": 30.45,
+          "kind": "rover",
+          "status": "real",
+          "source": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunarussr.html"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA NSSDC: Soviet lunar missions",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunarussr.html"
+        }
+      ]
+    },
+    {
+      "id": "apollo-12-17",
+      "year": 1972,
+      "label": "1969–1972",
+      "title": "Apollo 12–17",
+      "line": "Five more crews land",
+      "detail": "Apollo 12 (Nov 1969), 14 (Feb 1971), 15 (Jul 1971), 16 (Apr 1972) and 17 (Dec 1972) landed; Apollo 13 aborted. In all, twelve astronauts walked on the Moon and brought back 382 kg of samples. Apollo 17 in December 1972 was the last crewed landing.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Apollo 12",
+          "lat": -3.0128,
+          "lon": -23.4219,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
+        },
+        {
+          "name": "Apollo 14",
+          "lat": -3.64589,
+          "lon": -17.47194,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
+        },
+        {
+          "name": "Apollo 15",
+          "lat": 26.13239,
+          "lon": 3.6333,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
+        },
+        {
+          "name": "Apollo 16",
+          "lat": -8.9734,
+          "lon": 15.5011,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
+        },
+        {
+          "name": "Apollo 17",
+          "lat": 20.1911,
+          "lon": 30.7723,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA NSSDC: Apollo landing site coordinates",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/lunar_sites.html"
+        },
+        {
+          "title": "NASA NSSDC: Apollo missions",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo.html"
+        },
+        {
+          "title": "NASA Science: How the Moon formed (382 kg of Apollo samples)",
+          "url": "https://science.nasa.gov/moon/formation/"
+        }
+      ]
+    },
+    {
+      "id": "change-3",
+      "year": 2013.95,
+      "label": "14 December 2013",
+      "title": "Chang'e 3",
+      "line": "China lands with Yutu",
+      "detail": "Chang'e 3 landed in Mare Imbrium on 14 December 2013 with the Yutu rover. It was the first soft landing on the Moon since Luna 24 in 1976.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Chang'e 3 / Yutu",
+          "lat": 44.1214,
+          "lon": -19.5116,
+          "kind": "rover",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Chang%27e_3"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Chang'e 3",
+          "url": "https://en.wikipedia.org/wiki/Chang%27e_3"
+        }
+      ]
+    },
+    {
+      "id": "change-4",
+      "year": 2019.01,
+      "label": "3 January 2019",
+      "title": "Chang'e 4",
+      "line": "First landing on the far side",
+      "detail": "Chang'e 4 made the first landing on the far side, in Von Kármán crater inside the South Pole–Aitken basin, on 3 January 2019. It relays to Earth through the Queqiao satellite and carried the Yutu-2 rover.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Chang'e 4 / Yutu-2 (Von Kármán)",
+          "lat": -45.444,
+          "lon": 177.599,
+          "kind": "rover",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Chang%27e_4"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Chang'e 4",
+          "url": "https://en.wikipedia.org/wiki/Chang%27e_4"
+        }
+      ]
+    },
+    {
+      "id": "change-5",
+      "year": 2020.92,
+      "label": "1 December 2020",
+      "title": "Chang'e 5",
+      "line": "First samples in 44 years",
+      "detail": "Chang'e 5 landed near Mons Rümker in Oceanus Procellarum on 1 December 2020 and returned about 1.73 kg of soil and rock on 16 December. Its basalts are about 2.0 billion years old, the youngest volcanic rocks dated from the Moon.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Chang'e 5",
+          "lat": 43.0575,
+          "lon": -51.9161,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Chang%27e_5"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Chang'e 5",
+          "url": "https://en.wikipedia.org/wiki/Chang%27e_5"
+        },
+        {
+          "title": "Li et al. (2021), Two-billion-year-old volcanism on the Moon from Chang'e-5 basalts, Nature",
+          "url": "https://doi.org/10.1038/s41586-021-04100-2"
+        }
+      ]
+    },
+    {
+      "id": "chandrayaan-3",
+      "year": 2023.64,
+      "label": "23 August 2023",
+      "title": "Chandrayaan-3",
+      "line": "India lands near the south pole",
+      "detail": "ISRO's Vikram lander touched down at about 69.4° S on 23 August 2023. The site was named Shiv Shakti Point, and the landing made India the fourth nation to land softly on the Moon. The Pragyan rover explored nearby.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Chandrayaan-3 (Shiv Shakti Point)",
+          "lat": -69.373,
+          "lon": 32.319,
+          "kind": "rover",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Chandrayaan-3"
+        }
+      ],
+      "sources": [
+        {
+          "title": "ISRO: Chandrayaan-3",
+          "url": "https://www.isro.gov.in/Chandrayaan3_Details.html"
+        },
+        {
+          "title": "Chandrayaan-3 (coordinates)",
+          "url": "https://en.wikipedia.org/wiki/Chandrayaan-3"
+        }
+      ]
+    },
+    {
+      "id": "slim-im1",
+      "year": 2024.1,
+      "label": "January–February 2024",
+      "title": "SLIM & Odysseus",
+      "line": "Japan pinpoints, a company lands",
+      "detail": "JAXA's SLIM landed within 100 m of its target near Shioli crater on 19 January 2024, though it ended up on its side. On 22 February 2024 Intuitive Machines' Odysseus (IM-1) became the first commercial lander to touch down softly; it tipped over near Malapert A.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "SLIM",
+          "lat": -13.316,
+          "lon": 25.251,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Smart_Lander_for_Investigating_Moon"
+        },
+        {
+          "name": "IM-1 Odysseus",
+          "lat": -80.13,
+          "lon": 1.44,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/IM-1"
+        }
+      ],
+      "sources": [
+        {
+          "title": "JAXA: SLIM",
+          "url": "https://global.jaxa.jp/projects/sas/slim/"
+        },
+        {
+          "title": "Smart Lander for Investigating Moon",
+          "url": "https://en.wikipedia.org/wiki/Smart_Lander_for_Investigating_Moon"
+        },
+        {
+          "title": "IM-1",
+          "url": "https://en.wikipedia.org/wiki/IM-1"
+        }
+      ]
+    },
+    {
+      "id": "change-6",
+      "year": 2024.42,
+      "label": "1 June 2024",
+      "title": "Chang'e 6",
+      "line": "First far-side samples",
+      "detail": "Chang'e 6 landed in the Apollo basin on the far side on 1 June 2024 and returned 1,935.3 g of far-side material on 25 June. Its basalts show far-side volcanism about 2.8 billion years ago.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Chang'e 6 (Apollo basin)",
+          "lat": -41.6385,
+          "lon": -153.9852,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Chang%27e_6"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Chang'e 6",
+          "url": "https://en.wikipedia.org/wiki/Chang%27e_6"
+        },
+        {
+          "title": "Li et al. (2024), Lunar farside volcanism 2.8 billion years ago from Chang'e-6 basalts, Nature",
+          "url": "https://doi.org/10.1038/s41586-024-08382-0"
+        }
+      ]
+    },
+    {
+      "id": "blue-ghost-im2",
+      "year": 2025.17,
+      "label": "March 2025",
+      "title": "Blue Ghost",
+      "line": "First fully successful private landing",
+      "detail": "Firefly's Blue Ghost Mission 1 landed upright in Mare Crisium on 2 March 2025 and ran its NASA payloads until lunar sunset; it was the first fully successful commercial Moon landing. Four days later Intuitive Machines' Athena (IM-2) reached Mons Mouton near the south pole but tipped over and lost power within a day.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Blue Ghost Mission 1 (Mare Crisium)",
+          "lat": 18.56,
+          "lon": 61.81,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Blue_Ghost_Mission_1"
+        },
+        {
+          "name": "IM-2 Athena (Mons Mouton)",
+          "lat": -84.79,
+          "lon": 29.2,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/IM-2"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Blue Ghost Mission 1",
+          "url": "https://en.wikipedia.org/wiki/Blue_Ghost_Mission_1"
+        },
+        {
+          "title": "IM-2",
+          "url": "https://en.wikipedia.org/wiki/IM-2"
+        }
+      ]
+    },
+    {
+      "id": "artemis-2",
+      "year": 2026.25,
+      "label": "1–10 April 2026",
+      "title": "Artemis II",
+      "line": "Humans fly around the Moon",
+      "detail": "On 1 April 2026, SLS launched Reid Wiseman, Victor Glover, Christina Koch and the Canadian Space Agency's Jeremy Hansen on a nearly 10-day lunar flyby, the first crewed flight beyond Earth orbit since 1972. Orion splashed down off San Diego on 10 April.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "NASA: Artemis II",
+          "url": "https://www.nasa.gov/mission/artemis-ii/"
+        },
+        {
+          "title": "NASA: Artemis II flight day 10, re-entry updates (10 Apr 2026)",
+          "url": "https://www.nasa.gov/blogs/missions/2026/04/10/artemis-ii-flight-day-10-re-entry-live-updates/"
+        }
+      ]
+    },
+    {
+      "id": "today",
+      "year": 2026.3,
+      "label": "Today",
+      "title": "Today",
+      "line": "Airless, cratered, revisited",
+      "detail": "The Moon has no real atmosphere and swings between about −178 °C and 117 °C at the equator. No one has stood on it since 1972. In 2026 NASA reshaped Artemis: Artemis III became an Earth-orbit lander test, the first crewed landing moved to Artemis IV, and Gateway was paused in favour of a south-pole Moon Base. NASA briefed the press on its schedule on 23 October 2026.",
+      "kind": "present",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "NASA NSSDC: Moon fact sheet",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html"
+        },
+        {
+          "title": "NASA: NASA adds mission to Artemis lunar program, updates architecture (27 Feb 2026)",
+          "url": "https://www.nasa.gov/news-release/nasa-adds-mission-to-artemis-lunar-program-updates-architecture/"
+        },
+        {
+          "title": "NASA: NASA to discuss Artemis acceleration, status of upcoming Moon missions (14 Oct 2026)",
+          "url": "https://www.nasa.gov/news-release/nasa-to-discuss-artemis-acceleration-status-of-upcoming-moon-missions/"
+        }
+      ]
+    },
+    {
+      "id": "robotic-return-2027",
+      "year": 2027.2,
+      "label": "2027 (planned)",
+      "title": "Robots go south",
+      "line": "Blue Moon, Chang'e 7 head poleward",
+      "detail": "Blue Origin's Blue Moon Mark 1 cargo lander, which slipped out of 2026, is planned for Q1 2027 in NASA's lander timeline, and a later Mark 1 is meant to carry NASA's VIPER rover. China's Chang'e 7, meant to land on the sunlit rim of Shackleton crater to look for ice, missed its August 2026 window; China gave no new date, and press reports say 2027.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA HLS lander timeline (Oct 2026); China Manned Space Agency statement, 23 Aug 2026, with press reports of 2027",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Chang'e 7 target (Shackleton rim)",
+          "lat": -89.67,
+          "lon": 129.78,
+          "kind": "landing",
+          "status": "planned",
+          "source": "https://www.scientificamerican.com/article/chinas-change-7-moonshot-will-seek-water-ice-at-the-lunar-south-pole/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Space.com: NASA reveals lunar lander timelines, updates Artemis III plans (Oct 2026)",
+          "url": "https://www.space.com/space-exploration/artemis/when-will-spacex-and-blue-origin-fly-to-the-moon-nasa-reveals-lunar-lander-timelines-and-an-artemis-iii-update"
+        },
+        {
+          "title": "Blue Moon Pathfinder Mission 1",
+          "url": "https://en.wikipedia.org/wiki/Blue_Moon_Pathfinder_Mission_1"
+        },
+        {
+          "title": "Scientific American: China's Chang'e 7 will seek water ice at the lunar south pole",
+          "url": "https://www.scientificamerican.com/article/chinas-change-7-moonshot-will-seek-water-ice-at-the-lunar-south-pole/"
+        },
+        {
+          "title": "SpacePolicyOnline: Launch of China's Chang'e-7",
+          "url": "https://spacepolicyonline.com/events/launch-of-chinas-change-7-robotic-lunar-mission-window-opens-aug-24-2026/"
+        },
+        {
+          "title": "Shackleton crater coordinates",
+          "url": "https://en.wikipedia.org/wiki/Shackleton_(crater)"
+        }
+      ]
+    },
+    {
+      "id": "artemis-3",
+      "year": 2027.6,
+      "label": "Mid/Q3 2027 (planned)",
+      "title": "Artemis III",
+      "line": "Lander test in Earth orbit",
+      "detail": "Artemis III no longer lands. Randy Bresnik, Luca Parmitano (ESA), Frank Rubio and Andre Douglas are to fly Orion into low Earth orbit and dock with test versions of SpaceX's Starship lander and Blue Origin's Blue Moon. NASA says 2027; its HLS timeline says Q3 2027. NASA Administrator Jared Isaacman ordered the change in February 2026.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA, architecture update 27 Feb 2026; HLS program timeline, Oct 2026",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "NASA: NASA adds mission to Artemis lunar program, updates architecture (27 Feb 2026)",
+          "url": "https://www.nasa.gov/news-release/nasa-adds-mission-to-artemis-lunar-program-updates-architecture/"
+        },
+        {
+          "title": "NASA: Moon to Mars / Artemis (Artemis III crew)",
+          "url": "https://www.nasa.gov/humans-in-space/artemis/"
+        },
+        {
+          "title": "Space.com: NASA reveals lunar lander timelines, updates Artemis III plans (Oct 2026)",
+          "url": "https://www.space.com/space-exploration/artemis/when-will-spacex-and-blue-origin-fly-to-the-moon-nasa-reveals-lunar-lander-timelines-and-an-artemis-iii-update"
+        }
+      ]
+    },
+    {
+      "id": "starship-uncrewed",
+      "year": 2027.9,
+      "label": "By end of 2027 (planned)",
+      "title": "Starship lands",
+      "line": "Uncrewed lunar Starship",
+      "detail": "SpaceX's Starship lander still has to show ship-to-ship propellant transfer in Earth orbit; NASA's timeline puts that test in Q1 2027 and an uncrewed Starship landing by the end of 2027. SpaceX told investors in February 2026 that it was targeting March 2027 for an uncrewed landing (WSJ, via AIAA). Blue Origin's uncrewed Blue Moon Mark 2 landing is planned for Q1 2028.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA HLS program timeline (Oct 2026); SpaceX investor communication reported by WSJ, Feb 2026",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Space.com: NASA reveals lunar lander timelines, updates Artemis III plans (Oct 2026)",
+          "url": "https://www.space.com/space-exploration/artemis/when-will-spacex-and-blue-origin-fly-to-the-moon-nasa-reveals-lunar-lander-timelines-and-an-artemis-iii-update"
+        },
+        {
+          "title": "Starlust: NASA shares moon lander timelines for SpaceX and Blue Origin",
+          "url": "https://starlust.org/nasa-shares-moon-lander-timelines-for-spacex-and-blue-origin-ahead-of-artemis-iii-and-iv/"
+        },
+        {
+          "title": "AIAA: SpaceX puts Mars plans on hold to prioritize NASA Moon effort (9 Feb 2026)",
+          "url": "https://aiaa.org/2026/02/09/spacex-puts-mars-plans-on-hold-to-prioritize-nasa-moon-effort/"
+        }
+      ]
+    },
+    {
+      "id": "artemis-4",
+      "year": 2028.2,
+      "label": "2028 (planned)",
+      "title": "Artemis IV",
+      "line": "Humans return to the surface",
+      "detail": "NASA says its first crewed Artemis landing will happen in 2028 on Artemis IV, with Artemis V later in 2028 and then landings about every six months. The lander, Starship or Blue Moon, will be picked after Artemis III. Pins mark the named features of NASA's nine south-pole candidate regions (Oct 2024), not exact landing zones.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA (Jared Isaacman), Feb–Mar 2026; candidate regions announced by NASA 28 Oct 2024",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0.01,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Peak near Cabeus B",
+          "lat": -82.4,
+          "lon": -53.0,
+          "kind": "landing",
+          "status": "planned",
+          "source": "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/"
+        },
+        {
+          "name": "Haworth",
+          "lat": -86.9,
+          "lon": -4.0,
+          "kind": "landing",
+          "status": "planned",
+          "source": "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/"
+        },
+        {
+          "name": "Malapert Massif",
+          "lat": -84.9,
+          "lon": 12.9,
+          "kind": "landing",
+          "status": "planned",
+          "source": "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/"
+        },
+        {
+          "name": "Mons Mouton & Mons Mouton Plateau",
+          "lat": -84.6,
+          "lon": 31.0,
+          "kind": "landing",
+          "status": "planned",
+          "source": "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/"
+        },
+        {
+          "name": "Nobile Rim 1 & 2",
+          "lat": -85.28,
+          "lon": 53.27,
+          "kind": "landing",
+          "status": "planned",
+          "source": "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/"
+        },
+        {
+          "name": "de Gerlache Rim 2",
+          "lat": -88.5,
+          "lon": -87.1,
+          "kind": "landing",
+          "status": "planned",
+          "source": "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/"
+        },
+        {
+          "name": "Slater Plain",
+          "lat": -88.08,
+          "lon": 111.29,
+          "kind": "landing",
+          "status": "planned",
+          "source": "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA: Moon to Mars / Artemis (first crewed landing in 2028)",
+          "url": "https://www.nasa.gov/humans-in-space/artemis/"
+        },
+        {
+          "title": "NASA: NASA unveils initiatives to achieve America's national space policy (24 Mar 2026)",
+          "url": "https://www.nasa.gov/news-release/nasa-unveils-initiatives-to-achieve-americas-national-space-policy/"
+        },
+        {
+          "title": "NASA: NASA provides update on Artemis III Moon landing regions (28 Oct 2024)",
+          "url": "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/"
+        },
+        {
+          "title": "Feature coordinates: Cabeus (Cabeus B)",
+          "url": "https://en.wikipedia.org/wiki/Cabeus_(crater)"
+        },
+        {
+          "title": "Feature coordinates: Haworth",
+          "url": "https://en.wikipedia.org/wiki/Haworth_(crater)"
+        },
+        {
+          "title": "Feature coordinates: Malapert",
+          "url": "https://en.wikipedia.org/wiki/Malapert_(crater)"
+        },
+        {
+          "title": "Feature coordinates: Mons Mouton",
+          "url": "https://en.wikipedia.org/wiki/Mons_Mouton"
+        },
+        {
+          "title": "Feature coordinates: Nobile",
+          "url": "https://en.wikipedia.org/wiki/Nobile_(crater)"
+        },
+        {
+          "title": "Feature coordinates: de Gerlache",
+          "url": "https://en.wikipedia.org/wiki/De_Gerlache_(crater)"
+        },
+        {
+          "title": "Feature coordinates: Slater",
+          "url": "https://en.wikipedia.org/wiki/Slater_(crater)"
+        }
+      ]
+    },
+    {
+      "id": "china-crewed",
+      "year": 2030,
+      "label": "By 2030 (planned)",
+      "title": "China lands crew",
+      "line": "Mengzhou and Lanyue",
+      "detail": "China's crewed space agency is targeting a crewed landing by 2030. Two Long March 10 rockets would launch the Mengzhou crew ship and the Lanyue lander, which meet in lunar orbit; two astronauts then descend. Abort, landing and rocket tests were done by early 2026.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "China Manned Space Agency (CMSA), restated Feb 2026",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0.02,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "CGTN: China gears up for crewed moon landing by 2030 (28 Feb 2026)",
+          "url": "https://news.cgtn.com/news/2026-02-28/China-gears-up-for-crewed-moon-landing-by-2030-1L7SwMwUaVa/p.html"
+        },
+        {
+          "title": "China Aerospace Science and Technology Corp.: manned space program major tasks ahead",
+          "url": "https://english.spacechina.com/n17212/c4549581/content.html"
+        }
+      ]
+    },
+    {
+      "id": "gru-moon-hotel",
+      "year": 2032,
+      "label": "2032 (planned)",
+      "title": "Moon hotel",
+      "line": "Four guests, inflatable habitat",
+      "detail": "GRU Space, a Y Combinator- and Nvidia-backed startup founded in 2025, plans the first lunar hotel: an inflatable module for up to four guests, delivered by a heavy lander and walled with regolith bricks, then a larger regolith-stone 'grand hotel' shown in its launch film. Roadmap: a subscale inflatable test on a NASA CLPS lander in 2029, a larger mission in 2031, opening in 2032. The grand hotel has no date; here it rises in 2038. All of it depends on landers that are not yet flying.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "GRU Space (Skyler Chan), January 2026",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0.02,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [],
+      "sources": [
+        {
+          "title": "Payload: GRU Space opens bookings for planned lunar hotel",
+          "url": "https://payloadspace.com/gru-space-opens-bookings-for-planned-lunar-hotel/"
+        },
+        {
+          "title": "YourStory: First Moon hotel planned by Nvidia and YC-backed GRU",
+          "url": "https://yourstory.com/2026/01/nvidia-y-combinator-gru-space-moon-hotel-2032"
+        },
+        {
+          "title": "GRU Space: company site and launch film",
+          "url": "https://www.gru.space/"
+        }
+      ]
+    },
+    {
+      "id": "ilrs-basic",
+      "year": 2035,
+      "label": "By 2035 (planned)",
+      "title": "ILRS basic station",
+      "line": "China–Russia base at the pole",
+      "detail": "China's chief lunar designer Wu Weiren said the basic International Lunar Research Station would be finished by 2035, centred on the south pole; Chang'e 7 and 8 are its first pieces. Russia and China signed a memorandum in May 2025 to build a lunar nuclear power plant for it. Roscosmos has spoken of delivering it in 2033–2035.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "Wu Weiren, chief designer of China's lunar programme, 25 April 2024; Roscosmos (Yuri Borisov), March 2024; Roscosmos–CNSA memorandum, 8 May 2025",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0.04,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Lunar south pole (ILRS region, approx.)",
+          "lat": -90.0,
+          "lon": 0.0,
+          "kind": "base",
+          "status": "planned",
+          "source": "https://english.www.gov.cn/news/202404/25/content_WS662a42bdc6d0868f4e8e66f0.html"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Space.com: China plans to build moon base at the lunar south pole by 2035",
+          "url": "https://www.space.com/china-moon-base-south-pole-2035"
+        },
+        {
+          "title": "Gov.cn: China unveils International Lunar Research Station details (Apr 2024)",
+          "url": "https://english.www.gov.cn/news/202404/25/content_WS662a42bdc6d0868f4e8e66f0.html"
+        },
+        {
+          "title": "SCMP: Russia ponders putting nuclear power plant on the moon with China (Mar 2024)",
+          "url": "https://www.scmp.com/news/world/russia-central-asia/article/3254302/russia-ponders-putting-nuclear-power-plant-moon-china"
+        },
+        {
+          "title": "Interfax: Roscosmos lunar power plant contract (Dec 2025)",
+          "url": "https://interfax.com/newsroom/top-stories/115423/"
+        }
+      ]
+    },
+    {
+      "id": "nasa-moon-base",
+      "year": 2036,
+      "label": "2026–2036 (planned)",
+      "title": "NASA Moon Base",
+      "line": "A permanent south-pole outpost",
+      "detail": "In March 2026 NASA announced a Moon Base near the south pole in three phases. 'Build, Test, Learn' runs through 2028, with robotic landings from 2027. 'Establish Early Infrastructure' (2029–2032) brings habitats, logistics and JAXA's pressurized rover. 'Enable Long-Duration Human Presence' (2033–2036) adds Italy's habitats, Canada's utility vehicle and permanent power systems. The cost is reported at $20 billion over seven years or about $30 billion over a decade.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA (Jared Isaacman, Carlos Garcia-Galan), Ignition event, 24 March 2026",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0.07,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Lunar south pole (NASA Moon Base region, approx.)",
+          "lat": -90.0,
+          "lon": 0.0,
+          "kind": "base",
+          "status": "planned",
+          "source": "https://www.nasa.gov/humans-in-space/artemis/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA: NASA unveils initiatives to achieve America's national space policy (24 Mar 2026)",
+          "url": "https://www.nasa.gov/news-release/nasa-unveils-initiatives-to-achieve-americas-national-space-policy/"
+        },
+        {
+          "title": "Astronomy: NASA's $30B plan to build a Moon base (25 Mar 2026)",
+          "url": "https://www.astronomy.com/space-exploration/nasas-30b-plan-to-build-a-moon-base/"
+        },
+        {
+          "title": "Spaceflight Now: NASA outlines ambitious $20 billion plan for moon base (25 Mar 2026)",
+          "url": "https://spaceflightnow.com/2026/03/25/nasa-outlines-ambitious-20-billion-plan-for-moon-base/"
+        },
+        {
+          "title": "NASA: Moon to Mars / Artemis (Moon Base near the South Pole)",
+          "url": "https://www.nasa.gov/humans-in-space/artemis/"
+        }
+      ]
+    },
+    {
+      "id": "musk-moon-city",
+      "year": 2036.1,
+      "label": "Within ~10 years (Musk, 2026)",
+      "title": "Self-growing city",
+      "line": "Musk: Moon city within 10 years",
+      "detail": "On 8 February 2026 Musk wrote that SpaceX had 'already shifted focus to building a self-growing city on the moon', saying 'we can potentially achieve that in less than 10 years, whereas Mars would take 20+ years'. Days later, at an xAI all-hands, he said 'I really want to see a mass driver on the moon that is shooting AI satellites into deep space'. Coverage calls the concept 'Moonbase Alpha'. In January 2025 he had called the Moon 'a distraction'. No site has been named.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "Elon Musk, post on X, 8 February 2026; xAI all-hands, ~11 February 2026",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0.15,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Phys.org/AFP: SpaceX shifts focus from Mars to moon, Musk says (9 Feb 2026)",
+          "url": "https://phys.org/news/2026-02-spacex-shifts-focus-mars-moon.html"
+        },
+        {
+          "title": "ABC News: SpaceX to build 'self-growing city' on Moon, Elon Musk says (9 Feb 2026)",
+          "url": "https://www.abc.net.au/news/2026-02-09/spacex-building-lunar-self-gowing-city-moon-elon-musk/106322472"
+        },
+        {
+          "title": "TechCrunch: Musk needed a new vision for SpaceX and xAI. He landed on Moonbase Alpha. (12 Feb 2026)",
+          "url": "https://techcrunch.com/2026/02/12/musk-needed-a-new-vision-for-spacex-and-xai-he-landed-on-moonbase-alpha/"
+        }
+      ]
+    },
+    {
+      "id": "ilrs-extended",
+      "year": 2045,
+      "label": "2040s (planned)",
+      "title": "ILRS extended",
+      "line": "A wider China-led network",
+      "detail": "China plans to expand the ILRS in the 2040s, with a lunar-orbit station as its hub. Officials have variously said 2045 or about 2050. CNSA said in April 2025 that 17 countries and organizations had joined.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "Wu Weiren, 25 April 2024 (by 2045); CNSA, April 2025 (2040s); Wu Yanhua, Sept 2024 (~2050)",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0.2,
+        "dust": 0,
+        "atmosphere": 0,
+        "atmosphere_tint": "#9cc3ff",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Gov.cn/Xinhua: China unveils International Lunar Research Station details (25 Apr 2024)",
+          "url": "https://english.www.gov.cn/news/202404/25/content_WS662a42bdc6d0868f4e8e66f0.html"
+        },
+        {
+          "title": "Space.com: China plans to build moon base at the lunar south pole by 2035",
+          "url": "https://www.space.com/china-moon-base-south-pole-2035"
+        },
+        {
+          "title": "Gov.cn: ILRS update (Apr 2025)",
+          "url": "https://english.www.gov.cn/news/202504/24/content_WS680976d7c6d0868f4e8f2045.html"
+        }
+      ]
+    }
+  ]
+}

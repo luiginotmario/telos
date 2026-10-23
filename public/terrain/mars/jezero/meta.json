@@ -1,0 +1,93 @@
+{
+  "site": "Jezero Crater (Mars 2020 Perseverance landing site)",
+  "id": "jezero",
+  "lat": 18.4457,
+  "lon": 77.4508,
+  "extent_km": 60.0,
+  "extent_deg": {
+    "lat": [
+      17.93883,
+      18.95182
+    ],
+    "lon": [
+      76.91567,
+      77.98593
+    ]
+  },
+  "height_range_m": [
+    -2814,
+    -1414
+  ],
+  "height_encoding": "rg16",
+  "height_decode": "v = R*256 + G (B = 0); metres = lo + v/65535*(hi-lo); metres are relative to the MOLA areoid",
+  "files": {
+    "height.png": [
+      1024,
+      1024
+    ],
+    "color.webp": [
+      2048,
+      2048
+    ],
+    "tint.webp": [
+      256,
+      256
+    ],
+    "context-height.png": [
+      512,
+      512
+    ],
+    "context-color.webp": [
+      1024,
+      1024
+    ]
+  },
+  "projection": "orthographic (tangent plane) centred on (lat, lon) on the 3396.19 km Mars 2000 sphere; image row 0 = north edge, +x = east, +y = north; pixel centres at ((i+0.5)/n - 0.5)*extent. Heights are NOT curvature-corrected: the sphere falls away from the tangent plane by r^2/(2R) (~66 m at 20 km, ~13.2 km at the 300 km context edge).",
+  "pixel_m": {
+    "height": 58.59375,
+    "color": 29.296875,
+    "context_height": 1171.875,
+    "context_color": 585.9375
+  },
+  "context": {
+    "extent_km": 600.0,
+    "height_range_m": [
+      -4830,
+      1476
+    ],
+    "extent_deg": {
+      "lat": [
+        13.3048,
+        23.5135
+      ],
+      "lon": [
+        71.926,
+        82.9756
+      ]
+    },
+    "height_encoding": "rg16"
+  },
+  "sources": [
+    {
+      "title": "Mars HRSC MOLA Blended DEM Global 200m v2 (Fergason, Hare & Laura 2018), USGS Astrogeology",
+      "url": "https://astrogeology.usgs.gov/search/map/mars_mgs_mola_mex_hrsc_blended_dem_global_200m",
+      "licence": "Public domain (USGS); HRSC data ESA/DLR/FU Berlin, MOLA NASA/GSFC"
+    },
+    {
+      "title": "Murray Lab Global CTX Mosaic of Mars V01 (Dickson et al. 2024, Earth and Space Science, doi:10.1029/2024EA003555)",
+      "url": "https://murray-lab.caltech.edu/CTX/",
+      "licence": "Free to use with citation (CTX images NASA/JPL-Caltech/MSSS; mosaic Caltech Murray Lab)"
+    },
+    {
+      "title": "Viking MDIM 2.1 Colour Mosaic 232 m (USGS), via NASA Mars Trek WMTS",
+      "url": "https://trek.nasa.gov/tiles/Mars/EQ/Mars_Viking_MDIM21_ClrMosaic_global_232m/1.0.0/WMTSCapabilities.xml",
+      "licence": "Public domain (NASA/USGS)"
+    },
+    {
+      "title": "Mars 2020 Terrain Relative Navigation CTX DTM, Jezero, 20 m (Fergason et al. 2020), USGS Astrogeology",
+      "url": "https://planetarymaps.usgs.gov/mosaic/mars2020_trn/CTX/JEZ_ctx_B_soc_008_DTM_MOLAtopography_DeltaGeoid_20m_Eqc_latTs0_lon0.tif",
+      "licence": "Public domain (USGS); CTX images NASA/JPL-Caltech/MSSS"
+    }
+  ],
+  "notes": "height.png: HRSC/MOLA blended DEM 200 m + USGS CTX DTM 20 m blended over the central 25% of the patch, bilinear to 58.6 m/px. color.webp: Murray Lab global CTX mosaic V01 (5 m/px, quads E076_N16), 5x5 box-averaged then bilinear to 29.3 m/px, greyscale, 0.5-99.5 percentile stretch. tint.webp and context-color.webp: Viking MDIM 2.1 colour mosaic (~232 m native, Trek zoom 7 ~325 m/px); use tint as a low-frequency colour multiplier for the greyscale CTX. context-height.png: HRSC/MOLA blend, 1 km box-averaged, bilinear to 1172 m/px. Jezero height: CTX DTM (20 m, resampled from 40 m blocks) covers 25% of the patch (77.16-77.70E, 18.21-18.72N), shifted by +2.5 m (median offset to the HRSC/MOLA blend) and feathered over ~1.4 km into the 200 m HRSC/MOLA blend elsewhere. The 1 m HiRISE DTM (1.8 GB, 77.22-77.58E 18.31-18.67N) exists but is ~60x finer than height.png's 58.6 m/px, so the 20 m CTX DTM was used instead; the visible rectangle in a hillshade is the CTX DTM footprint (sharper texture inside)."
+}

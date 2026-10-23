@@ -1,0 +1,1069 @@
+{
+  "id": "mars",
+  "name": "Mars",
+  "tagline": "Robots only, so far",
+  "physical": {
+    "radius_km": 3389.5,
+    "mass_kg": 6.4169e+23,
+    "sidereal_day_h": 24.6229,
+    "orbital_period_d": 686.98,
+    "axial_tilt_deg": 25.19,
+    "mean_temp_c": -59,
+    "moons": 2,
+    "semi_major_axis_au": 1.52366
+  },
+  "events": [
+    {
+      "id": "formation",
+      "year": -4500000000.0,
+      "label": "4.5 billion years ago",
+      "title": "Mars forms",
+      "line": "Dust and rock pull together",
+      "detail": "Mars accreted from gas and dust around the young Sun about 4.5 billion years ago. Heat from accretion and radioactive decay left the young surface hot and partly molten.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.7,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0,
+        "haze": 0.2,
+        "vegetation": 0,
+        "craters": 0.3,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.3,
+        "atmosphere_tint": "#c98a5a",
+        "surface_tint": "#5a2e1e",
+        "base": "none"
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Mars facts",
+          "url": "https://science.nasa.gov/mars/facts/"
+        }
+      ]
+    },
+    {
+      "id": "noachian",
+      "year": -4100000000.0,
+      "label": "4.1 billion years ago",
+      "title": "Noachian begins",
+      "line": "Giant impacts scar the south",
+      "detail": "The Hellas impact, one of the largest basins in the solar system, is taken as the base of the Noachian period, estimated at about 4.1 to 3.8 billion years ago. A core dynamo still made a global magnetic field; magnetized rock in the southern crust records it.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.15,
+        "ocean": 0.05,
+        "ice": 0.1,
+        "clouds": 0.25,
+        "haze": 0.15,
+        "vegetation": 0,
+        "craters": 0.8,
+        "lights": 0,
+        "dust": 0.1,
+        "atmosphere": 0.5,
+        "atmosphere_tint": "#a9b9d6",
+        "surface_tint": "#7a4a34",
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Carr & Head (2010), Geologic history of Mars, Earth and Planetary Science Letters",
+          "url": "https://doi.org/10.1016/j.epsl.2009.06.042"
+        },
+        {
+          "title": "NASA Science: Mars facts (magnetized southern crust)",
+          "url": "https://science.nasa.gov/mars/facts/"
+        }
+      ]
+    },
+    {
+      "id": "wet-mars",
+      "year": -3900000000.0,
+      "label": "3.9 billion years ago",
+      "title": "Wet Mars",
+      "line": "Rivers carve valleys, lakes fill",
+      "detail": "During the Noachian, rivers cut branching valley networks and filled crater lakes such as Jezero, where Perseverance now studies an ancient river delta. Rates of erosion and valley formation were high until the period ended about 3.7 billion years ago.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.3,
+        "ice": 0.2,
+        "clouds": 0.4,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0.6,
+        "lights": 0,
+        "dust": 0.05,
+        "atmosphere": 0.6,
+        "atmosphere_tint": "#8fb4e0",
+        "surface_tint": "#8a5a40",
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Carr & Head (2010), Geologic history of Mars",
+          "url": "https://doi.org/10.1016/j.epsl.2009.06.042"
+        },
+        {
+          "title": "NASA Science: Mars facts (river valleys, deltas, lakebeds)",
+          "url": "https://science.nasa.gov/mars/facts/"
+        },
+        {
+          "title": "NASA: Mars 2020 Perseverance mission",
+          "url": "https://science.nasa.gov/mission/mars-2020-perseverance/"
+        }
+      ]
+    },
+    {
+      "id": "northern-ocean",
+      "year": -3800000000.0,
+      "label": "~4.0–3.6 billion years ago",
+      "title": "A northern ocean?",
+      "line": "Debated: the lowlands may have flooded",
+      "detail": "Some researchers argue an ocean filled the northern lowlands. Citron et al. (2018) explain the uneven 'shorelines' as warping by Tharsis, putting one level at 4 billion years or more and another at about 3.6 billion. In 2025, Zhurong's radar found buried layers in Utopia Planitia that its team reads as coastal deposits. The ocean remains contested.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.65,
+        "ice": 0.2,
+        "clouds": 0.45,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0.55,
+        "lights": 0,
+        "dust": 0.05,
+        "atmosphere": 0.6,
+        "atmosphere_tint": "#8fb4e0",
+        "surface_tint": "#8a5a40",
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Citron, Manga & Hemingway (2018), Timing of oceans on Mars from shoreline deformation, Nature",
+          "url": "https://doi.org/10.1038/nature26144"
+        },
+        {
+          "title": "Li et al. (2025), Ancient ocean coastal deposits imaged on Mars, PNAS",
+          "url": "https://doi.org/10.1073/pnas.2422213122"
+        }
+      ]
+    },
+    {
+      "id": "shield-fails",
+      "year": -3700000000.0,
+      "label": "~3.7 billion years ago",
+      "title": "Shield fails",
+      "line": "Solar wind strips the air",
+      "detail": "The global magnetic field shut down early; Mittelholz et al. (2020) find it still existed about 3.7 billion years ago, but the exact timing is debated. Without it, the solar wind and solar storms eroded the atmosphere. NASA's MAVEN measured this loss and estimated about 65% of Mars' argon has escaped to space, along with most of its CO2.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.35,
+        "ice": 0.25,
+        "clouds": 0.25,
+        "haze": 0.05,
+        "vegetation": 0,
+        "craters": 0.55,
+        "lights": 0,
+        "dust": 0.15,
+        "atmosphere": 0.4,
+        "atmosphere_tint": "#b7b4c8",
+        "surface_tint": "#93583a",
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Mittelholz et al. (2020), Timing of the martian dynamo, Science Advances",
+          "url": "https://doi.org/10.1126/sciadv.aba0513"
+        },
+        {
+          "title": "NASA: MAVEN reveals speed of solar wind stripping (Nov 2015)",
+          "url": "https://www.nasa.gov/news-release/nasa-mission-reveals-speed-of-solar-wind-stripping-martian-atmosphere/"
+        },
+        {
+          "title": "NASA: MAVEN reveals most of Mars' atmosphere was lost to space (Mar 2017)",
+          "url": "https://www.nasa.gov/news-release/nasas-maven-reveals-most-of-mars-atmosphere-was-lost-to-space/"
+        },
+        {
+          "title": "NASA: MAVEN makes first observation of atmospheric sputtering (May 2025)",
+          "url": "https://science.nasa.gov/missions/maven/nasas-maven-makes-first-observation-of-atmospheric-sputtering-at-mars/"
+        }
+      ]
+    },
+    {
+      "id": "hesperian",
+      "year": -3500000000.0,
+      "label": "3.7–3.0 billion years ago",
+      "title": "Hesperian volcanism",
+      "line": "Lava resurfaces a third of Mars",
+      "detail": "After the Noachian, impact and erosion rates dropped steeply, but volcanism continued at a high rate and resurfaced at least 30% of the planet. Huge floods carved outflow channels around 3.5 billion years ago. Most of the Tharsis bulge was already in place by now.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.25,
+        "ocean": 0.12,
+        "ice": 0.3,
+        "clouds": 0.15,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0.5,
+        "lights": 0,
+        "dust": 0.25,
+        "atmosphere": 0.25,
+        "atmosphere_tint": "#c9a98e",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Carr & Head (2010), Geologic history of Mars",
+          "url": "https://doi.org/10.1016/j.epsl.2009.06.042"
+        },
+        {
+          "title": "NASA Science: Mars facts (floods ~3.5 billion years ago)",
+          "url": "https://science.nasa.gov/mars/facts/"
+        }
+      ]
+    },
+    {
+      "id": "amazonian",
+      "year": -3000000000.0,
+      "label": "3 billion years ago",
+      "title": "Cold desert",
+      "line": "The Amazonian: dry, dusty, frozen",
+      "detail": "From about 3 billion years ago to today, Mars has been a cold, dry world with a thin CO2 atmosphere. Water survives mostly as ice in the polar caps and buried ground ice. Wind and dust storms now shape the surface.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.35,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0.3,
+        "lights": 0,
+        "dust": 0.45,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Carr & Head (2010), Geologic history of Mars",
+          "url": "https://doi.org/10.1016/j.epsl.2009.06.042"
+        },
+        {
+          "title": "NASA Science: Mars facts",
+          "url": "https://science.nasa.gov/mars/facts/"
+        }
+      ]
+    },
+    {
+      "id": "olympus-mons",
+      "year": -2400000.0,
+      "label": "~2.4 million years ago",
+      "title": "Olympus Mons",
+      "line": "Its youngest lava flows",
+      "detail": "Olympus Mons, the solar system's largest volcano at more than 40 km tall from base to summit, kept erupting in episodes. ESA Mars Express crater counts date its calderas to roughly 100–200 million years old and find flank lavas as young as about 2.4 million years. These ages are model estimates.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.04,
+        "ocean": 0,
+        "ice": 0.35,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0.25,
+        "lights": 0,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Olympus Mons",
+          "lat": 18.65,
+          "lon": -133.8,
+          "kind": "feature",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Olympus_Mons"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Neukum et al. (2004), Recent and episodic volcanic and glacial activity on Mars, Nature",
+          "url": "https://doi.org/10.1038/nature03231"
+        },
+        {
+          "title": "ESA Mars Express: recent and episodic volcanism",
+          "url": "https://sci.esa.int/web/mars-express/-/51825-5-recent-and-episodic-volcanism"
+        },
+        {
+          "title": "NASA Science: Mars facts (Olympus Mons height)",
+          "url": "https://science.nasa.gov/mars/facts/"
+        }
+      ]
+    },
+    {
+      "id": "viking",
+      "year": 1976.55,
+      "label": "1976",
+      "title": "Vikings 1–2",
+      "line": "First successful landers",
+      "detail": "NASA's Viking 1 touched down in Chryse Planitia on 20 July 1976 and Viking 2 in Utopia Planitia on 3 September 1976. They returned the first long-lived images from the surface and ran the first experiments looking for life.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Viking 1",
+          "lat": 22.697,
+          "lon": -48.222,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://science.nasa.gov/mission/viking-1/"
+        },
+        {
+          "name": "Viking 2",
+          "lat": 48.269,
+          "lon": 134.01,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://science.nasa.gov/mission/viking-2/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA: Viking 1",
+          "url": "https://science.nasa.gov/mission/viking-1/"
+        },
+        {
+          "title": "NASA: Viking 2",
+          "url": "https://science.nasa.gov/mission/viking-2/"
+        },
+        {
+          "title": "Coordinates: List of artificial objects on Mars",
+          "url": "https://en.wikipedia.org/wiki/List_of_artificial_objects_on_Mars"
+        }
+      ]
+    },
+    {
+      "id": "pathfinder",
+      "year": 1997.5,
+      "label": "1997",
+      "title": "Pathfinder",
+      "line": "Sojourner, the first rover",
+      "detail": "Mars Pathfinder bounced to a landing on airbags in Ares Vallis on 4 July 1997 and released Sojourner, the first wheeled rover on another planet.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Pathfinder / Sojourner",
+          "lat": 19.33,
+          "lon": -33.55,
+          "kind": "rover",
+          "status": "real",
+          "source": "https://science.nasa.gov/mission/mars-pathfinder/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA: Mars Pathfinder",
+          "url": "https://science.nasa.gov/mission/mars-pathfinder/"
+        },
+        {
+          "title": "Coordinates: List of artificial objects on Mars",
+          "url": "https://en.wikipedia.org/wiki/List_of_artificial_objects_on_Mars"
+        }
+      ]
+    },
+    {
+      "id": "spirit-opportunity",
+      "year": 2004.05,
+      "label": "2004",
+      "title": "Spirit & Opportunity",
+      "line": "Twin rovers find past water",
+      "detail": "The twin rovers landed in January 2004, Spirit in Gusev Crater and Opportunity in Meridiani Planum. Planned for 90 sols, Opportunity drove for over 14 years and found rocks that formed in water.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Spirit",
+          "lat": -14.5718,
+          "lon": 175.4785,
+          "kind": "rover",
+          "status": "real",
+          "source": "https://science.nasa.gov/mission/mer-spirit/"
+        },
+        {
+          "name": "Opportunity",
+          "lat": -1.9462,
+          "lon": -5.5266,
+          "kind": "rover",
+          "status": "real",
+          "source": "https://science.nasa.gov/mission/mer-opportunity/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA: Spirit",
+          "url": "https://science.nasa.gov/mission/mer-spirit/"
+        },
+        {
+          "title": "NASA: Opportunity",
+          "url": "https://science.nasa.gov/mission/mer-opportunity/"
+        },
+        {
+          "title": "Coordinates: List of artificial objects on Mars",
+          "url": "https://en.wikipedia.org/wiki/List_of_artificial_objects_on_Mars"
+        }
+      ]
+    },
+    {
+      "id": "phoenix",
+      "year": 2008.4,
+      "label": "2008",
+      "title": "Phoenix",
+      "line": "Digs up ice in the Arctic",
+      "detail": "Phoenix landed in the northern plains on 25 May 2008 and exposed water ice just centimetres below the soil, confirming ground ice at high latitude.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Phoenix",
+          "lat": 68.22,
+          "lon": -125.7,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://science.nasa.gov/mission/phoenix/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA: Phoenix",
+          "url": "https://science.nasa.gov/mission/phoenix/"
+        },
+        {
+          "title": "Coordinates: List of artificial objects on Mars",
+          "url": "https://en.wikipedia.org/wiki/List_of_artificial_objects_on_Mars"
+        }
+      ]
+    },
+    {
+      "id": "curiosity",
+      "year": 2012.6,
+      "label": "2012",
+      "title": "Curiosity",
+      "line": "Lands in Gale Crater",
+      "detail": "Curiosity landed in Gale Crater on 6 August 2012 (UTC) and found that the crater once held a lake with conditions that could have supported microbes. It was still driving in October 2026, more than 14 years later.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Curiosity (Gale Crater)",
+          "lat": -4.5895,
+          "lon": 137.4417,
+          "kind": "rover",
+          "status": "real",
+          "source": "https://science.nasa.gov/mission/msl-curiosity/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA: Curiosity",
+          "url": "https://science.nasa.gov/mission/msl-curiosity/"
+        },
+        {
+          "title": "Curiosity (rover), status as of Oct 2026",
+          "url": "https://en.wikipedia.org/wiki/Curiosity_(rover)"
+        },
+        {
+          "title": "Coordinates: List of artificial objects on Mars",
+          "url": "https://en.wikipedia.org/wiki/List_of_artificial_objects_on_Mars"
+        }
+      ]
+    },
+    {
+      "id": "insight",
+      "year": 2018.9,
+      "label": "2018",
+      "title": "InSight",
+      "line": "Listens for marsquakes",
+      "detail": "InSight landed in Elysium Planitia on 26 November 2018 and used a seismometer to map Mars' crust, mantle and core until the mission ended in December 2022.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "InSight",
+          "lat": 4.5024,
+          "lon": 135.6234,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://science.nasa.gov/mission/insight/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA: InSight",
+          "url": "https://science.nasa.gov/mission/insight/"
+        },
+        {
+          "title": "Coordinates: List of artificial objects on Mars",
+          "url": "https://en.wikipedia.org/wiki/List_of_artificial_objects_on_Mars"
+        }
+      ]
+    },
+    {
+      "id": "perseverance",
+      "year": 2021.13,
+      "label": "February 2021",
+      "title": "Perseverance",
+      "line": "Lands in Jezero, Ingenuity flies",
+      "detail": "Perseverance landed in Jezero Crater, an ancient lake with a river delta, on 18 February 2021. It carried Ingenuity, which made the first powered flight on another planet in April 2021 and flew 72 times before being retired in January 2024. In September 2025 NASA reported a 'potential biosignature' in the Cheyava Falls rock, which still needs more study.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Perseverance (Jezero Crater)",
+          "lat": 18.4457,
+          "lon": 77.4508,
+          "kind": "rover",
+          "status": "real",
+          "source": "https://science.nasa.gov/mission/mars-2020-perseverance/"
+        },
+        {
+          "name": "Ingenuity (deployment site)",
+          "lat": 18.4457,
+          "lon": 77.4508,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mars-helicopter/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA: Mars 2020 Perseverance",
+          "url": "https://science.nasa.gov/mission/mars-2020-perseverance/"
+        },
+        {
+          "title": "NASA: Ingenuity Mars Helicopter",
+          "url": "https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mars-helicopter/"
+        },
+        {
+          "title": "Hurowitz et al. (2025), Redox-driven mineral and organic associations in Jezero Crater, Mars, Nature",
+          "url": "https://doi.org/10.1038/s41586-025-09413-0"
+        },
+        {
+          "title": "Coordinates: List of artificial objects on Mars",
+          "url": "https://en.wikipedia.org/wiki/List_of_artificial_objects_on_Mars"
+        }
+      ]
+    },
+    {
+      "id": "zhurong",
+      "year": 2021.37,
+      "label": "May 2021",
+      "title": "Zhurong",
+      "line": "China's first Mars rover",
+      "detail": "China's Tianwen-1 put the Zhurong rover down in southern Utopia Planitia on 14 May 2021 (UTC), making China the second country to operate a rover on Mars. Its radar later probed buried layers near a proposed ancient shoreline.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "Zhurong (Utopia Planitia)",
+          "lat": 25.1,
+          "lon": 109.9,
+          "kind": "rover",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Zhurong_(rover)"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Zhurong (rover)",
+          "url": "https://en.wikipedia.org/wiki/Zhurong_(rover)"
+        },
+        {
+          "title": "Coordinates: List of artificial objects on Mars",
+          "url": "https://en.wikipedia.org/wiki/List_of_artificial_objects_on_Mars"
+        }
+      ]
+    },
+    {
+      "id": "today",
+      "year": 2026,
+      "label": "Today",
+      "title": "Today",
+      "line": "A cold desert with rovers",
+      "detail": "Mars has a CO2 atmosphere under 1% of Earth's surface pressure and a mean temperature near −59 °C. Curiosity and Perseverance are still driving; on 11 October 2026 Perseverance passed Opportunity's off-world distance record. SpaceX had aimed to send uncrewed Starships in the late-2026 window, but in February 2026 it put Mars on hold to focus on the Moon. No Starship is going this window.",
+      "kind": "present",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "NASA NSSDC: Mars fact sheet",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html"
+        },
+        {
+          "title": "NASA: Perseverance sets off-world record for total distance driven (12 Oct 2026)",
+          "url": "https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/"
+        },
+        {
+          "title": "AIAA: SpaceX puts Mars plans on hold to prioritize NASA Moon effort (9 Feb 2026)",
+          "url": "https://aiaa.org/2026/02/09/spacex-puts-mars-plans-on-hold-to-prioritize-nasa-moon-effort/"
+        },
+        {
+          "title": "Phys.org/AFP: SpaceX shifts focus from Mars to moon, Musk says (9 Feb 2026)",
+          "url": "https://phys.org/news/2026-02-spacex-shifts-focus-mars-moon.html"
+        }
+      ]
+    },
+    {
+      "id": "sr1-skyfall",
+      "year": 2028.9,
+      "label": "Late 2028 (planned)",
+      "title": "SR-1 Freedom",
+      "line": "Nuclear ship brings three helicopters",
+      "detail": "NASA plans to launch Space Reactor-1 Freedom to Mars before the end of 2028. It would be the first nuclear-powered interplanetary spacecraft, using a ~20 kW fission reactor for electric propulsion, and it would drop SkyFall, three Ingenuity-class helicopters that map buried ice. Cost and orbit-versus-flyby were still open in 2026.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA (Administrator Jared Isaacman), Ignition event, 24 March 2026",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "NASA: NASA unveils initiatives to achieve America's national space policy (24 Mar 2026)",
+          "url": "https://www.nasa.gov/news-release/nasa-unveils-initiatives-to-achieve-americas-national-space-policy/"
+        },
+        {
+          "title": "NASA Science: SkyFall",
+          "url": "https://science.nasa.gov/mission/skyfall/"
+        },
+        {
+          "title": "SpaceNews: NASA to test nuclear electric propulsion with 2028 mission to Mars",
+          "url": "https://spacenews.com/nasa-to-test-nuclear-electric-propulsion-with-2028-mission-to-mars/"
+        }
+      ]
+    },
+    {
+      "id": "spacex-mars-city-start",
+      "year": 2032,
+      "label": "~2031–2033 (Musk)",
+      "title": "Mars city begins",
+      "line": "Musk: begins in 5–7 years",
+      "detail": "On 8 February 2026, Musk wrote that SpaceX would 'strive to build a Mars city and begin doing so in about 5 to 7 years'. That came after he moved the near-term focus to the Moon. His earlier dates kept slipping: in September 2024 he said uncrewed ships would go in 2026 and crews 'in 4 years', and in May 2025 he put 2026 at 50-50. Pins mark the four prime sites a JPL–SpaceX team picked in 2021 near Arcadia Planitia, Erebus Montes and Phlegra Montes, chosen for buried ice.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "Elon Musk, post on X, 8 February 2026",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0.03,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sites": [
+        {
+          "name": "AP-1, Arcadia Planitia (SpaceX candidate)",
+          "lat": 39.8,
+          "lon": -157.9,
+          "kind": "base",
+          "status": "projected",
+          "source": "https://www.hou.usra.edu/meetings/lpsc2021/pdf/2420.pdf"
+        },
+        {
+          "name": "AP-9, Arcadia Planitia (SpaceX candidate)",
+          "lat": 40.02,
+          "lon": -156.65,
+          "kind": "base",
+          "status": "projected",
+          "source": "https://www.hou.usra.edu/meetings/lpsc2021/pdf/2420.pdf"
+        },
+        {
+          "name": "EM-16, Erebus Montes (SpaceX candidate)",
+          "lat": 39.89,
+          "lon": -167.97,
+          "kind": "base",
+          "status": "projected",
+          "source": "https://www.hou.usra.edu/meetings/lpsc2021/pdf/2420.pdf"
+        },
+        {
+          "name": "PM-1, Phlegra Montes (SpaceX candidate)",
+          "lat": 35.23,
+          "lon": 163.95,
+          "kind": "base",
+          "status": "projected",
+          "source": "https://www.hou.usra.edu/meetings/lpsc2021/pdf/2420.pdf"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Phys.org/AFP: SpaceX shifts focus from Mars to moon, Musk says (9 Feb 2026)",
+          "url": "https://phys.org/news/2026-02-spacex-shifts-focus-mars-moon.html"
+        },
+        {
+          "title": "ABC News: SpaceX to build 'self-growing city' on Moon (9 Feb 2026)",
+          "url": "https://www.abc.net.au/news/2026-02-09/spacex-building-lunar-self-gowing-city-moon-elon-musk/106322472"
+        },
+        {
+          "title": "Musk says SpaceX to launch first uncrewed Starships to Mars in two years (Reuters via West Hawaii Today, 8 Sep 2024)",
+          "url": "https://westhawaiitoday.com/2024/09/08/nation-world-news/musk-says-spacex-to-launch-first-uncrewed-starships-to-mars-in-two-years/"
+        },
+        {
+          "title": "Al Jazeera: Musk says 50-50 chance of uncrewed Starship to Mars by late 2026 (30 May 2025)",
+          "url": "https://www.aljazeera.com/news/2025/5/30/musk-says-50-50-chance-of-sending-uncrewed-starship-to-mars-by-late-2026"
+        },
+        {
+          "title": "Golombek et al. (2021), SpaceX Starship landing sites on Mars, LPSC 52 abstract 2420",
+          "url": "https://www.hou.usra.edu/meetings/lpsc2021/pdf/2420.pdf"
+        },
+        {
+          "title": "HiRISE: Candidate landing site for SpaceX Starship near Arcadia Planitia",
+          "url": "https://www.uahirise.org/ESP_061194_2190"
+        }
+      ]
+    },
+    {
+      "id": "nasa-humans-to-mars",
+      "year": 2039,
+      "label": "2030s (NASA)",
+      "title": "NASA crews",
+      "line": "Astronauts 'as early as the 2030s'",
+      "detail": "NASA says it is developing technology that could land astronauts on Mars 'as early as the 2030s' and shows a 2039 round trip as an example. It has no committed date. Under its Moon to Mars plan, systems are tested on the Moon first; past concepts had two crew spending about 30 days on the surface.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA, Humans to Mars page and Moon to Mars architecture (2022–2025)",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0.05,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "NASA: Humans to Mars",
+          "url": "https://www.nasa.gov/humans-in-space/humans-to-mars/"
+        },
+        {
+          "title": "NASA: Moon to Mars Architecture",
+          "url": "https://www.nasa.gov/moontomarsarchitecture-whitepapers"
+        },
+        {
+          "title": "IFLScience: what NASA's first two-astronaut Mars mission may look like (May 2022)",
+          "url": "https://www.iflscience.com/space/nasa-reveals-what-the-first-mission-to-send-two-astronauts-to-mars-may-look-like/"
+        }
+      ]
+    },
+    {
+      "id": "self-sustaining-city",
+      "year": 2046,
+      "label": "~2045+ (Musk)",
+      "title": "Self-sustaining city",
+      "line": "Musk: 20+ years away",
+      "detail": "Musk says the threshold is a city that keeps growing 'even when the supply ships from Earth stop coming', which needs 'on the order of a million people'. In September 2024 he set a goal of a self-sustaining city 'in about 20 years'. In March 2025 he said 'it can be done in 20 years'. In February 2026 he wrote that Mars 'would take 20+ years'. This is his aspiration, not a schedule.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "Elon Musk: X post 7 Sep 2024; The Verdict with Ted Cruz, Mar 2025; X post 8 Feb 2026",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0.25,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Musk says SpaceX to launch first uncrewed Starships to Mars in two years (Reuters via West Hawaii Today, 8 Sep 2024)",
+          "url": "https://westhawaiitoday.com/2024/09/08/nation-world-news/musk-says-spacex-to-launch-first-uncrewed-starships-to-mars-in-two-years/"
+        },
+        {
+          "title": "Denver Gazette: Musk wants to build Mars city of 1 million (19 Mar 2025)",
+          "url": "https://www.denvergazette.com/?p=8553"
+        },
+        {
+          "title": "Phys.org/AFP: SpaceX shifts focus from Mars to moon, Musk says (9 Feb 2026)",
+          "url": "https://phys.org/news/2026-02-spacex-shifts-focus-mars-moon.html"
+        }
+      ]
+    },
+    {
+      "id": "million-people",
+      "year": 2050,
+      "label": "2050 (Musk, 2020)",
+      "title": "A million people",
+      "line": "Musk's 2020 target",
+      "detail": "In January 2020 Musk tweeted a plan for a fleet of 1,000 Starships carrying 'maybe around 100k people per Earth-Mars orbital sync'. Asked whether that meant a million people on Mars by 2050, he replied 'yes'. This target predates his February 2026 move toward the Moon and his '20+ years' estimate for Mars.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "Elon Musk, posts on Twitter, 16 January 2020",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0.5,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Futurism: Elon Musk, a million people on Mars by 2050 (17 Jan 2020)",
+          "url": "https://futurism.com/the-byte/elon-musk-million-people-mars-2050"
+        },
+        {
+          "title": "Space.com: Elon Musk on Starship flights and a Mars colony",
+          "url": "https://www.space.com/elon-musk-starship-spacex-flights-mars-colony.html"
+        }
+      ]
+    },
+    {
+      "id": "terraforming-research",
+      "year": 2100,
+      "label": "Undated · speculative",
+      "title": "Warming Mars?",
+      "line": "Research only, no plan",
+      "detail": "A 2024 Science Advances model by Ansari, Kite et al. finds that steadily releasing engineered nanorods could warm Mars by about 30 K or more, enough to start melting ice. It would still take millions of tonnes, and the air would stay unbreathable. A 2025 Nature Astronomy perspective (DeBenedictis, Kite et al.) argues only for research. Neither gives a date, so the globe does not change here.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "Speculative research: Ansari, Kite et al., Science Advances, Aug 2024; DeBenedictis, Kite et al., Nature Astronomy, May 2025. No date given",
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0.3,
+        "clouds": 0.05,
+        "haze": 0.1,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0.5,
+        "dust": 0.5,
+        "atmosphere": 0.15,
+        "atmosphere_tint": "#d9a27a",
+        "surface_tint": null,
+        "base": "today"
+      },
+      "sources": [
+        {
+          "title": "Ansari et al. (2024), Feasibility of keeping Mars warm with nanoparticles, Science Advances",
+          "url": "https://doi.org/10.1126/sciadv.adn4650"
+        },
+        {
+          "title": "UChicago News: Scientists lay out revolutionary method to warm Mars (7 Aug 2024)",
+          "url": "https://news.uchicago.edu/story/scientists-lay-out-revolutionary-method-warm-mars"
+        },
+        {
+          "title": "DeBenedictis et al. (2025), The case for Mars terraforming research, Nature Astronomy",
+          "url": "https://doi.org/10.1038/s41550-025-02548-0"
+        },
+        {
+          "title": "Los Alamos National Laboratory: Is terraforming Mars possible? (13 May 2025)",
+          "url": "https://www.lanl.gov/media/news/0513-terraforming-mars"
+        }
+      ]
+    }
+  ]
+}

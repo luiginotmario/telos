@@ -1,0 +1,3398 @@
+{
+  "id": "earth-humans",
+  "notes": [
+    "world_population: HYDE 3.3 (to 1799), Gapminder v7 (1800–1949) and UN WPP 2024 (1950+) as compiled by Our World in Data; 500 BCE uses McEvedy & Jones because HYDE has only 1000-year steps before 0 CE.",
+    "population_range: lowest and highest of HYDE and the U.S. Census Bureau's summary of published estimates for that exact year; omitted when only one estimate exists.",
+    "world_population is null before 12,000 years ago: no credible census-style estimate exists.",
+    "peoples are a curated selection (max 8) of the larger or better-documented groups present at that date, not a complete list. lat/lon mark a representative capital or type site.",
+    "2026 figures are UN WPP 2024 medium-variant projections."
+  ],
+  "sources": [
+    {
+      "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+      "url": "https://ourworldindata.org/grapher/population"
+    },
+    {
+      "title": "HYDE 3.3 – History Database of the Global Environment (Klein Goldewijk et al.)",
+      "url": "https://doi.org/10.24416/UU01-AEZZIT"
+    },
+    {
+      "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+      "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+    },
+    {
+      "title": "UN DESA – World Population Prospects 2024",
+      "url": "https://population.un.org/wpp/"
+    },
+    {
+      "title": "Our World in Data – Population with UN projections (WPP 2024 medium variant)",
+      "url": "https://ourworldindata.org/grapher/population-with-un-projections"
+    },
+    {
+      "title": "Smithsonian Human Origins Program – Human fossils by species",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species"
+    }
+  ],
+  "eras": [
+    {
+      "year": -2000000,
+      "label": "2 million years ago",
+      "world_population": null,
+      "population_source": null,
+      "peoples": [
+        {
+          "name": "Homo erectus",
+          "region": "East & South Africa",
+          "lat": 3.5,
+          "lon": 36.0,
+          "note": "Earliest fossils ~2 Ma; later spreads across Asia"
+        },
+        {
+          "name": "Homo habilis",
+          "region": "East Africa",
+          "lat": -2.99,
+          "lon": 35.35,
+          "note": "Early Homo, about 2.4–1.4 million years ago"
+        },
+        {
+          "name": "Paranthropus boisei",
+          "region": "East Africa",
+          "lat": -2.99,
+          "lon": 35.35,
+          "note": "Robust-jawed hominin, 2.3–1.2 million years ago"
+        },
+        {
+          "name": "Australopithecus sediba",
+          "region": "South Africa",
+          "lat": -25.89,
+          "lon": 27.8,
+          "note": "Malapa fossils dated about 1.98 million years ago"
+        },
+        {
+          "name": "Unknown toolmakers",
+          "region": "Loess Plateau, China",
+          "lat": 34.0,
+          "lon": 109.4,
+          "note": "Stone tools ~2.1 Ma; makers' species unknown"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Homo erectus",
+          "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-erectus"
+        },
+        {
+          "title": "Homo habilis",
+          "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-habilis"
+        },
+        {
+          "title": "Paranthropus boisei",
+          "url": "https://humanorigins.si.edu/evidence/human-fossils/species/paranthropus-boisei"
+        },
+        {
+          "title": "Australopithecus sediba",
+          "url": "https://humanorigins.si.edu/evidence/human-fossils/species/australopithecus-sediba"
+        },
+        {
+          "title": "Unknown toolmakers",
+          "url": "https://doi.org/10.1038/s41586-018-0299-4"
+        },
+        {
+          "title": "Herries et al. 2020, Science – Contemporaneity of Australopithecus, Paranthropus and early Homo erectus",
+          "url": "https://doi.org/10.1126/science.aaw7293"
+        }
+      ]
+    },
+    {
+      "year": -300000,
+      "label": "300,000 years ago",
+      "world_population": null,
+      "population_source": null,
+      "peoples": [
+        {
+          "name": "Homo sapiens",
+          "region": "North Africa (Jebel Irhoud)",
+          "lat": 31.86,
+          "lon": -8.87,
+          "note": "Oldest known H. sapiens fossils, about 315,000 years old"
+        },
+        {
+          "name": "Homo naledi",
+          "region": "South Africa (Rising Star)",
+          "lat": -26.02,
+          "lon": 27.71,
+          "note": "Small-brained species dated 335,000–236,000 years ago"
+        },
+        {
+          "name": "Broken Hill (Kabwe) hominin",
+          "region": "Zambia",
+          "lat": -14.45,
+          "lon": 28.45,
+          "note": "Archaic skull dated about 299,000 years ago"
+        },
+        {
+          "name": "Early Neanderthals",
+          "region": "Europe",
+          "lat": 46.0,
+          "lon": 8.0,
+          "note": "Neanderthal lineage established across Europe"
+        },
+        {
+          "name": "Denisovans",
+          "region": "Asia (Altai, Siberia)",
+          "lat": 51.4,
+          "lon": 84.68,
+          "note": "Neanderthal sister group, known mostly from ancient DNA"
+        },
+        {
+          "name": "Homo erectus",
+          "region": "East & Southeast Asia",
+          "lat": -7.37,
+          "lon": 111.36,
+          "note": "Still present in Java until ~110,000 years ago"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Homo sapiens",
+          "url": "https://doi.org/10.1038/nature22336"
+        },
+        {
+          "title": "Homo naledi",
+          "url": "https://doi.org/10.7554/eLife.24231"
+        },
+        {
+          "title": "Broken Hill (Kabwe) hominin",
+          "url": "https://doi.org/10.1038/s41586-020-2165-4"
+        },
+        {
+          "title": "Early Neanderthals",
+          "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-neanderthalensis"
+        },
+        {
+          "title": "Denisovans",
+          "url": "https://doi.org/10.1038/nature09710"
+        },
+        {
+          "title": "Homo erectus",
+          "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-erectus"
+        }
+      ]
+    },
+    {
+      "year": -60000,
+      "label": "70,000–50,000 years ago",
+      "world_population": null,
+      "population_source": null,
+      "peoples": [
+        {
+          "name": "Homo sapiens",
+          "region": "Africa",
+          "lat": 0.0,
+          "lon": 30.0,
+          "note": "Diverse populations across Africa"
+        },
+        {
+          "name": "Homo sapiens (dispersal)",
+          "region": "Arabia & Levant",
+          "lat": 31.0,
+          "lon": 40.0,
+          "note": "Ancestors of all non-Africans leave Africa"
+        },
+        {
+          "name": "First Australians",
+          "region": "Sahul (northern Australia)",
+          "lat": -12.5,
+          "lon": 132.9,
+          "note": "Arrival by ~65,000 years ago (debated; ≥50 ka accepted)"
+        },
+        {
+          "name": "Neanderthals",
+          "region": "Europe & western Asia",
+          "lat": 45.0,
+          "lon": 25.0,
+          "note": "Interbreed with dispersing Homo sapiens"
+        },
+        {
+          "name": "Denisovans",
+          "region": "Asia",
+          "lat": 51.4,
+          "lon": 84.68,
+          "note": "Leave DNA in present-day Oceanian and Asian peoples"
+        },
+        {
+          "name": "Homo floresiensis",
+          "region": "Flores, Indonesia",
+          "lat": -8.53,
+          "lon": 120.46,
+          "note": "Liang Bua fossils 100,000–60,000 years old"
+        },
+        {
+          "name": "Homo luzonensis",
+          "region": "Luzon, Philippines",
+          "lat": 17.71,
+          "lon": 121.82,
+          "note": "Callao Cave fossils at least 50,000 years old"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Homo sapiens",
+          "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-sapiens"
+        },
+        {
+          "title": "Homo sapiens (dispersal)",
+          "url": "https://doi.org/10.1038/s41586-021-03244-5"
+        },
+        {
+          "title": "First Australians",
+          "url": "https://doi.org/10.1038/nature22968"
+        },
+        {
+          "title": "Neanderthals",
+          "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-neanderthalensis"
+        },
+        {
+          "title": "Denisovans",
+          "url": "https://doi.org/10.1038/nature09710"
+        },
+        {
+          "title": "Homo floresiensis",
+          "url": "https://doi.org/10.1038/nature17179"
+        },
+        {
+          "title": "Homo luzonensis",
+          "url": "https://doi.org/10.1038/s41586-019-1067-9"
+        },
+        {
+          "title": "Sümer et al. 2024, Nature – Earliest modern human genomes constrain timing of Neanderthal admixture",
+          "url": "https://doi.org/10.1038/s41586-024-08420-x"
+        }
+      ]
+    },
+    {
+      "year": -40000,
+      "label": "40,000 years ago",
+      "world_population": null,
+      "population_source": null,
+      "peoples": [
+        {
+          "name": "Aurignacian Homo sapiens",
+          "region": "Europe",
+          "lat": 48.4,
+          "lon": 9.8,
+          "note": "Earliest figurative art and flutes in Europe"
+        },
+        {
+          "name": "Last Neanderthals",
+          "region": "Europe",
+          "lat": 40.0,
+          "lon": -4.0,
+          "note": "Disappear about 41,000–39,000 years ago"
+        },
+        {
+          "name": "Sulawesi cave artists",
+          "region": "Sulawesi, Indonesia",
+          "lat": -4.95,
+          "lon": 119.6,
+          "note": "Pig painting dated at least 45,500 years old"
+        },
+        {
+          "name": "Lake Mungo people",
+          "region": "Southeast Australia",
+          "lat": -33.75,
+          "lon": 143.08,
+          "note": "Burials about 40,000 years old"
+        },
+        {
+          "name": "Tianyuan people",
+          "region": "Northern China",
+          "lat": 39.65,
+          "lon": 115.88,
+          "note": "Early modern human near Beijing, about 40,000 years old"
+        },
+        {
+          "name": "Later Stone Age foragers",
+          "region": "Southern Africa (Border Cave)",
+          "lat": -27.02,
+          "lon": 31.99,
+          "note": "Tools resembling San material culture ~44,000 years ago"
+        },
+        {
+          "name": "Ust'-Ishim lineage",
+          "region": "Western Siberia",
+          "lat": 57.7,
+          "lon": 71.2,
+          "note": "Oldest sequenced modern human genome, 45,000 years old"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Aurignacian Homo sapiens – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Aurignacian"
+        },
+        {
+          "title": "Last Neanderthals",
+          "url": "https://doi.org/10.1038/nature13621"
+        },
+        {
+          "title": "Sulawesi cave artists",
+          "url": "https://doi.org/10.1126/sciadv.abd4648"
+        },
+        {
+          "title": "Lake Mungo people",
+          "url": "https://doi.org/10.1038/nature01383"
+        },
+        {
+          "title": "Tianyuan people",
+          "url": "https://doi.org/10.1073/pnas.1221359110"
+        },
+        {
+          "title": "Later Stone Age foragers",
+          "url": "https://doi.org/10.1073/pnas.1204213109"
+        },
+        {
+          "title": "Ust'-Ishim lineage",
+          "url": "https://doi.org/10.1038/nature13810"
+        }
+      ]
+    },
+    {
+      "year": -10000,
+      "label": "12,000 years ago",
+      "world_population": 4501152,
+      "population_range": [
+        1000000,
+        10000000
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Natufians",
+          "region": "Levant",
+          "lat": 32.7,
+          "lon": 35.3,
+          "note": "Settled foragers on the eve of farming"
+        },
+        {
+          "name": "Göbekli Tepe builders",
+          "region": "Upper Mesopotamia",
+          "lat": 37.22,
+          "lon": 38.92,
+          "note": "Monumental stone enclosures from about 9500 BCE"
+        },
+        {
+          "name": "Jōmon",
+          "region": "Japan",
+          "lat": 36.0,
+          "lon": 138.0,
+          "note": "Pottery-making foragers since about 14,000 BCE"
+        },
+        {
+          "name": "Folsom hunters",
+          "region": "Great Plains, North America",
+          "lat": 36.85,
+          "lon": -103.9,
+          "note": "Paleo-Indian bison hunters"
+        },
+        {
+          "name": "Lagoa Santa people",
+          "region": "Eastern Brazil",
+          "lat": -19.6,
+          "lon": -43.9,
+          "note": "Early South Americans, including the 'Luzia' skeleton"
+        },
+        {
+          "name": "Iberomaurusians",
+          "region": "Northwest Africa",
+          "lat": 34.8,
+          "lon": -2.4,
+          "note": "Late Pleistocene foragers of the Maghreb"
+        },
+        {
+          "name": "Western Hunter-Gatherers",
+          "region": "Europe",
+          "lat": 46.0,
+          "lon": 6.0,
+          "note": "Post-glacial foragers repopulating Europe"
+        },
+        {
+          "name": "Aboriginal Australians",
+          "region": "Australia",
+          "lat": -25.0,
+          "lon": 134.0,
+          "note": "Continuous presence across the continent"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Natufians – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Natufian_culture"
+        },
+        {
+          "title": "Göbekli Tepe builders – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe"
+        },
+        {
+          "title": "Jōmon – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/J%C5%8Dmon_period"
+        },
+        {
+          "title": "Folsom hunters – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Folsom_tradition"
+        },
+        {
+          "title": "Lagoa Santa people – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Luzia_Woman"
+        },
+        {
+          "title": "Iberomaurusians – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Iberomaurusian"
+        },
+        {
+          "title": "Western Hunter-Gatherers – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Western_hunter-gatherer"
+        },
+        {
+          "title": "Aboriginal Australians – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Aboriginal_Australians"
+        }
+      ]
+    },
+    {
+      "year": -5000,
+      "label": "5000 BCE",
+      "world_population": 19155698,
+      "population_range": [
+        5000000,
+        20000000
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Ubaid culture",
+          "region": "Southern Mesopotamia",
+          "lat": 30.82,
+          "lon": 45.99,
+          "note": "Early temple towns such as Eridu"
+        },
+        {
+          "name": "Yangshao culture",
+          "region": "Yellow River, China",
+          "lat": 34.27,
+          "lon": 109.05,
+          "note": "Painted-pottery millet farmers"
+        },
+        {
+          "name": "Hemudu culture",
+          "region": "Yangtze delta, China",
+          "lat": 30.03,
+          "lon": 121.35,
+          "note": "Early rice cultivators in stilt houses"
+        },
+        {
+          "name": "Linear Pottery culture",
+          "region": "Central Europe",
+          "lat": 50.0,
+          "lon": 12.0,
+          "note": "First farmers of central Europe, longhouses"
+        },
+        {
+          "name": "Mehrgarh",
+          "region": "Indus borderlands",
+          "lat": 29.38,
+          "lon": 67.61,
+          "note": "Long-lived farming village in Balochistan"
+        },
+        {
+          "name": "Faiyum A culture",
+          "region": "Lower Egypt",
+          "lat": 29.5,
+          "lon": 30.6,
+          "note": "Among Egypt's earliest farmers"
+        },
+        {
+          "name": "Chinchorro",
+          "region": "Atacama coast, Chile",
+          "lat": -18.48,
+          "lon": -70.31,
+          "note": "World's oldest known artificial mummification"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Ubaid culture – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ubaid_period"
+        },
+        {
+          "title": "Yangshao culture – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yangshao_culture"
+        },
+        {
+          "title": "Hemudu culture – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hemudu_culture"
+        },
+        {
+          "title": "Linear Pottery culture – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Linear_Pottery_culture"
+        },
+        {
+          "title": "Mehrgarh – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mehrgarh"
+        },
+        {
+          "title": "Faiyum A culture – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Prehistoric_Egypt"
+        },
+        {
+          "title": "Chinchorro – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chinchorro_culture"
+        }
+      ]
+    },
+    {
+      "year": -3000,
+      "label": "3000 BCE",
+      "world_population": 44577880,
+      "population_range": [
+        14000000,
+        44577880
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Early Dynastic Egypt",
+          "region": "Nile Valley",
+          "lat": 29.85,
+          "lon": 31.25,
+          "note": "First pharaohs unify Upper and Lower Egypt"
+        },
+        {
+          "name": "Sumerian city-states",
+          "region": "Southern Mesopotamia",
+          "lat": 31.32,
+          "lon": 45.64,
+          "note": "Uruk and neighbours; early writing"
+        },
+        {
+          "name": "Proto-Elamites",
+          "region": "Southwest Iran",
+          "lat": 32.19,
+          "lon": 48.26,
+          "note": "Centered on Susa; own undeciphered script"
+        },
+        {
+          "name": "Early Harappans",
+          "region": "Indus Valley",
+          "lat": 30.63,
+          "lon": 72.86,
+          "note": "Precursors of the Indus civilization"
+        },
+        {
+          "name": "Liangzhu culture",
+          "region": "Yangtze delta, China",
+          "lat": 30.39,
+          "lon": 119.99,
+          "note": "Jade-working walled city with water works"
+        },
+        {
+          "name": "Yamnaya",
+          "region": "Pontic–Caspian steppe",
+          "lat": 47.5,
+          "lon": 40.0,
+          "note": "Mobile herders with wagons"
+        },
+        {
+          "name": "Norte Chico (Caral)",
+          "region": "Coastal Peru",
+          "lat": -10.89,
+          "lon": -77.52,
+          "note": "Oldest known urban centres in the Americas"
+        },
+        {
+          "name": "Stonehenge builders",
+          "region": "Britain",
+          "lat": 51.18,
+          "lon": -1.83,
+          "note": "First phase of Stonehenge, about 3000 BCE"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Early Dynastic Egypt – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Early_Dynastic_Period_of_Egypt"
+        },
+        {
+          "title": "Sumerian city-states – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sumer"
+        },
+        {
+          "title": "Proto-Elamites – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Proto-Elamite_(period)"
+        },
+        {
+          "title": "Early Harappans – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Indus_Valley_Civilisation"
+        },
+        {
+          "title": "Liangzhu culture – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Liangzhu_culture"
+        },
+        {
+          "title": "Yamnaya – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yamnaya_culture"
+        },
+        {
+          "title": "Norte Chico (Caral) – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Caral%E2%80%93Supe_civilization"
+        },
+        {
+          "title": "Stonehenge builders – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Stonehenge"
+        }
+      ]
+    },
+    {
+      "year": -2000,
+      "label": "2000 BCE",
+      "world_population": 72685064,
+      "population_range": [
+        27000000,
+        72685064
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Middle Kingdom Egypt",
+          "region": "Nile Valley",
+          "lat": 25.7,
+          "lon": 32.64,
+          "note": "Egypt reunified under Theban kings"
+        },
+        {
+          "name": "Isin–Larsa city-states",
+          "region": "Mesopotamia",
+          "lat": 31.88,
+          "lon": 45.27,
+          "note": "Amorite dynasties after the fall of Ur"
+        },
+        {
+          "name": "Old Assyrian city of Assur",
+          "region": "Upper Mesopotamia",
+          "lat": 35.46,
+          "lon": 43.26,
+          "note": "Merchant network reaching Anatolia"
+        },
+        {
+          "name": "Indus Valley civilization",
+          "region": "Indus Valley",
+          "lat": 27.32,
+          "lon": 68.14,
+          "note": "Mature Harappan cities such as Mohenjo-daro"
+        },
+        {
+          "name": "Minoans",
+          "region": "Crete",
+          "lat": 35.3,
+          "lon": 25.16,
+          "note": "First palaces built around 1900 BCE"
+        },
+        {
+          "name": "Longshan culture",
+          "region": "Yellow River, China",
+          "lat": 35.5,
+          "lon": 115.0,
+          "note": "Late Neolithic walled towns"
+        },
+        {
+          "name": "Kerma",
+          "region": "Upper Nubia",
+          "lat": 19.6,
+          "lon": 30.41,
+          "note": "Earliest kingdom of Kush region"
+        },
+        {
+          "name": "Sintashta",
+          "region": "Southern Urals",
+          "lat": 52.5,
+          "lon": 60.0,
+          "note": "Fortified settlements; early spoke-wheeled chariots"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Middle Kingdom Egypt – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Middle_Kingdom_of_Egypt"
+        },
+        {
+          "title": "Isin–Larsa city-states – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Isin-Larsa_period"
+        },
+        {
+          "title": "Old Assyrian city of Assur – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Old_Assyrian_period"
+        },
+        {
+          "title": "Indus Valley civilization – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Indus_Valley_Civilisation"
+        },
+        {
+          "title": "Minoans – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Minoan_civilization"
+        },
+        {
+          "title": "Longshan culture – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Longshan_culture"
+        },
+        {
+          "title": "Kerma – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kerma_culture"
+        },
+        {
+          "title": "Sintashta – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sintashta_culture"
+        }
+      ]
+    },
+    {
+      "year": -1000,
+      "label": "1000 BCE",
+      "world_population": 110530464,
+      "population_range": [
+        50000000,
+        110530464
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Western Zhou",
+          "region": "Wei River, China",
+          "lat": 34.23,
+          "lon": 108.77,
+          "note": "Zhou kings rule from Haojing"
+        },
+        {
+          "name": "Egypt, Third Intermediate Period",
+          "region": "Nile Delta",
+          "lat": 30.98,
+          "lon": 31.88,
+          "note": "Divided rule after the New Kingdom"
+        },
+        {
+          "name": "Phoenicians",
+          "region": "Levantine coast",
+          "lat": 33.27,
+          "lon": 35.2,
+          "note": "Seafaring city-states; alphabet spreads"
+        },
+        {
+          "name": "Middle Assyrian kingdom",
+          "region": "Upper Mesopotamia",
+          "lat": 35.46,
+          "lon": 43.26,
+          "note": "Late, contracted phase before Neo-Assyrian expansion"
+        },
+        {
+          "name": "Kuru kingdom",
+          "region": "Northern India",
+          "lat": 29.5,
+          "lon": 77.0,
+          "note": "Later Vedic polity of the Ganges plain"
+        },
+        {
+          "name": "Olmec",
+          "region": "Gulf Coast, Mexico",
+          "lat": 17.75,
+          "lon": -94.76,
+          "note": "San Lorenzo, then La Venta"
+        },
+        {
+          "name": "Urnfield culture",
+          "region": "Central Europe",
+          "lat": 48.0,
+          "lon": 12.0,
+          "note": "Late Bronze Age cremating farmers"
+        },
+        {
+          "name": "Lapita",
+          "region": "Melanesia",
+          "lat": -15.4,
+          "lon": 167.0,
+          "note": "Seafarers settling remote Pacific islands"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Western Zhou – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Western_Zhou"
+        },
+        {
+          "title": "Egypt, Third Intermediate Period – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Third_Intermediate_Period_of_Egypt"
+        },
+        {
+          "title": "Phoenicians – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Phoenicia"
+        },
+        {
+          "title": "Middle Assyrian kingdom – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Middle_Assyrian_Empire"
+        },
+        {
+          "title": "Kuru kingdom – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kuru_kingdom"
+        },
+        {
+          "title": "Olmec – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Olmecs"
+        },
+        {
+          "title": "Urnfield culture – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Urnfield_culture"
+        },
+        {
+          "title": "Lapita – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lapita_culture"
+        }
+      ]
+    },
+    {
+      "year": -500,
+      "label": "500 BCE",
+      "world_population": 100000000,
+      "population_source": "McEvedy & Jones 1978 (via U.S. Census Bureau summary table); HYDE has no 500 BCE step",
+      "peoples": [
+        {
+          "name": "Achaemenid Persia",
+          "region": "Iran & Near East",
+          "lat": 29.93,
+          "lon": 52.89,
+          "note": "Largest empire yet; Persepolis under construction"
+        },
+        {
+          "name": "Greek city-states",
+          "region": "Aegean",
+          "lat": 37.97,
+          "lon": 23.73,
+          "note": "Athens, Sparta and hundreds of poleis"
+        },
+        {
+          "name": "Roman Republic",
+          "region": "Central Italy",
+          "lat": 41.89,
+          "lon": 12.49,
+          "note": "Republic founded, by tradition 509 BCE"
+        },
+        {
+          "name": "Carthage",
+          "region": "North Africa",
+          "lat": 36.85,
+          "lon": 10.32,
+          "note": "Phoenician colony dominating the western Mediterranean"
+        },
+        {
+          "name": "Eastern Zhou states",
+          "region": "China",
+          "lat": 34.62,
+          "lon": 112.45,
+          "note": "Spring and Autumn period; age of Confucius"
+        },
+        {
+          "name": "Magadha",
+          "region": "Ganges plain, India",
+          "lat": 25.0,
+          "lon": 85.42,
+          "note": "Rising kingdom; age of Buddha and Mahavira"
+        },
+        {
+          "name": "Kingdom of Kush",
+          "region": "Nubia",
+          "lat": 18.54,
+          "lon": 31.85,
+          "note": "Napata-based kingdom on the Nile"
+        },
+        {
+          "name": "Olmec (La Venta)",
+          "region": "Gulf Coast, Mexico",
+          "lat": 18.1,
+          "lon": -94.04,
+          "note": "Last major Olmec center"
+        }
+      ],
+      "sources": [
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Achaemenid Persia – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Achaemenid_Empire"
+        },
+        {
+          "title": "Greek city-states – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ancient_Greece"
+        },
+        {
+          "title": "Roman Republic – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Roman_Republic"
+        },
+        {
+          "title": "Carthage – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ancient_Carthage"
+        },
+        {
+          "title": "Eastern Zhou states – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Eastern_Zhou"
+        },
+        {
+          "title": "Magadha – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Magadha"
+        },
+        {
+          "title": "Kingdom of Kush – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kingdom_of_Kush"
+        },
+        {
+          "title": "Olmec (La Venta) – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/La_Venta"
+        }
+      ]
+    },
+    {
+      "year": 1,
+      "label": "1 CE",
+      "world_population": 232268832,
+      "population_range": [
+        170000000,
+        400000000
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); HYDE value is for year 0; range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Roman Empire",
+          "region": "Mediterranean",
+          "lat": 41.89,
+          "lon": 12.49,
+          "note": "Under Augustus"
+        },
+        {
+          "name": "Han China",
+          "region": "China",
+          "lat": 34.27,
+          "lon": 108.9,
+          "note": "Western Han, capital Chang'an"
+        },
+        {
+          "name": "Parthian Empire",
+          "region": "Iran & Mesopotamia",
+          "lat": 33.09,
+          "lon": 44.58,
+          "note": "Rome's eastern rival; capital Ctesiphon"
+        },
+        {
+          "name": "Satavahanas",
+          "region": "Deccan, India",
+          "lat": 19.48,
+          "lon": 75.38,
+          "note": "Deccan dynasty; start date debated"
+        },
+        {
+          "name": "Xiongnu",
+          "region": "Mongolian steppe",
+          "lat": 47.5,
+          "lon": 102.8,
+          "note": "Nomadic confederation north of Han China"
+        },
+        {
+          "name": "Kingdom of Kush (Meroë)",
+          "region": "Nubia",
+          "lat": 16.94,
+          "lon": 33.75,
+          "note": "Iron-working kingdom with pyramids"
+        },
+        {
+          "name": "Preclassic Maya",
+          "region": "Maya lowlands",
+          "lat": 17.75,
+          "lon": -89.92,
+          "note": "Large early cities such as El Mirador"
+        },
+        {
+          "name": "Teotihuacan",
+          "region": "Valley of Mexico",
+          "lat": 19.69,
+          "lon": -98.84,
+          "note": "City growing into a metropolis"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Roman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Roman_Empire"
+        },
+        {
+          "title": "Han China – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Han_dynasty"
+        },
+        {
+          "title": "Parthian Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Parthian_Empire"
+        },
+        {
+          "title": "Satavahanas – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Satavahana_dynasty"
+        },
+        {
+          "title": "Xiongnu – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Xiongnu"
+        },
+        {
+          "title": "Kingdom of Kush (Meroë) – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mero%C3%AB"
+        },
+        {
+          "title": "Preclassic Maya – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/El_Mirador"
+        },
+        {
+          "title": "Teotihuacan – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Teotihuacan"
+        }
+      ]
+    },
+    {
+      "year": 100,
+      "label": "100 CE",
+      "world_population": 237052192,
+      "population_source": "HYDE 3.3 (via Our World in Data)",
+      "peoples": [
+        {
+          "name": "Roman Empire",
+          "region": "Mediterranean",
+          "lat": 41.89,
+          "lon": 12.49,
+          "note": "Near its greatest extent under Trajan"
+        },
+        {
+          "name": "Han China",
+          "region": "China",
+          "lat": 34.68,
+          "lon": 112.6,
+          "note": "Eastern Han, capital Luoyang"
+        },
+        {
+          "name": "Parthian Empire",
+          "region": "Iran & Mesopotamia",
+          "lat": 33.09,
+          "lon": 44.58,
+          "note": "Arsacid kings rule from Ctesiphon"
+        },
+        {
+          "name": "Kushan Empire",
+          "region": "Bactria & northern India",
+          "lat": 34.01,
+          "lon": 71.58,
+          "note": "Silk Road crossroads empire"
+        },
+        {
+          "name": "Satavahanas",
+          "region": "Deccan, India",
+          "lat": 19.48,
+          "lon": 75.38,
+          "note": "Dominant power of the Deccan"
+        },
+        {
+          "name": "Teotihuacan",
+          "region": "Valley of Mexico",
+          "lat": 19.69,
+          "lon": -98.84,
+          "note": "Monumental pyramids rising along the Avenue of the Dead"
+        },
+        {
+          "name": "Maya city-states",
+          "region": "Maya lowlands",
+          "lat": 17.22,
+          "lon": -89.62,
+          "note": "Tikal and rival cities"
+        },
+        {
+          "name": "Aksum",
+          "region": "Ethiopian highlands",
+          "lat": 14.13,
+          "lon": 38.72,
+          "note": "Red Sea trading kingdom"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "Roman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Roman_Empire"
+        },
+        {
+          "title": "Han China – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Han_dynasty"
+        },
+        {
+          "title": "Parthian Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Parthian_Empire"
+        },
+        {
+          "title": "Kushan Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kushan_Empire"
+        },
+        {
+          "title": "Satavahanas – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Satavahana_dynasty"
+        },
+        {
+          "title": "Teotihuacan – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Teotihuacan"
+        },
+        {
+          "title": "Maya city-states – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Maya_civilization"
+        },
+        {
+          "title": "Aksum – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kingdom_of_Aksum"
+        }
+      ]
+    },
+    {
+      "year": 200,
+      "label": "200 CE",
+      "world_population": 240762160,
+      "population_range": [
+        190000000,
+        256000000
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Roman Empire",
+          "region": "Mediterranean",
+          "lat": 41.89,
+          "lon": 12.49,
+          "note": "Severan dynasty"
+        },
+        {
+          "name": "Han China",
+          "region": "China",
+          "lat": 34.68,
+          "lon": 112.6,
+          "note": "Eastern Han in its final decades (ends 220)"
+        },
+        {
+          "name": "Parthian Empire",
+          "region": "Iran & Mesopotamia",
+          "lat": 33.09,
+          "lon": 44.58,
+          "note": "Last years before Sasanian conquest (224)"
+        },
+        {
+          "name": "Kushan Empire",
+          "region": "Bactria & northern India",
+          "lat": 34.01,
+          "lon": 71.58,
+          "note": "Late Kushan kings"
+        },
+        {
+          "name": "Teotihuacan",
+          "region": "Valley of Mexico",
+          "lat": 19.69,
+          "lon": -98.84,
+          "note": "One of the largest cities on Earth"
+        },
+        {
+          "name": "Maya city-states",
+          "region": "Maya lowlands",
+          "lat": 17.22,
+          "lon": -89.62,
+          "note": "Transition to the Classic period"
+        },
+        {
+          "name": "Moche",
+          "region": "North coast of Peru",
+          "lat": -8.13,
+          "lon": -78.99,
+          "note": "Adobe pyramids and fine ceramics"
+        },
+        {
+          "name": "Aksum",
+          "region": "Ethiopian highlands",
+          "lat": 14.13,
+          "lon": 38.72,
+          "note": "Red Sea trading kingdom"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Roman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Roman_Empire"
+        },
+        {
+          "title": "Han China – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Han_dynasty"
+        },
+        {
+          "title": "Parthian Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Parthian_Empire"
+        },
+        {
+          "title": "Kushan Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kushan_Empire"
+        },
+        {
+          "title": "Teotihuacan – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Teotihuacan"
+        },
+        {
+          "title": "Maya city-states – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Maya_civilization"
+        },
+        {
+          "title": "Moche – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Moche_culture"
+        },
+        {
+          "title": "Aksum – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kingdom_of_Aksum"
+        }
+      ]
+    },
+    {
+      "year": 300,
+      "label": "300 CE",
+      "world_population": 227702848,
+      "population_source": "HYDE 3.3 (via Our World in Data)",
+      "peoples": [
+        {
+          "name": "Roman Empire",
+          "region": "Mediterranean",
+          "lat": 41.89,
+          "lon": 12.49,
+          "note": "Tetrarchy under Diocletian"
+        },
+        {
+          "name": "Sasanian Empire",
+          "region": "Iran & Mesopotamia",
+          "lat": 33.09,
+          "lon": 44.58,
+          "note": "Persian dynasty ruling from Ctesiphon"
+        },
+        {
+          "name": "Jin dynasty",
+          "region": "China",
+          "lat": 34.68,
+          "lon": 112.6,
+          "note": "Western Jin briefly reunites China"
+        },
+        {
+          "name": "Goguryeo",
+          "region": "Korea & Manchuria",
+          "lat": 41.15,
+          "lon": 126.18,
+          "note": "Northern Korean kingdom"
+        },
+        {
+          "name": "Aksum",
+          "region": "Ethiopian highlands",
+          "lat": 14.13,
+          "lon": 38.72,
+          "note": "Minting its own coins"
+        },
+        {
+          "name": "Teotihuacan",
+          "region": "Valley of Mexico",
+          "lat": 19.69,
+          "lon": -98.84,
+          "note": "Influence reaches the Maya region"
+        },
+        {
+          "name": "Maya city-states",
+          "region": "Maya lowlands",
+          "lat": 17.22,
+          "lon": -89.62,
+          "note": "Early Classic period"
+        },
+        {
+          "name": "Moche",
+          "region": "North coast of Peru",
+          "lat": -8.13,
+          "lon": -78.99,
+          "note": "Regional states on the desert coast"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "Roman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Roman_Empire"
+        },
+        {
+          "title": "Sasanian Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sasanian_Empire"
+        },
+        {
+          "title": "Jin dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jin_dynasty_(266%E2%80%93420)"
+        },
+        {
+          "title": "Goguryeo – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Goguryeo"
+        },
+        {
+          "title": "Aksum – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kingdom_of_Aksum"
+        },
+        {
+          "title": "Teotihuacan – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Teotihuacan"
+        },
+        {
+          "title": "Maya city-states – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Maya_civilization"
+        },
+        {
+          "title": "Moche – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Moche_culture"
+        }
+      ]
+    },
+    {
+      "year": 400,
+      "label": "400 CE",
+      "world_population": 241697008,
+      "population_range": [
+        190000000,
+        241697008
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Western Roman Empire",
+          "region": "Western Mediterranean",
+          "lat": 45.46,
+          "lon": 9.19,
+          "note": "Court at Milan, moving to Ravenna"
+        },
+        {
+          "name": "Eastern Roman Empire",
+          "region": "Eastern Mediterranean",
+          "lat": 41.01,
+          "lon": 28.98,
+          "note": "Ruled from Constantinople"
+        },
+        {
+          "name": "Sasanian Empire",
+          "region": "Iran & Mesopotamia",
+          "lat": 33.09,
+          "lon": 44.58,
+          "note": "Persian dynasty ruling from Ctesiphon"
+        },
+        {
+          "name": "Gupta Empire",
+          "region": "Northern India",
+          "lat": 25.61,
+          "lon": 85.14,
+          "note": "Classical age of Indian science and art"
+        },
+        {
+          "name": "Eastern Jin",
+          "region": "Southern China",
+          "lat": 32.06,
+          "lon": 118.8,
+          "note": "Southern dynasty at Jiankang (Nanjing)"
+        },
+        {
+          "name": "Northern Wei",
+          "region": "Northern China",
+          "lat": 40.08,
+          "lon": 113.3,
+          "note": "Tuoba Xianbei state in the north"
+        },
+        {
+          "name": "Huns",
+          "region": "Pontic steppe & Danube",
+          "lat": 47.0,
+          "lon": 20.0,
+          "note": "Nomadic power pressing on Roman frontiers"
+        },
+        {
+          "name": "Teotihuacan",
+          "region": "Valley of Mexico",
+          "lat": 19.69,
+          "lon": -98.84,
+          "note": "Mesoamerica's dominant city"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Western Roman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Western_Roman_Empire"
+        },
+        {
+          "title": "Eastern Roman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Byzantine_Empire"
+        },
+        {
+          "title": "Sasanian Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sasanian_Empire"
+        },
+        {
+          "title": "Gupta Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gupta_Empire"
+        },
+        {
+          "title": "Eastern Jin – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jin_dynasty_(266%E2%80%93420)"
+        },
+        {
+          "title": "Northern Wei – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Northern_Wei"
+        },
+        {
+          "title": "Huns – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Huns"
+        },
+        {
+          "title": "Teotihuacan – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Teotihuacan"
+        }
+      ]
+    },
+    {
+      "year": 500,
+      "label": "500 CE",
+      "world_population": 253395808,
+      "population_range": [
+        190000000,
+        253395808
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Byzantine Empire",
+          "region": "Eastern Mediterranean",
+          "lat": 41.01,
+          "lon": 28.98,
+          "note": "Eastern Roman Empire under Anastasius I"
+        },
+        {
+          "name": "Ostrogothic Kingdom",
+          "region": "Italy",
+          "lat": 44.42,
+          "lon": 12.2,
+          "note": "Theodoric rules Italy from Ravenna"
+        },
+        {
+          "name": "Franks",
+          "region": "Gaul",
+          "lat": 49.38,
+          "lon": 3.32,
+          "note": "Clovis I unites Frankish tribes"
+        },
+        {
+          "name": "Sasanian Empire",
+          "region": "Iran & Mesopotamia",
+          "lat": 33.09,
+          "lon": 44.58,
+          "note": "Persian dynasty ruling from Ctesiphon"
+        },
+        {
+          "name": "Northern Wei",
+          "region": "Northern China",
+          "lat": 34.68,
+          "lon": 112.6,
+          "note": "Capital moved to Luoyang in 494"
+        },
+        {
+          "name": "Gupta Empire",
+          "region": "Northern India",
+          "lat": 25.61,
+          "lon": 85.14,
+          "note": "Declining under Alchon Hun attacks"
+        },
+        {
+          "name": "Teotihuacan",
+          "region": "Valley of Mexico",
+          "lat": 19.69,
+          "lon": -98.84,
+          "note": "Final phase before its collapse"
+        },
+        {
+          "name": "Maya city-states",
+          "region": "Maya lowlands",
+          "lat": 17.22,
+          "lon": -89.62,
+          "note": "Tikal and Calakmul rivalry"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Byzantine Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Byzantine_Empire"
+        },
+        {
+          "title": "Ostrogothic Kingdom – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ostrogothic_Kingdom"
+        },
+        {
+          "title": "Franks – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Franks"
+        },
+        {
+          "title": "Sasanian Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sasanian_Empire"
+        },
+        {
+          "title": "Northern Wei – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Northern_Wei"
+        },
+        {
+          "title": "Gupta Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gupta_Empire"
+        },
+        {
+          "title": "Teotihuacan – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Teotihuacan"
+        },
+        {
+          "title": "Maya city-states – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Maya_civilization"
+        }
+      ]
+    },
+    {
+      "year": 600,
+      "label": "600 CE",
+      "world_population": 271638944,
+      "population_range": [
+        200000000,
+        271638944
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Byzantine Empire",
+          "region": "Eastern Mediterranean",
+          "lat": 41.01,
+          "lon": 28.98,
+          "note": "Emperor Maurice"
+        },
+        {
+          "name": "Sasanian Empire",
+          "region": "Iran & Mesopotamia",
+          "lat": 33.09,
+          "lon": 44.58,
+          "note": "Khosrow II"
+        },
+        {
+          "name": "Sui dynasty",
+          "region": "China",
+          "lat": 34.27,
+          "lon": 108.9,
+          "note": "Reunified China; Grand Canal begun"
+        },
+        {
+          "name": "Göktürks",
+          "region": "Central Asian steppe",
+          "lat": 47.5,
+          "lon": 102.5,
+          "note": "Turkic Khaganate spanning the steppe"
+        },
+        {
+          "name": "Chalukyas",
+          "region": "Deccan, India",
+          "lat": 15.92,
+          "lon": 75.68,
+          "note": "Ruling from Badami (Vatapi)"
+        },
+        {
+          "name": "Merovingian Franks",
+          "region": "Gaul",
+          "lat": 48.86,
+          "lon": 2.35,
+          "note": "Frankish kingdoms of Clovis's heirs"
+        },
+        {
+          "name": "Maya city-states",
+          "region": "Maya lowlands",
+          "lat": 18.1,
+          "lon": -89.81,
+          "note": "Calakmul at the height of its power"
+        },
+        {
+          "name": "Aksum",
+          "region": "Ethiopian highlands",
+          "lat": 14.13,
+          "lon": 38.72,
+          "note": "Christian kingdom trading across the Red Sea"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Byzantine Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Byzantine_Empire"
+        },
+        {
+          "title": "Sasanian Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sasanian_Empire"
+        },
+        {
+          "title": "Sui dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sui_dynasty"
+        },
+        {
+          "title": "Göktürks – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Turkic_Khaganate"
+        },
+        {
+          "title": "Chalukyas – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chalukya_dynasty"
+        },
+        {
+          "title": "Merovingian Franks – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Merovingian_dynasty"
+        },
+        {
+          "title": "Maya city-states – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Calakmul"
+        },
+        {
+          "title": "Aksum – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kingdom_of_Aksum"
+        }
+      ]
+    },
+    {
+      "year": 700,
+      "label": "700 CE",
+      "world_population": 278346080,
+      "population_range": [
+        207000000,
+        278346080
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Umayyad Caliphate",
+          "region": "Middle East & North Africa",
+          "lat": 33.51,
+          "lon": 36.29,
+          "note": "Arab caliphate ruled from Damascus"
+        },
+        {
+          "name": "Byzantine Empire",
+          "region": "Anatolia & Balkans",
+          "lat": 41.01,
+          "lon": 28.98,
+          "note": "Holding against Arab expansion"
+        },
+        {
+          "name": "Tang dynasty",
+          "region": "China",
+          "lat": 34.27,
+          "lon": 108.9,
+          "note": "Chang'an, largest city of its age"
+        },
+        {
+          "name": "Tibetan Empire",
+          "region": "Tibetan Plateau",
+          "lat": 29.65,
+          "lon": 91.1,
+          "note": "Expanding Himalayan empire"
+        },
+        {
+          "name": "Franks",
+          "region": "Gaul",
+          "lat": 48.86,
+          "lon": 2.35,
+          "note": "Merovingian kings, rising mayors of the palace"
+        },
+        {
+          "name": "Khazars",
+          "region": "Lower Volga & Caucasus",
+          "lat": 46.5,
+          "lon": 47.0,
+          "note": "Turkic khaganate between Byzantium and the caliphate"
+        },
+        {
+          "name": "Srivijaya",
+          "region": "Sumatra",
+          "lat": -2.99,
+          "lon": 104.76,
+          "note": "Maritime empire controlling the Malacca Strait"
+        },
+        {
+          "name": "Maya city-states",
+          "region": "Maya lowlands",
+          "lat": 17.22,
+          "lon": -89.62,
+          "note": "Late Classic peak; Tikal resurgent"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Umayyad Caliphate – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Umayyad_Caliphate"
+        },
+        {
+          "title": "Byzantine Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Byzantine_Empire"
+        },
+        {
+          "title": "Tang dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tang_dynasty"
+        },
+        {
+          "title": "Tibetan Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tibetan_Empire"
+        },
+        {
+          "title": "Franks – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Francia"
+        },
+        {
+          "title": "Khazars – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Khazars"
+        },
+        {
+          "title": "Srivijaya – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Srivijaya"
+        },
+        {
+          "title": "Maya city-states – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Maya_civilization"
+        }
+      ]
+    },
+    {
+      "year": 800,
+      "label": "800 CE",
+      "world_population": 285870176,
+      "population_range": [
+        220000000,
+        285870176
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Abbasid Caliphate",
+          "region": "Middle East",
+          "lat": 33.31,
+          "lon": 44.36,
+          "note": "Harun al-Rashid rules from Baghdad"
+        },
+        {
+          "name": "Carolingian Empire",
+          "region": "Western Europe",
+          "lat": 50.78,
+          "lon": 6.08,
+          "note": "Charlemagne crowned emperor in 800"
+        },
+        {
+          "name": "Byzantine Empire",
+          "region": "Anatolia & Balkans",
+          "lat": 41.01,
+          "lon": 28.98,
+          "note": "Empress Irene"
+        },
+        {
+          "name": "Tang dynasty",
+          "region": "China",
+          "lat": 34.27,
+          "lon": 108.9,
+          "note": "Recovering after the An Lushan rebellion"
+        },
+        {
+          "name": "Tibetan Empire",
+          "region": "Tibetan Plateau",
+          "lat": 29.65,
+          "lon": 91.1,
+          "note": "Major power of Inner Asia"
+        },
+        {
+          "name": "Pala Empire",
+          "region": "Bengal & Bihar",
+          "lat": 25.13,
+          "lon": 87.0,
+          "note": "Buddhist dynasty patronizing Nalanda"
+        },
+        {
+          "name": "Uyghur Khaganate",
+          "region": "Mongolian steppe",
+          "lat": 47.43,
+          "lon": 102.66,
+          "note": "Steppe empire allied with Tang"
+        },
+        {
+          "name": "Maya city-states",
+          "region": "Maya lowlands",
+          "lat": 17.22,
+          "lon": -89.62,
+          "note": "Height of the Classic period, before collapse"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Abbasid Caliphate – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Abbasid_Caliphate"
+        },
+        {
+          "title": "Carolingian Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Carolingian_Empire"
+        },
+        {
+          "title": "Byzantine Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Byzantine_Empire"
+        },
+        {
+          "title": "Tang dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tang_dynasty"
+        },
+        {
+          "title": "Tibetan Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tibetan_Empire"
+        },
+        {
+          "title": "Pala Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pala_Empire"
+        },
+        {
+          "title": "Uyghur Khaganate – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Uyghur_Khaganate"
+        },
+        {
+          "title": "Maya city-states – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Maya_civilization"
+        }
+      ]
+    },
+    {
+      "year": 900,
+      "label": "900 CE",
+      "world_population": 311142688,
+      "population_range": [
+        226000000,
+        311142688
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Abbasid Caliphate",
+          "region": "Middle East",
+          "lat": 33.31,
+          "lon": 44.36,
+          "note": "Weakening as regional dynasties rise"
+        },
+        {
+          "name": "Byzantine Empire",
+          "region": "Anatolia & Balkans",
+          "lat": 41.01,
+          "lon": 28.98,
+          "note": "Macedonian dynasty revival"
+        },
+        {
+          "name": "Tang dynasty",
+          "region": "China",
+          "lat": 34.27,
+          "lon": 108.9,
+          "note": "Final years; falls in 907"
+        },
+        {
+          "name": "Kievan Rus'",
+          "region": "Eastern Europe",
+          "lat": 50.45,
+          "lon": 30.52,
+          "note": "Rurikid princes rule from Kyiv"
+        },
+        {
+          "name": "Samanid Empire",
+          "region": "Central Asia",
+          "lat": 39.77,
+          "lon": 64.42,
+          "note": "Persian dynasty centred on Bukhara"
+        },
+        {
+          "name": "Gurjara-Pratiharas",
+          "region": "Northern India",
+          "lat": 27.05,
+          "lon": 79.92,
+          "note": "Kingdom ruling from Kannauj"
+        },
+        {
+          "name": "Ghana Empire",
+          "region": "West Africa (Sahel)",
+          "lat": 15.77,
+          "lon": -7.96,
+          "note": "Gold-trading empire of the Soninke"
+        },
+        {
+          "name": "Tiwanaku",
+          "region": "Lake Titicaca basin",
+          "lat": -16.55,
+          "lon": -68.67,
+          "note": "Andean state near Lake Titicaca"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Abbasid Caliphate – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Abbasid_Caliphate"
+        },
+        {
+          "title": "Byzantine Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Byzantine_Empire"
+        },
+        {
+          "title": "Tang dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tang_dynasty"
+        },
+        {
+          "title": "Kievan Rus' – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kievan_Rus'"
+        },
+        {
+          "title": "Samanid Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Samanid_Empire"
+        },
+        {
+          "title": "Gurjara-Pratiharas – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pratihara_dynasty"
+        },
+        {
+          "title": "Ghana Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ghana_Empire"
+        },
+        {
+          "title": "Tiwanaku – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tiwanaku"
+        }
+      ]
+    },
+    {
+      "year": 1000,
+      "label": "1000 CE",
+      "world_population": 323462624,
+      "population_range": [
+        254000000,
+        345000000
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Song dynasty",
+          "region": "China",
+          "lat": 34.8,
+          "lon": 114.3,
+          "note": "Northern Song capital Kaifeng"
+        },
+        {
+          "name": "Liao dynasty",
+          "region": "Northern China & Mongolia",
+          "lat": 43.95,
+          "lon": 119.38,
+          "note": "Khitan empire"
+        },
+        {
+          "name": "Byzantine Empire",
+          "region": "Anatolia & Balkans",
+          "lat": 41.01,
+          "lon": 28.98,
+          "note": "Basil II"
+        },
+        {
+          "name": "Holy Roman Empire",
+          "region": "Central Europe",
+          "lat": 50.78,
+          "lon": 6.08,
+          "note": "Emperor Otto III"
+        },
+        {
+          "name": "Fatimid Caliphate",
+          "region": "Egypt & North Africa",
+          "lat": 30.04,
+          "lon": 31.24,
+          "note": "Shi'a caliphate ruling from Cairo"
+        },
+        {
+          "name": "Chola dynasty",
+          "region": "Southern India",
+          "lat": 10.79,
+          "lon": 79.14,
+          "note": "Rajaraja I builds Thanjavur's great temple"
+        },
+        {
+          "name": "Ghana Empire",
+          "region": "West Africa (Sahel)",
+          "lat": 15.77,
+          "lon": -7.96,
+          "note": "Trans-Saharan gold trade"
+        },
+        {
+          "name": "Toltecs",
+          "region": "Central Mexico",
+          "lat": 20.06,
+          "lon": -99.34,
+          "note": "Capital at Tula"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Song dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Song_dynasty"
+        },
+        {
+          "title": "Liao dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Liao_dynasty"
+        },
+        {
+          "title": "Byzantine Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Byzantine_Empire"
+        },
+        {
+          "title": "Holy Roman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Holy_Roman_Empire"
+        },
+        {
+          "title": "Fatimid Caliphate – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fatimid_Caliphate"
+        },
+        {
+          "title": "Chola dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chola_dynasty"
+        },
+        {
+          "title": "Ghana Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ghana_Empire"
+        },
+        {
+          "title": "Toltecs – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Toltec"
+        }
+      ]
+    },
+    {
+      "year": 1100,
+      "label": "1100 CE",
+      "world_population": 397889888,
+      "population_range": [
+        301000000,
+        397889888
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Song dynasty",
+          "region": "China",
+          "lat": 34.8,
+          "lon": 114.3,
+          "note": "Northern Song capital Kaifeng"
+        },
+        {
+          "name": "Liao dynasty",
+          "region": "Northern China & Mongolia",
+          "lat": 43.95,
+          "lon": 119.38,
+          "note": "Khitan empire in its last decades"
+        },
+        {
+          "name": "Seljuk Empire",
+          "region": "Iran & Central Asia",
+          "lat": 32.65,
+          "lon": 51.67,
+          "note": "Turkic sultanate centred on Isfahan"
+        },
+        {
+          "name": "Byzantine Empire",
+          "region": "Anatolia & Balkans",
+          "lat": 41.01,
+          "lon": 28.98,
+          "note": "Alexios I Komnenos"
+        },
+        {
+          "name": "Holy Roman Empire",
+          "region": "Central Europe",
+          "lat": 50.0,
+          "lon": 10.0,
+          "note": "Emperor Henry IV"
+        },
+        {
+          "name": "Khmer Empire",
+          "region": "Mainland Southeast Asia",
+          "lat": 13.41,
+          "lon": 103.87,
+          "note": "Angkor, soon to build Angkor Wat"
+        },
+        {
+          "name": "Almoravids",
+          "region": "Maghreb & al-Andalus",
+          "lat": 31.63,
+          "lon": -7.99,
+          "note": "Berber dynasty founding Marrakesh"
+        },
+        {
+          "name": "Cahokia",
+          "region": "Mississippi valley",
+          "lat": 38.66,
+          "lon": -90.06,
+          "note": "Largest city north of Mexico"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Song dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Song_dynasty"
+        },
+        {
+          "title": "Liao dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Liao_dynasty"
+        },
+        {
+          "title": "Seljuk Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Seljuk_Empire"
+        },
+        {
+          "title": "Byzantine Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Byzantine_Empire"
+        },
+        {
+          "title": "Holy Roman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Holy_Roman_Empire"
+        },
+        {
+          "title": "Khmer Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Khmer_Empire"
+        },
+        {
+          "title": "Almoravids – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Almoravid_dynasty"
+        },
+        {
+          "title": "Cahokia – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cahokia"
+        }
+      ]
+    },
+    {
+      "year": 1200,
+      "label": "1200 CE",
+      "world_population": 444653984,
+      "population_range": [
+        360000000,
+        450000000
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Southern Song",
+          "region": "Southern China",
+          "lat": 30.25,
+          "lon": 120.17,
+          "note": "Capital Lin'an (Hangzhou)"
+        },
+        {
+          "name": "Jin dynasty",
+          "region": "Northern China",
+          "lat": 39.9,
+          "lon": 116.4,
+          "note": "Jurchen empire, capital Zhongdu"
+        },
+        {
+          "name": "Mongols",
+          "region": "Mongolian steppe",
+          "lat": 47.9,
+          "lon": 107.0,
+          "note": "Temüjin unifying tribes; empire proclaimed 1206"
+        },
+        {
+          "name": "Khwarazmian Empire",
+          "region": "Central Asia & Iran",
+          "lat": 42.33,
+          "lon": 59.15,
+          "note": "Rising Persianate power"
+        },
+        {
+          "name": "Ayyubid Sultanate",
+          "region": "Egypt & Syria",
+          "lat": 30.04,
+          "lon": 31.24,
+          "note": "Saladin's successors"
+        },
+        {
+          "name": "Holy Roman Empire",
+          "region": "Central Europe",
+          "lat": 50.0,
+          "lon": 10.0,
+          "note": "German kingdom and northern Italy"
+        },
+        {
+          "name": "Khmer Empire",
+          "region": "Mainland Southeast Asia",
+          "lat": 13.41,
+          "lon": 103.87,
+          "note": "Jayavarman VII builds Angkor Thom"
+        },
+        {
+          "name": "Chimú",
+          "region": "North coast of Peru",
+          "lat": -8.11,
+          "lon": -79.07,
+          "note": "Capital Chan Chan, largest adobe city"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Southern Song – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Song_dynasty"
+        },
+        {
+          "title": "Jin dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Jin_dynasty_(1115%E2%80%931234)"
+        },
+        {
+          "title": "Mongols – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mongol_Empire"
+        },
+        {
+          "title": "Khwarazmian Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Khwarazmian_Empire"
+        },
+        {
+          "title": "Ayyubid Sultanate – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ayyubid_dynasty"
+        },
+        {
+          "title": "Holy Roman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Holy_Roman_Empire"
+        },
+        {
+          "title": "Khmer Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Khmer_Empire"
+        },
+        {
+          "title": "Chimú – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chimor"
+        }
+      ]
+    },
+    {
+      "year": 1300,
+      "label": "1300 CE",
+      "world_population": 456248096,
+      "population_range": [
+        360000000,
+        456248096
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Yuan dynasty",
+          "region": "China",
+          "lat": 39.9,
+          "lon": 116.4,
+          "note": "Mongol rule from Khanbaliq (Beijing)"
+        },
+        {
+          "name": "Golden Horde",
+          "region": "Pontic–Caspian steppe",
+          "lat": 46.6,
+          "lon": 47.9,
+          "note": "Mongol khanate ruling the Rus' principalities"
+        },
+        {
+          "name": "Ilkhanate",
+          "region": "Iran",
+          "lat": 38.08,
+          "lon": 46.29,
+          "note": "Mongol khanate ruling from Tabriz"
+        },
+        {
+          "name": "Delhi Sultanate",
+          "region": "Northern India",
+          "lat": 28.61,
+          "lon": 77.21,
+          "note": "Khalji dynasty"
+        },
+        {
+          "name": "Mamluk Sultanate",
+          "region": "Egypt & Syria",
+          "lat": 30.04,
+          "lon": 31.24,
+          "note": "Slave-soldier sultans who halted the Mongols"
+        },
+        {
+          "name": "Mali Empire",
+          "region": "West Africa",
+          "lat": 11.4,
+          "lon": -8.4,
+          "note": "Gold-rich Sahelian empire"
+        },
+        {
+          "name": "Holy Roman Empire",
+          "region": "Central Europe",
+          "lat": 50.0,
+          "lon": 10.0,
+          "note": "Fragmented German and Italian lands"
+        },
+        {
+          "name": "Chimú",
+          "region": "North coast of Peru",
+          "lat": -8.11,
+          "lon": -79.07,
+          "note": "Coastal Andean kingdom"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Yuan dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yuan_dynasty"
+        },
+        {
+          "title": "Golden Horde – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Golden_Horde"
+        },
+        {
+          "title": "Ilkhanate – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ilkhanate"
+        },
+        {
+          "title": "Delhi Sultanate – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Delhi_Sultanate"
+        },
+        {
+          "title": "Mamluk Sultanate – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mamluk_Sultanate"
+        },
+        {
+          "title": "Mali Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mali_Empire"
+        },
+        {
+          "title": "Holy Roman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Holy_Roman_Empire"
+        },
+        {
+          "title": "Chimú – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chimor"
+        }
+      ]
+    },
+    {
+      "year": 1400,
+      "label": "1400 CE",
+      "world_population": 442309216,
+      "population_range": [
+        350000000,
+        442309216
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Ming dynasty",
+          "region": "China",
+          "lat": 32.06,
+          "lon": 118.8,
+          "note": "Capital Nanjing (moved to Beijing 1421)"
+        },
+        {
+          "name": "Timurid Empire",
+          "region": "Central Asia & Iran",
+          "lat": 39.65,
+          "lon": 66.96,
+          "note": "Timur rules from Samarkand"
+        },
+        {
+          "name": "Ottoman state",
+          "region": "Anatolia & Balkans",
+          "lat": 41.68,
+          "lon": 26.56,
+          "note": "Expanding sultanate; capital Edirne"
+        },
+        {
+          "name": "Vijayanagara Empire",
+          "region": "Southern India",
+          "lat": 15.33,
+          "lon": 76.46,
+          "note": "Capital at Hampi"
+        },
+        {
+          "name": "Mali Empire",
+          "region": "West Africa",
+          "lat": 11.4,
+          "lon": -8.4,
+          "note": "Timbuktu a centre of learning"
+        },
+        {
+          "name": "Great Zimbabwe",
+          "region": "Southern Africa",
+          "lat": -20.27,
+          "lon": 30.93,
+          "note": "Stone-walled capital of a trading state"
+        },
+        {
+          "name": "Majapahit",
+          "region": "Java & Indonesian archipelago",
+          "lat": -7.56,
+          "lon": 112.38,
+          "note": "Javanese maritime empire"
+        },
+        {
+          "name": "Mexica",
+          "region": "Valley of Mexico",
+          "lat": 19.43,
+          "lon": -99.13,
+          "note": "City of Tenochtitlan, founded 1325"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Ming dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ming_dynasty"
+        },
+        {
+          "title": "Timurid Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Timurid_Empire"
+        },
+        {
+          "title": "Ottoman state – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ottoman_Empire"
+        },
+        {
+          "title": "Vijayanagara Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Vijayanagara_Empire"
+        },
+        {
+          "title": "Mali Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mali_Empire"
+        },
+        {
+          "title": "Great Zimbabwe – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Great_Zimbabwe"
+        },
+        {
+          "title": "Majapahit – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Majapahit"
+        },
+        {
+          "title": "Mexica – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tenochtitlan"
+        }
+      ]
+    },
+    {
+      "year": 1500,
+      "label": "1500 CE",
+      "world_population": 503051104,
+      "population_range": [
+        425000000,
+        540000000
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Ming dynasty",
+          "region": "China",
+          "lat": 39.9,
+          "lon": 116.4,
+          "note": "Capital Beijing"
+        },
+        {
+          "name": "Ottoman Empire",
+          "region": "Anatolia & Balkans",
+          "lat": 41.01,
+          "lon": 28.98,
+          "note": "Capital Constantinople (Istanbul)"
+        },
+        {
+          "name": "Grand Duchy of Moscow",
+          "region": "Eastern Europe",
+          "lat": 55.75,
+          "lon": 37.62,
+          "note": "Ivan III gathers the Russian lands"
+        },
+        {
+          "name": "Portugal",
+          "region": "Iberia & sea routes",
+          "lat": 38.72,
+          "lon": -9.14,
+          "note": "Da Gama reached India 1498; Cabral, Brazil 1500"
+        },
+        {
+          "name": "Songhai Empire",
+          "region": "West Africa",
+          "lat": 16.27,
+          "lon": -0.04,
+          "note": "Largest Sahelian empire, capital Gao"
+        },
+        {
+          "name": "Vijayanagara Empire",
+          "region": "Southern India",
+          "lat": 15.33,
+          "lon": 76.46,
+          "note": "Capital at Hampi"
+        },
+        {
+          "name": "Aztec Empire",
+          "region": "Central Mexico",
+          "lat": 19.43,
+          "lon": -99.13,
+          "note": "Triple Alliance ruled from Tenochtitlan"
+        },
+        {
+          "name": "Inca Empire",
+          "region": "Andes",
+          "lat": -13.53,
+          "lon": -71.97,
+          "note": "Largest empire in the Americas"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Ming dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ming_dynasty"
+        },
+        {
+          "title": "Ottoman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ottoman_Empire"
+        },
+        {
+          "title": "Grand Duchy of Moscow – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Grand_Principality_of_Moscow"
+        },
+        {
+          "title": "Portugal – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Portuguese_Empire"
+        },
+        {
+          "title": "Songhai Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Songhai_Empire"
+        },
+        {
+          "title": "Vijayanagara Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Vijayanagara_Empire"
+        },
+        {
+          "title": "Aztec Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Aztec_Empire"
+        },
+        {
+          "title": "Inca Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Inca_Empire"
+        }
+      ]
+    },
+    {
+      "year": 1600,
+      "label": "1600 CE",
+      "world_population": 516147616,
+      "population_range": [
+        516147616,
+        579000000
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Ming dynasty",
+          "region": "China",
+          "lat": 39.9,
+          "lon": 116.4,
+          "note": "Wanli Emperor"
+        },
+        {
+          "name": "Mughal Empire",
+          "region": "Northern India",
+          "lat": 27.18,
+          "lon": 78.01,
+          "note": "Akbar rules from Agra"
+        },
+        {
+          "name": "Safavid Empire",
+          "region": "Iran",
+          "lat": 32.65,
+          "lon": 51.67,
+          "note": "Shah Abbas makes Isfahan the capital"
+        },
+        {
+          "name": "Ottoman Empire",
+          "region": "Anatolia, Balkans & Middle East",
+          "lat": 41.01,
+          "lon": 28.98,
+          "note": "Spanning three continents"
+        },
+        {
+          "name": "Spanish Empire",
+          "region": "Spain & the Americas",
+          "lat": 40.42,
+          "lon": -3.7,
+          "note": "Global empire ruled from Madrid"
+        },
+        {
+          "name": "Tsardom of Russia",
+          "region": "Eastern Europe",
+          "lat": 55.75,
+          "lon": 37.62,
+          "note": "Expanding into Siberia"
+        },
+        {
+          "name": "Japan",
+          "region": "Japan",
+          "lat": 35.68,
+          "lon": 139.69,
+          "note": "Tokugawa Ieyasu wins at Sekigahara, 1600"
+        },
+        {
+          "name": "Kingdom of Kongo",
+          "region": "Central Africa",
+          "lat": -6.27,
+          "lon": 14.25,
+          "note": "Atlantic-trading kingdom, capital Mbanza Kongo"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Ming dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ming_dynasty"
+        },
+        {
+          "title": "Mughal Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mughal_Empire"
+        },
+        {
+          "title": "Safavid Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Safavid_Iran"
+        },
+        {
+          "title": "Ottoman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ottoman_Empire"
+        },
+        {
+          "title": "Spanish Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Spanish_Empire"
+        },
+        {
+          "title": "Tsardom of Russia – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tsardom_of_Russia"
+        },
+        {
+          "title": "Japan – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Sekigahara"
+        },
+        {
+          "title": "Kingdom of Kongo – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kingdom_of_Kongo"
+        }
+      ]
+    },
+    {
+      "year": 1700,
+      "label": "1700 CE",
+      "world_population": 595456896,
+      "population_range": [
+        595456896,
+        679000000
+      ],
+      "population_source": "HYDE 3.3 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Qing dynasty",
+          "region": "China",
+          "lat": 39.9,
+          "lon": 116.4,
+          "note": "Kangxi Emperor"
+        },
+        {
+          "name": "Mughal Empire",
+          "region": "Indian subcontinent",
+          "lat": 28.65,
+          "lon": 77.23,
+          "note": "Near its largest extent under Aurangzeb"
+        },
+        {
+          "name": "Ottoman Empire",
+          "region": "Anatolia, Balkans & Middle East",
+          "lat": 41.01,
+          "lon": 28.98,
+          "note": "After the Treaty of Karlowitz (1699)"
+        },
+        {
+          "name": "Tsardom of Russia",
+          "region": "Eastern Europe & Siberia",
+          "lat": 55.75,
+          "lon": 37.62,
+          "note": "Peter the Great's reforms"
+        },
+        {
+          "name": "Kingdom of France",
+          "region": "Western Europe",
+          "lat": 48.8,
+          "lon": 2.12,
+          "note": "Louis XIV at Versailles"
+        },
+        {
+          "name": "Spanish Empire",
+          "region": "Spain & the Americas",
+          "lat": 40.42,
+          "lon": -3.7,
+          "note": "Charles II dies 1700; succession war follows"
+        },
+        {
+          "name": "Tokugawa Japan",
+          "region": "Japan",
+          "lat": 35.68,
+          "lon": 139.69,
+          "note": "Shogunate rules from Edo"
+        },
+        {
+          "name": "Asante",
+          "region": "West Africa",
+          "lat": 6.69,
+          "lon": -1.62,
+          "note": "Osei Tutu forges the Asante union"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Qing dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Qing_dynasty"
+        },
+        {
+          "title": "Mughal Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mughal_Empire"
+        },
+        {
+          "title": "Ottoman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ottoman_Empire"
+        },
+        {
+          "title": "Tsardom of Russia – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tsardom_of_Russia"
+        },
+        {
+          "title": "Kingdom of France – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kingdom_of_France"
+        },
+        {
+          "title": "Spanish Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Spanish_Empire"
+        },
+        {
+          "title": "Tokugawa Japan – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tokugawa_shogunate"
+        },
+        {
+          "title": "Asante – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Asante_Empire"
+        }
+      ]
+    },
+    {
+      "year": 1800,
+      "label": "1800 CE",
+      "world_population": 983104755,
+      "population_range": [
+        813000000,
+        1125000000
+      ],
+      "population_source": "Gapminder v7 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "Qing dynasty",
+          "region": "China",
+          "lat": 39.9,
+          "lon": 116.4,
+          "note": "Most populous state on Earth"
+        },
+        {
+          "name": "British Empire",
+          "region": "Britain & colonies",
+          "lat": 51.51,
+          "lon": -0.13,
+          "note": "Industrializing global empire"
+        },
+        {
+          "name": "Maratha Confederacy",
+          "region": "Western & central India",
+          "lat": 18.52,
+          "lon": 73.86,
+          "note": "Dominant Indian power before British conquest"
+        },
+        {
+          "name": "Ottoman Empire",
+          "region": "Anatolia, Balkans & Middle East",
+          "lat": 41.01,
+          "lon": 28.98,
+          "note": "Selim III's reforms"
+        },
+        {
+          "name": "Russian Empire",
+          "region": "Eastern Europe & northern Asia",
+          "lat": 59.94,
+          "lon": 30.31,
+          "note": "Capital Saint Petersburg"
+        },
+        {
+          "name": "French Republic",
+          "region": "Western Europe",
+          "lat": 48.86,
+          "lon": 2.35,
+          "note": "Napoleon as First Consul"
+        },
+        {
+          "name": "United States",
+          "region": "North America",
+          "lat": 38.9,
+          "lon": -77.04,
+          "note": "Government moves to Washington, 1800"
+        },
+        {
+          "name": "Spanish Empire",
+          "region": "Spain & the Americas",
+          "lat": 40.42,
+          "lon": -3.7,
+          "note": "Before Latin American independence"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "Qing dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Qing_dynasty"
+        },
+        {
+          "title": "British Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/British_Empire"
+        },
+        {
+          "title": "Maratha Confederacy – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Maratha_Empire"
+        },
+        {
+          "title": "Ottoman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ottoman_Empire"
+        },
+        {
+          "title": "Russian Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Russian_Empire"
+        },
+        {
+          "title": "French Republic – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/French_First_Republic"
+        },
+        {
+          "title": "United States – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/United_States"
+        },
+        {
+          "title": "Spanish Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Spanish_Empire"
+        }
+      ]
+    },
+    {
+      "year": 1900,
+      "label": "1900 CE",
+      "world_population": 1627273655,
+      "population_range": [
+        1550000000,
+        1762000000
+      ],
+      "population_source": "Gapminder v7 (via Our World in Data); range spans HYDE and the U.S. Census Bureau summary of published estimates",
+      "peoples": [
+        {
+          "name": "British Empire",
+          "region": "Global",
+          "lat": 51.51,
+          "lon": -0.13,
+          "note": "Largest empire in history"
+        },
+        {
+          "name": "Qing dynasty",
+          "region": "China",
+          "lat": 39.9,
+          "lon": 116.4,
+          "note": "Boxer Uprising; last decade of empire"
+        },
+        {
+          "name": "Russian Empire",
+          "region": "Eastern Europe & northern Asia",
+          "lat": 59.94,
+          "lon": 30.31,
+          "note": "Trans-Siberian Railway under construction"
+        },
+        {
+          "name": "United States",
+          "region": "North America",
+          "lat": 38.9,
+          "lon": -77.04,
+          "note": "Industrial power; 76 million people (1900 census)"
+        },
+        {
+          "name": "French colonial empire",
+          "region": "France & colonies",
+          "lat": 48.86,
+          "lon": 2.35,
+          "note": "Second-largest colonial empire"
+        },
+        {
+          "name": "German Empire",
+          "region": "Central Europe",
+          "lat": 52.52,
+          "lon": 13.4,
+          "note": "Rapidly industrializing"
+        },
+        {
+          "name": "Empire of Japan",
+          "region": "Japan",
+          "lat": 35.68,
+          "lon": 139.69,
+          "note": "Meiji-era modernization"
+        },
+        {
+          "name": "Ottoman Empire",
+          "region": "Anatolia & Middle East",
+          "lat": 41.01,
+          "lon": 28.98,
+          "note": "Declining multi-ethnic empire"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "U.S. Census Bureau – Historical Estimates of World Population (incl. McEvedy & Jones 1978, Biraben 1980)",
+          "url": "https://www.census.gov/data/tables/time-series/demo/international-programs/historical-est-worldpop.html"
+        },
+        {
+          "title": "British Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/British_Empire"
+        },
+        {
+          "title": "Qing dynasty – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Qing_dynasty"
+        },
+        {
+          "title": "Russian Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Russian_Empire"
+        },
+        {
+          "title": "United States – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/1900_United_States_census"
+        },
+        {
+          "title": "French colonial empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/French_colonial_empire"
+        },
+        {
+          "title": "German Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/German_Empire"
+        },
+        {
+          "title": "Empire of Japan – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Empire_of_Japan"
+        },
+        {
+          "title": "Ottoman Empire – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ottoman_Empire"
+        }
+      ]
+    },
+    {
+      "year": 2000,
+      "label": "2000 CE",
+      "world_population": 6171702992,
+      "population_source": "UN World Population Prospects 2024 (via Our World in Data)",
+      "peoples": [
+        {
+          "name": "China",
+          "region": "China",
+          "lat": 39.9,
+          "lon": 116.4,
+          "note": "Population about 1.27 billion (UN WPP 2024)"
+        },
+        {
+          "name": "India",
+          "region": "India",
+          "lat": 28.61,
+          "lon": 77.21,
+          "note": "Population about 1.06 billion (UN WPP 2024)"
+        },
+        {
+          "name": "United States",
+          "region": "United States",
+          "lat": 38.9,
+          "lon": -77.04,
+          "note": "Population about 282 million (UN WPP 2024)"
+        },
+        {
+          "name": "Indonesia",
+          "region": "Indonesia",
+          "lat": -6.2,
+          "lon": 106.85,
+          "note": "Population about 216 million (UN WPP 2024)"
+        },
+        {
+          "name": "Brazil",
+          "region": "Brazil",
+          "lat": -15.79,
+          "lon": -47.88,
+          "note": "Population about 174 million (UN WPP 2024)"
+        },
+        {
+          "name": "Pakistan",
+          "region": "Pakistan",
+          "lat": 33.69,
+          "lon": 73.05,
+          "note": "Population about 155 million (UN WPP 2024)"
+        },
+        {
+          "name": "Russia",
+          "region": "Russia",
+          "lat": 55.75,
+          "lon": 37.62,
+          "note": "Population about 147 million (UN WPP 2024)"
+        },
+        {
+          "name": "Bangladesh",
+          "region": "Bangladesh",
+          "lat": 23.81,
+          "lon": 90.41,
+          "note": "Population about 135 million (UN WPP 2024)"
+        }
+      ],
+      "sources": [
+        {
+          "title": "UN DESA – World Population Prospects 2024",
+          "url": "https://population.un.org/wpp/"
+        },
+        {
+          "title": "Our World in Data – Population (HYDE 3.3 to 1799, Gapminder v7 1800–1949, UN WPP 2024 from 1950)",
+          "url": "https://ourworldindata.org/grapher/population"
+        },
+        {
+          "title": "China – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/China"
+        },
+        {
+          "title": "India – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/India"
+        },
+        {
+          "title": "United States – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/United_States"
+        },
+        {
+          "title": "Indonesia – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Indonesia"
+        },
+        {
+          "title": "Brazil – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Brazil"
+        },
+        {
+          "title": "Pakistan – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pakistan"
+        },
+        {
+          "title": "Russia – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Russia"
+        },
+        {
+          "title": "Bangladesh – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bangladesh"
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "label": "2026",
+      "world_population": 8300678396,
+      "population_source": "UN World Population Prospects 2024, medium-variant projection for 2026",
+      "peoples": [
+        {
+          "name": "India",
+          "region": "India",
+          "lat": 28.61,
+          "lon": 77.21,
+          "note": "Population about 1.48 billion (projected) (UN WPP 2024)"
+        },
+        {
+          "name": "China",
+          "region": "China",
+          "lat": 39.9,
+          "lon": 116.4,
+          "note": "Population about 1.41 billion (projected) (UN WPP 2024)"
+        },
+        {
+          "name": "United States",
+          "region": "United States",
+          "lat": 38.9,
+          "lon": -77.04,
+          "note": "Population about 349 million (projected) (UN WPP 2024)"
+        },
+        {
+          "name": "Indonesia",
+          "region": "Indonesia",
+          "lat": -6.2,
+          "lon": 106.85,
+          "note": "Population about 288 million (projected) (UN WPP 2024)"
+        },
+        {
+          "name": "Pakistan",
+          "region": "Pakistan",
+          "lat": 33.69,
+          "lon": 73.05,
+          "note": "Population about 259 million (projected) (UN WPP 2024)"
+        },
+        {
+          "name": "Nigeria",
+          "region": "Nigeria",
+          "lat": 9.06,
+          "lon": 7.49,
+          "note": "Population about 242 million (projected) (UN WPP 2024)"
+        },
+        {
+          "name": "Brazil",
+          "region": "Brazil",
+          "lat": -15.79,
+          "lon": -47.88,
+          "note": "Population about 214 million (projected) (UN WPP 2024)"
+        },
+        {
+          "name": "Bangladesh",
+          "region": "Bangladesh",
+          "lat": 23.81,
+          "lon": 90.41,
+          "note": "Population about 178 million (projected) (UN WPP 2024)"
+        }
+      ],
+      "sources": [
+        {
+          "title": "UN DESA – World Population Prospects 2024",
+          "url": "https://population.un.org/wpp/"
+        },
+        {
+          "title": "Our World in Data – Population with UN projections (WPP 2024 medium variant)",
+          "url": "https://ourworldindata.org/grapher/population-with-un-projections"
+        },
+        {
+          "title": "India – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/India"
+        },
+        {
+          "title": "China – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/China"
+        },
+        {
+          "title": "United States – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/United_States"
+        },
+        {
+          "title": "Indonesia – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Indonesia"
+        },
+        {
+          "title": "Pakistan – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pakistan"
+        },
+        {
+          "title": "Nigeria – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nigeria"
+        },
+        {
+          "title": "Brazil – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Brazil"
+        },
+        {
+          "title": "Bangladesh – Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bangladesh"
+        }
+      ]
+    }
+  ]
+}

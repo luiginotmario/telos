@@ -1,0 +1,656 @@
+{
+  "id": "venus",
+  "name": "Venus",
+  "tagline": "Earth's scorched twin",
+  "physical": {
+    "radius_km": 6051.8,
+    "mass_kg": 4.867e+24,
+    "sidereal_day_h": -5832.5,
+    "orbital_period_d": 224.701,
+    "axial_tilt_deg": 177.4,
+    "mean_temp_c": 464,
+    "moons": 0,
+    "semi_major_axis_au": 0.723
+  },
+  "events": [
+    {
+      "id": "formation",
+      "year": -4500000000,
+      "label": "4.5 billion years ago",
+      "title": "Venus forms",
+      "line": "A molten near-twin of Earth",
+      "detail": "Venus formed at about the same time as Earth and is nearly the same size and density. Its surface began as a magma ocean.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.9,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.2,
+        "haze": 0.5,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.6,
+        "atmosphere_tint": "#ffb070",
+        "surface_tint": "#6b3a24",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Venus facts",
+          "url": "https://science.nasa.gov/venus/venus-facts/"
+        }
+      ]
+    },
+    {
+      "id": "steam-world",
+      "year": -4300000000,
+      "label": "~4.3 billion years ago",
+      "title": "Steam atmosphere",
+      "line": "Water hangs as vapour",
+      "detail": "As the magma ocean cooled it released a thick steam atmosphere. A 2021 climate study found that clouds pooling on the night side would have kept Venus too warm for that steam ever to rain out into oceans.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.2,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.8,
+        "haze": 0.8,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#e8e0d0",
+        "surface_tint": "#5a4636",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Turbet et al. 2021, Day–night cloud asymmetry prevents early oceans on Venus but not on Earth, Nature",
+          "url": "https://doi.org/10.1038/s41586-021-03873-w"
+        }
+      ]
+    },
+    {
+      "id": "oceans",
+      "year": -2900000000,
+      "label": "~2.9 billion years ago?",
+      "title": "Oceans, maybe",
+      "line": "A temperate world in some models",
+      "detail": "NASA GISS climate models found Venus could have kept shallow oceans and mild temperatures for 2–3 billion years if it began with water. A 2024 study of today's volcanic gases argues its interior has always been dry, so it likely never had oceans. The question awaits DAVINCI.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0.6,
+        "ice": 0,
+        "clouds": 0.45,
+        "haze": 0.2,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.6,
+        "atmosphere_tint": "#9fc4ff",
+        "surface_tint": "#6e6252",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Way et al. 2016, Was Venus the first habitable world of our solar system?, Geophysical Research Letters",
+          "url": "https://doi.org/10.1002/2016GL069790"
+        },
+        {
+          "title": "Way & Del Genio 2020, Venusian habitable climate scenarios, JGR Planets",
+          "url": "https://doi.org/10.1029/2019JE006276"
+        },
+        {
+          "title": "Constantinou et al. 2024, A dry Venusian interior constrained by atmospheric chemistry, Nature Astronomy",
+          "url": "https://doi.org/10.1038/s41550-024-02414-5"
+        }
+      ]
+    },
+    {
+      "id": "runaway",
+      "year": -700000000,
+      "label": "~700 million years ago?",
+      "title": "Runaway greenhouse",
+      "line": "Heat traps heat, forever",
+      "detail": "Venus's thick carbon dioxide atmosphere traps heat in a runaway greenhouse. If it ever had oceans, models suggest they could have lasted until roughly 700 million years ago, when massive outgassing may have tipped the climate. The timing is unknown.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.15,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.85,
+        "haze": 0.8,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#f2d9a0",
+        "surface_tint": "#7a5a3a",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Venus facts",
+          "url": "https://science.nasa.gov/venus/venus-facts/"
+        },
+        {
+          "title": "Way & Del Genio 2020, Venusian habitable climate scenarios, JGR Planets",
+          "url": "https://doi.org/10.1029/2019JE006276"
+        }
+      ]
+    },
+    {
+      "id": "resurfacing",
+      "year": -500000000,
+      "label": "~300–750 million years ago",
+      "title": "Global resurfacing",
+      "line": "Lava repaves the planet",
+      "detail": "Venus has only about 1,000 impact craters, spread almost randomly, so most of its surface is a few hundred million years old. Classic studies proposed one global volcanic overturn; newer models favour piecemeal resurfacing, with an average age possibly as young as 150 million years.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.6,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 1,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#f2d9a0",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Venus facts",
+          "url": "https://science.nasa.gov/venus/venus-facts/"
+        },
+        {
+          "title": "Strom, Schaber & Dawson 1994, The global resurfacing of Venus, JGR Planets",
+          "url": "https://doi.org/10.1029/94JE00388"
+        }
+      ]
+    },
+    {
+      "id": "venera-7",
+      "year": 1970,
+      "label": "15 December 1970",
+      "title": "Venera 7",
+      "line": "First signal from another planet",
+      "detail": "The Soviet Venera 7 became the first spacecraft to land on another planet and transmit from its surface, sending about 20 minutes of weak data that showed roughly 475 °C.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 1,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#f2d9a0",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sites": [
+        {
+          "name": "Venera 7",
+          "lat": -5,
+          "lon": -9,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Venera_7"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA NSSDCA: Venera missions",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/venera.html"
+        },
+        {
+          "title": "Wikipedia: Venera 7 (landing data and primary citations)",
+          "url": "https://en.wikipedia.org/wiki/Venera_7"
+        }
+      ]
+    },
+    {
+      "id": "venera-9",
+      "year": 1975,
+      "label": "22 October 1975",
+      "title": "Venera 9",
+      "line": "First photo from the surface",
+      "detail": "Venera 9 landed near Beta Regio and returned the first image ever taken on the surface of another planet: flat, broken rocks under diffuse light. It survived 53 minutes.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 1,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#f2d9a0",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sites": [
+        {
+          "name": "Venera 7",
+          "lat": -5,
+          "lon": -9,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Venera_7"
+        },
+        {
+          "name": "Venera 9",
+          "lat": 31.01,
+          "lon": -68.36,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Venera_9"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA NSSDCA: Venera missions",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/venera.html"
+        },
+        {
+          "title": "Wikipedia: Venera 9 (landing data and primary citations)",
+          "url": "https://en.wikipedia.org/wiki/Venera_9"
+        }
+      ]
+    },
+    {
+      "id": "venera-13",
+      "year": 1982,
+      "label": "1 March 1982",
+      "title": "Venera 13",
+      "line": "Colour panoramas, 127 minutes",
+      "detail": "Venera 13 sent back the first colour panoramas of the Venusian surface and drilled a soil sample, surviving 127 minutes at about 457 °C and 89 bar, far beyond its design life of 32 minutes.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 1,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#f2d9a0",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sites": [
+        {
+          "name": "Venera 7",
+          "lat": -5,
+          "lon": -9,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Venera_7"
+        },
+        {
+          "name": "Venera 9",
+          "lat": 31.01,
+          "lon": -68.36,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Venera_9"
+        },
+        {
+          "name": "Venera 13",
+          "lat": -7.5,
+          "lon": -57,
+          "kind": "landing",
+          "status": "real",
+          "source": "https://en.wikipedia.org/wiki/Venera_13"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NASA NSSDCA: Venera missions",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/venera.html"
+        },
+        {
+          "title": "Wikipedia: Venera 13 (landing data and primary citations)",
+          "url": "https://en.wikipedia.org/wiki/Venera_13"
+        }
+      ]
+    },
+    {
+      "id": "magellan",
+      "year": 1990.6,
+      "label": "1990–1994",
+      "title": "Magellan maps",
+      "line": "Radar sees through the clouds",
+      "detail": "NASA's Magellan orbiter used radar to map about 98% of Venus's surface, revealing volcanoes, lava plains, coronae and the sparse craters. Here the clouds are thinned to show that radar view; the real clouds never part.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.25,
+        "haze": 0.2,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#f2d9a0",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Magellan",
+          "url": "https://science.nasa.gov/mission/magellan/"
+        }
+      ]
+    },
+    {
+      "id": "fresh-lava",
+      "year": 2010,
+      "label": "April 2010",
+      "title": "Recent lava flows",
+      "line": "Young flows glow in infrared",
+      "detail": "ESA's Venus Express detected unusually bright, unweathered lava flows on volcanic hotspots such as Idunn Mons, likely less than 2.5 million years old and possibly 250,000 years or younger.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.08,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 1,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#f2d9a0",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Smrekar et al. 2010, Recent hotspot volcanism on Venus from VIRTIS emissivity data, Science",
+          "url": "https://doi.org/10.1126/science.1186785"
+        }
+      ]
+    },
+    {
+      "id": "phosphine",
+      "year": 2020,
+      "label": "14 September 2020",
+      "title": "Phosphine claim",
+      "line": "A possible biosignature, disputed",
+      "detail": "A team reported phosphine gas in Venus's clouds, a molecule that on Earth is linked to life. Independent reanalyses found no statistically reliable detection, and the claim remains contested.",
+      "kind": "past",
+      "confidence": "debated",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 1,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#f2d9a0",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Greaves et al. 2020, Phosphine gas in the cloud decks of Venus, Nature Astronomy",
+          "url": "https://doi.org/10.1038/s41550-020-1174-4"
+        },
+        {
+          "title": "Villanueva et al. 2021, No evidence of phosphine in the atmosphere of Venus from independent analyses, Nature Astronomy",
+          "url": "https://doi.org/10.1038/s41550-021-01422-z"
+        }
+      ]
+    },
+    {
+      "id": "active-volcano",
+      "year": 2023,
+      "label": "15 March 2023",
+      "title": "Volcano caught active",
+      "line": "A vent changed in 1991",
+      "detail": "Re-examining Magellan images, scientists found a volcanic vent near Maat Mons that grew and changed shape over eight months in 1991, the first direct evidence of recent volcanism on Venus. A 2024 study found new lava flows at Sif Mons and Niobe Planitia in the same data.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.08,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 1,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#f2d9a0",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Herrick & Hensley 2023, Surface changes observed on a Venusian volcano during the Magellan mission, Science",
+          "url": "https://doi.org/10.1126/science.abm7735"
+        },
+        {
+          "title": "NASA JPL: NASA's Magellan data reveals volcanic activity on Venus",
+          "url": "https://www.jpl.nasa.gov/news/nasas-magellan-data-reveals-volcanic-activity-on-venus"
+        },
+        {
+          "title": "Sulcanese et al. 2024, Evidence of ongoing volcanic activity on Venus revealed by Magellan radar, Nature Astronomy",
+          "url": "https://doi.org/10.1038/s41550-024-02272-1"
+        }
+      ]
+    },
+    {
+      "id": "today",
+      "year": 2026,
+      "label": "Today",
+      "title": "Today",
+      "line": "Hottest planet, crushing air",
+      "detail": "Venus's surface sits at about 464 °C under a carbon dioxide atmosphere about 92 times Earth's surface pressure, wrapped in sulfuric-acid clouds. It spins backwards, once every 243 Earth days.",
+      "kind": "present",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0.08,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 1,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#f2d9a0",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: Venus facts",
+          "url": "https://science.nasa.gov/venus/venus-facts/"
+        },
+        {
+          "title": "NASA NSSDCA: Venus fact sheet",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html"
+        }
+      ]
+    },
+    {
+      "id": "return",
+      "year": 2032,
+      "label": "Early 2030s",
+      "title": "Return to Venus",
+      "line": "Probe, radar orbiters planned",
+      "detail": "NASA's DAVINCI probe, to plunge through the atmosphere, was reported in 2026 as targeting a December 2030 launch, and the VERITAS radar orbiter a November 2032 launch. ESA lists EnVision for November 2031, but its team said in 2026 it would slip to 2032 after NASA withdrew its radar. All dates depend on budgets.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA (DAVINCI, VERITAS) and ESA (EnVision) mission plans, as reported October 2026",
+      "visual": {
+        "lava": 0.08,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 1,
+        "haze": 0.6,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.8,
+        "atmosphere_tint": "#f2d9a0",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA Science: DAVINCI",
+          "url": "https://science.nasa.gov/mission/davinci/"
+        },
+        {
+          "title": "NASA Science: VERITAS",
+          "url": "https://science.nasa.gov/mission/veritas/"
+        },
+        {
+          "title": "ESA: EnVision",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/EnVision"
+        },
+        {
+          "title": "Tech Times (21 Oct 2026): Why NASA is returning to Venus",
+          "url": "https://www.techtimes.com/articles/329269/20261021/why-nasa-returning-venus-after-decades-without-major-mission.htm"
+        },
+        {
+          "title": "Wikipedia: EnVision (2026 schedule and NASA radar withdrawal, with primary citations)",
+          "url": "https://en.wikipedia.org/wiki/EnVision"
+        }
+      ]
+    },
+    {
+      "id": "engulfed",
+      "year": 7590000000,
+      "label": "In ~7.6 billion years",
+      "title": "Swallowed by Sun",
+      "line": "The red giant engulfs it",
+      "detail": "Models of the Sun's red-giant phase show it expanding past the orbits of Mercury and Venus about 7.6 billion years from now, engulfing both planets.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "K.-P. Schröder & R. C. Smith, MNRAS, 2008",
+      "visual": {
+        "lava": 1,
+        "ocean": 0,
+        "ice": 0,
+        "clouds": 0.2,
+        "haze": 0.3,
+        "vegetation": 0,
+        "craters": 0,
+        "lights": 0,
+        "dust": 0,
+        "atmosphere": 0.9,
+        "atmosphere_tint": "#ff7a2e",
+        "surface_tint": "#a23c1c",
+        "base": "none",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Schröder & Smith 2008, Distant future of the Sun and Earth revisited, MNRAS",
+          "url": "https://doi.org/10.1111/j.1365-2966.2008.13022.x"
+        }
+      ]
+    }
+  ]
+}

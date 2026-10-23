@@ -1,0 +1,46 @@
+{
+  "count": 15598,
+  "source": "HYG Database v4.1 (astronexus/HYG-Database, hyg/CURRENT/hygdata_v41.csv), CC BY-SA 4.0",
+  "selection": "all stars with apparent V magnitude <= 7.0, excluding Sol (HYG id 0)",
+  "sort": "ascending magnitude (brightest first)",
+  "encoding": "little-endian Float32, 5 values per star, 20 bytes per star, no header",
+  "stride": 5,
+  "bytesPerStar": 20,
+  "fields": [
+    {
+      "name": "x",
+      "offset": 0,
+      "desc": "unit vector toward star, J2000 equatorial (ICRS-aligned): cos(dec)*cos(ra)"
+    },
+    {
+      "name": "y",
+      "offset": 1,
+      "desc": "cos(dec)*sin(ra) (+y toward RA 6h, dec 0)"
+    },
+    {
+      "name": "z",
+      "offset": 2,
+      "desc": "sin(dec) (+z toward north celestial pole)"
+    },
+    {
+      "name": "mag",
+      "offset": 3,
+      "desc": "apparent visual magnitude (HYG 'mag')"
+    },
+    {
+      "name": "ci",
+      "offset": 4,
+      "desc": "B-V color index (HYG 'ci'); 55 stars with blank ci were filled from spectral class (O -0.32, B -0.16, A 0.15, F 0.44, G 0.68, K 1.15, M 1.6, else 0.65)"
+    }
+  ],
+  "frame_note": "Positions are HYG rarad/decrad at epoch and equinox J2000 (no proper motion applied). Three.js is y-up: to place +z(north pole) up, map (x,y,z) -> (x, z, -y) or rotate the star group by -90deg about X.",
+  "ciFilled": 55,
+  "magRange": [
+    -1.44,
+    7.0
+  ],
+  "ciRange": [
+    -0.32,
+    3.761
+  ]
+}

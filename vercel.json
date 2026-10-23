@@ -1,0 +1,1 @@
+{ "rewrites": [{ "source": "/((?!assets/|textures/|audio/|terrain/|models/|data/|.*\\..*).*)", "destination": "/index.html" }] }
