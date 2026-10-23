@@ -2,6 +2,8 @@
 
 Every world in the solar system on one timeline. The overview is the real solar system for this moment: true positions, orbits, axial orientation and 15,598 real stars. Pick a world and it opens into a quiet white studio where you scrub its whole story, from formation to the projected bases and cities on the Moon and Mars.
 
+**Live:** https://telos-space.vercel.app
+
 TypeScript + Three.js (WebGL2), Vite. No framework.
 
 ```bash

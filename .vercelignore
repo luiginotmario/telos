@@ -1,0 +1,5 @@
+research
+node_modules
+dist
+.claude
+*.log

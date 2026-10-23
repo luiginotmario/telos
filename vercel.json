@@ -1,1 +1,9 @@
-{ "rewrites": [{ "source": "/((?!assets/|textures/|audio/|terrain/|models/|data/|.*\\..*).*)", "destination": "/index.html" }] }
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [{ "source": "/((?!assets/|textures/|audio/|terrain/|models/|data/|.*\\..*).*)", "destination": "/index.html" }],
+  "headers": [
+    { "source": "/(textures|audio|terrain|models)/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }] }
+  ]
+}
