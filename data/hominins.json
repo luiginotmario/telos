@@ -1,0 +1,679 @@
+{
+  "id": "hominins",
+  "notes": [
+    "Every number is quoted from (or arithmetically derived from, with the derivation stated) a source listed on that entry. null means no defensible published value exists; nothing is interpolated.",
+    "height_m / mass_kg: male/female only where a source gives sex-specific figures; most fossils cannot be sexed, so 'mean' (a published taxon mean) is the value to scale by when male/female are null. range = published specimen range or published species range, as cited in 'basis'.",
+    "cranial_cc: endocranial volume in cc (= ml). brain_rel = cranial_cc.mean / modern.cranial_cc.mean (1330); it can exceed 1 (Neanderthals, Harbin) and that is real, not an error.",
+    "proportions.arm_to_leg, skull.* 0–1 scores are ordinal encodings for the procedural model, not measurements. Each is set from the sourced anatomical description quoted in that entry's 'basis'. Anchors: modern = 0.5 for arm_to_leg; for skull scores 0 = absent/modern-minimal, 1 = most extreme among the taxa in this file (P. boisei for face_width and jaw_size, Kabwe for brow_ridge).",
+    "Alias lookup: match a people 'name' from data/earth-humans.json against species[].alias. If the species has alias_eras for that name, the era year must also match. Otherwise, any name in modern_aliases (or 'Homo sapiens' in the eras listed in modern_alias_eras) renders as a modern human. Names in unmapped_aliases have no figure.",
+    "confidence: high = multiple skeletons with body-size estimates; medium = partial skeletons or few specimens; low = body plan largely unknown."
+  ],
+  "modern": {
+    "key": "modern",
+    "name": "Homo sapiens (living)",
+    "years": "Present day",
+    "height_m": {
+      "male": 1.71,
+      "female": 1.59,
+      "range": null,
+      "basis": "Global mean adult height for people born 1996: men 171 cm, women 159 cm (NCD-RisC 2016, as summarised by Our World in Data)."
+    },
+    "mass_kg": {
+      "mean": 62,
+      "male": 71,
+      "female": 62,
+      "range": null,
+      "basis": "mean: global average adult body mass 62 kg in 2005 (Walpole et al. 2012). male/female DERIVED: NCD-RisC 2016 global age-standardised mean BMI 2014 (men 24.2, women 24.4 kg/m²) × height² (1.71 m, 1.59 m) = 70.8 kg and 61.7 kg, rounded."
+    },
+    "cranial_cc": {
+      "mean": 1330,
+      "range": [1082, 1832],
+      "basis": "89 cranially diverse present-day humans: mean 1328 ± 164 ml, range 1082–1832 ml (Neubauer et al. 2018), rounded to 1330. Smithsonian gives ~1300 cc; ~1350 cc is the commonly quoted round figure."
+    },
+    "proportions": {
+      "arm_to_leg": 0.5,
+      "torso": "modern",
+      "build": "gracile",
+      "basis": "Reference anchor."
+    },
+    "skull": {
+      "brow_ridge": 0.05,
+      "prognathism": 0.1,
+      "sagittal_crest": false,
+      "vault": "high_round",
+      "chin": true,
+      "face_width": 0.45,
+      "jaw_size": 0.3,
+      "brain_rel": 1.0,
+      "basis": "Smithsonian: thin-walled, high vaulted skull with a flat, near-vertical forehead; much less (if any) brow ridge and prognathism; smaller jaws and teeth than earlier humans."
+    },
+    "posture": "fully bipedal",
+    "confidence": "high",
+    "sources": [
+      { "title": "NCD-RisC (2016) A century of trends in adult human height. eLife 5:e13410", "url": "https://doi.org/10.7554/eLife.13410" },
+      { "title": "Our World in Data – Human Height (global means for 1996 birth cohort, NCD-RisC data)", "url": "https://ourworldindata.org/human-height" },
+      { "title": "Walpole et al. (2012) The weight of nations: an estimation of adult human biomass. BMC Public Health 12:439", "url": "https://doi.org/10.1186/1471-2458-12-439" },
+      { "title": "NCD-RisC (2016) Trends in adult body-mass index in 200 countries from 1975 to 2014. Lancet 387:1377–1396", "url": "https://doi.org/10.1016/S0140-6736(16)30054-X" },
+      { "title": "Neubauer, Hublin & Gunz (2018) The evolution of modern human brain shape. Science Advances 4:eaao5961", "url": "https://doi.org/10.1126/sciadv.aao5961" },
+      { "title": "Smithsonian Human Origins – Homo sapiens", "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-sapiens" }
+    ]
+  },
+  "modern_aliases": [
+    "Homo sapiens (dispersal)",
+    "First Australians",
+    "Aurignacian Homo sapiens",
+    "Sulawesi cave artists",
+    "Lake Mungo people",
+    "Tianyuan people",
+    "Later Stone Age foragers",
+    "Ust'-Ishim lineage",
+    "Natufians",
+    "Göbekli Tepe builders",
+    "Jōmon",
+    "Folsom hunters",
+    "Lagoa Santa people",
+    "Iberomaurusians",
+    "Western Hunter-Gatherers",
+    "Aboriginal Australians"
+  ],
+  "modern_alias_eras": {
+    "Homo sapiens": [-60000]
+  },
+  "modern_aliases_note": "All peoples in eras from -5000 onward (cultures, states, empires, countries) are also anatomically modern; they are not listed individually. 'Sulawesi cave artists' are inferred to be H. sapiens from the art, not from fossils.",
+  "unmapped_aliases": {
+    "Unknown toolmakers": "Loess Plateau stone tools ~2.1 Ma; no fossils, maker's species unknown, so no figure."
+  },
+  "species": [
+    {
+      "key": "erectus",
+      "name": "Homo erectus",
+      "alias": ["Homo erectus"],
+      "years": "1.89 million – 110,000 years ago",
+      "height_m": {
+        "mean": 1.63,
+        "male": null,
+        "female": null,
+        "range": [1.45, 1.85],
+        "basis": "mean: H. erectus sensu lato 163.4 cm, n=21 (Will et al. 2017, Table 4). range: 145–185 cm (Smithsonian). Smithsonian gives no sex split because most fossils cannot be sexed."
+      },
+      "mass_kg": {
+        "mean": 60.8,
+        "male": null,
+        "female": null,
+        "range": [40, 68],
+        "basis": "mean: H. erectus s.l. 60.8 kg, n=24 (Will et al. 2017). range: 40–68 kg (Smithsonian). Grabowski et al. 2015 equations give lower means (Asian 51.4 kg; African+Georgian 50–51 kg, as reported by Garvin et al. 2017)."
+      },
+      "cranial_cc": {
+        "mean": 919,
+        "range": [546, 1127],
+        "basis": "mean: H. erectus sample 919 ml (Neubauer et al. 2018). range low: Dmanisi Skull 5, 546 cc (Lordkipanidze et al. 2013); high: Ngandong 14, 1127 ml (Neubauer et al. 2018 Table 1). Australian Museum quotes an average of ~1050 cc."
+      },
+      "proportions": {
+        "arm_to_leg": 0.45,
+        "torso": "modern",
+        "build": "gracile",
+        "basis": "Smithsonian: early African fossils had 'relatively elongated legs and shorter arms compared to the size of the torso'. Turkana Boy is tall and linear; Australian Museum notes thicker limb bones and shorter, stockier Chinese bodies. Dmanisi adult humerofemoral index 76.4 (Jungers et al. 2016) is less leg-elongated."
+      },
+      "skull": {
+        "brow_ridge": 0.8,
+        "prognathism": 0.5,
+        "sagittal_crest": false,
+        "vault": "low_long",
+        "chin": false,
+        "face_width": 0.6,
+        "jaw_size": 0.6,
+        "brain_rel": 0.69,
+        "basis": "Australian Museum: 'a massive brow ridge', 'a low, sloping forehead', a midline keel (not a crest), jaw 'large and thick without a pointed chin'."
+      },
+      "posture": "fully bipedal (long-distance walker, possibly runner)",
+      "known_from": "Trinil 2, Turkana Boy (KNM-WT 15000), Dmanisi, Zhoukoudian, Sangiran, Ngandong",
+      "confidence": "high",
+      "note": "Body nearly our size and shape, but a brain about two-thirds ours under a heavy brow.",
+      "sources": [
+        { "title": "Smithsonian Human Origins – Homo erectus", "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-erectus" },
+        { "title": "Australian Museum – Homo erectus", "url": "https://australian.museum/learn/science/human-evolution/homo-erectus/" },
+        { "title": "Will, Pablos & Stock (2017) Long-term patterns of body mass and stature evolution within the hominin lineage. R Soc Open Sci 4:171339", "url": "https://doi.org/10.1098/rsos.171339" },
+        { "title": "Grabowski et al. (2015) Body mass estimates of hominin fossils and the evolution of human body size. J Hum Evol 85:75–93", "url": "https://doi.org/10.1016/j.jhevol.2015.05.005" },
+        { "title": "Jungers et al. (2016) The evolution of body size and shape in the human career. Phil Trans R Soc B 371:20150247", "url": "https://doi.org/10.1098/rstb.2015.0247" },
+        { "title": "Lordkipanidze et al. (2013) A complete skull from Dmanisi, Georgia. Science 342:326–331", "url": "https://doi.org/10.1126/science.1238484" },
+        { "title": "Neubauer, Hublin & Gunz (2018) The evolution of modern human brain shape. Science Advances", "url": "https://doi.org/10.1126/sciadv.aao5961" }
+      ]
+    },
+    {
+      "key": "habilis",
+      "name": "Homo habilis",
+      "alias": ["Homo habilis"],
+      "years": "2.4 – 1.4 million years ago",
+      "height_m": {
+        "mean": null,
+        "male": 1.3,
+        "female": 1.1,
+        "range": [1.0, 1.35],
+        "basis": "male/female: ~130 cm / ~110 cm (Australian Museum). range: 100–135 cm (Smithsonian). Will et al. 2017 give 147 cm (n=7) but include femora (KNM-ER 1472, 1481) that may belong to H. erectus or H. rudolfensis."
+      },
+      "mass_kg": {
+        "mean": 32,
+        "male": null,
+        "female": null,
+        "range": [27.3, 38.4],
+        "basis": "mean: ~32 kg (Smithsonian); 32.6 kg with Grabowski et al. 2015 equations (as reported by Garvin et al. 2017). range: 27.3–38.4 kg, n=3 (Jungers et al. 2016). Will et al. 2017's 48.4 kg includes contested specimens."
+      },
+      "cranial_cc": {
+        "mean": 610,
+        "range": [500, 824],
+        "basis": "mean: ~610 cc (Australian Museum). low: KNM-ER 1813 ~500 ml (Australian Museum); high: OH 7 reconstruction 729–824 ml (Spoor et al. 2015)."
+      },
+      "proportions": {
+        "arm_to_leg": 0.7,
+        "torso": null,
+        "build": "gracile",
+        "basis": "Australian Museum: OH 62 has 'relatively long arms and short legs'; limb proportions 'relatively ape-like'. Smithsonian: 'retains some ape-like features, including long arms'. No thorax known well enough to set torso."
+      },
+      "skull": {
+        "brow_ridge": 0.45,
+        "prognathism": 0.6,
+        "sagittal_crest": false,
+        "vault": "small_ape_like",
+        "chin": false,
+        "face_width": 0.5,
+        "jaw_size": 0.65,
+        "brain_rel": 0.46,
+        "basis": "Smithsonian: slightly larger braincase than Australopithecus, 'moderately-prognathic face', strong jaws with thick enamel. Australian Museum: 'a small, arched brow ridge'."
+      },
+      "posture": "bipedal + climbing (ape-like arm length)",
+      "known_from": "OH 7 (type), OH 24, OH 62, KNM-ER 1813, OH 8 foot",
+      "confidence": "medium",
+      "note": "Roughly chest-high to us, with long ape-like arms and under half our brain.",
+      "sources": [
+        { "title": "Smithsonian Human Origins – Homo habilis", "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-habilis" },
+        { "title": "Australian Museum – Homo habilis", "url": "https://australian.museum/learn/science/human-evolution/homo-habilis/" },
+        { "title": "Jungers et al. (2016) The evolution of body size and shape in the human career. Phil Trans R Soc B", "url": "https://doi.org/10.1098/rstb.2015.0247" },
+        { "title": "Grabowski et al. (2015) Body mass estimates of hominin fossils. J Hum Evol 85:75–93", "url": "https://doi.org/10.1016/j.jhevol.2015.05.005" },
+        { "title": "Spoor et al. (2015) Reconstructed Homo habilis type OH 7 suggests deep-rooted species diversity in early Homo. Nature 519:83–86", "url": "https://doi.org/10.1038/nature14224" },
+        { "title": "Will, Pablos & Stock (2017) R Soc Open Sci 4:171339", "url": "https://doi.org/10.1098/rsos.171339" }
+      ]
+    },
+    {
+      "key": "boisei",
+      "name": "Paranthropus boisei",
+      "alias": ["Paranthropus boisei"],
+      "years": "2.3 – 1.2 million years ago",
+      "height_m": {
+        "mean": null,
+        "male": 1.37,
+        "female": 1.24,
+        "range": [1.16, 1.61],
+        "basis": "male/female: 137 cm / 124 cm (Smithsonian). range: P. boisei stature estimates 116–161.3 cm, n=6 (Will et al. 2017)."
+      },
+      "mass_kg": {
+        "mean": null,
+        "male": 49,
+        "female": 34,
+        "range": [28.4, 51.6],
+        "basis": "male/female: 49 kg / 34 kg (Smithsonian). range: 28.4–51.6 kg, n=11 (Will et al. 2017)."
+      },
+      "cranial_cc": {
+        "mean": 520,
+        "range": [510, 530],
+        "basis": "mean: ~520 cc for P. boisei/robustus (Australian Museum). KNM-ER 406 ~510 cc (Australian Museum); OH 5 530 cc (eFossils). Range shown is these two specimens only."
+      },
+      "proportions": {
+        "arm_to_leg": 0.65,
+        "torso": null,
+        "build": "robust",
+        "basis": "Smithsonian: a male boisei was 18 lb heavier than a male Au. africanus of the same height; strong sexual dimorphism. Limb proportions are not given by the cited sources; arm_to_leg set australopith-like (above modern) as an assumption — low certainty."
+      },
+      "skull": {
+        "brow_ridge": 0.6,
+        "prognathism": 0.45,
+        "sagittal_crest": true,
+        "vault": "small_ape_like",
+        "chin": false,
+        "face_width": 1.0,
+        "jaw_size": 1.0,
+        "brain_rel": 0.39,
+        "basis": "Smithsonian: strong sagittal crest; flaring cheekbones giving 'a very wide, dish-shaped face'; cheek teeth ~4× modern size; thickest enamel of any hominin. Australian Museum: males had the crest; KNM-ER 732 (female) lacks a large crest."
+      },
+      "posture": "bipedal (limb proportions poorly known)",
+      "known_from": "OH 5 'Zinj' (type), KNM-ER 406, KNM-ER 732, Konso KGA10-525",
+      "confidence": "medium",
+      "note": "A face wider than ours on a child-sized body, with a bony crest anchoring huge chewing muscles.",
+      "sources": [
+        { "title": "Smithsonian Human Origins – Paranthropus boisei", "url": "https://humanorigins.si.edu/evidence/human-fossils/species/paranthropus-boisei" },
+        { "title": "Australian Museum – Paranthropus species", "url": "https://australian.museum/learn/science/human-evolution/paranthropus-species/" },
+        { "title": "eFossils – OH 5 (cranial capacity 530 cc)", "url": "https://www.efossils.org/page/boneviewer/Paranthropus%20boisei/OH%205" },
+        { "title": "Will, Pablos & Stock (2017) R Soc Open Sci 4:171339", "url": "https://doi.org/10.1098/rsos.171339" }
+      ]
+    },
+    {
+      "key": "sediba",
+      "name": "Australopithecus sediba",
+      "alias": ["Australopithecus sediba"],
+      "years": "about 1.98 million years ago",
+      "height_m": {
+        "mean": 1.2,
+        "male": null,
+        "female": null,
+        "range": null,
+        "basis": "~1.2 m (Australian Museum). MH1, a juvenile male of 12–13, was at most 1.3 m (Smithsonian). No adult stature has been published."
+      },
+      "mass_kg": {
+        "mean": 27.2,
+        "male": null,
+        "female": null,
+        "range": [22.7, 29.7],
+        "basis": "Au. sediba 27.17 kg, range 22.7–29.7, n=3 (Will et al. 2017). Jungers et al. 2016: 25.9 kg (22.7–29.1, n=2)."
+      },
+      "cranial_cc": {
+        "mean": 420,
+        "range": null,
+        "basis": "MH1 endocast ~420 cc (Carlson et al. 2011; Australian Museum). Single juvenile."
+      },
+      "proportions": {
+        "arm_to_leg": 0.7,
+        "torso": "funnel",
+        "build": "gracile",
+        "basis": "Smithsonian/Australian Museum: small body with 'relatively long upper limbs'. Schmid et al. 2013: ape-like narrow upper thorax, more human-like lower thorax."
+      },
+      "skull": {
+        "brow_ridge": 0.4,
+        "prognathism": 0.5,
+        "sagittal_crest": false,
+        "vault": "small_ape_like",
+        "chin": false,
+        "face_width": 0.45,
+        "jaw_size": 0.45,
+        "brain_rel": 0.32,
+        "basis": "Australian Museum: 'minimal cresting', 'weakly arched supraorbital torus', small cranium, no flaring cheekbones. Smithsonian: relatively small premolars/molars, Homo-like face."
+      },
+      "posture": "bipedal + climbing (walked on outer edge of the foot)",
+      "known_from": "Malapa MH1 (juvenile male) and MH2 (adult female) partial skeletons",
+      "confidence": "medium",
+      "note": "Chimp-sized brain and long climbing arms, but a face and hands already leaning toward Homo.",
+      "sources": [
+        { "title": "Smithsonian Human Origins – Australopithecus sediba", "url": "https://humanorigins.si.edu/evidence/human-fossils/species/australopithecus-sediba" },
+        { "title": "Australian Museum – Australopithecus sediba", "url": "https://australian.museum/learn/science/human-evolution/australopithecus-sediba/" },
+        { "title": "Will, Pablos & Stock (2017) R Soc Open Sci 4:171339", "url": "https://doi.org/10.1098/rsos.171339" },
+        { "title": "Carlson et al. (2011) The endocast of MH1, Australopithecus sediba. Science 333:1402–1407", "url": "https://doi.org/10.1126/science.1203922" },
+        { "title": "Schmid et al. (2013) Mosaic morphology in the thorax of Australopithecus sediba. Science 340:1234598", "url": "https://doi.org/10.1126/science.1234598" }
+      ]
+    },
+    {
+      "key": "naledi",
+      "name": "Homo naledi",
+      "alias": ["Homo naledi"],
+      "years": "335,000 – 236,000 years ago",
+      "height_m": {
+        "mean": 1.44,
+        "male": 1.5,
+        "female": null,
+        "range": [1.39, 1.56],
+        "basis": "mean: ~1.44 m (Smithsonian); 143.6 cm (Garvin et al. 2017). male: ~150 cm (Australian Museum; females 'slightly shorter'). range: humerus/tibia estimates 139–156 cm (Garvin et al. 2017)."
+      },
+      "mass_kg": {
+        "mean": 44.2,
+        "male": 45,
+        "female": null,
+        "range": [35.2, 52.9],
+        "basis": "mean/range: 20 postcranial specimens, mean 44.2 kg, range 35.2–52.9 kg (Garvin et al. 2017); Grabowski-equation mean is lower, 37.4 kg. male: ~45 kg (Australian Museum). Smithsonian: 39.7–55.8 kg."
+      },
+      "cranial_cc": {
+        "mean": null,
+        "range": [465, 610],
+        "basis": "Dinaledi composite crania 465 cc and 560 cc (Garvin et al. 2017); Lesedi LES1 ~610 ml (Australian Museum). No published species mean."
+      },
+      "proportions": {
+        "arm_to_leg": 0.5,
+        "torso": "funnel",
+        "build": "gracile",
+        "basis": "Garvin et al. 2017: humero-tibial index 79.4, within the modern human (Kulubnarti) interval; elongated lower limb. Australian Museum: ribcage 'relatively broad like that of A. afarensis', australopith-like shoulders, long slender legs."
+      },
+      "skull": {
+        "brow_ridge": 0.6,
+        "prognathism": 0.4,
+        "sagittal_crest": false,
+        "vault": "small_ape_like",
+        "chin": false,
+        "face_width": 0.45,
+        "jaw_size": 0.4,
+        "brain_rel": null,
+        "basis": "Australian Museum: 'well-developed supraorbital torus … with a weak arch'; lacks the long, low vault of H. erectus; back of skull curved sharply. brain_rel null because no mean; 465–610 cc is 0.35–0.46 of modern."
+      },
+      "posture": "fully bipedal; hands suggest climbing",
+      "known_from": "Dinaledi Chamber (1,550+ specimens, ≥15 individuals) and Lesedi Chamber (LES1), Rising Star Cave",
+      "confidence": "high",
+      "note": "Lived alongside early Homo sapiens, yet its brain was only a third to under half of ours.",
+      "sources": [
+        { "title": "Smithsonian Human Origins – Homo naledi", "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-naledi" },
+        { "title": "Australian Museum – Homo naledi", "url": "https://australian.museum/learn/science/human-evolution/homo-naledi/" },
+        { "title": "Garvin et al. (2017) Body size, brain size, and sexual dimorphism in Homo naledi from the Dinaledi Chamber. J Hum Evol 111:119–138", "url": "https://doi.org/10.1016/j.jhevol.2017.06.010" },
+        { "title": "Berger et al. (2015) Homo naledi, a new species of the genus Homo from the Dinaledi Chamber, South Africa. eLife 4:e09560", "url": "https://doi.org/10.7554/eLife.09560" }
+      ]
+    },
+    {
+      "key": "heidelbergensis",
+      "name": "Homo heidelbergensis (Kabwe / Broken Hill)",
+      "alias": ["Broken Hill (Kabwe) hominin"],
+      "years": "about 700,000 – 200,000 years ago (Kabwe 1: 299,000 ± 25,000)",
+      "taxonomy_note": "Kabwe 1 was named Homo rhodesiensis (Woodward 1921) and is usually filed under H. heidelbergensis. Roksandic et al. (published Oct 2021, print 2022) proposed retiring both names for African fossils and placing Kabwe and Bodo in Homo bodoensis; the proposal remains contested.",
+      "height_m": {
+        "mean": null,
+        "male": 1.75,
+        "female": 1.57,
+        "range": [1.499, 1.842],
+        "basis": "male/female: 175 cm / 157 cm species averages (Smithsonian). range: early Mid-Pleistocene Homo 149.9–184.2 cm, n=13 (Will et al. 2017 Table 3). No stature has been published for the Kabwe skull's owner."
+      },
+      "mass_kg": {
+        "mean": null,
+        "male": 62,
+        "female": 51,
+        "range": [47.1, 82.6],
+        "basis": "male/female: 62 kg / 51 kg (Smithsonian). range: early Mid-Pleistocene Homo 47.1–82.6 kg, n=19 (Will et al. 2017 Table 3)."
+      },
+      "cranial_cc": {
+        "mean": 1250,
+        "range": [1110, 1300],
+        "basis": "Kabwe 1: 1249 ml (Neubauer et al. 2018), ~1280 cc (Australian Museum), ~1300 cc (Smithsonian). Species average ~1250 cc (Australian Museum). low: Steinheim 1110–1200 cc (Australian Museum)."
+      },
+      "proportions": {
+        "arm_to_leg": 0.45,
+        "torso": "broad",
+        "build": "robust",
+        "basis": "Smithsonian: 'short, wide bodies'. Australian Museum: lower legs relatively long; leg bones thick and strongly built."
+      },
+      "skull": {
+        "brow_ridge": 1.0,
+        "prognathism": 0.35,
+        "sagittal_crest": false,
+        "vault": "low_long",
+        "chin": false,
+        "face_width": 0.8,
+        "jaw_size": 0.6,
+        "brain_rel": 0.94,
+        "basis": "Smithsonian (Kabwe 1): 'large brow ridges', face flatter and less prognathic than H. erectus, low braincase, occipital torus. Australian Museum: 'a wide face, thick arching brow ridges and a sloping forehead'. No mandible known for Kabwe 1."
+      },
+      "posture": "fully bipedal",
+      "known_from": "Kabwe 1 (Broken Hill, Zambia, 1921); also Mauer mandible (type), Bodo, Petralona, Arago",
+      "confidence": "medium",
+      "note": "A brain nearly our size behind enormous, thick brow ridges and a wide face.",
+      "sources": [
+        { "title": "Smithsonian Human Origins – Homo heidelbergensis", "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-heidelbergensis" },
+        { "title": "Smithsonian Human Origins – Kabwe 1", "url": "https://humanorigins.si.edu/evidence/human-fossils/fossils/kabwe-1" },
+        { "title": "Australian Museum – Homo heidelbergensis", "url": "https://australian.museum/learn/science/human-evolution/homo-heidelbergensis/" },
+        { "title": "Grün et al. (2020) Dating the skull from Broken Hill, Zambia, and its position in human evolution. Nature 580:372–375", "url": "https://doi.org/10.1038/s41586-020-2165-4" },
+        { "title": "Roksandic et al. (2021) Resolving the 'muddle in the middle': the case for Homo bodoensis sp. nov. Evol Anthropol 31:20–29", "url": "https://doi.org/10.1002/evan.21929" },
+        { "title": "Will, Pablos & Stock (2017) R Soc Open Sci 4:171339", "url": "https://doi.org/10.1098/rsos.171339" },
+        { "title": "Neubauer, Hublin & Gunz (2018) Science Advances (Kabwe endocranial volume)", "url": "https://doi.org/10.1126/sciadv.aao5961" }
+      ]
+    },
+    {
+      "key": "neanderthalensis",
+      "name": "Homo neanderthalensis",
+      "alias": ["Early Neanderthals", "Neanderthals", "Last Neanderthals"],
+      "years": "about 400,000 – 40,000 years ago",
+      "height_m": {
+        "mean": 1.63,
+        "male": 1.64,
+        "female": 1.55,
+        "range": [1.487, 1.812],
+        "basis": "male/female: 164 cm / 155 cm (Smithsonian); Australian Museum gives 168 / 156 cm. mean/range: 162.7 cm, 148.7–181.2 cm, n=38 (Will et al. 2017)."
+      },
+      "mass_kg": {
+        "mean": 70.5,
+        "male": 65,
+        "female": 54,
+        "range": [53, 90.5],
+        "basis": "male/female: 65 kg / 54 kg (Smithsonian). mean/range: 70.5 kg, 53.0–90.5 kg, n=30 (Will et al. 2017)."
+      },
+      "cranial_cc": {
+        "mean": 1450,
+        "range": [1213, 1747],
+        "basis": "Neanderthal sample mean 1450 ml (SD 189); Gibraltar 1 1213 ml to Amud 1 1747 ml (Neubauer et al. 2018). Australian Museum: average ~1500 cc."
+      },
+      "proportions": {
+        "arm_to_leg": 0.5,
+        "torso": "barrel",
+        "build": "stocky",
+        "basis": "Smithsonian: shorter and stockier, 'thick, short lower arm and leg bones'. Australian Museum: shin and forearm both shortened, pelvis wider side to side, large joints. Both limbs shortened distally, so arm:leg ratio left at modern."
+      },
+      "skull": {
+        "brow_ridge": 0.7,
+        "prognathism": 0.55,
+        "sagittal_crest": false,
+        "vault": "long_low_bun",
+        "chin": false,
+        "face_width": 0.7,
+        "jaw_size": 0.55,
+        "brain_rel": 1.09,
+        "basis": "Australian Museum: 'thick but rounded brow ridge' under a 'flat and receding forehead'; occipital bun; no projecting bony chin; mid-face projects forward. Smithsonian: large midface, angled cheekbones, large nose."
+      },
+      "posture": "fully bipedal",
+      "known_from": "Feldhofer (Neanderthal 1), La Chapelle-aux-Saints, La Ferrassie, Shanidar, Amud, Kebara",
+      "confidence": "high",
+      "note": "Shorter and far heavier-built than us, yet with a brain slightly larger than ours.",
+      "sources": [
+        { "title": "Smithsonian Human Origins – Homo neanderthalensis", "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-neanderthalensis" },
+        { "title": "Australian Museum – Homo neanderthalensis", "url": "https://australian.museum/learn/science/human-evolution/homo-neanderthalensis/" },
+        { "title": "Will, Pablos & Stock (2017) R Soc Open Sci 4:171339", "url": "https://doi.org/10.1098/rsos.171339" },
+        { "title": "Neubauer, Hublin & Gunz (2018) Science Advances", "url": "https://doi.org/10.1126/sciadv.aao5961" }
+      ]
+    },
+    {
+      "key": "denisova",
+      "name": "Denisovans",
+      "alias": ["Denisovans"],
+      "years": "about 200,000 – 50,000 years ago at Denisova Cave; Harbin ≥146,000; Penghu leg bones ~45,000 (preprint)",
+      "height_m": {
+        "mean": null,
+        "male": null,
+        "female": null,
+        "range": null,
+        "basis": "Unknown in peer-reviewed literature. Best proxy (NOT peer-reviewed): Kaifu et al. 2026 bioRxiv preprint on protein-identified Penghu 2 femur and Penghu 3 tibia, Taiwan — roughly 1.76–1.90 m. Hawks cautions small comparative samples and trawling bias.",
+        "unreviewed_proxy": { "value": [1.76, 1.9], "source": "Kaifu et al. 2026 bioRxiv preprint (Penghu 2/3)" }
+      },
+      "mass_kg": {
+        "mean": null,
+        "male": null,
+        "female": null,
+        "range": null,
+        "basis": "Unknown in peer-reviewed literature. Same preprint reports >80 kg (Penghu 2 ~82.5 kg; Penghu 3 ~91 kg).",
+        "unreviewed_proxy": { "value": [82.5, 91], "source": "Kaifu et al. 2026 bioRxiv preprint (Penghu 2/3)" }
+      },
+      "cranial_cc": {
+        "mean": 1420,
+        "range": null,
+        "basis": "PROXY: Harbin cranium ~1420 ml (Ji et al. 2021), assigned to Denisovans by Harbin mtDNA (Fu et al. 2025, Cell) and proteome (Fu et al. 2025, Science). One individual."
+      },
+      "proportions": {
+        "arm_to_leg": null,
+        "torso": null,
+        "build": null,
+        "basis": "No associated postcranial skeleton. The Penghu leg bones (preprint) suggest a large, robust lower limb but say nothing about proportions."
+      },
+      "skull": {
+        "brow_ridge": 0.85,
+        "prognathism": 0.4,
+        "sagittal_crest": false,
+        "vault": "low_long",
+        "chin": false,
+        "face_width": 0.85,
+        "jaw_size": 0.8,
+        "brain_rel": 1.07,
+        "basis": "Head shape PROXY = Harbin cranium (Ji et al. 2021): massive brow ridge, wide face, large long braincase. Jaws: Xiahe (Chen et al. 2019) and Penghu 1 (Tsutaya et al. 2025) mandibles are robust, chinless, with large molars."
+      },
+      "posture": "presumed fully bipedal (no postcranial skeleton to confirm)",
+      "known_from": "Denisova Cave finger, molars and genome; Xiahe mandible (Tibet); Penghu 1 mandible (Taiwan); Harbin cranium (China)",
+      "confidence": "low",
+      "note": "Known mostly from DNA; the Harbin skull suggests a huge-browed, wide-faced head holding a brain bigger than ours.",
+      "sources": [
+        { "title": "Ji et al. (2021) Late Middle Pleistocene Harbin cranium represents a new Homo species. The Innovation 2:100132", "url": "https://doi.org/10.1016/j.xinn.2021.100132" },
+        { "title": "Fu et al. (2025) Denisovan mitochondrial DNA from dental calculus of the >146,000-year-old Harbin cranium. Cell", "url": "https://doi.org/10.1016/j.cell.2025.05.040" },
+        { "title": "Fu et al. (2025) The proteome of the late Middle Pleistocene Harbin individual. Science", "url": "https://doi.org/10.1126/science.adu9677" },
+        { "title": "Chen et al. (2019) A late Middle Pleistocene Denisovan mandible from the Tibetan Plateau. Nature 569:409–412", "url": "https://doi.org/10.1038/s41586-019-1139-x" },
+        { "title": "Tsutaya et al. (2025) A male Denisovan mandible from Pleistocene Taiwan. Science 388:176–180", "url": "https://doi.org/10.1126/science.ads3888" },
+        { "title": "Douka et al. (2019) Age estimates for hominin fossils and the onset of the Upper Palaeolithic at Denisova Cave. Nature 565:640–644", "url": "https://doi.org/10.1038/s41586-018-0870-z" },
+        { "title": "Kaifu et al. (2026, preprint, not peer-reviewed) Denisovan leg bones from Taiwan reveal large body size. bioRxiv", "url": "https://doi.org/10.64898/2026.08.07.743438" },
+        { "title": "John Hawks – Legs of the last Denisovans (commentary on the preprint)", "url": "https://www.johnhawks.net/p/legs-of-the-last-denisovans" }
+      ]
+    },
+    {
+      "key": "floresiensis",
+      "name": "Homo floresiensis",
+      "alias": ["Homo floresiensis"],
+      "years": "skeletons ~100,000 – 60,000 years ago; stone tools ~190,000 – 50,000",
+      "height_m": {
+        "mean": 1.06,
+        "male": null,
+        "female": 1.06,
+        "range": null,
+        "basis": "LB1 (adult female) 106 cm (Brown et al. 2004; Smithsonian; Jungers et al. 2016 give 1.05 m). Only one skeleton; no male known."
+      },
+      "mass_kg": {
+        "mean": 27.5,
+        "male": null,
+        "female": 27.5,
+        "range": [25, 30],
+        "basis": "LB1 27.5 kg (Jungers et al. 2016; Grabowski et al. 2015 as reported by Garvin et al. 2017). range: ~25 kg (Australian Museum) to 30 kg (Smithsonian)."
+      },
+      "cranial_cc": {
+        "mean": 426,
+        "range": [380, 426],
+        "basis": "LB1: 380 cc originally (Brown et al. 2004); 426 cc by micro-CT (Kubo et al. 2013)."
+      },
+      "proportions": {
+        "arm_to_leg": 0.75,
+        "torso": "broad",
+        "build": "stocky",
+        "basis": "Jungers et al. 2016: LB1 humerofemoral index 86.8, 'far outside the range of modern humans', femur 'especially short'. Australian Museum: feet 70% of femur length (modern 55%), wide pelvis, hunched shoulders. Build: 27.5 kg at 1.06 m = BMI ~24.5 (derived)."
+      },
+      "skull": {
+        "brow_ridge": 0.5,
+        "prognathism": 0.35,
+        "sagittal_crest": false,
+        "vault": "low_long",
+        "chin": false,
+        "face_width": 0.35,
+        "jaw_size": 0.45,
+        "brain_rel": 0.32,
+        "basis": "Australian Museum: long, low braincase like H. erectus; receding forehead; flat face; no chin; brow ridges not continuous; narrow nose. Smithsonian: large teeth for body size."
+      },
+      "posture": "fully bipedal (short legs, long feet)",
+      "known_from": "LB1 near-complete female skeleton and up to 12 individuals, Liang Bua cave, Flores",
+      "confidence": "high",
+      "note": "About one metre tall, with a chimpanzee-sized brain and feet 70% as long as its thigh.",
+      "sources": [
+        { "title": "Smithsonian Human Origins – Homo floresiensis", "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-floresiensis" },
+        { "title": "Australian Museum – Homo floresiensis", "url": "https://australian.museum/learn/science/human-evolution/homo-floresiensis/" },
+        { "title": "Brown et al. (2004) A new small-bodied hominin from the Late Pleistocene of Flores, Indonesia. Nature 431:1055–1061", "url": "https://doi.org/10.1038/nature02999" },
+        { "title": "Kubo, Kono & Kaifu (2013) Brain size of Homo floresiensis and its evolutionary implications. Proc R Soc B 280:20130338", "url": "https://doi.org/10.1098/rspb.2013.0338" },
+        { "title": "Jungers et al. (2016) The evolution of body size and shape in the human career. Phil Trans R Soc B", "url": "https://doi.org/10.1098/rstb.2015.0247" },
+        { "title": "Sutikna et al. (2016) Revised stratigraphy and chronology for Homo floresiensis at Liang Bua. Nature 532:366–369", "url": "https://doi.org/10.1038/nature17179" }
+      ]
+    },
+    {
+      "key": "luzonensis",
+      "name": "Homo luzonensis",
+      "alias": ["Homo luzonensis"],
+      "years": "at least ~130,000 years ago (2023 uranium-series re-dating; first published as minimum ages of 67,000 and 50,000)",
+      "height_m": {
+        "mean": null,
+        "male": null,
+        "female": null,
+        "range": null,
+        "basis": "Unknown: no long bones from adults. NHM: small teeth and foot bones suggest a short species, 'some estimates' under 1.2 m. Best proxy: H. floresiensis (1.06 m), the other small island hominin — a comparison, not an estimate."
+      },
+      "mass_kg": {
+        "mean": null,
+        "male": null,
+        "female": null,
+        "range": null,
+        "basis": "Unknown (NHM: 'weight is unknown')."
+      },
+      "cranial_cc": {
+        "mean": null,
+        "range": null,
+        "basis": "Unknown: no skull found."
+      },
+      "proportions": {
+        "arm_to_leg": null,
+        "torso": null,
+        "build": null,
+        "basis": "Only hand/foot bones, teeth and a child's femur. Curved finger and toe bones are australopith-like and may indicate climbing (Détroit et al. 2019; NHM)."
+      },
+      "skull": {
+        "brow_ridge": null,
+        "prognathism": null,
+        "sagittal_crest": null,
+        "vault": null,
+        "chin": null,
+        "face_width": null,
+        "jaw_size": null,
+        "brain_rel": null,
+        "basis": "No skull or mandible. Teeth are small, with a mix of primitive and modern-looking traits."
+      },
+      "posture": "bipedal + climbing (inferred from curved finger and toe bones)",
+      "known_from": "13 fossils from ≥3 individuals, Callao Cave, Luzon: teeth, finger and toe bones, juvenile femur",
+      "confidence": "low",
+      "note": "Tiny teeth and curved, climbing-style finger and toe bones; nothing else of its body is known.",
+      "sources": [
+        { "title": "Détroit et al. (2019) A new species of Homo from the Late Pleistocene of the Philippines. Nature 568:181–186", "url": "https://doi.org/10.1038/s41586-019-1067-9" },
+        { "title": "Natural History Museum London – New species of ancient human discovered in the Philippines", "url": "https://www.nhm.ac.uk/discover/news/2019/april/new-species-of-ancient-human-discovered-in-the-philippines.html" },
+        { "title": "Natural History Museum London – Homo luzonensis (incl. 2023 re-dating)", "url": "https://www.nhm.ac.uk/discover/homo-luzonensis-small-ancient-human-species-philippines.html" }
+      ]
+    },
+    {
+      "key": "sapiens_early",
+      "name": "Early Homo sapiens (Jebel Irhoud)",
+      "alias": ["Homo sapiens"],
+      "alias_eras": { "Homo sapiens": [-300000] },
+      "years": "about 315,000 ± 34,000 years ago (Jebel Irhoud); our species to present",
+      "height_m": {
+        "mean": 1.74,
+        "male": null,
+        "female": null,
+        "range": [1.585, 1.914],
+        "basis": "PROXY: no stature published for Jebel Irhoud. Middle Palaeolithic H. sapiens (mostly ~120–90 ka: Skhul, Qafzeh etc.) 173.8 cm, range 158.5–191.4, n=13 (Will et al. 2017 Table 4)."
+      },
+      "mass_kg": {
+        "mean": 62.7,
+        "male": null,
+        "female": null,
+        "range": [42.7, 76.9],
+        "basis": "PROXY: Middle Palaeolithic H. sapiens 62.7 kg, range 42.7–76.9, n=11 (Will et al. 2017 Table 4)."
+      },
+      "cranial_cc": {
+        "mean": 1421,
+        "range": [1375, 1467],
+        "basis": "Jebel Irhoud 1 1375 ml and Irhoud 2 1467 ml (Neubauer et al. 2018); mean derived. Omo 2 (~195 ka) 1491 ml."
+      },
+      "proportions": {
+        "arm_to_leg": 0.5,
+        "torso": "modern",
+        "build": "gracile",
+        "basis": "Jebel Irhoud is known mainly from skulls, jaws and teeth; body shape taken from the MP H. sapiens proxy (modern-like). Assumption."
+      },
+      "skull": {
+        "brow_ridge": 0.35,
+        "prognathism": 0.15,
+        "sagittal_crest": false,
+        "vault": "low_long",
+        "chin": null,
+        "face_width": 0.5,
+        "jaw_size": 0.45,
+        "brain_rel": 1.07,
+        "basis": "Hublin et al. 2017: face shape 'almost indistinguishable' from living humans, but an elongated, archaic braincase (not globular) and very large teeth. Chin of the Irhoud 11 mandible not characterised in the cited sources."
+      },
+      "posture": "fully bipedal",
+      "known_from": "Jebel Irhoud 1, 2, 10 crania and Irhoud 11 mandible (Morocco); Omo Kibish I (Ethiopia)",
+      "confidence": "medium",
+      "note": "Our face and brain size, but a long, low braincase not yet rounded like ours.",
+      "sources": [
+        { "title": "Hublin et al. (2017) New fossils from Jebel Irhoud, Morocco and the pan-African origin of Homo sapiens. Nature 546:289–292", "url": "https://doi.org/10.1038/nature22336" },
+        { "title": "Richter et al. (2017) The age of the hominin fossils from Jebel Irhoud, Morocco. Nature 546:293–296", "url": "https://doi.org/10.1038/nature22335" },
+        { "title": "Neubauer, Hublin & Gunz (2018) The evolution of modern human brain shape. Science Advances", "url": "https://doi.org/10.1126/sciadv.aao5961" },
+        { "title": "Will, Pablos & Stock (2017) R Soc Open Sci 4:171339", "url": "https://doi.org/10.1098/rsos.171339" },
+        { "title": "Smithsonian Human Origins – Homo sapiens", "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-sapiens" }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import * as THREE from "three";
 import type { BodyDef } from "../bodies";
 import type { Site, VisualN } from "../data";
 import { TODAY_YEAR, resolveVisual } from "../data";
-import { MAX_GLOWS, createPlanetMaterial, type PlanetUniforms } from "./planetMaterial";
+import { LINEAR_OUT, MAX_GLOWS, createPlanetMaterial, type PlanetUniforms } from "./planetMaterial";
 import { elevationRange, loadMap, loadPaleo } from "./textures";
 
 // Axial tilts (deg), NASA fact sheets. Moon: 6.68° to its orbit plane.
@@ -20,7 +20,7 @@ varying vec3 vN; varying vec3 vP;
 void main(){ vN = normalize(mat3(modelMatrix)*normal); vec4 w = modelMatrix*vec4(position,1.0); vP = w.xyz; gl_Position = projectionMatrix*viewMatrix*w; }`;
 const atmFrag = /* glsl */ `
 varying vec3 vN; varying vec3 vP;
-uniform vec3 uCamPos; uniform vec3 uLightDir; uniform vec3 uTint; uniform float uStrength; uniform float uDark; uniform float uOpacity;
+uniform vec3 uCamPos; uniform vec3 uLightDir; uniform vec3 uTint; uniform float uStrength; uniform float uDark; uniform float uOpacity; uniform float uLinearOut;
 void main(){
   vec3 V = normalize(uCamPos - vP);
   float rim = 1.0 - abs(dot(normalize(vN), V));
@@ -28,7 +28,9 @@ void main(){
   a *= 1.0 - smoothstep(0.92, 1.0, rim) * 0.85;
   float lit = smoothstep(-0.4, 0.5, dot(normalize(vN), normalize(uLightDir)));
   a *= mix(0.15, 1.0, lit) * uStrength * uOpacity;
-  gl_FragColor = vec4(uTint * (uDark > 0.5 ? 1.2 : 1.0), a * (uDark > 0.5 ? 1.0 : 0.28));
+  vec3 c = uTint * (uDark > 0.5 ? 1.2 : 1.0);
+  if (uLinearOut > 0.5) c = pow(c, vec3(2.2));
+  gl_FragColor = vec4(c, a * (uDark > 0.5 ? 1.0 : 0.28));
 }`;
 
 const ringVert = /* glsl */ `
@@ -79,7 +81,7 @@ export class Globe {
 
     this.atmU = {
       uCamPos: { value: new THREE.Vector3() }, uLightDir: u.uLightDir, uTint: { value: new THREE.Color(0.6, 0.75, 1) },
-      uStrength: { value: 0 }, uDark: { value: opts.dark ? 1 : 0 }, uOpacity: { value: 1 },
+      uStrength: { value: 0 }, uDark: { value: opts.dark ? 1 : 0 }, uOpacity: { value: 1 }, uLinearOut: LINEAR_OUT,
     };
     this.atm = new THREE.Mesh(
       new THREE.SphereGeometry(1.035, 64, 32),

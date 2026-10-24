@@ -20,13 +20,29 @@ export const MAT = {
   roadEdge: new THREE.MeshStandardMaterial({ color: 0xf6f3ef, metalness: 0, roughness: 0.9, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -3 }),
   glass: new THREE.MeshStandardMaterial({ color: 0xeef5f6, metalness: 0.05, roughness: 0.12, transparent: true, opacity: 0.55, depthWrite: false }),
   green: new THREE.MeshStandardMaterial({ color: 0x8fb26f, metalness: 0, roughness: 0.85 }),
-  berm: new THREE.MeshStandardMaterial({ color: 0xc19a7e, metalness: 0, roughness: 1 }),
+  berm: new THREE.MeshStandardMaterial({ color: 0xa8714f, metalness: 0, roughness: 1 }),
+  bermDetail: null as unknown as THREE.Texture,
   tank: new THREE.MeshStandardMaterial({ color: 0xf0eeea, metalness: 0.1, roughness: 0.6 }),
   dark: new THREE.MeshStandardMaterial({ color: 0x6b6763, metalness: 0.2, roughness: 0.7 }),
   tyre: new THREE.MeshStandardMaterial({ color: 0x2a2a2c, metalness: 0.1, roughness: 0.9 }),
 };
 
-const WIRE = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.6, depthWrite: false });
+
+/** Granular regolith: a tiling canvas used as colour variation + bump on piled soil. */
+function regolithMaps() {
+  const N = 256;
+  const c = document.createElement("canvas"); c.width = c.height = N;
+  const x = c.getContext("2d")!;
+  x.fillStyle = "#808080"; x.fillRect(0, 0, N, N);
+  for (let i = 0; i < 2600; i++) {
+    const px = Math.random() * N, py = Math.random() * N, r = Math.random() ** 2.6 * 3 + 0.5, v = 90 + Math.random() * 90;
+    x.fillStyle = `rgb(${v},${v},${v})`; x.beginPath(); x.arc(px, py, r, 0, 7); x.fill();
+  }
+  const t = new THREE.CanvasTexture(c);
+  t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(6, 3); t.colorSpace = THREE.NoColorSpace; t.anisotropy = 8;
+  return t;
+}
+const REGOLITH = regolithMaps();
 
 const shadowed = (m: THREE.Object3D) => {
   m.traverse((o) => { const mm = o as THREE.Mesh; if (mm.isMesh) { mm.castShadow = true; mm.receiveShadow = true; } });
@@ -78,41 +94,73 @@ export function solarField(rows: number, perRow: number, tiltDeg = 25) {
 }
 
 // ── greenhouse dome: geodesic hemisphere over planted beds ─────────
+// Built at radius 1 with every dimension relative, so instancing can scale it uniformly.
+const DOME_GLASS = new THREE.MeshPhysicalMaterial({ color: 0xe8f2f4, metalness: 0, roughness: 0.04, transparent: true, opacity: 0.32, clearcoat: 1, clearcoatRoughness: 0.05, depthWrite: false, envMapIntensity: 1.6 });
+const DOME_FRAME = new THREE.MeshStandardMaterial({ color: 0xf6f6f4, roughness: 0.4, metalness: 0.2, wireframe: true, transparent: true, opacity: 0.85 });
+const LEAF = new THREE.MeshStandardMaterial({ color: 0x6f9a52, roughness: 0.9 });
+const LEAF2 = new THREE.MeshStandardMaterial({ color: 0x8db86a, roughness: 0.9 });
 export function dome(radius: number) {
   const g = new THREE.Group();
   const shell = new THREE.IcosahedronGeometry(radius, 3);
   const pos = shell.attributes.position;
   for (let i = 0; i < pos.count; i++) if (pos.getY(i) < 0) pos.setY(i, 0);
   shell.computeVertexNormals();
-  const glass = new THREE.Mesh(shell, MAT.glass);
+  const glass = new THREE.Mesh(shell, DOME_GLASS);
   glass.renderOrder = 2;
-  glass.castShadow = true;
-  const frame = new THREE.Mesh(shell, WIRE);
-  const ring = new THREE.Mesh(new THREE.CylinderGeometry(radius * 1.02, radius * 1.06, 1.4, 64), MAT.white);
-  ring.position.y = 0.7;
-  const beds = new THREE.Group();
-  for (let i = -2; i <= 2; i++) {
-    const b = new THREE.Mesh(new THREE.BoxGeometry(radius * 1.2 - Math.abs(i) * radius * 0.18, 0.8, radius * 0.16), MAT.green);
-    b.position.set(0, 0.6, i * radius * 0.3);
-    beds.add(b);
+  const frame = new THREE.Mesh(shell, DOME_FRAME);
+  frame.scale.setScalar(1.003);
+  const ring = new THREE.Mesh(new THREE.CylinderGeometry(radius * 1.03, radius * 1.07, radius * 0.06, 48), MAT.white);
+  ring.position.y = radius * 0.03;
+  const floor = new THREE.Mesh(new THREE.CylinderGeometry(radius * 0.98, radius * 0.98, radius * 0.02, 48), new THREE.MeshStandardMaterial({ color: 0x8a6f55, roughness: 1 }));
+  floor.position.y = radius * 0.05;
+  g.add(ring, floor);
+  // planted rows + a few small trees (merged: one draw each)
+  const rows: [THREE.BufferGeometry, THREE.Matrix4][] = [];
+  const trees: [THREE.BufferGeometry, THREE.Matrix4][] = [];
+  const rowG = new THREE.BoxGeometry(1, 1, 1);
+  for (let i = -3; i <= 3; i++) {
+    const z = i * radius * 0.22, half = Math.sqrt(Math.max(0, 0.8 - (z / radius) ** 2)) * radius;
+    rows.push([rowG, new THREE.Matrix4().compose(new THREE.Vector3(0, radius * 0.085, z), new THREE.Quaternion(), new THREE.Vector3(half * 1.6, radius * 0.06, radius * 0.11))]);
   }
-  g.add(ring, beds, glass, frame);
-  shadowed(ring); shadowed(beds);
+  const treeG = new THREE.IcosahedronGeometry(1, 1);
+  for (let k = 0; k < 7; k++) {
+    const a = k * 2.399, rr = radius * (0.25 + 0.45 * ((k * 0.618) % 1));
+    const sz = radius * (0.1 + 0.06 * ((k * 0.37) % 1));
+    trees.push([treeG, new THREE.Matrix4().compose(new THREE.Vector3(Math.cos(a) * rr, radius * 0.1 + sz, Math.sin(a) * rr), new THREE.Quaternion(), new THREE.Vector3(sz, sz * 1.15, sz))]);
+  }
+  const bake2 = (parts: [THREE.BufferGeometry, THREE.Matrix4][]) => mergeGeometries(parts.map(([gg, m]) => { const c = gg.clone(); c.applyMatrix4(m); return c; }))!;
+  g.add(new THREE.Mesh(bake2(rows), LEAF), new THREE.Mesh(bake2(trees), LEAF2));
+  g.add(glass, frame);
+  shadowed(g);
+  glass.castShadow = false; glass.receiveShadow = false; frame.castShadow = false;
   g.userData.footprint = radius;
   return g;
 }
 
-// ── habitat module, half-buried under a regolith berm (radiation shielding) ──
+// ── habitat module under a regolith-covered vault (radiation shielding) ──
+// A long, low barrel vault of piled regolith with clean white end walls and an airlock,
+// the shape used in NASA/ESA buried-habitat studies.
 export function bermedHab(length = 22) {
   const g = new THREE.Group();
-  const mound = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2), MAT.berm);
-  mound.scale.set(length * 0.55 + 5, 3.4, 8);
-  const hatch = new THREE.Mesh(new THREE.BoxGeometry(4, 3.2, 4.5), MAT.white);
-  hatch.position.set(length * 0.55 + 5.5, 1.6, 0);
-  const vent = new THREE.Mesh(new THREE.CylinderGeometry(0.6, 0.6, 2.5, 12), MAT.white);
-  vent.position.set(-length * 0.2, 3.6, 0);
-  g.add(mound, hatch, vent);
-  g.userData.footprint = length * 0.55 + 5;
+  const R = 6.5;
+  const vault = new THREE.Mesh(new THREE.CylinderGeometry(R, R, length, 28, 1, true, 0, Math.PI), MAT.berm);
+  // axis along x, open half facing up, then flattened into a low vault
+  vault.rotation.z = Math.PI / 2; vault.scale.set(0.55, 1, 1);
+  // a regolith apron so the vault sits in the ground, not on it
+  const apron = new THREE.Mesh(new THREE.CylinderGeometry(1, 1.15, 0.6, 32), MAT.berm);
+  apron.scale.set(length * 0.62, 1, R * 1.25); apron.position.y = 0.3;
+  for (const s of [-1, 1]) {
+    const wall = new THREE.Mesh(new THREE.CircleGeometry(R * 0.92, 24, 0, Math.PI), MAT.white);
+    wall.scale.set(1, 0.55, 1);
+    wall.position.set(s * (length / 2 + 0.05), 0, 0); wall.rotation.y = s * Math.PI / 2;
+    g.add(wall);
+  }
+  const lock = new THREE.Mesh(new THREE.BoxGeometry(3.6, 2.8, 3.2), MAT.white);
+  lock.position.set(length / 2 + 1.9, 1.4, 0);
+  const vent = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 1.6, 12), MAT.white);
+  vent.position.set(-length * 0.2, R * 0.55 + 0.6, 0);
+  g.add(vault, apron, lock, vent);
+  g.userData.footprint = length * 0.55 + 4;
   return shadowed(g);
 }
 
@@ -193,15 +241,67 @@ export function rover(pressurized: boolean) {
   return shadowed(g);
 }
 
+/**
+ * Facade material for instanced blocks. Windows are laid out in real metres (3.4 m floors,
+ * 2.8 m bays) from each instance's own scale, so a 4-storey block shows four rows of windows
+ * however it's sized. Roofs get panel seams. Per-building tint via instance colours.
+ */
+export const FACADE = { sObj: { value: 1 } };
+export const BLOCK_MAT = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.82, metalness: 0 });
+BLOCK_MAT.onBeforeCompile = (sh) => {
+  sh.uniforms.uSObj = FACADE.sObj;
+  sh.vertexShader = sh.vertexShader
+    .replace("#include <common>", "#include <common>\nuniform float uSObj; varying vec3 vFace;")
+    .replace("#include <begin_vertex>", `#include <begin_vertex>
+      vec3 sc = vec3(1.0);
+      #ifdef USE_INSTANCING
+        sc = vec3(length(instanceMatrix[0].xyz), length(instanceMatrix[1].xyz), length(instanceMatrix[2].xyz)) / uSObj;
+      #endif
+      vec3 an = abs(normal);
+      if (an.y > 0.5) vFace = vec3(uv * sc.xz, -1.0);
+      else if (an.x > 0.5) vFace = vec3(uv * vec2(sc.z, sc.y), sc.y);
+      else vFace = vec3(uv * vec2(sc.x, sc.y), sc.y);`);
+  sh.fragmentShader = sh.fragmentShader
+    .replace("#include <common>", "#include <common>\nvarying vec3 vFace;")
+    .replace("#include <color_fragment>", `#include <color_fragment>
+      if (vFace.z < 0.0) {
+        // roof: membrane panels
+        vec2 r = fract(vFace.xy / 3.0);
+        float seam = step(r.x, 0.03) + step(r.y, 0.03);
+        diffuseColor.rgb *= 0.93 - 0.05 * min(seam, 1.0);
+      } else {
+        float H = vFace.z, y = vFace.y;
+        float floorH = 3.4, bay = 2.8;
+        float row = floor(y / floorH), fy = fract(y / floorH), fx = fract(vFace.x / bay);
+        float win = step(0.3, fy) * step(fy, 0.8) * step(0.14, fx) * step(fx, 0.86);
+        float ground = 1.0 - step(1.0, row);
+        win = mix(win, step(0.08, fy) * step(fy, 0.86) * step(0.06, fx) * step(fx, 0.94), ground);
+        win *= step(y, H - 0.7);                                  // parapet band at the top
+        vec3 glass = mix(vec3(0.16, 0.19, 0.24), vec3(0.42, 0.48, 0.56), fy);   // sky caught in the pane
+        diffuseColor.rgb = mix(diffuseColor.rgb, glass, win);
+        diffuseColor.rgb *= 1.0 - 0.06 * (1.0 - step(0.04, fy)); // floor slab line
+      }`);
+};
+export const LOT = new THREE.MeshStandardMaterial({ color: 0xdcd2c6, roughness: 0.95, polygonOffset: true, polygonOffsetFactor: -1 });
+const ROOFKIT = new THREE.MeshStandardMaterial({ color: 0xc9c6c1, roughness: 0.7, metalness: 0.2 });
+
 /** Unit block (1×1×1, base at 0) for instancing; scaled per building. */
 export function blockUnit() {
   const g = new THREE.Group();
-  const b = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), MAT.white);
+  const b = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), BLOCK_MAT);
   b.position.y = 0.5;
-  const r = new THREE.Mesh(new THREE.BoxGeometry(0.94, 0.05, 0.94), MAT.roof);
-  r.position.y = 1.02;
-  g.add(b, r);
-  return shadowed(g);
+  b.userData.tint = true;
+  const lot = new THREE.Mesh(new THREE.BoxGeometry(1.32, 0.012, 1.32), LOT);
+  lot.position.y = 0.006;
+  const kit = new THREE.Mesh(mergeGeometries([
+    new THREE.BoxGeometry(0.16, 0.05, 0.12).translate(0.22, 1.025, -0.18),
+    new THREE.BoxGeometry(0.1, 0.04, 0.1).translate(-0.25, 1.02, 0.2),
+    new THREE.BoxGeometry(0.34, 0.015, 0.2).translate(-0.1, 1.008, -0.15),
+  ])!, ROOFKIT);
+  g.add(b, lot, kit);
+  shadowed(g);
+  lot.castShadow = false;
+  return g;
 }
 
 /** Low white work/hab blocks, the "town" grain between the big pieces. */
@@ -357,7 +457,7 @@ export function massDriver(length = 420) {
 }
 
 /** One street segment (one grid cell long): compacted, dust-toned, reads quietly from the air. */
-const STREET = new THREE.MeshStandardMaterial({ color: 0xc8b6a6, metalness: 0, roughness: 1, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
+export const STREET = new THREE.MeshStandardMaterial({ color: 0xc8b6a6, metalness: 0, roughness: 1, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
 export function street() {
   const g = new THREE.Group();
   const s = new THREE.Mesh(new THREE.BoxGeometry(1, 0.2, 9), STREET);
@@ -593,4 +693,33 @@ export function moonHotel(palaceYear: number) {
   };
   g.userData.footprint = 44;
   return g;
+}
+
+/** Tower crane (mast, jib, counter-jib) for buildings going up at the edge of the city. */
+export function crane() {
+  const g = new THREE.Group();
+  const steel = new THREE.MeshStandardMaterial({ color: 0xe9e6e1, roughness: 0.6, metalness: 0.3 });
+  const accent = new THREE.MeshStandardMaterial({ color: 0xd9653b, roughness: 0.6 });
+  const mast = new THREE.Mesh(new THREE.BoxGeometry(1.4, 34, 1.4), steel); mast.position.y = 17;
+  const jib = new THREE.Mesh(new THREE.BoxGeometry(26, 1.1, 1.1), steel); jib.position.set(9, 34.5, 0);
+  const counter = new THREE.Mesh(new THREE.BoxGeometry(8, 1.1, 1.1), steel); counter.position.set(-5, 34.5, 0);
+  const weight = new THREE.Mesh(new THREE.BoxGeometry(2.6, 2.4, 2.2), accent); weight.position.set(-8, 33.6, 0);
+  const cab = new THREE.Mesh(new THREE.BoxGeometry(2.2, 2, 2), accent); cab.position.set(1.6, 33, 0);
+  const cable = new THREE.Mesh(new THREE.BoxGeometry(0.12, 18, 0.12), steel); cable.position.set(16, 25.5, 0);
+  g.add(mast, jib, counter, weight, cab, cable);
+  return shadowed(g);
+}
+
+MAT.berm.bumpMap = REGOLITH; MAT.berm.bumpScale = 0.9; MAT.berm.roughnessMap = REGOLITH;
+MAT.bermDetail = REGOLITH;
+
+/** Small pressurised road rover: rounded cabin, six wheels, wrap-around windscreen. */
+export function carGeometry() {
+  const body = new THREE.CapsuleGeometry(1.15, 3.2, 6, 14).rotateZ(Math.PI / 2).scale(1, 0.72, 1.05).translate(0, 1.55, 0);
+  const deck = new THREE.BoxGeometry(5.0, 0.5, 2.3).translate(0, 0.95, 0);
+  const wheels = [-1.6, 0, 1.6].flatMap((x) => [-1, 1].map((s) => new THREE.CylinderGeometry(0.5, 0.5, 0.42, 12).rotateX(Math.PI / 2).translate(x, 0.5, s * 1.18)));
+  const shell = mergeGeometries([body.toNonIndexed(), deck.toNonIndexed()].map((g) => { g.deleteAttribute("uv"); return g; }))!;
+  const tyres = mergeGeometries(wheels.map((g) => { const n = g.toNonIndexed(); n.deleteAttribute("uv"); return n; }))!;
+  const glass = new THREE.SphereGeometry(1.2, 18, 10, -Math.PI / 2.4, Math.PI / 1.2, Math.PI / 4.2, Math.PI / 3.4).scale(0.8, 0.75, 1.0).translate(1.55, 1.6, 0);
+  return { shell, tyres, glass };
 }

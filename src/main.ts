@@ -242,8 +242,7 @@ function tick() {
     renderer.render(system.scene, system.camera);
   } else if (mode === "planet") {
     planet.update(dt, t);
-    renderer.setRenderTarget(null);
-    renderer.render(planet.scene, planet.camera);
+    planet.render();
   } else {
     const dur = mode === "toPlanet" ? DIVE : RISE;
     const k = reducedMotion() ? 1 : clamp((now - tStart) / dur, 0, 1);

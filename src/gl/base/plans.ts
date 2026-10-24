@@ -103,7 +103,7 @@ export function buildMarsPlan(): Item[] {
     if (w >= 4 && w % 3 === 1) add({ kind: "rover", year: y + 0.3, x: 0, z: 0, rot: 0, pressurized: true, path: [[70, -170], [200, 0], [300, 220], [180, 300], [-40, 150], [-150, 30], [70, -170]] });
   }
   relax(items);
-  // 2040 → 2050: the city spreads in street-grid districts toward Musk's million-person target
+  // 2040 → 2050: the city spreads in street-grid districts toward SpaceX's million-person target
   districts(items, { cx: 80, cz: 120, from: 2039.7, to: 2050.2, rMin: 480, rMax: 1550, cell: 40, seed: 7, domes: true });
   return items.sort((a, b) => a.year - b.year);
 }
@@ -166,7 +166,7 @@ export function buildMoonPlan(): Item[] {
   for (let i = 0; i < 4; i++) add({ kind: "hab", year: 2033.3 + i * 0.4, x: -20 - i * 38, z: 40 + (i % 2) * 34, rot: 0, size: 22 });
   add({ kind: "rover", year: 2034, x: 0, z: 0, rot: 0, pressurized: true, path: [[-480, 260], [-200, 150], [60, -40], [100, -300], [120, -600], [100, -300], [60, -40], [-200, 150]] });
   for (let i = 0; i < 4; i++) add({ kind: "tower", year: 2034.5 + i * 0.3, x: 540 + i * 70, z: -180 + (i % 2) * 40, rot: 0 });
-  // Musk: the self-growing city, and a mass driver to throw cargo off the Moon
+  // SpaceX: the self-growing city, and a mass driver to throw cargo off the Moon
   add({ kind: "driver", year: 2036.1, x: 520, z: -420, rot: Math.PI / 2 });   // runs north, away from the viewer
   for (let k = 0; k < 9; k++) {
     const p: [number, number] = [-900 + (k % 3) * 170, 420 + Math.floor(k / 3) * 170];

@@ -2,6 +2,8 @@ import * as THREE from "three";
 import { NOISE } from "./noise.glsl";
 
 export const MAX_GLOWS = 24;
+/** Shared switch: globes output linear light while the post-processing path is active. */
+export const LINEAR_OUT = { value: 0 };
 
 const vert = /* glsl */ `
 varying vec2 vUv;
@@ -55,6 +57,7 @@ uniform vec3 uAtmTint, uSurfTint;
 
 uniform float uFogDensity; uniform vec3 uFogColor;
 uniform vec3 uHoleDir; uniform float uHoleCos;
+uniform float uLinearOut;
 uniform vec4 uGlows[${MAX_GLOWS}];
 uniform int uGlowCount;
 
@@ -284,6 +287,8 @@ void main() {
   }
   if (uDarkSpace < 0.5) col = 1.0 - (1.0 - col) * (1.0 - 0.06) ; // gentle studio lift
   // authored + lit in display (sRGB) space; no tonemapping so the white studio stays white
+  // when post-processing, hand the compositor linear light (it encodes to sRGB at the end)
+  if (uLinearOut > 0.5) col = pow(max(col, 0.0), vec3(2.2));
   gl_FragColor = vec4(col, uOpacity);
 }
 `;
@@ -316,6 +321,7 @@ export function createPlanetMaterial(seed: number) {
     uGlowCount: { value: 0 },
     uFogDensity: { value: 0 }, uFogColor: { value: new THREE.Color(0.8, 0.65, 0.5) },
     uHoleDir: { value: new THREE.Vector3(0, 1, 0) }, uHoleCos: { value: 2 },
+    uLinearOut: LINEAR_OUT,
   };
   const mat = new THREE.ShaderMaterial({ uniforms: u, vertexShader: vert, fragmentShader: frag, transparent: false });
   return { mat, u };

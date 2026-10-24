@@ -4,7 +4,12 @@ import { type BodyData, type Era, type HumansData, type Site, TODAY_YEAR, format
 import { type Stop, buildStops, eraAt, visualAt } from "../timeline";
 import { Globe, latLonToDir } from "./Globe";
 import { BaseLayer, SITES } from "./base/BaseLayer";
+import { Specimen } from "../ui/Specimen";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
+import type { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import type { N8AOPass } from "n8ao";
+import type { BokehPass } from "three/examples/jsm/postprocessing/BokehPass.js";
+import { LINEAR_OUT } from "./planetMaterial";
 import { Ruler } from "../ui/Ruler";
 import { esc, swapContent } from "../ui/swap";
 import type { Shell } from "../ui/shell";
@@ -12,6 +17,7 @@ import type { Sound } from "../sound";
 import { Spring, SPRING_FOLLOW, clamp, expoOut, follow, reducedMotion } from "../motion";
 
 const FOV = 30;
+const SPECIMENS_ENABLED = false;
 const LIGHT = new THREE.Vector3(-0.5, 0.38, 0.78).normalize();
 
 interface Loaded { data: BodyData | null; humans: HumansData | null; stops: Stop[] }
@@ -61,7 +67,17 @@ export class PlanetView {
   private tiltAdj = 0;
   private builtTo2031 = false;
 
+  private composer: EffectComposer | null = null;
+  private ao: N8AOPass | null = null;
+  private bokeh: BokehPass | null = null;
+  private renderer: THREE.WebGLRenderer | null = null;
+  private camTarget = new THREE.Vector3();
+  // butterscotch dust haze (sRGB #d8b796); globes take it in display space, materials in linear
+  private hazeColor = new THREE.Color().setStyle("#d8b796");
+  private hazeSRGB = new THREE.Color(0xd8b796 >> 16 & 255, 0xd8b796 >> 8 & 255, 0xd8b796 & 255).multiplyScalar(1 / 255);
+
   constructor(private shell: Shell, private sound: Sound, renderer?: THREE.WebGLRenderer) {
+    this.renderer = renderer ?? null;
     try { if (localStorage.getItem("telos:hinted")) document.body.setAttribute("data-hinted", ""); } catch { /* ignore */ }
     this.scene.background = new THREE.Color(1, 1, 1);
     this.sun.position.copy(LIGHT).multiplyScalar(5);
@@ -146,6 +162,7 @@ export class PlanetView {
     this.zoomGoal = 1;
     this.focusAim = false;
     this.autoSurface = false;
+    if (id !== "earth") this.specimen.close();
     const L = await this.load(id);
     if (this.current !== id) return;
     this.cur = L;
@@ -249,7 +266,8 @@ export class PlanetView {
     this.setPeople(eraAt(L.stops, L.humans, idx));
   }
 
-  private people: { el: HTMLElement; dir: THREE.Vector3 }[] = [];
+  private people: { el: HTMLElement; dir: THREE.Vector3; x: number; y: number; on: boolean }[] = [];
+  private specimen = new Specimen();
   private peopleKey = "";
   private setPeople(era: Era | null) {
     const key = era ? String(era.year) : "";
@@ -258,16 +276,28 @@ export class PlanetView {
     for (const p of this.people) { const el = p.el; el.dataset.state = "leave"; setTimeout(() => el.remove(), 260); }
     this.people = [];
     if (!era) return;
+    // early-human figures: off until the realistic models ship (the panel works; the bodies don't yet)
+    if (SPECIMENS_ENABLED) void this.specimen.load().then(() => {
+      if (this.peopleKey !== key) return;
+      for (const p of this.people) {
+        const k = this.specimen.keyFor(p.el.dataset.name ?? "", era.year);
+        if (k) { p.el.dataset.key = k; p.el.setAttribute("role", "button"); p.el.tabIndex = 0; }
+      }
+    });
     era.peoples.slice(0, 8).forEach((pp, i) => {
       const el = document.createElement("div");
       el.className = "people";
       el.dataset.state = "enter";
+      el.dataset.name = pp.name;
       el.style.transitionDelay = `${60 + i * 45}ms`;
       el.innerHTML = `<i></i><span>${esc(pp.name)}</span>`;
+      const open = () => { const k = el.dataset.key; if (k) void this.specimen.open(k, era.label); };
+      el.addEventListener("click", open);
+      el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
       this.shell.labels.appendChild(el);
       void el.offsetWidth;
       delete el.dataset.state;
-      this.people.push({ el, dir: latLonToDir(pp.lat, pp.lon) });
+      this.people.push({ el, dir: latLonToDir(pp.lat, pp.lon), x: 0, y: 0, on: false });
     });
   }
 
@@ -453,7 +483,63 @@ export class PlanetView {
 
   // ── layout & frame ────────────────────────────────────────────
 
+  /** Post-processing for the aerial view: ambient occlusion grounds every object; a gentle
+   *  depth of field (sharp at the target, soft fore and aft) gives the miniature read. */
+  private composerLoading = false;
+  private ensureComposer() {
+    if (this.composer || this.composerLoading || !this.renderer) return;
+    this.composerLoading = true;
+    // loaded on first use: keeps the landing bundle small
+    void Promise.all([
+      import("three/examples/jsm/postprocessing/EffectComposer.js"),
+      import("n8ao"),
+      import("three/examples/jsm/postprocessing/BokehPass.js"),
+      import("three/examples/jsm/postprocessing/OutputPass.js"),
+    ]).then(([{ EffectComposer }, { N8AOPass }, { BokehPass }, { OutputPass }]) => this.buildComposer(EffectComposer, N8AOPass, BokehPass, OutputPass));
+  }
+  private buildComposer(
+    EffectComposerC: typeof EffectComposer, N8AOPassC: typeof N8AOPass,
+    BokehPassC: typeof BokehPass, OutputPassC: typeof import("three/examples/jsm/postprocessing/OutputPass.js").OutputPass,
+  ) {
+    const r = this.renderer!;
+    const c = new EffectComposerC(r, new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: 4 }));
+    // N8AO renders the scene and its occlusion in one pass; radius in screen pixels suits a
+    // miniature whose world units are tiny fractions of a globe
+    const ao = new N8AOPassC(this.scene, this.camera, innerWidth, innerHeight);
+    const lowPower = matchMedia("(pointer: coarse)").matches || innerWidth < 760;
+    Object.assign(ao.configuration, { aoRadius: 26, distanceFalloff: 0.6, intensity: 2.6, screenSpaceRadius: true, halfRes: lowPower, gammaCorrection: false, aoSamples: 16, denoiseSamples: 8, denoiseRadius: 10, color: new THREE.Color(0.18, 0.1, 0.06) });
+    c.addPass(ao);
+    // depth of field costs a full extra scene render: desktop only
+    const b = new BokehPassC(this.scene, this.camera, { focus: 1, aperture: 0.0025, maxblur: 0.006 });
+    b.enabled = !lowPower;
+    c.addPass(b);
+    c.addPass(new OutputPassC());
+    c.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+    c.setSize(innerWidth, innerHeight);
+    this.composer = c; this.ao = ao; this.bokeh = b;
+  }
+
+  /** Draw the planet view: post-processed over a surface, direct otherwise. */
+  render() {
+    const r = this.renderer!;
+    if (this.focusK > 0.3) this.ensureComposer();
+    if (this.focusK > 0.3 && this.composer) {
+      const d = this.camera.position.distanceTo(this.camTarget);
+      // AO reach grows a little as you come in, so close-ups get deeper contact shading
+      this.ao!.configuration.aoRadius = clamp(38 - d * 30, 18, 40);
+      const u = (this.bokeh as unknown as { uniforms: Record<string, THREE.IUniform> }).uniforms;
+      u.focus.value = d; u.aperture.value = 0.0012 / Math.max(d, 0.05); u.maxblur.value = 0.0045;
+      LINEAR_OUT.value = 1;
+      this.composer!.render();
+      LINEAR_OUT.value = 0;
+    } else {
+      r.setRenderTarget(null);
+      r.render(this.scene, this.camera);
+    }
+  }
+
   resize(w: number, h: number) {
+    this.composer?.setSize(w, h);
     const mobile = w < 640;
     this.rPx = Math.round(clamp(Math.min(w * (mobile ? 0.36 : 0.2), h * 0.2), 96, 220));
     this.cx = w / 2;
@@ -549,13 +635,26 @@ export class PlanetView {
       sc.left = -span; sc.right = span; sc.top = span; sc.bottom = -span; sc.near = 0.05; sc.far = 4;
       sc.updateProjectionMatrix();
       // zooming in by hand before anything is built: take the timeline to the first landing
+      // aerial perspective: Mars' dusty air hazes the distance; the airless Moon stays crisp
+      if (!this.base.site.lunar) {
+        const haze = this.hazeColor;
+        if (!this.scene.fog) this.scene.fog = new THREE.Fog(haze, 1, 10);
+        const fg = this.scene.fog as THREE.Fog;
+        fg.near = d * 1.4; fg.far = d * 7.5;
+        for (const [, gl] of this.globes) { gl.u.uFogDensity.value = fk * 0.9 / Math.max(d * 6, 0.01); gl.u.uFogColor.value.copy(this.hazeSRGB); }
+      } else { this.scene.fog = null; for (const [, gl] of this.globes) gl.u.uFogDensity.value = 0; }
       if (fk > 0.5 && !this.builtTo2031 && this.userZoomed && !this.autoSurface && !this.base.hasActivity && this.zoomGoal > 2) { this.builtTo2031 = true; this.scrubToYear(this.base.site.firstYear); }
-    } else this.builtTo2031 = false;
+    } else {
+      this.builtTo2031 = false;
+      if (this.scene.fog) { this.scene.fog = null; for (const [, gl] of this.globes) gl.u.uFogDensity.value = 0; }
+    }
     this.camera.position.copy(T).addScaledVector(B, d);
     this.camera.up.set(0, 1, 0);
     this.camera.lookAt(T);
+    this.camTarget.copy(T);
     this.camera.near = Math.max(0.0004, d * 0.02);
-    this.camera.far = 200;
+    // over the surface keep depth tight (AO and DOF need precision); the horizon is ~√(2Rd) away
+    this.camera.far = fk > 0.3 ? Math.max(6, d * 30) : 200;
     this.camera.updateProjectionMatrix();
     for (const [id, b] of this.bases) {
       if (id === this.current) b.setYear(this.year);
@@ -606,14 +705,32 @@ export class PlanetView {
       p.el.toggleAttribute("data-hidden", !visible);
       p.el.toggleAttribute("data-show", visible && z > 1.6);
     }
-    for (const p of this.people) {
+    // people labels: project, then push apart so names never sit on top of each other
+    const placed: { x: number; y: number; w: number }[] = [];
+    const vis = this.enterT > 0.95 && !this.moving && this.focusK < 0.25 ? 1 : 0;
+    const order = this.people.map((p) => {
       v.copy(p.dir).applyMatrix4(m);
       const n = v.clone().sub(g.root.position).normalize();
       camDir.copy(this.camera.position).sub(v).normalize();
       const facing = n.dot(camDir);
       v.project(this.camera);
-      p.el.style.transform = `translate(${((v.x * 0.5 + 0.5) * w).toFixed(1)}px, ${((-v.y * 0.5 + 0.5) * h).toFixed(1)}px)`;
-      p.el.style.opacity = String(clamp((facing - 0.1) / 0.25, 0, 1) * (this.enterT > 0.95 && !this.moving ? 1 : 0));
+      p.x = (v.x * 0.5 + 0.5) * w; p.y = (-v.y * 0.5 + 0.5) * h;
+      return { p, facing };
+    }).sort((a, b) => a.p.y - b.p.y);
+    for (const { p, facing } of order) {
+      const lw = (p.el.textContent?.length ?? 8) * 6.2 + 14;
+      let y = p.y;
+      for (let tries = 0; tries < 6; tries++) {
+        const hit = placed.find((q) => Math.abs(q.y - y) < 15 && p.x < q.x + q.w && p.x + lw > q.x);
+        if (!hit) break;
+        y = hit.y + 15;
+      }
+      placed.push({ x: p.x, y, w: lw });
+      const dy = y - p.y;
+      p.el.style.transform = `translate(${p.x.toFixed(1)}px, ${p.y.toFixed(1)}px)`;
+      p.el.style.setProperty("--dy", `${dy.toFixed(1)}px`);
+      p.el.style.opacity = String(clamp((facing - 0.1) / 0.25, 0, 1) * vis);
+      p.el.style.pointerEvents = facing > 0.2 && vis ? "" : "none";
     }
   }
 

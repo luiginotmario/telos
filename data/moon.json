@@ -1369,13 +1369,13 @@
     {
       "id": "musk-moon-city",
       "year": 2036.1,
-      "label": "Within ~10 years (Musk, 2026)",
+      "label": "Within ~10 years (SpaceX, 2026)",
       "title": "Self-growing city",
-      "line": "Musk: Moon city within 10 years",
-      "detail": "On 8 February 2026 Musk wrote that SpaceX had 'already shifted focus to building a self-growing city on the moon', saying 'we can potentially achieve that in less than 10 years, whereas Mars would take 20+ years'. Days later, at an xAI all-hands, he said 'I really want to see a mass driver on the moon that is shooting AI satellites into deep space'. Coverage calls the concept 'Moonbase Alpha'. In January 2025 he had called the Moon 'a distraction'. No site has been named.",
+      "line": "SpaceX: Moon city within 10 years",
+      "detail": "On 8 February 2026 SpaceX CEO Elon Musk wrote that the company had 'already shifted focus to building a self-growing city on the moon', saying 'we can potentially achieve that in less than 10 years, whereas Mars would take 20+ years'. Days later, at an xAI all-hands, he said 'I really want to see a mass driver on the moon that is shooting AI satellites into deep space'. Coverage calls the concept 'Moonbase Alpha'. In January 2025 he had called the Moon 'a distraction'. No site has been named.",
       "kind": "projected",
       "confidence": "projection",
-      "projected_by": "Elon Musk, post on X, 8 February 2026; xAI all-hands, ~11 February 2026",
+      "projected_by": "SpaceX — CEO Elon Musk, post on X, 8 February 2026; xAI all-hands, ~11 February 2026",
       "visual": {
         "lava": 0,
         "ocean": 0,

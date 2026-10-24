@@ -4,7 +4,7 @@ import type { BodyId } from "../../bodies";
 import type { Globe } from "../Globe";
 import { latLonToDir } from "../Globe";
 import { createDust, createPlume } from "./effects";
-import { MAT, OptimusCrowd, bermedHab, blockUnit, dome, iceMine, isruPlant, landingPad, massDriver, moonHotel, reactor, road, rover, solarField, solarTower, street, toHLS } from "./kit";
+import { FACADE, LOT, MAT, OptimusCrowd, STREET, carGeometry, crane, bermedHab, blockUnit, dome, iceMine, isruPlant, landingPad, massDriver, moonHotel, reactor, road, rover, solarField, solarTower, street, toHLS } from "./kit";
 import { type Item, buildMarsPlan, buildMoonPlan, moonRobotsAt, robotsAt } from "./plans";
 import { Spring, clamp, follow } from "../../motion";
 import type { Sound } from "../../sound";
@@ -16,7 +16,7 @@ import type { Sound } from "../../sound";
  */
 const S_POS = 0.07 / 900;
 const OBJ_K = 2.6;
-const BOT_K = 6;
+const BOT_K = 3;
 const S_OBJ = S_POS * OBJ_K;
 
 export interface SiteDef {
@@ -54,10 +54,13 @@ export const SITES: SiteDef[] = [
 ];
 
 const ZERO = new THREE.Matrix4().makeScale(0, 0, 0);
+const WHITE = new THREE.Color(1, 1, 1);
+// building palette: off-whites with a little warmth and coolness, like painted render and panels
+const PALETTE = [0xf5f2ec, 0xf0ebe3, 0xebe7e1, 0xf7f5f1, 0xe6e2dc, 0xefe6da, 0xe9ecee].map((c) => new THREE.Color(c));
 
 /** One template → one InstancedMesh per part. */
 class Pool {
-  parts: { mesh: THREE.InstancedMesh; local: THREE.Matrix4 }[] = [];
+  parts: { mesh: THREE.InstancedMesh; local: THREE.Matrix4; tint: boolean }[] = [];
   private n = 0;
   private m = new THREE.Matrix4();
   constructor(template: THREE.Object3D, readonly cap: number, parent: THREE.Object3D, renderOrder = 0) {
@@ -69,11 +72,16 @@ class Pool {
       im.castShadow = mesh.castShadow; im.receiveShadow = mesh.receiveShadow;
       im.count = 0; im.frustumCulled = false; im.renderOrder = mesh.renderOrder || renderOrder;
       for (let i = 0; i < cap; i++) im.setMatrixAt(i, ZERO);
+      const tint = !!mesh.userData.tint;
+      if (tint) for (let i = 0; i < cap; i++) im.setColorAt(i, WHITE);
       parent.add(im);
-      this.parts.push({ mesh: im, local: mesh.matrixWorld.clone() });
+      this.parts.push({ mesh: im, local: mesh.matrixWorld.clone(), tint });
     });
   }
   alloc() { return this.n++; }
+  tint(i: number, c: THREE.Color) {
+    for (const p of this.parts) if (p.tint) { p.mesh.setColorAt(i, c); p.mesh.instanceColor!.needsUpdate = true; }
+  }
   set(i: number, m: THREE.Matrix4 | null) {
     for (const p of this.parts) { p.mesh.setMatrixAt(i, m ? this.m.multiplyMatrices(m, p.local) : ZERO); p.mesh.instanceMatrix.needsUpdate = true; }
   }
@@ -101,11 +109,20 @@ export class BaseLayer {
   private plume = createPlume();
   private dust = createDust(1200);
   private landing: { live: Live; t: number } | null = null;
+  // traffic: instanced vehicles on built roads and district streets
+  private routes: { pts: [number, number][]; lens: number[]; total: number; year: number }[] = [];
+  private cars: { route: number; u: number; dir: 1 | -1; speed: number; lane: number }[] = [];
+  private carBody: THREE.InstancedMesh | null = null;
+  private carGlass: THREE.InstancedMesh | null = null;
+  private carTyres: THREE.InstancedMesh | null = null;
+  private cranes: Pool | null = null;
+  private blockLives: Live[] = [];
   private year = 2020;
   private lastYear = 2020;
   ready: Promise<void>;
 
   constructor(private globe: Globe, readonly site: SiteDef, private sound: Sound) {
+    FACADE.sObj.value = S_OBJ;
     this.up = latLonToDir(site.lat, site.lon);
     this.east = latLonToDir(site.lat, site.lon + 0.5).sub(latLonToDir(site.lat, site.lon - 0.5)).normalize();
     this.north = new THREE.Vector3().crossVectors(this.up, this.east).normalize();
@@ -150,14 +167,111 @@ export class BaseLayer {
     const plan = this.site.plan();
     const count = (k: string) => plan.filter((i) => i.kind === k).length;
     const pooled: Record<string, () => THREE.Object3D> = {
-      ship: () => ship, pad: landingPad, dome: () => dome(1), block: blockUnit, hab: () => this.localise(bermedHab(22)),
-      street, tower: solarTower, reactor,
+      ship: () => ship, pad: landingPad, dome: () => dome(1), block: () => this.localise(blockUnit()), hab: () => this.localise(bermedHab(22)),
+      street: () => this.localise(street()), tower: solarTower, reactor,
     };
     for (const [k, make] of Object.entries(pooled)) if (count(k)) this.pools.set(k, new Pool(make(), count(k), this.group));
     const aoMat = new THREE.MeshBasicMaterial({ map: aoTexture(this.site.lunar), transparent: true, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -1 });
     const aoT = new THREE.Mesh(new THREE.CircleGeometry(1, 32).rotateX(-Math.PI / 2), aoMat);
     this.ao = new Pool(aoT, plan.length, this.group, 2);
     for (const item of plan) this.realise(item);
+    this.buildTraffic(plan);
+    this.cranes = new Pool(crane(), 28, this.group);
+    this.blockLives = this.lives.filter((l) => l.item.kind === "block");
+  }
+
+  private buildTraffic(plan: Item[]) {
+    const add = (pts: [number, number][], year: number) => {
+      if (pts.length < 2) return;
+      const lens = [0];
+      for (let i = 1; i < pts.length; i++) lens.push(lens[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+      if (lens[lens.length - 1] > 60) this.routes.push({ pts, lens, total: lens[lens.length - 1], year });
+    };
+    for (const r of plan) if (r.kind === "road" && r.path) add(r.path, r.year);
+    // district streets → straight runs along each grid line, split where the street breaks
+    const lines = new Map<string, Item[]>();
+    for (const st of plan) if (st.kind === "street") {
+      const along = Math.abs(Math.sin(st.rot)) > 0.5 ? "z" : "x";
+      const k = along === "x" ? `x:${Math.round(st.z)}` : `z:${Math.round(st.x)}`;
+      (lines.get(k) ?? lines.set(k, []).get(k)!).push(st);
+    }
+    for (const [k, list] of lines) {
+      const alongX = k.startsWith("x");
+      list.sort((a, b) => (alongX ? a.x - b.x : a.z - b.z));
+      let run: Item[] = [];
+      const flush = () => {
+        if (run.length >= 4) {
+          const a = run[0], b = run[run.length - 1];
+          const ys = run.map((r) => r.year).sort((p, q) => p - q);
+          add(alongX ? [[a.x, a.z], [b.x, b.z]] : [[a.x, a.z], [b.x, b.z]], ys[Math.floor(ys.length * 0.6)]);
+        }
+        run = [];
+      };
+      for (const st of list) {
+        const prev = run[run.length - 1];
+        if (prev && Math.hypot(st.x - prev.x, st.z - prev.z) > (st.w ?? 44) * 1.6) flush();
+        run.push(st);
+      }
+      flush();
+    }
+    if (!this.routes.length) return;
+    const CAP = 180;
+    const g = carGeometry();
+    this.carBody = new THREE.InstancedMesh(g.shell, MAT.white, CAP);
+    this.carGlass = new THREE.InstancedMesh(g.glass, MAT.black, CAP);
+    this.carTyres = new THREE.InstancedMesh(g.tyres, MAT.tyre, CAP);
+    for (const m of [this.carBody, this.carGlass, this.carTyres]) { m.count = 0; m.castShadow = true; m.frustumCulled = false; this.group.add(m); }
+  }
+
+  /** Cranes stand over the newest buildings (raised in the last ~8 months of the timeline). */
+  private updateCranes(t: number) {
+    const pool = this.cranes;
+    if (!pool) return;
+    const y = this.year;
+    let n = 0;
+    const m = new THREE.Matrix4();
+    for (let i = this.blockLives.length - 1; i >= 0 && n < pool.cap; i--) {
+      const L = this.blockLives[i];
+      if (L.item.year > y) continue;
+      if (L.item.year < y - 0.7) break;
+      const it = L.item;
+      const slew = Math.sin(t * 0.25 + i) * 0.9 + i;      // jibs slowly slewing
+      this.frameAt(it.x + 9, it.z - 7, slew, S_OBJ * 0.9, m);
+      pool.set(n++, m);
+    }
+    pool.setCount(n);
+  }
+
+  private updateTraffic(dt: number) {
+    if (!this.carBody || !this.carGlass) return;
+    const open = this.routes.map((r, i) => (r.year <= this.year ? i : -1)).filter((i) => i >= 0);
+    const want = open.length ? Math.min(180, Math.round(6 + (this.year - this.site.firstYear) * 9 + open.length * 0.6)) : 0;
+    while (this.cars.length < want) {
+      const route = open[Math.floor(Math.random() * open.length)];
+      this.cars.push({ route, u: Math.random() * this.routes[route].total, dir: Math.random() < 0.5 ? 1 : -1, speed: 32 + Math.random() * 22, lane: 3.2 });
+    }
+    if (this.cars.length > want) this.cars.length = want;
+    const m = new THREE.Matrix4();
+    let n = 0;
+    for (const c of this.cars) {
+      const r = this.routes[c.route];
+      if (r.year > this.year) continue;
+      c.u += c.dir * c.speed * dt;
+      if (c.u > r.total) { c.u = r.total; c.dir = -1; }
+      if (c.u < 0) { c.u = 0; c.dir = 1; }
+      let i = 1; while (i < r.lens.length - 1 && r.lens[i] < c.u) i++;
+      const t = (c.u - r.lens[i - 1]) / Math.max(1e-6, r.lens[i] - r.lens[i - 1]);
+      const [ax, az] = r.pts[i - 1], [bx, bz] = r.pts[i];
+      const dx = (bx - ax) * c.dir, dz = (bz - az) * c.dir;
+      const len = Math.hypot(dx, dz) || 1;
+      // keep right: offset across the direction of travel
+      const ox = (-dz / len) * c.lane, oz = (dx / len) * c.lane;
+      const x = ax + (bx - ax) * t + ox, z = az + (bz - az) * t + oz;
+      this.frameAt(x, z, Math.atan2(-dz, dx), S_OBJ * 1.6, m, 0.000002);
+      this.carBody.setMatrixAt(n, m); this.carGlass.setMatrixAt(n, m); this.carTyres!.setMatrixAt(n, m);
+      n++;
+    }
+    for (const mm of [this.carBody, this.carGlass, this.carTyres!]) { mm.count = n; mm.instanceMatrix.needsUpdate = true; }
   }
 
   /** Shadow catcher + close-range grain over the real globe surface. */
@@ -176,17 +290,22 @@ export class BaseLayer {
     g.setIndex(idx); g.computeVertexNormals();
     const cap = new THREE.Mesh(g, new THREE.ShadowMaterial({ color: this.site.lunar ? 0x0a0a0c : 0x2a170c, opacity: this.site.lunar ? 0.55 : 0.42, transparent: true, depthWrite: false }));
     cap.receiveShadow = true; cap.renderOrder = 1;
+    // close-range ground: rocks, small craters and wind streaks laid over the real globe colour
+    // with a mod-2× blend (0.5 = unchanged), so detail can brighten as well as darken
     const grain = new THREE.Mesh(g, new THREE.ShaderMaterial({
-      uniforms: { tD: { value: grainTexture() } },
+      uniforms: { tD: { value: grainTexture() }, tS: { value: streakTexture() } },
       vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
-      fragmentShader: `varying vec2 vUv; uniform sampler2D tD;
+      fragmentShader: `varying vec2 vUv; uniform sampler2D tD; uniform sampler2D tS;
         void main(){
-          float f = 1.0 - smoothstep(0.25, 0.95, length((vUv - 0.5) * 2.0));
-          vec3 d = texture2D(tD, vUv * 60.0).rgb * 0.6 + texture2D(tD, vUv * 16.0 + 0.3).rgb * 0.4;
-          gl_FragColor = vec4(mix(vec3(1.0), d * 1.1, f * 0.85), 1.0);
+          float f = 1.0 - smoothstep(0.3, 0.98, length((vUv - 0.5) * 2.0));
+          float fine = texture2D(tD, vUv * 90.0).r;
+          float mid = texture2D(tD, vUv * 21.0 + 0.37).r;
+          float streak = texture2D(tS, vUv * vec2(5.0, 9.0)).r;
+          float v = 0.5 + ((fine - 0.5) * 0.55 + (mid - 0.5) * 0.45 + (streak - 0.5) * 0.35) * f;
+          gl_FragColor = vec4(vec3(v), 1.0);
         }`,
       transparent: true, depthWrite: false,
-      blending: THREE.CustomBlending, blendSrc: THREE.DstColorFactor, blendDst: THREE.ZeroFactor, blendEquation: THREE.AddEquation,
+      blending: THREE.CustomBlending, blendSrc: THREE.DstColorFactor, blendDst: THREE.SrcColorFactor, blendEquation: THREE.AddEquation,
     }));
     this.group.add(grain, cap);
   }
@@ -195,7 +314,10 @@ export class BaseLayer {
     if (item.kind === "ship") item = { ...item, rot: ((item.rot * 7.31) % 0.7) - 0.35 };
     const live: Live = { item, shown: new Spring(0, { stiffness: 120, damping: 18 }), on: false, dirty: true, idx: -1, aoIdx: -1 };
     const pool = this.pools.get(item.kind);
-    if (pool) { live.pool = pool; live.idx = pool.alloc(); }
+    if (pool) {
+      live.pool = pool; live.idx = pool.alloc();
+      if (item.kind === "block") pool.tint(live.idx, PALETTE[Math.abs(Math.round(item.x * 7.13 + item.z * 3.71)) % PALETTE.length]);
+    }
     else {
       let obj: THREE.Object3D | null = null;
       switch (item.kind) {
@@ -224,10 +346,20 @@ export class BaseLayer {
   }
 
   /** Regolith-coloured parts take the local soil: butterscotch on Mars, grey on the Moon. */
-  private lunarSoil = new THREE.MeshStandardMaterial({ color: 0x9a9894, metalness: 0, roughness: 1 });
+  private lunar = {
+    soil: (() => { const m = MAT.berm.clone(); m.color.set(0x9a9894); return m; })(),
+    street: (() => { const m = STREET.clone(); m.color.set(0xb4b3b0); return m; })(),
+    lot: (() => { const m = LOT.clone(); m.color.set(0xd6d5d2); return m; })(),
+  };
   private localise<T extends THREE.Object3D>(o: T): T {
     if (!this.site.lunar) return o;
-    o.traverse((c) => { const m = c as THREE.Mesh; if (m.isMesh && m.material === MAT.berm) m.material = this.lunarSoil; });
+    o.traverse((c) => {
+      const m = c as THREE.Mesh;
+      if (!m.isMesh) return;
+      if (m.material === MAT.berm) m.material = this.lunar.soil;
+      else if (m.material === STREET) m.material = this.lunar.street;
+      else if (m.material === LOT) m.material = this.lunar.lot;
+    });
     return o;
   }
 
@@ -304,6 +436,8 @@ export class BaseLayer {
     this.ao.setCount(aoCount);
     this.updateLanding(dt, t, cam);
     this.updateRobots(dt);
+    this.updateTraffic(dt);
+    this.updateCranes(t);
     this.lastYear = y;
   }
 
@@ -408,25 +542,45 @@ function aoTexture(lunar: boolean) {
 }
 
 function grainTexture() {
-  const N = 256;
+  const N = 512;
   const c = document.createElement("canvas"); c.width = c.height = N;
   const x = c.getContext("2d")!;
-  x.fillStyle = "rgb(230,230,230)"; x.fillRect(0, 0, N, N);
-  for (let i = 0; i < 26; i++) {
-    const px = Math.random() * N, py = Math.random() * N, r = 3 + Math.random() ** 2 * 16;
-    for (const [dx, dy] of [[0, 0], [N, 0], [-N, 0], [0, N], [0, -N]]) {
-      const g = x.createRadialGradient(px + dx, py + dy, r * 0.2, px + dx, py + dy, r);
-      g.addColorStop(0, "rgba(120,120,120,0.55)"); g.addColorStop(0.75, "rgba(170,170,170,0.3)"); g.addColorStop(1, "rgba(255,255,255,0)");
-      x.fillStyle = g; x.beginPath(); x.arc(px + dx, py + dy, r, 0, 7); x.fill();
-      x.strokeStyle = "rgba(255,255,255,0.35)"; x.lineWidth = 1; x.beginPath(); x.arc(px + dx - r * 0.1, py + dy - r * 0.1, r * 0.92, 3.4, 5.6); x.stroke();
-    }
+  x.fillStyle = "rgb(128,128,128)"; x.fillRect(0, 0, N, N);
+  const wrap = (f: (dx: number, dy: number) => void) => { for (const dx of [-N, 0, N]) for (const dy of [-N, 0, N]) f(dx, dy); };
+  // small craters: dark floor, bright rim on the sun side, soft ejecta
+  for (let i = 0; i < 40; i++) {
+    const px = Math.random() * N, py = Math.random() * N, r = 4 + Math.random() ** 2.5 * 26;
+    wrap((dx, dy) => {
+      const g = x.createRadialGradient(px + dx, py + dy, r * 0.1, px + dx, py + dy, r * 1.6);
+      g.addColorStop(0, "rgba(70,70,70,0.55)"); g.addColorStop(0.55, "rgba(105,105,105,0.35)"); g.addColorStop(0.7, "rgba(190,190,190,0.35)"); g.addColorStop(1, "rgba(128,128,128,0)");
+      x.fillStyle = g; x.beginPath(); x.arc(px + dx, py + dy, r * 1.6, 0, 7); x.fill();
+    });
   }
-  for (let i = 0; i < 2200; i++) {
-    const px = Math.random() * N, py = Math.random() * N, r = Math.random() ** 3 * 2.2 + 0.3;
-    x.fillStyle = `rgba(${Math.random() < 0.5 ? "120,120,120" : "255,255,255"},0.35)`;
-    x.beginPath(); x.arc(px, py, r, 0, 7); x.fill();
+  // rocks with a lit top-left and a shadow bottom-right
+  for (let i = 0; i < 3200; i++) {
+    const px = Math.random() * N, py = Math.random() * N, r = Math.random() ** 3.5 * 3.2 + 0.4;
+    x.fillStyle = "rgba(55,55,55,0.55)"; x.beginPath(); x.arc(px + r * 0.5, py + r * 0.5, r, 0, 7); x.fill();
+    x.fillStyle = "rgba(205,205,205,0.6)"; x.beginPath(); x.arc(px - r * 0.15, py - r * 0.15, r * 0.75, 0, 7); x.fill();
   }
   const t = new THREE.CanvasTexture(c);
   t.wrapS = t.wrapT = THREE.RepeatWrapping; t.anisotropy = 8; t.colorSpace = THREE.NoColorSpace;
+  return t;
+}
+
+/** Wind streaks and ripple fields (soft, directional). */
+function streakTexture() {
+  const N = 256;
+  const c = document.createElement("canvas"); c.width = c.height = N;
+  const x = c.getContext("2d")!;
+  x.fillStyle = "rgb(128,128,128)"; x.fillRect(0, 0, N, N);
+  x.filter = "blur(3px)";
+  for (let i = 0; i < 90; i++) {
+    const y = Math.random() * N, x0 = Math.random() * N, len = 30 + Math.random() * 120;
+    x.strokeStyle = `rgba(${Math.random() < 0.5 ? "170,170,170" : "95,95,95"},0.35)`;
+    x.lineWidth = 2 + Math.random() * 6;
+    x.beginPath(); x.moveTo(x0, y); x.lineTo(x0 + len, y + (Math.random() - 0.5) * 6); x.stroke();
+  }
+  const t = new THREE.CanvasTexture(c);
+  t.wrapS = t.wrapT = THREE.RepeatWrapping; t.colorSpace = THREE.NoColorSpace;
   return t;
 }
