@@ -83,6 +83,7 @@ export class PlanetView {
     this.renderer = renderer ?? null;
     try { if (localStorage.getItem("telos:hinted")) document.body.setAttribute("data-hinted", ""); } catch { /* ignore */ }
     this.scene.background = new THREE.Color(0, 0, 0);
+    this.scene.fog = this.fog;
     this.scene.add(this.sky.group);
     this.sun.position.copy(LIGHT).multiplyScalar(5);
     this.sun.castShadow = true;
@@ -170,6 +171,10 @@ export class PlanetView {
     if (id !== "earth") this.specimen.close();
     const L = await this.load(id);
     if (this.current !== id) return;
+    // fetch the close-up maps while you look, so zooming in never waits on them (desktop only)
+    if (!matchMedia("(pointer: coarse)").matches) setTimeout(() => { if (this.current === id) void g.load("4k"); }, 1200);
+    // compile the city and the surface post-processing ahead of the first dive
+    if (this.bases.has(id)) setTimeout(() => { if (this.current === id) void this.warmSurface(id); }, 1600);
     this.cur = L;
     this.stopIdx = -1;
     const stops = L.stops;
@@ -390,26 +395,16 @@ export class PlanetView {
       }
       // line/page deltas (mouse wheels on some systems) → pixels
       const dy = e.deltaMode === 1 ? e.deltaY * 32 : e.deltaMode === 2 ? e.deltaY * 400 : e.deltaY;
-      // reversing direction starts fresh, so the first notch the other way always counts
-      if (Math.sign(-dy) !== Math.sign(this.wheelAcc)) this.wheelAcc = 0;
-      this.wheelAcc += -dy;
-      const now = performance.now();
-      const STEP = 70;
-      if (Math.abs(this.wheelAcc) >= STEP && now - this.lastWheelStep > 60) {
-        const dir = this.wheelAcc > 0 ? 1 : -1;
-        this.wheelAcc -= dir * STEP;
-        this.wheelAcc = clamp(this.wheelAcc, -STEP, STEP);   // don't bank a backlog from flicks
-        this.lastWheelStep = now;
-        this.ruler.goTo(this.ruler.stop + dir, true);
-        if (!document.body.hasAttribute("data-hinted")) {
-          document.body.setAttribute("data-hinted", "");
-          try { localStorage.setItem("telos:hinted", "1"); } catch { /* ignore */ }
-        }
+      // a physical wheel reports whole notches (line mode, or ±120 legacy units); trackpads don't
+      const wd = (e as WheelEvent & { wheelDeltaY?: number }).wheelDeltaY ?? 0;
+      const notch = e.deltaMode === 1 || (wd !== 0 && wd % 120 === 0 && e.deltaX === 0);
+      this.ruler.wheel(-dy, notch);
+      if (!document.body.hasAttribute("data-hinted")) {
+        document.body.setAttribute("data-hinted", "");
+        try { localStorage.setItem("telos:hinted", "1"); } catch { /* ignore */ }
       }
     }, { passive: false });
   }
-  private wheelAcc = 0;
-  private lastWheelStep = 0;
   private moving = false;
   /** Continuous year under the ruler (log-time interpolated between stops). */
   year = TODAY_YEAR;
@@ -524,7 +519,73 @@ export class PlanetView {
     c.setPixelRatio(Math.min(devicePixelRatio, 1.5));
     c.setSize(innerWidth, innerHeight);
     this.composer = c; this.ao = ao; this.bokeh = b;
+    this.composerReady?.();
   }
+
+  /**
+   * The fog stays in the scene for good and is pushed out of range when unwanted: adding or
+   * removing scene.fog changes every lit material's program, which recompiled the whole city.
+   */
+  private fog = new THREE.Fog(0x000000, 1e6, 1e6 + 1);
+  private clearFog() {
+    if (this.fog.near > 1e5) return;
+    this.fog.near = 1e6; this.fog.far = 1e6 + 1;
+    for (const [, gl] of this.globes) gl.u.uFogDensity.value = 0;
+  }
+
+  private composerReady: (() => void) | null = null;
+  private warmed = new Set<BodyId>();
+  /**
+   * First sight of a city used to compile ~50 shader programs mid-dive (a 150 ms hitch).
+   * Compile them while the globe idles instead: the city's materials via the parallel-compile
+   * path, then one off-screen pass of the surface composer for its AO/DOF programs.
+   */
+  private async warmSurface(id: BodyId) {
+    const b = this.bases.get(id), r = this.renderer;
+    if (!b || !r || this.warmed.has(id)) return;
+    this.warmed.add(id);
+    if (!this.composer) {
+      await new Promise<void>((res) => { this.composerReady = res; this.ensureComposer(); });
+      this.composerReady = null;
+    }
+    const c = this.composer;
+    if (!c || this.current !== id || this.focusK > 0.3) { this.warmed.delete(id); return; }
+    // show every part of the plan (hidden pieces and empty instance pools draw nothing,
+    // so they'd otherwise compile mid-dive), then restore exactly what was there
+    const reveal = () => {
+      const saved: [THREE.Object3D, boolean, number][] = [];
+      b.group.traverse((o) => {
+        const im = o as THREE.InstancedMesh;
+        saved.push([o, o.visible, im.isInstancedMesh ? im.count : -1]);
+        o.visible = true;
+        if (im.isInstancedMesh && im.count === 0) im.count = 1;
+      });
+      return () => { for (const [o, v, n] of saved) { o.visible = v; if (n >= 0) (o as THREE.InstancedMesh).count = n; } };
+    };
+    let restore = reveal();
+    // surface materials are drawn into the composer's linear target: compile that variant,
+    // in parallel where the driver allows it
+    // (and the screen variant too: the first frames of a dive draw the city before the composer engages)
+    const prev = r.getRenderTarget();
+    r.setRenderTarget(c.readBuffer);
+    const linear = r.compileAsync(this.scene, this.camera).catch(() => {});
+    r.setRenderTarget(null);
+    const screen = r.compileAsync(this.scene, this.camera).catch(() => {});
+    r.setRenderTarget(prev);
+    const compiling = Promise.all([linear, screen]);
+    restore();
+    await compiling;
+    if (this.current !== id || this.focusK > 0.3) return;
+    // one off-screen composer pass picks up what compile() can't: AO depth/normal and shadow programs
+    restore = reveal();
+    LINEAR_OUT.value = 1;
+    c.renderToScreen = false;
+    c.render();
+    c.renderToScreen = true;
+    LINEAR_OUT.value = 0;
+    restore();
+  }
+
 
   /** Draw the planet view: post-processed over a surface, direct otherwise. */
   render() {
@@ -645,15 +706,15 @@ export class PlanetView {
       // aerial perspective: Mars' dusty air hazes the distance; the airless Moon stays crisp
       if (!this.base.site.lunar) {
         const haze = this.hazeColor;
-        if (!this.scene.fog) this.scene.fog = new THREE.Fog(haze, 1, 10);
-        const fg = this.scene.fog as THREE.Fog;
+        const fg = this.fog;
+        fg.color.copy(haze);
         fg.near = d * 1.4; fg.far = d * 7.5;
         for (const [, gl] of this.globes) { gl.u.uFogDensity.value = fk * 0.9 / Math.max(d * 6, 0.01); gl.u.uFogColor.value.copy(this.hazeSRGB); }
-      } else { this.scene.fog = null; for (const [, gl] of this.globes) gl.u.uFogDensity.value = 0; }
+      } else { this.clearFog(); }
       if (fk > 0.5 && !this.builtTo2031 && this.userZoomed && !this.autoSurface && !this.base.hasActivity && this.zoomGoal > 2) { this.builtTo2031 = true; this.scrubToYear(this.base.site.firstYear); }
     } else {
       this.builtTo2031 = false;
-      if (this.scene.fog) { this.scene.fog = null; for (const [, gl] of this.globes) gl.u.uFogDensity.value = 0; }
+      this.clearFog();
     }
     this.camera.position.copy(T).addScaledVector(B, d);
     this.camera.up.set(0, 1, 0);
@@ -673,7 +734,9 @@ export class PlanetView {
     this.sound.setSettlement(hb && document.body.dataset.mode === "planet" ? hb.built * this.focusK : 0, !!hb?.site.lunar, dt);
     // when the timeline reaches events on the surface, fly there; leave when it goes back
     const cb = this.base;
-    const wantSurface = !!cb && cb.hasActivity && !this.moving && this.enterT > 0.95 && document.body.dataset.mode === "planet";
+    // only once the timeline comes to rest: never yank the camera down mid-scroll
+    const wantSurface = !!cb && cb.hasActivity && !this.moving && this.enterT > 0.95 && document.body.dataset.mode === "planet"
+      && (this.autoSurface || this.ruler.settled);
     if (wantSurface && !this.autoSurface) { this.autoSurface = true; this.builtTo2031 = true; this.userZoomed = false; this.requestDescent(); }
     else if (!wantSurface && this.autoSurface) {
       this.autoSurface = false;

@@ -8,6 +8,10 @@ const BASE_H = 0.30;    // resting tick height (fraction of 24px)
 const NEAR_H = 0.78;    // tallest neighbour next to the thumb
 const HOVER_H = 0.62;   // magnification under the cursor
 const RADIUS = 26;      // px, gaussian falloff of the magnification
+const WHEEL_PX = 280;   // trackpad travel per stop
+const WHEEL_LEAD = 0.9; // how far (stops) the scrub goal may run ahead of what's shown
+const WHEEL_TAU = 0.17; // s; lead / tau caps the scrub at ~5 stops a second
+const WHEEL_IDLE = 150; // ms without wheel input = the gesture has ended
 
 /**
  * Tick ruler: evenly spaced stops, magnifying ticks (Dock-style), magnetic drag,
@@ -28,7 +32,11 @@ export class Ruler {
   private target = 0;
   private spring = new Spring(0, SPRING_RELEASE);
   private tween = new Tween(expoOut);
-  private mode: "idle" | "drag" | "tween" | "spring" = "idle";
+  private mode: "idle" | "drag" | "tween" | "spring" | "wheel" = "idle";
+  private wheelGoal = 0;
+  private wheelFrom = 0;
+  private wheelAt = 0;
+  private lastNotch = 0;
   private dragRaw = 0;
   private hoverX: number | null = null;
   private lastStop = -1;
@@ -106,6 +114,30 @@ export class Ruler {
     this.tween.start(this.pos, stop, dur, performance.now() / 1000);
     this.mode = "tween";
   }
+
+  /**
+   * Scroll input. A trackpad scrubs continuously (speed-capped, so a flick's momentum tail
+   * can't fling through eons) and settles on the nearest stop when the gesture ends.
+   * A mouse-wheel notch is exactly one stop. Positive = forward in time.
+   */
+  wheel(px: number, notch: boolean) {
+    if (!this.n || this.mode === "drag") return;
+    const now = performance.now();
+    if (notch && this.mode !== "wheel") {
+      if (now - this.lastNotch < 90) return;
+      this.lastNotch = now;
+      this.goTo(this.stop + Math.sign(px), true);
+      return;
+    }
+    if (this.mode !== "wheel") { this.wheelGoal = this.wheelFrom = this.pos; this.mode = "wheel"; }
+    const d = clamp(px, -60, 60) / WHEEL_PX;
+    this.wheelGoal = clamp(this.wheelGoal + d, this.pos - WHEEL_LEAD, this.pos + WHEEL_LEAD);
+    this.wheelGoal = clamp(this.wheelGoal, -0.3, this.n - 0.7);
+    this.wheelAt = now;
+  }
+
+  /** True when nothing is moving the timeline (no drag, scrub, tween or settle in progress). */
+  get settled() { return this.mode === "idle"; }
 
   get stop() { return Math.round(this.target); }
   get count() { return this.n; }
@@ -194,6 +226,18 @@ export class Ruler {
       this.stretch.target = 1 + 0.05 * Math.log10(1 + 2 * (overPx / 24));
       this.stretch.x = follow(this.stretch.x, this.stretch.target, dt, 0.06);
       this.stretch.v = 0;
+    } else if (this.mode === "wheel") {
+      this.pos = follow(this.pos, clamp(this.wheelGoal, 0, this.n - 1), dt, reducedMotion() ? 0.001 : WHEEL_TAU);
+      this.target = Math.round(this.pos);
+      if (performance.now() - this.wheelAt > WHEEL_IDLE) {
+        // gesture over: settle on the nearest stop, nudged the way you were going
+        const dir = Math.sign(this.wheelGoal - this.wheelFrom);
+        const stop = clamp(Math.round(this.pos + dir * 0.18), 0, this.n - 1);
+        this.target = stop;
+        this.spring.x = this.pos; this.spring.v = this.speed * 0.5; this.spring.target = stop;
+        this.mode = "spring";
+      }
+      this.stretch.step(dt);
     } else {
       if (this.mode === "tween") {
         this.pos = this.tween.value(now);

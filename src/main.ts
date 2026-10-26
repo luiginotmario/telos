@@ -143,18 +143,11 @@ sysRuler.onChange = (p) => {
 sysRuler.setStops(sysStops, ["Today", String(windows[windows.length - 1].launch.getUTCFullYear())], 0, "Earth to Mars launch windows");
 sysRuler.onChange(0);
 {
-  let acc = 0, last = 0;
   addEventListener("wheel", (e) => {
     if (document.body.dataset.mode !== "system" || e.ctrlKey || system.locked) return;
-    const dy = e.deltaMode === 1 ? e.deltaY * 32 : e.deltaY;
-    if (Math.sign(-dy) !== Math.sign(acc)) acc = 0;
-    acc += -dy;
-    const now = performance.now();
-    if (Math.abs(acc) >= 70 && now - last > 60) {
-      const dir = acc > 0 ? 1 : -1;
-      acc = 0; last = now;
-      sysRuler.goTo(sysRuler.stop + dir, true);
-    }
+    const dy = e.deltaMode === 1 ? e.deltaY * 32 : e.deltaMode === 2 ? e.deltaY * 400 : e.deltaY;
+    const wd = (e as WheelEvent & { wheelDeltaY?: number }).wheelDeltaY ?? 0;
+    sysRuler.wheel(-dy, e.deltaMode === 1 || (wd !== 0 && wd % 120 === 0 && e.deltaX === 0));
   }, { passive: false });
 }
 

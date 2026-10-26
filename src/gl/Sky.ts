@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import * as Astro from "astronomy-engine";
-import { loadMap } from "./textures";
+import { loadMap, loadUrl } from "./textures";
 
 const EQJ_ECL = Astro.Rotation_EQJ_ECL();
 
@@ -93,7 +93,8 @@ export class Sky {
 
     let mw: THREE.Texture | null = await loadMap("sky", "color", "4k").catch(() => null);
     if (!mw) for (const url of ["/textures/milkyway-4k.webp", "/textures/milkyway-2k.webp"]) {
-      try { mw = await new THREE.TextureLoader().loadAsync(url); break; } catch { /* next */ }
+      mw = await loadUrl(url);
+      if (mw) break;
     }
     if (!mw) return;
     mw.colorSpace = THREE.NoColorSpace;
