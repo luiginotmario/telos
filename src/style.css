@@ -43,6 +43,13 @@ a { color: inherit; }
 .chrome.top > * { pointer-events: auto; }
 .wordmark { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; letter-spacing: -0.01em; justify-self: start; padding: 6px 2px; transition: transform 160ms var(--ease-glide), color 600ms var(--ease-glide); }
 .wordmark:active { transform: scale(0.97); }
+.tools { justify-self: end; display: flex; align-items: center; gap: 2px; }
+.share { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 8px; color: var(--ink-2);
+  transition: color 160ms ease, transform 160ms var(--ease-glide), opacity 300ms var(--ease-glide); }
+.share:active { transform: scale(0.94); }
+body:not([data-mode="planet"]) .share { opacity: 0; pointer-events: none; }
+@media (hover: hover) and (pointer: fine) { .share:hover { color: var(--ink); } }
+.share[data-busy] { opacity: 0.4; }
 .sound { justify-self: end; width: 32px; height: 32px; display: grid; place-items: center; border-radius: 8px; color: var(--ink-2); transition: color 160ms ease, transform 160ms var(--ease-glide); }
 .sound:active { transform: scale(0.94); }
 @media (hover: hover) and (pointer: fine) { .sound:hover { color: currentColor; } }
@@ -413,3 +420,19 @@ body[data-station] .people, body[data-station] .pin, body[data-station] .plabel,
 .orbit-note b { font-weight: 600; color: rgba(255,255,255,0.85); }
 body:has(.orbit-note[data-on]) .audio-credit { opacity: 0; }
 @media (max-width: 640px) { .orbit-note { white-space: normal; width: calc(100vw - 48px); text-align: center; bottom: max(36px, env(safe-area-inset-bottom)); } }
+
+/* "View the ISS": sits where the station readout will appear, so the hand-off is in place;
+   its mark is the same ring that marks the station in orbit */
+.view-iss { position: fixed; left: max(22px, env(safe-area-inset-left)); top: 50%; translate: 0 -50%; z-index: 6;
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 2px;
+  font-size: 12px; font-weight: 600; letter-spacing: -0.005em; color: rgba(255,255,255,0.86);
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
+  opacity: 0; filter: blur(4px); transform: translateY(6px); pointer-events: none;
+  transition: opacity 300ms var(--ease-glide), filter 400ms var(--ease-glide), transform 500ms var(--ease-expo), color 160ms ease; }
+.view-iss::before { content: ""; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid currentColor; box-shadow: 0 0 10px rgba(255,255,255,0.35); }
+.view-iss[data-on] { opacity: 1; filter: none; transform: none; pointer-events: auto; }
+.view-iss svg { transition: transform 260ms var(--ease-glide); }
+.view-iss:active { transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine) { .view-iss:hover { color: #fff; } .view-iss:hover svg { transform: translateX(2px); } }
+@media (max-width: 640px) { .view-iss { top: calc(max(18px, env(safe-area-inset-top)) + 70px); translate: none; } }
+@media (prefers-reduced-motion: reduce) { .view-iss { filter: none; transform: none; } }

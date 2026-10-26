@@ -16,9 +16,14 @@ export function mountShell() {
           <span>Telos</span>
         </button>
         <nav class="worlds" id="worlds" aria-label="Worlds"></nav>
+        <div class="tools">
+        <button class="share" id="share" aria-label="Share this moment">
+          <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M8 10V2.5M5 5.2 8 2.3l3 2.9M3.5 8.5v4a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1v-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
         <button class="sound" id="sound" aria-pressed="true" aria-label="Sound">
           <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><g class="bars" fill="currentColor"><rect x="2" y="6" width="1.5" height="4" rx=".75"/><rect x="5.5" y="3.5" width="1.5" height="9" rx=".75"/><rect x="9" y="5" width="1.5" height="6" rx=".75"/><rect x="12.5" y="7" width="1.5" height="2" rx=".75"/></g></svg>
         </button>
+        </div>
       </header>
 
       <section class="system-ui" id="system-ui">
@@ -50,6 +55,7 @@ export function mountShell() {
     home: $<HTMLButtonElement>("home"),
     worlds: $("worlds"),
     sound: $<HTMLButtonElement>("sound"),
+    share: $<HTMLButtonElement>("share"),
     systemDate: $("system-date"),
     sysCaption: $("sys-caption"),
     sysRuler: $("sys-ruler"),

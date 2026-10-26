@@ -10,8 +10,11 @@ varying vec2 vUv;
 varying vec3 vObjN;
 varying vec3 vWorldN;
 varying vec3 vWorldPos;
+varying float vCamAlt;   // camera height above this globe, in its radii
 void main() {
   vUv = uv;
+  vec3 c = (modelMatrix * vec4(0.0, 0.0, 0.0, 1.0)).xyz;
+  vCamAlt = distance(cameraPosition, c) / length(modelMatrix[0].xyz) - 1.0;
   vObjN = normalize(position);
   vec4 wp = modelMatrix * vec4(position, 1.0);
   vWorldPos = wp.xyz;
@@ -25,6 +28,7 @@ precision highp float;
 varying vec2 vUv;
 varying vec3 vObjN;
 varying vec3 vWorldN;
+varying float vCamAlt;
 varying vec3 vWorldPos;
 
 uniform sampler2D uColor;   uniform float uHasColor;
@@ -276,7 +280,8 @@ void main() {
   }
 
   // ── atmosphere rim ────────────────────────────────────────
-  float fres = pow(1.0 - max(dot(N, V), 0.0), 3.2);
+  // a rim seen on the whole globe; from low orbit nearly everything grazes, so it fades out there
+  float fres = pow(1.0 - max(dot(N, V), 0.0), 3.2) * smoothstep(0.12, 0.9, vCamAlt);
   float lit = smoothstep(-0.1, 0.6, dot(N, L));
   // airglow-free night side: the atmosphere only shows where it scatters sunlight
   col = mix(col, uAtmTint * (0.35 + 0.8 * lit), clamp(fres * uAtm * 0.75 * (uDarkSpace > 0.5 ? lit : 1.0), 0.0, 1.0));

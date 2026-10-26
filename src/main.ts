@@ -9,6 +9,7 @@ import { Ruler } from "./ui/Ruler";
 import { swapContent, esc } from "./ui/swap";
 import { mountCredits } from "./ui/credits";
 import { mountVeil } from "./ui/veil";
+import { shareMoment } from "./ui/share";
 import { Sound } from "./sound";
 import { clamp, easeInOutCubic, reducedMotion, smoothstep } from "./motion";
 
@@ -157,6 +158,13 @@ shell.info.addEventListener("click", () => {
   document.body.toggleAttribute("data-info", on);
   shell.info.setAttribute("aria-expanded", String(on));
 });
+shell.share.addEventListener("click", async () => {
+  if (mode !== "planet" || shell.share.hasAttribute("data-busy")) return;
+  shell.share.setAttribute("data-busy", "");
+  sound.tick(0.7);
+  tick();                         // draw a fresh frame, then read it before it's presented
+  try { await shareMoment(shell.canvas, planet.moment()); } finally { shell.share.removeAttribute("data-busy"); }
+});
 shell.sound.addEventListener("click", () => {
   sound.setEnabled(!sound.enabled);
   shell.sound.setAttribute("aria-pressed", String(sound.enabled));
@@ -214,6 +222,12 @@ function route(path: string) {
   document.title = path === "/" ? "Telos — the solar system, past to future" : `${siteName ? `${siteName}, ` : ""}${bodyById(b)?.name ?? ""} · Telos`;
 }
 planet.onNavigate = (id) => route(`/${id}`);
+// moments update the address quietly (no history entry per scroll), so any view can be shared
+planet.onMoment = (path, title) => {
+  if (mode !== "planet") return;
+  if (location.pathname !== path) history.replaceState(null, "", path);
+  document.title = title;
+};
 
 function idFromLocation(): BodyId | null {
   const legacy = location.hash.replace(/^#\/?/, "");
@@ -240,8 +254,15 @@ if (startId) {
   mode = "planet";
   setUiMode("planet");
   document.title = `${bodyById(startId)!.name} · Telos`;
-  if (SITES.some((x) => x.id === location.pathname.split("/")[2])) {
+  const seg = location.pathname.split("/")[2];
+  if (seg && SITES.some((x) => x.id === seg)) {
     void planet.show(startId, { instant: true }).then(() => setTimeout(() => planet.requestDescent(), 400));
+  } else if (seg) {
+    // /earth/iss, /earth/demo-2, /moon/change-6 …: land on that moment (it opens its own view)
+    void planet.show(startId, { instant: true }).then(() => {
+      if (seg === "iss") setTimeout(() => planet.enterStation(), 600);
+      else planet.jumpToEvent(seg);
+    });
   }
 } else {
   system.setView(new THREE.Vector3(), 90, true);
