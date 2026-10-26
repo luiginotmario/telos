@@ -4,6 +4,8 @@ import { type BodyData, type Era, type HumansData, type Site, TODAY_YEAR, format
 import { type Stop, buildStops, eraAt, visualAt } from "../timeline";
 import { Globe, latLonToDir } from "./Globe";
 import { BaseLayer, SITES } from "./base/BaseLayer";
+import { OrbitLayer } from "./orbits/OrbitLayer";
+import { StationView, type StationScene } from "./orbits/StationView";
 import { Specimen } from "../ui/Specimen";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
@@ -24,6 +26,20 @@ const LIGHT = new THREE.Vector3(-0.72, 0.24, 0.65).normalize();
 
 interface Loaded { data: BodyData | null; humans: HumansData | null; stops: Stop[] }
 interface PinEl { el: HTMLElement; site: Site; year: number; dir: THREE.Vector3 }
+
+/** A circular orbit's position in the globe frame (Earth radii): for planned stations. */
+function circular(ms: number, altKm: number, incDeg: number, phase: number, gmst: number) {
+  const a = 1 + altKm / 6371;
+  const n = Math.sqrt(398600.4418 / (a * 6371) ** 3);          // rad/s
+  const u = phase + n * (ms / 1000);
+  const i = THREE.MathUtils.degToRad(incDeg), raan = phase * 2.3;
+  const x = a * (Math.cos(raan) * Math.cos(u) - Math.sin(raan) * Math.sin(u) * Math.cos(i));
+  const y = a * (Math.sin(raan) * Math.cos(u) + Math.cos(raan) * Math.sin(u) * Math.cos(i));
+  const z = a * Math.sin(u) * Math.sin(i);
+  const cg = Math.cos(gmst), sg = Math.sin(gmst);
+  const ex = cg * x + sg * y, ey = -sg * x + cg * y;
+  return new THREE.Vector3(ex, z, -ey);
+}
 
 export class PlanetView {
   readonly scene = new THREE.Scene();
@@ -59,6 +75,14 @@ export class PlanetView {
   private sun = new THREE.DirectionalLight(0xfff4ea, 2.6);
   private sky = new Sky(LINEAR_OUT);
   private bases = new Map<BodyId, BaseLayer>();
+  /** Earth's satellites, stations and debris (only Earth has one) */
+  orbits: OrbitLayer | null = null;
+  /** the ISS close up, entered from its label or from station moments on the timeline */
+  readonly station = new StationView();
+  private stationCam = new THREE.PerspectiveCamera(FOV, 1, 1e-6, 10);
+  private stationNear = false;
+  private autoStation: string | null = null;
+  private orbLabels = new Map<string, HTMLElement>();
   private get base() { return this.bases.get(this.current) ?? null; }
   private focusAim = false;
   private autoSurface = false;     // the timeline put us over the surface
@@ -84,6 +108,8 @@ export class PlanetView {
     try { if (localStorage.getItem("telos:hinted")) document.body.setAttribute("data-hinted", ""); } catch { /* ignore */ }
     this.scene.background = new THREE.Color(0, 0, 0);
     this.scene.fog = this.fog;
+    this.station.onExit = () => this.leaveStation();
+    addEventListener("keydown", (e) => { if (e.key === "Escape" && this.station.active) this.leaveStation(); });
     this.scene.add(this.sky.group);
     this.sun.position.copy(LIGHT).multiplyScalar(5);
     this.sun.castShadow = true;
@@ -127,6 +153,7 @@ export class PlanetView {
       void g.load("2k");
       const site = SITES.find((x) => x.body === id);
       if (site) this.bases.set(id, new BaseLayer(g, site, this.sound));
+      if (id === "earth") this.orbits = new OrbitLayer(g);
     }
     return g;
   }
@@ -175,6 +202,8 @@ export class PlanetView {
     if (!matchMedia("(pointer: coarse)").matches) setTimeout(() => { if (this.current === id) void g.load("4k"); }, 1200);
     // compile the city and the surface post-processing ahead of the first dive
     if (this.bases.has(id)) setTimeout(() => { if (this.current === id) void this.warmSurface(id); }, 1600);
+    // and the ISS, ahead of the first fly-in
+    if (id === "earth" && this.renderer) setTimeout(() => { if (this.current === id) void this.station.warm(this.renderer!); }, 2400);
     this.cur = L;
     this.stopIdx = -1;
     const stops = L.stops;
@@ -324,6 +353,13 @@ export class PlanetView {
     const c = this.shell.canvas;
     c.addEventListener("pointerdown", (e) => {
       if (document.body.dataset.mode !== "planet" || document.body.dataset.view || this.drag) return;
+      if (this.station.active) {
+        if ((e.target as HTMLElement).closest?.(".ruler, button")) return;
+        this.drag = { id: e.pointerId, x: e.clientX, y: e.clientY, t: performance.now(), vx: 0 };
+        c.setPointerCapture(e.pointerId);
+        c.style.cursor = "grabbing";
+        return;
+      }
       if (this.focusK < 0.3 && !this.hitGlobe(e.clientX, e.clientY)) return;
       if ((e.target as HTMLElement).closest?.(".ruler, button")) return;
       this.drag = { id: e.pointerId, x: e.clientX, y: e.clientY, t: performance.now(), vx: 0 };
@@ -336,6 +372,13 @@ export class PlanetView {
       if (e.pointerId !== this.drag.id) return;
       const now = performance.now();
       const dx = e.clientX - this.drag.x, dy = e.clientY - this.drag.y;
+      if (this.station.active) {
+        const st = this.station;
+        st.yaw.target += dx * 0.006; st.yaw.x += dx * 0.006;
+        st.pitch.target = clamp(st.pitch.target + dy * 0.005, -1.35, 1.35); st.pitch.x = st.pitch.target;
+        this.drag.x = e.clientX; this.drag.y = e.clientY; this.drag.t = now;
+        return;
+      }
       const k = 1 / (this.rPx * this.zoom.x);
       if (this.focusK > 0.3) {
         this.orbitAz -= dx * 0.006;
@@ -376,6 +419,13 @@ export class PlanetView {
     addEventListener("wheel", (e) => {
       if (document.body.dataset.mode !== "planet" || document.querySelector("dialog[open]")) return;
       e.preventDefault();
+      if (e.ctrlKey && this.station.active) {
+        // pinch in the close-up: closer to the station; far enough out returns to the globe
+        const st = this.station;
+        st.dist.target = clamp(st.dist.target * Math.exp(e.deltaY * 0.01), 22, 1200);
+        if (st.dist.target >= 1200) this.leaveStation();
+        return;
+      }
       if (e.ctrlKey) {
         const next = clamp(this.zoomGoal * Math.exp(-e.deltaY * 0.01), 1, this.maxZoom);
         if (this.base && next > 1.8 && !this.focusAim && e.deltaY < 0) this.aimAt(this.base.lat, this.base.lon);
@@ -587,9 +637,191 @@ export class PlanetView {
   }
 
 
+  // ── the ISS close up ──────────────────────────────────────────
+
+  /** Open the station view (from its label, or a station moment on the timeline). */
+  enterStation(scene?: StationScene) {
+    const y = this.year;
+    const name = scene ?? (y < 2017 ? "2011" : y < 2021 ? "demo2" : y < 2028 ? "today" : y < 2029.4 ? "lowering" : "usdv");
+    // the ISS spends ~35 of every 93 minutes in Earth's shadow: if it's in the dark now,
+    // skip ahead (as the fly-in hides) to its next pass over the sunlit side
+    const O = this.orbits, idx = O?.index("ISS") ?? -1;
+    if (O && idx >= 0 && name !== "reentry") {
+      const g = this.globe("earth");
+      const sunLocal = LIGHT.clone().applyQuaternion(g.spin.getWorldQuaternion(new THREE.Quaternion()).invert());
+      const p = new THREE.Vector3();
+      for (let k = 0; k < 190; k++) {
+        const ms = O.simMs + k * 30000;
+        // simulated time runs on while the globe spins; GMST is folded into positionOf
+        if (O.positionOf(idx, p, ms).normalize().dot(sunLocal) > 0.72) { O.simMs = ms; break; }
+      }
+    }
+    this.station.enter(name);
+    this.stationStop = Math.round(this.ruler.pos);
+    document.body.setAttribute("data-station", "");
+  }
+  private stationStop = -1;
+
+  leaveStation() {
+    this.station.exit();
+    document.body.removeAttribute("data-station");
+  }
+
+  private stationBasis = new THREE.Matrix4();
+  private stationW = new THREE.Vector3();
+  private m2w = 1;
+
+  /** Station moments on the timeline open the close-up once the ruler rests; leaving them closes it. */
+  private updateStation(dt: number) {
+    const st = this.station, O = this.orbits!;
+    const ev = this.cur?.stops[Math.round(this.ruler.pos)]?.event;
+    const scene = this.current === "earth" && ev?.orbit?.view === "station" ? (ev.orbit.scene as StationScene) : null;
+    if (scene && ev && this.ruler.settled && this.autoStation !== ev.id && this.enterT > 0.95 && !this.moving) {
+      this.autoStation = ev.id;
+      this.enterStation(scene);
+    } else if (!scene && this.autoStation) {
+      this.autoStation = null;
+      if (st.active) this.leaveStation();
+    } else if (!scene && st.active && Math.round(this.ruler.pos) !== this.stationStop) {
+      // opened from the ISS label: moving the timeline elsewhere hands back to the globe
+      this.leaveStation();
+    }
+    if (st.active && (this.current !== "earth" || document.body.dataset.mode !== "planet")) this.leaveStation();
+    st.stepK(dt);
+    if (!st.visible) { this.stationNear = false; return; }
+
+    // where the station is, and its orbital frame (x forward, y zenith)
+    const g = this.globe("earth");
+    const idx = O.index("ISS");
+    const p = new THREE.Vector3(), p2 = new THREE.Vector3();
+    let altKm = 418;
+    if (st.sceneName === "reentry") {
+      // the planned impact zone: the South Pacific near Point Nemo (48.9° S, 123.4° W)
+      altKm = 100;
+      latLonToDir(-48.88, -123.39, p).multiplyScalar(1 + altKm / 6371);
+      const east = new THREE.Vector3(0, 1, 0).cross(p).normalize();
+      p2.copy(p).addScaledVector(east, 0.001);
+    } else if (idx >= 0) {
+      O.positionOf(idx, p);
+      O.positionOf(idx, p2, O.simMs + 1000);
+      altKm = (p.length() - 1) * 6371;
+    }
+    const speed = Math.sqrt(398600.4418 / (6371 + altKm));     // circular orbital speed, km/s
+    const centre = g.spin.getWorldPosition(new THREE.Vector3());
+    const W = g.spin.localToWorld(p.clone());
+    const W2 = g.spin.localToWorld(p2.clone());
+    const up = W.clone().sub(centre).normalize();
+    const fwd = W2.clone().sub(W);
+    fwd.addScaledVector(up, -fwd.dot(up)).normalize();
+    const side = new THREE.Vector3().crossVectors(fwd, up);
+    this.stationBasis.makeBasis(fwd, up, side);
+    this.stationW.copy(W);
+    this.m2w = W.distanceTo(centre) / (p.length() * 6371000);
+    const q = new THREE.Quaternion().setFromRotationMatrix(this.stationBasis);
+    const qi = q.clone().invert();
+
+    // sun in the station frame (for its lighting), dimmed inside Earth's shadow, and the readout
+    const sw = LIGHT.clone();
+    const rr = W.clone().sub(centre).divideScalar(g.root.scale.x);
+    const along = rr.dot(sw), perp = rr.clone().addScaledVector(sw, -along).length();
+    const sunlit = along > 0 ? 1 : THREE.MathUtils.smoothstep(perp, 0.995, 1.01);
+    st.update(dt, sw.applyQuaternion(qi), { alt: altKm, speed }, sunlit);
+
+    // camera: from the globe view into the station's frame, log-interpolating the distance
+    const e = THREE.MathUtils.smootherstep(st.k.x, 0, 1);
+    const camS = st.pose().applyQuaternion(q).multiplyScalar(this.m2w).add(W);
+    const lookS = st.look.clone().applyQuaternion(q).multiplyScalar(this.m2w).add(W);
+    const camN = this.camera.position.clone(), lookN = this.camTarget.clone();
+    const dN = camN.distanceTo(W), dS = camS.distanceTo(W);
+    const d = Math.exp(Math.log(dN) + (Math.log(dS) - Math.log(dN)) * e);
+    const dir = camN.clone().sub(W).normalize().lerp(camS.clone().sub(W).normalize(), e).normalize();
+    const cam = this.stationCam;
+    cam.position.copy(W).addScaledVector(dir, d);
+    cam.up.set(0, 1, 0).lerp(up, e).normalize();
+    cam.lookAt(lookN.lerp(lookS, THREE.MathUtils.smoothstep(e, 0, 0.6)));
+    cam.fov = FOV + (st.cam.fov - FOV) * e;
+    cam.aspect = this.camera.aspect;
+    cam.near = Math.max(d * 0.08, 1e-7);
+    cam.far = Math.max(8 * g.root.scale.x, d * 4);
+    cam.updateProjectionMatrix();
+    // the same view in metres, for the station scene
+    const dm = d / this.m2w;
+    this.stationNear = dm < 8000;
+    const sc = st.cam;
+    sc.position.copy(cam.position).sub(W).divideScalar(this.m2w).applyQuaternion(qi);
+    sc.quaternion.copy(qi).multiply(cam.quaternion);
+    sc.fov = cam.fov; sc.aspect = cam.aspect;
+    sc.near = Math.max(0.3, dm * 0.01); sc.far = dm * 6 + 800;
+    sc.updateProjectionMatrix();
+    sc.updateMatrixWorld();
+  }
+
+  private orbitNote: HTMLElement | null = null;
+  /** Labels for the crewed stations (and planned ones), clickable to fly to the ISS. */
+  private updateOrbitLabels() {
+    const O = this.orbits!;
+    // the swarm, accounted for: what it is, where it comes from, and that orbits run fast here
+    if (!this.orbitNote && O.meta) {
+      const c = O.meta.counts, fmt = (n = 0) => n.toLocaleString("en-US");
+      const other = (c.leo ?? 0) + (c.oneweb ?? 0) + (c.meo ?? 0) + (c.geo ?? 0) + (c.heo ?? 0);
+      this.orbitNote = document.createElement("p");
+      this.orbitNote.className = "orbit-note";
+      this.orbitNote.innerHTML = `<b>${fmt(c.starlink)}</b> Starlink · <b>${fmt(other)}</b> other satellites · <b>${fmt(c.debris)}</b> debris from four break-ups · CelesTrak, ${new Date(O.meta.epoch).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })} · orbits ×${O.warp}`;
+      document.body.appendChild(this.orbitNote);
+    }
+    this.orbitNote?.toggleAttribute("data-on", this.current === "earth" && document.body.dataset.mode === "planet" && this.enterT > 0.95
+      && this.year > 2025.5 && this.year < 2027 && this.station.k.x < 0.05);
+    const show = this.current === "earth" && document.body.dataset.mode === "planet" && this.enterT > 0.95 && !this.moving && this.station.k.x < 0.05 && this.focusK < 0.25;
+    const ev = this.cur?.stops[Math.round(this.ruler.pos)]?.event;
+    const y = this.year;
+    const want: { id: string; name: string; at: () => THREE.Vector3 | null; on: boolean; projected?: boolean; click?: () => void }[] = [
+      { id: "ISS", name: "ISS", on: y >= 1998.9 && y < 2030.95, at: () => O.index("ISS") >= 0 ? O.positionOf(O.index("ISS")) : null, click: () => this.enterStation() },
+      { id: "Tiangong", name: "Tiangong", on: y >= 2021.33, at: () => O.index("Tiangong") >= 0 ? O.positionOf(O.index("Tiangong")) : null },
+      // Haven-1: Vast's published orbit (425 km, 51.6°); its position along it is illustrative
+      { id: "Haven-1", name: "Haven-1", projected: true, on: y >= 2027.4 && (ev?.orbit?.focus === "Haven-1" || ev?.orbit?.focus === "successors"), at: () => circular(O.simMs, 425, 51.6, 1.2, O.gmst()) },
+    ];
+    for (const w of want) {
+      let el = this.orbLabels.get(w.id);
+      if (!el) {
+        el = document.createElement(w.click ? "button" : "div");
+        el.className = "orb" + (w.projected ? " projected" : "");
+        el.innerHTML = `<i></i><span>${esc(w.name)}</span>`;
+        if (w.click) { el.setAttribute("aria-label", `Fly to the ${w.name}`); el.addEventListener("click", w.click); }
+        this.shell.labels.appendChild(el);
+        this.orbLabels.set(w.id, el);
+      }
+      const p = show && w.on ? w.at() : null;
+      let vis = false;
+      if (p) {
+        const g = this.globe("earth");
+        const wp = g.spin.localToWorld(p.clone());
+        const centre = g.spin.getWorldPosition(new THREE.Vector3());
+        const toCam = this.camera.position.clone().sub(wp).normalize();
+        const out = wp.clone().sub(centre).normalize();
+        // hidden behind Earth's limb
+        const r = wp.distanceTo(centre), R = g.root.scale.x;
+        const behind = out.dot(toCam) < -Math.sqrt(Math.max(0, 1 - (R / r) ** 2)) + 0.02;
+        if (!behind) {
+          const s = wp.project(this.camera);
+          el.style.transform = `translate(${((s.x * 0.5 + 0.5) * innerWidth).toFixed(1)}px, ${((-s.y * 0.5 + 0.5) * innerHeight).toFixed(1)}px)`;
+          vis = true;
+        }
+      }
+      el.toggleAttribute("data-on", vis);
+    }
+  }
+
   /** Draw the planet view: post-processed over a surface, direct otherwise. */
   render() {
     const r = this.renderer!;
+    if (this.station.visible && this.current === "earth") {
+      // Earth and the swarm from the station's viewpoint, then the station itself in metres
+      this.sky.update(this.stationCam, this.enterT * 0.6);
+      r.setRenderTarget(null);
+      r.render(this.scene, this.stationCam);
+      if (this.stationNear) this.station.render(r);
+      return;
+    }
     if (this.focusK > 0.3) this.ensureComposer();
     if (this.focusK > 0.3 && this.composer) {
       const d = this.camera.position.distanceTo(this.camTarget);
@@ -639,6 +871,9 @@ export class PlanetView {
     // rotation: idle drift + flick inertia + scrub spin (held still while aimed at the base)
     if (this.focusAim) {
       this.yaw.step(dt);
+    } else if (this.station.active || this.station.visible) {
+      // in the close-up only real (orbital) time moves the Earth: no decorative drift
+      this.yawVel = 0;
     } else if (!this.drag) {
       this.yawVel = follow(this.yawVel, 0.11, dt, 1.4);
       this.yaw.target += (this.yawVel + this.scrubSpin * 2.2) * dt;
@@ -728,6 +963,16 @@ export class PlanetView {
     for (const [id, b] of this.bases) {
       if (id === this.current) b.setYear(this.year);
       b.update(dt, t, this.camera, id === this.current && !this.moving && this.enterT > 0.5);
+    }
+    if (this.orbits) {
+      // the space age only: fades in from Sputnik, out when you leave Earth
+      const onEarth = this.current === "earth" && document.body.dataset.mode === "planet" ? this.enterT : 0;
+      const sk = this.station.k.x;
+      this.orbits.warp = 30 + (1 - 30) * Math.min(1, sk * 1.2);     // the close-up runs in real time
+      this.orbits.u.uHide.value = sk > 0.02 ? this.orbits.index("ISS") : -1;
+      this.orbits.update(dt, this.year, onEarth * THREE.MathUtils.smoothstep(this.year, 1956.5, 1958), sk, LIGHT, this.zoom.x);
+      this.updateStation(dt);
+      this.updateOrbitLabels();
     }
     // the city is heard only from over it, and louder as more of it stands
     const hb = this.base;

@@ -1,34 +1,148 @@
 {
   "sections": [
-    { "title": "Positions & motion", "items": [
-      { "what": "Astronomy Engine", "who": "Don Cross — VSOP87 / IAU rotation models", "licence": "MIT", "url": "https://github.com/cosinekitty/astronomy" }
-    ]},
-    { "title": "Surfaces", "items": [
-      { "what": "Blue Marble & Black Marble", "who": "NASA Earth Observatory (R. Stöckli; M. Román, Suomi NPP VIIRS)", "url": "https://earthobservatory.nasa.gov/" },
-      { "what": "CGI Moon Kit — LROC colour, LOLA elevation", "who": "NASA Scientific Visualization Studio; LRO (NASA/GSFC/ASU)", "url": "https://svs.gsfc.nasa.gov/4720" },
-      { "what": "MOLA topography", "who": "NASA/JPL/GSFC MOLA Science Team, PDS Geosciences Node", "url": "https://pds-geosciences.wustl.edu/" },
-      { "what": "Planet textures", "who": "Solar System Scope — resized and re-encoded", "licence": "CC BY 4.0", "url": "https://www.solarsystemscope.com/textures/" },
-      { "what": "PALEOMAP PaleoDEMs (Earth, 0–540 Ma)", "who": "Scotese, C.R. & Wright, N. (2018), Zenodo", "licence": "CC BY 4.0", "url": "https://doi.org/10.5281/zenodo.5460860" }
-    ]},
-    { "title": "Sky", "items": [
-      { "what": "HYG star database v4.1", "who": "David Nash (astronexus). stars.bin is a derivative, shared under the same licence", "licence": "CC BY-SA 4.0", "url": "https://github.com/astronexus/HYG-Database" },
-      { "what": "Deep Star Maps 2020", "who": "NASA/GSFC Scientific Visualization Studio; Gaia DR2: ESA/Gaia/DPAC", "url": "https://svs.gsfc.nasa.gov/4851" }
-    ]},
-    { "title": "Sound", "items": [
-      { "what": "Mars wind (the only true acoustic recording)", "who": "NASA/JPL-Caltech/LANL/CNES/IRAP — Perseverance SuperCam", "url": "https://science.nasa.gov/resource/perseverance-rovers-supercam-records-wind-on-mars/" },
-      { "what": "Sun", "who": "SOHO (ESA & NASA) / MDI; sonification A. Kosovichev, Stanford", "url": "https://soho.nascom.nasa.gov/" },
-      { "what": "Mercury", "who": "ESA/BepiColombo/MPO-MAG/IGEP-IWF-IC-ISAS", "licence": "ESA Standard Licence, non-commercial", "url": "https://esa.int/ESA_Multimedia/Videos/2021/10/Sound_of_the_solar_wind_at_Mercury" },
-      { "what": "Venus", "who": "NASA/GSFC SVS; Parker Solar Probe FIELDS", "url": "https://svs.gsfc.nasa.gov/13847" },
-      { "what": "Earth", "who": "NASA / University of Iowa — Van Allen Probes EMFISIS", "url": "https://www.nasa.gov/historical-sounds/" },
-      { "what": "Moon (Apollo 10 radio interference)", "who": "NASA, via the Apollo Flight Journal", "url": "https://apollojournals.org/afj/ap10fj/as10-day5-pt20.html" },
-      { "what": "Jupiter, Saturn", "who": "NASA/JPL-Caltech/SwRI/University of Iowa — Juno Waves, Cassini RPWS", "url": "https://photojournal.jpl.nasa.gov/catalog/PIA25030" },
-      { "what": "Uranus, Neptune", "who": "NASA/JPL/University of Iowa — Voyager 2 PWS (PDS VGPW_2001)", "url": "https://space.physics.uiowa.edu/plasma-wave/voyager/" }
-    ]},
-    { "title": "Story", "items": [
-      { "what": "Every event cites its own sources", "who": "NASA, ESA, JPL, USGS, peer-reviewed papers, UN WPP 2024, HYDE 3.3 / Our World in Data, IPCC AR6 — shown beside each moment" }
-    ]},
-    { "title": "Craft", "items": [
-      { "what": "Interface motion and UI sound parameters", "who": "Inspired by Lorenzo Dossi’s design-engineering work", "url": "https://lorenzodossi.com" }
-    ]}
+    {
+      "title": "Positions & motion",
+      "items": [
+        {
+          "what": "Astronomy Engine",
+          "who": "Don Cross — VSOP87 / IAU rotation models",
+          "licence": "MIT",
+          "url": "https://github.com/cosinekitty/astronomy"
+        }
+      ]
+    },
+    {
+      "title": "Earth orbit",
+      "items": [
+        {
+          "what": "Satellite and debris orbital elements (GP)",
+          "who": "CelesTrak (T.S. Kelso), from US Space Force data",
+          "url": "https://celestrak.org/"
+        },
+        {
+          "what": "International Space Station model",
+          "who": "NASA (JSC Visual Communications Lab), NASA 3D Resources; converted and updated for Nauka and PMA-3",
+          "url": "https://github.com/nasa/NASA-3D-Resources"
+        },
+        {
+          "what": "Starlink counts",
+          "who": "Jonathan McDowell, planet4589.org",
+          "url": "https://planet4589.org/space/con/star/stats.html"
+        }
+      ]
+    },
+    {
+      "title": "Surfaces",
+      "items": [
+        {
+          "what": "Blue Marble & Black Marble",
+          "who": "NASA Earth Observatory (R. Stöckli; M. Román, Suomi NPP VIIRS)",
+          "url": "https://earthobservatory.nasa.gov/"
+        },
+        {
+          "what": "CGI Moon Kit — LROC colour, LOLA elevation",
+          "who": "NASA Scientific Visualization Studio; LRO (NASA/GSFC/ASU)",
+          "url": "https://svs.gsfc.nasa.gov/4720"
+        },
+        {
+          "what": "MOLA topography",
+          "who": "NASA/JPL/GSFC MOLA Science Team, PDS Geosciences Node",
+          "url": "https://pds-geosciences.wustl.edu/"
+        },
+        {
+          "what": "Planet textures",
+          "who": "Solar System Scope — resized and re-encoded",
+          "licence": "CC BY 4.0",
+          "url": "https://www.solarsystemscope.com/textures/"
+        },
+        {
+          "what": "PALEOMAP PaleoDEMs (Earth, 0–540 Ma)",
+          "who": "Scotese, C.R. & Wright, N. (2018), Zenodo",
+          "licence": "CC BY 4.0",
+          "url": "https://doi.org/10.5281/zenodo.5460860"
+        }
+      ]
+    },
+    {
+      "title": "Sky",
+      "items": [
+        {
+          "what": "HYG star database v4.1",
+          "who": "David Nash (astronexus). stars.bin is a derivative, shared under the same licence",
+          "licence": "CC BY-SA 4.0",
+          "url": "https://github.com/astronexus/HYG-Database"
+        },
+        {
+          "what": "Deep Star Maps 2020",
+          "who": "NASA/GSFC Scientific Visualization Studio; Gaia DR2: ESA/Gaia/DPAC",
+          "url": "https://svs.gsfc.nasa.gov/4851"
+        }
+      ]
+    },
+    {
+      "title": "Sound",
+      "items": [
+        {
+          "what": "Mars wind (the only true acoustic recording)",
+          "who": "NASA/JPL-Caltech/LANL/CNES/IRAP — Perseverance SuperCam",
+          "url": "https://science.nasa.gov/resource/perseverance-rovers-supercam-records-wind-on-mars/"
+        },
+        {
+          "what": "Sun",
+          "who": "SOHO (ESA & NASA) / MDI; sonification A. Kosovichev, Stanford",
+          "url": "https://soho.nascom.nasa.gov/"
+        },
+        {
+          "what": "Mercury",
+          "who": "ESA/BepiColombo/MPO-MAG/IGEP-IWF-IC-ISAS",
+          "licence": "ESA Standard Licence, non-commercial",
+          "url": "https://esa.int/ESA_Multimedia/Videos/2021/10/Sound_of_the_solar_wind_at_Mercury"
+        },
+        {
+          "what": "Venus",
+          "who": "NASA/GSFC SVS; Parker Solar Probe FIELDS",
+          "url": "https://svs.gsfc.nasa.gov/13847"
+        },
+        {
+          "what": "Earth",
+          "who": "NASA / University of Iowa — Van Allen Probes EMFISIS",
+          "url": "https://www.nasa.gov/historical-sounds/"
+        },
+        {
+          "what": "Moon (Apollo 10 radio interference)",
+          "who": "NASA, via the Apollo Flight Journal",
+          "url": "https://apollojournals.org/afj/ap10fj/as10-day5-pt20.html"
+        },
+        {
+          "what": "Jupiter, Saturn",
+          "who": "NASA/JPL-Caltech/SwRI/University of Iowa — Juno Waves, Cassini RPWS",
+          "url": "https://photojournal.jpl.nasa.gov/catalog/PIA25030"
+        },
+        {
+          "what": "Uranus, Neptune",
+          "who": "NASA/JPL/University of Iowa — Voyager 2 PWS (PDS VGPW_2001)",
+          "url": "https://space.physics.uiowa.edu/plasma-wave/voyager/"
+        }
+      ]
+    },
+    {
+      "title": "Story",
+      "items": [
+        {
+          "what": "Every event cites its own sources",
+          "who": "NASA, ESA, JPL, USGS, peer-reviewed papers, UN WPP 2024, HYDE 3.3 / Our World in Data, IPCC AR6 — shown beside each moment"
+        }
+      ]
+    },
+    {
+      "title": "Craft",
+      "items": [
+        {
+          "what": "Interface motion and UI sound parameters",
+          "who": "Inspired by Lorenzo Dossi’s design-engineering work",
+          "url": "https://lorenzodossi.com"
+        }
+      ]
+    }
   ]
 }

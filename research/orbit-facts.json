@@ -1,0 +1,782 @@
+{
+  "meta": {
+    "compiled": "2026-10-26",
+    "scope": "Sourced facts for the Telos Earth-orbit scene. Every entry carries a source URL. kind = historical (happened / measured) or projected (planned, announced or modelled).",
+    "conventions": {
+      "dates": "ISO 8601. UTC unless the detail says otherwise. A month-only or year-only date means the source gives no finer date.",
+      "derived_values": "Entries marked 'derived' were computed by the researcher from CelesTrak GP element sets (mean motion to semi-major axis, minus 6378.137 km equatorial radius), so altitudes are approximate means rather than published figures."
+    },
+    "could_not_confirm": [
+      "A published final-approach closing speed of 0.1 m/s for Crew Dragon. The design paper gives a contact speed of 8 cm/s; 0.1 m/s appears only in unofficial simulator guides.",
+      "Docking ports for Soyuz MS-29, Progress 95 and Progress 96 (NASA's visiting-vehicle page lists dates but not ports).",
+      "Any official SpaceX or FCC statement of a Starlink constellation size for 2030.",
+      "A dated 2026 launch target for Orbital Reef.",
+      "A firm launch date for the first Tiangong expansion module.",
+      "The ISS reentry location being called the 'Spacecraft Cemetery' in a NASA document. NASA names the South Pacific Oceanic Uninhabited Area around Point Nemo.",
+      "Floor passage of S. 933 (ISS to 2032). Only committee approval (4 March 2026) is confirmed."
+    ]
+  },
+
+  "iss_history": [
+    {
+      "date": "1998-11-20",
+      "title": "Zarya launches",
+      "detail": "The Russian-built Zarya module, the first piece of the ISS, launched on a Proton rocket from Baikonur.",
+      "source_url": "https://www.nasa.gov/history/iss20th-high-flying-construction/",
+      "kind": "historical"
+    },
+    {
+      "date": "1998-12-04",
+      "title": "Unity launches on STS-88",
+      "detail": "Shuttle Endeavour carried Node 1 Unity, the first US-built element, and mated it to Zarya on 6 December 1998.",
+      "source_url": "https://www.nasa.gov/mission/sts-88/",
+      "kind": "historical"
+    },
+    {
+      "date": "2000-07-26",
+      "title": "Zvezda docks",
+      "detail": "Zvezda, launched 12 July 2000 on a Proton, docked automatically to Zarya's aft port and gave the station its first living quarters.",
+      "source_url": "https://www.nasa.gov/history/space-station-20th-zvezda-service-module-reaches-iss/",
+      "secondary_source_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2000-037A",
+      "kind": "historical"
+    },
+    {
+      "date": "2000-11-02",
+      "title": "Expedition 1 arrives; continuous habitation begins",
+      "detail": "Shepherd, Gidzenko and Krikalev, who launched 31 October on Soyuz TM-31, docked to Zvezda and opened the hatch, starting continuous human presence.",
+      "source_url": "https://www.nasa.gov/history/space-station-20th-expedition-1-arrives-at-the-international-space-station/",
+      "kind": "historical"
+    },
+    {
+      "date": "2001-02-10",
+      "title": "Destiny lab attached (STS-98)",
+      "detail": "Atlantis crew used the shuttle arm to latch the US Destiny laboratory onto Unity, raising onboard living space by 41 percent.",
+      "source_url": "https://www.nasa.gov/image-article/this-week-nasa-history-destiny-installed-space-station-feb-10-2001/",
+      "kind": "historical"
+    },
+    {
+      "date": "2007-10-26",
+      "title": "Harmony (Node 2) installed (STS-120)",
+      "detail": "Harmony, launched 23 October 2007, became the hub that links Destiny, Columbus and Kibo and later hosts both commercial-crew docking adapters.",
+      "source_url": "https://www.nasa.gov/international-space-station/harmony-module/",
+      "kind": "historical"
+    },
+    {
+      "date": "2008-02-11",
+      "title": "Columbus installed (STS-122)",
+      "detail": "ESA's Columbus laboratory was attached to Harmony's starboard side.",
+      "source_url": "https://www.nasa.gov/international-space-station/columbus-laboratory-module/",
+      "kind": "historical"
+    },
+    {
+      "date": "2008-06-03",
+      "title": "Kibo pressurized module installed (STS-124)",
+      "detail": "Japan's Kibo pressurized module was installed on Harmony's port side.",
+      "source_url": "https://www.nasa.gov/mission/sts-124/",
+      "kind": "historical"
+    },
+    {
+      "date": "2010-02-12",
+      "title": "Tranquility and Cupola installed (STS-130)",
+      "detail": "Node 3 Tranquility arrived with the Cupola attached; the Cupola was moved to Tranquility's Earth-facing port a few days later.",
+      "source_url": "https://www.nasa.gov/international-space-station/tranquility-module/",
+      "note": "NASA's Tranquility page names Harmony as the host, but the STS-130 mission account and NSSDC give Unity's port side. Unity is the better-supported attachment point.",
+      "kind": "historical"
+    },
+    {
+      "date": "2011-07",
+      "title": "Assembly completed with the final shuttle flights",
+      "detail": "STS-134 (May 2011, AMS-02) and STS-135 (July 2011, the last shuttle flight) finished US assembly and outfitting before the shuttle retired.",
+      "source_url": "https://www.nasa.gov/history/10-years-ago-sts-135-the-space-shuttles-grand-finale/",
+      "note": "Another NASA page says assembly was complete in 'the fall of 2011'. Russian modules (Nauka 2021, Prichal 2021-11-26) were added later.",
+      "kind": "historical"
+    },
+    {
+      "date": "2012-05-25",
+      "title": "First commercial spacecraft berthed (Dragon COTS Demo C2+)",
+      "detail": "Dragon, launched 22 May on Falcon 9, was grappled by Canadarm2 and berthed to Harmony's Earth-facing port, the first commercial vehicle to reach the ISS.",
+      "source_url": "https://www.nasa.gov/news-release/nasa-administrator-calls-station-following-spacex-historic-feat/",
+      "secondary_source_url": "https://www.nasa.gov/image-article/spacex-dragon-grappled-by-canadarm2/",
+      "kind": "historical"
+    },
+    {
+      "date": "2016-08",
+      "title": "IDA-2 installed on Harmony forward",
+      "detail": "The first International Docking Adapter was installed on the forward end of Harmony in summer 2016.",
+      "source_url": "https://www.nasa.gov/blogs/spacestation/2019/08/21/spacewalkers-complete-installation-of-second-commercial-docking-port/",
+      "kind": "historical"
+    },
+    {
+      "date": "2019-08-21",
+      "title": "IDA-3 installed on Harmony zenith",
+      "detail": "Spacewalkers Hague and Morgan installed the second docking adapter on PMA-3 on Harmony's space-facing side.",
+      "source_url": "https://www.nasa.gov/blogs/spacestation/2019/08/21/spacewalkers-complete-installation-of-second-commercial-docking-port/",
+      "kind": "historical"
+    },
+    {
+      "date": "2020-05-31",
+      "title": "First crewed Crew Dragon docks (Demo-2)",
+      "detail": "Behnken and Hurley launched 30 May 2020 from LC-39A and docked Dragon Endeavour to Harmony's forward port; soft capture 14:16 UTC, hard capture 14:27 UTC.",
+      "source_url": "https://www.nasa.gov/blogs/spacestation/2020/05/31/crew-dragon-docks-to-space-station/",
+      "secondary_source_url": "https://www.nasa.gov/news-release/nasa-astronauts-launch-from-america-in-historic-test-flight-of-spacex-crew-dragon/",
+      "kind": "historical"
+    },
+    {
+      "date": "2020-11-17",
+      "title": "First operational crew rotation (Crew-1) docks",
+      "detail": "Crew-1 launched 15 November 2020 at 7:27 p.m. EST and Dragon Resilience docked at 11:01 p.m. EST on 16 November (17 November UTC), the first operational Commercial Crew mission.",
+      "source_url": "https://www.nasa.gov/news-release/nasas-spacex-crew-1-astronauts-arrive-at-space-station-nasa-leaders-and-crew-to-discuss-mission/",
+      "kind": "historical"
+    },
+    {
+      "date": "2021-11-26",
+      "title": "Prichal added, the most recent module",
+      "detail": "NASA lists Russia's Prichal docking node as the most recent module added to the station.",
+      "source_url": "https://www.nasa.gov/international-space-station/space-station-facts-and-figures/",
+      "kind": "historical"
+    },
+    {
+      "date": "2026-10-01",
+      "title": "Crewed Dragon flight count: 21 with Crew-13",
+      "detail": "Crew-13 is described as the 21st crewed orbital flight of a Crew Dragon (Demo-2, Crew-1 to Crew-13, Inspiration4, Ax-1 to Ax-4, Polaris Dawn, Fram2).",
+      "source_url": "https://en.wikipedia.org/wiki/SpaceX_Crew-13",
+      "note": "The count comes from Wikipedia. The researcher's own tally of known flights also gives 21. Ax-5 (NET January 2027) and Vast-1 have not flown.",
+      "kind": "historical"
+    },
+    {
+      "date": "2026-10-15",
+      "title": "People who have visited the ISS",
+      "detail": "NASA's overview page counts 298 individuals from 26 countries who have visited the station.",
+      "source_url": "https://www.nasa.gov/international-space-station/space-station-overview/",
+      "kind": "historical"
+    }
+  ],
+
+  "iss_geometry": {
+    "frame": {
+      "date": "reference",
+      "title": "Station axes used here (LVLH)",
+      "detail": "+X (V-bar) points along the velocity vector (the station's 'forward'), +Z (R-bar) points to nadir (Earth's centre), so zenith = -Z; +Y completes the frame along the orbit normal.",
+      "source_url": "https://www.esa.int/esapub/sp/sp1201/a3.htm",
+      "kind": "historical"
+    },
+    "docking_ports": [
+      {
+        "date": "2016-08",
+        "title": "IDA-2: Harmony forward (+X, velocity direction)",
+        "detail": "This adapter on PMA-2 at the forward end of Harmony is used by Crew Dragon and Cargo Dragon; Crew-13 docked here on 1 October 2026.",
+        "source_url": "https://www.nasa.gov/news-release/nasas-spacex-crew-13-launches-to-international-space-station/",
+        "kind": "historical"
+      },
+      {
+        "date": "2019-08-21",
+        "title": "IDA-3: Harmony zenith (-Z, away from Earth)",
+        "detail": "This adapter on PMA-3 on Harmony's space-facing side is the second commercial port; Crew-4 docked here on 27 April 2022.",
+        "source_url": "https://www.nasa.gov/blogs/spacestation/2019/08/21/spacewalkers-complete-installation-of-second-commercial-docking-port/",
+        "secondary_source_url": "https://spaceflightnow.com/2022/04/27/crew-4-mission-timeline/",
+        "kind": "historical"
+      },
+      {
+        "date": "reference",
+        "title": "Docking capacity",
+        "detail": "NASA says up to eight spacecraft can be docked to the station at once.",
+        "source_url": "https://www.nasa.gov/international-space-station/space-station-facts-and-figures/",
+        "kind": "historical"
+      }
+    ],
+    "approach_profile": [
+      {
+        "date": "reference",
+        "title": "Approach ellipsoid",
+        "detail": "This is a 4 x 2 x 2 km ellipsoid centred on the ISS centre of mass with its long axis along the V-bar; entering it starts joint operations with ISS mission control.",
+        "source_url": "https://ntrs.nasa.gov/api/citations/20100014822/downloads/20100014822.pdf",
+        "kind": "historical"
+      },
+      {
+        "date": "reference",
+        "title": "Keep-out sphere (KOS), radius 200 m",
+        "detail": "This is a sphere of 200 m radius centred on the station's centre of mass; vehicles may enter it only after a go decision, inside an assigned corridor.",
+        "source_url": "https://spacecraft.ssl.umd.edu/design_lib/SSP50235.ISSvehicleIDD.pdf",
+        "secondary_source_url": "https://ntrs.nasa.gov/api/citations/20100014822/downloads/20100014822.pdf",
+        "note": "The Planetary Society calls it '200 meters wide'. NASA SSP 50235 and the NASA CRS risk paper both define a 200 m radius.",
+        "kind": "historical"
+      },
+      {
+        "date": "2022-04-27",
+        "title": "Waypoint 0: about 400 m below the station",
+        "detail": "On a typical Crew Dragon timeline, Waypoint 0 is a hold point 400 m below the ISS, reached after the go to enter the keep-out sphere.",
+        "source_url": "https://spaceflightnow.com/2022/04/27/crew-4-mission-timeline/",
+        "kind": "historical"
+      },
+      {
+        "date": "2022-04-27",
+        "title": "Waypoint 1: about 220 m out on the docking axis",
+        "detail": "Dragon moves onto the docking-port axis and holds about 220 m from the station.",
+        "source_url": "https://spaceflightnow.com/2022/04/27/crew-4-mission-timeline/",
+        "note": "Planetary Society Demo-2 coverage gives 150 m from the forward port, likely measured from the port rather than the station centre. https://www.planetary.org/articles/crew-dragon-docks",
+        "kind": "historical"
+      },
+      {
+        "date": "2022-04-27",
+        "title": "Waypoint 2: 20 m hold, then final approach",
+        "detail": "Dragon holds 20 m from the port for a final go/no-go, then closes in; Crew-4 contact came about 5 minutes after leaving Waypoint 2.",
+        "source_url": "https://spaceflightnow.com/2022/04/27/crew-4-mission-timeline/",
+        "kind": "historical"
+      },
+      {
+        "date": "2020",
+        "title": "Contact speed about 8 cm/s; soft then hard capture",
+        "detail": "Dragon's soft-capture ring absorbs a design contact speed of 8 cm/s (about 0.08 m/s); after ring retraction, 12 hard-capture hooks latch to the IDA.",
+        "source_url": "https://esmats.eu/amspapers/pastpapers/pdfs/2020/matthews.pdf",
+        "note": "This corrects the ~0.1 m/s in the brief. On Demo-2, hard capture came 11 minutes after soft capture (14:16 to 14:27 UTC, 31 May 2020).",
+        "kind": "historical"
+      }
+    ],
+    "dimensions": [
+      {
+        "date": "reference",
+        "title": "Mass 419,725 kg",
+        "detail": "NASA gives the station's mass as 925,335 lb (419,725 kg).",
+        "source_url": "https://www.nasa.gov/international-space-station/space-station-facts-and-figures/",
+        "kind": "historical"
+      },
+      {
+        "date": "reference",
+        "title": "End-to-end 109 m; truss 94 m",
+        "detail": "The station spans 109 m end to end (also the solar-array wingspan); the integrated truss is 94 m and the pressurized modules are 67 m long.",
+        "source_url": "https://www.nasa.gov/international-space-station/space-station-facts-and-figures/",
+        "note": "The brief's '109 m truss' mixes two figures: 109 m is the overall span, the truss itself is 94 m.",
+        "kind": "historical"
+      },
+      {
+        "date": "reference",
+        "title": "Pressurized volume 1,005 m3; habitable 388 m3",
+        "detail": "NASA lists 35,491 cubic feet pressurized and 13,696 cubic feet habitable, excluding visiting vehicles.",
+        "source_url": "https://www.nasa.gov/international-space-station/space-station-facts-and-figures/",
+        "kind": "historical"
+      }
+    ],
+    "orbit": [
+      {
+        "date": "2026-10-26",
+        "title": "Altitude about 415 to 424 km",
+        "detail": "Derived: the CelesTrak element set for epoch 2026-10-26 05:01 UTC gives perigee about 415 km and apogee about 424 km.",
+        "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=json",
+        "note": "NASA describes the operating altitude as about 415 km (257 miles). https://www.nasa.gov/faqs-the-international-space-station-transition-plan/",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-10-26",
+        "title": "Inclination 51.63 deg",
+        "detail": "The CelesTrak element set for epoch 2026-10-26 lists inclination 51.6337 deg.",
+        "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=json",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-10-26",
+        "title": "Orbital period 92.96 min",
+        "detail": "Derived: a mean motion of 15.4906 rev/day gives a 92.96-minute orbit, about 15.5 orbits a day. NASA rounds this to 'about 90 minutes, 16 orbits per day'.",
+        "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=json",
+        "kind": "historical"
+      }
+    ]
+  },
+
+  "iss_current_vehicles": {
+    "as_of": "2026-10-26",
+    "summary": "NASA lists five spacecraft attached as of 15 October 2026: Crew-13 Dragon, CRS-35 Cargo Dragon, Soyuz MS-29, Progress 95 and Progress 96. No Cygnus, HTV-X, Starliner or Dream Chaser was attached.",
+    "summary_source_url": "https://www.nasa.gov/international-space-station/space-station-overview/",
+    "attached": [
+      {
+        "date": "2026-10-01",
+        "title": "SpaceX Crew-13 (Dragon), Harmony forward",
+        "detail": "Watkins, Delaney, Kutryk (CSA) and Teteryatnikov launched at 15:10 UTC from SLC-40 and docked the same day to Harmony's forward port; return is planned NET March 2027.",
+        "source_url": "https://www.nasa.gov/news-release/nasas-spacex-crew-13-launches-to-international-space-station/",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-10-15",
+        "title": "SpaceX CRS-35 (Cargo Dragon), Harmony zenith",
+        "detail": "CRS-35 launched 13 October and docked 15 October carrying supplies and a new iROSA solar array; departure is NET November 2026.",
+        "source_url": "https://www.nasa.gov/international-space-station/space-station-visiting-vehicles/",
+        "note": "The port (zenith) and cargo details come from NASASpaceflight's 22 October roundup, which could not be fetched directly. https://www.nasaspaceflight.com/2026/10/iss-roundup-102226/",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-07-14",
+        "title": "Soyuz MS-29",
+        "detail": "Soyuz MS-29 launched and docked on 14 July 2026, carrying Dubrov, Kikina (Roscosmos) and Menon (NASA).",
+        "source_url": "https://www.nasa.gov/mission/expedition-75/",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-04-27",
+        "title": "Progress 95",
+        "detail": "Progress 95 launched 25 April and docked 27 April 2026.",
+        "source_url": "https://www.nasa.gov/international-space-station/space-station-visiting-vehicles/",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-09-19",
+        "title": "Progress 96",
+        "detail": "Progress 96 launched 16 September and docked 19 September 2026.",
+        "source_url": "https://www.nasa.gov/mission/expedition-75/",
+        "kind": "historical"
+      }
+    ],
+    "recent_departures_2026": [
+      {
+        "date": "2026-10-09",
+        "title": "Cygnus NG-24 released",
+        "detail": "Cygnus NG-24, captured 13 April 2026, was released by Canadarm2.",
+        "source_url": "https://www.nasa.gov/international-space-station/space-station-visiting-vehicles/",
+        "note": "NASA's visiting-vehicles page lists 10/9; another NASA summary reportedly gave 10/8.",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-10-07",
+        "title": "Crew-12 undocks",
+        "detail": "Crew-12 (Meir, Hathaway, Adenot, Fedyaev) undocked on 7 October and splashed down on 8 October 2026 after about eight months; it had docked 14 February 2026.",
+        "source_url": "https://www.nasa.gov/mission/expedition-75/",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-09-07",
+        "title": "Progress 94 undocks",
+        "detail": "Progress 94 (docked 24 March 2026) departed.",
+        "source_url": "https://www.nasa.gov/mission/expedition-75/",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-07-26",
+        "title": "Soyuz MS-28 lands",
+        "detail": "Soyuz MS-28 undocked and landed.",
+        "source_url": "https://www.nasa.gov/mission/expedition-75/",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-06-16",
+        "title": "CRS-34 undocks",
+        "detail": "Cargo Dragon CRS-34 (docked 17 May 2026) departed.",
+        "source_url": "https://www.nasa.gov/international-space-station/space-station-visiting-vehicles/",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-03-06",
+        "title": "HTV-X1 released",
+        "detail": "JAXA's first HTV-X cargo ship was released from the station.",
+        "source_url": "https://www.nasa.gov/international-space-station/space-station-visiting-vehicles/",
+        "kind": "historical"
+      }
+    ],
+    "upcoming": [
+      {
+        "date": "2026-12",
+        "title": "Boeing Starliner-1 (uncrewed cargo)",
+        "detail": "On 28 September 2026 NASA said the uncrewed Starliner-1 engineering flight could launch in December 2026 or January 2027, with crew returning on Starliner-2 by 2028.",
+        "source_url": "https://www.nasa.gov/news-release/nasa-boeing-share-update-on-commercial-starliner-development-plans/",
+        "kind": "projected"
+      },
+      {
+        "date": "2026-12",
+        "title": "Dream Chaser Tenacity: free-flyer demo only",
+        "detail": "A September 2025 contract change dropped the ISS docking; the first flight is a free-flight demo targeted for late 2026 on Vulcan, with no confirmed launch date.",
+        "source_url": "https://www.nasa.gov/missions/station/nasa-sierra-space-modify-commercial-resupply-services-contract/",
+        "kind": "projected"
+      },
+      {
+        "date": "2027-01",
+        "title": "Axiom Mission 5 (Ax-5)",
+        "detail": "The fifth private astronaut mission on Crew Dragon is targeted NET January 2027 for up to 14 days docked.",
+        "source_url": "https://axiomspace.com/missions/ax5",
+        "kind": "projected"
+      }
+    ]
+  },
+
+  "iss_end": [
+    {
+      "date": "2022-01-31",
+      "title": "Transition report: deorbit near Point Nemo",
+      "detail": "NASA's 2022 transition report planned the final reentry burn over the South Pacific Oceanic Uninhabited Area (SPOUA) around Point Nemo and budgeted for deorbit in January 2031.",
+      "source_url": "https://www.nasa.gov/wp-content/uploads/2015/01/2022_iss_transition_report-final_tagged.pdf",
+      "kind": "projected"
+    },
+    {
+      "date": "2024-06-26",
+      "title": "SpaceX wins US Deorbit Vehicle contract (up to $843M)",
+      "detail": "NASA picked SpaceX for a single-award USDV contract worth up to $843 million; NASA will own and operate the vehicle, and its launch will be bought separately.",
+      "source_url": "https://www.nasa.gov/news-release/nasa-selects-international-space-station-us-deorbit-vehicle/",
+      "kind": "historical"
+    },
+    {
+      "date": "2024-06",
+      "title": "Deorbit method",
+      "detail": "Natural drag lowers the station first; once the crew has left, operators line up the ground track and command a large reentry burn into an uninhabited ocean area.",
+      "source_url": "https://www.nasa.gov/wp-content/uploads/2024/06/iss-deorbit-analysis-summary.pdf",
+      "kind": "projected"
+    },
+    {
+      "date": "2028",
+      "title": "Orbit lowering begins (early to mid-2028)",
+      "detail": "GAO reports that NASA expects drag plus Russian-segment reentry maneuvers to start lowering the station in early to mid-2028.",
+      "source_url": "https://www.gao.gov/assets/gao-26-107805.pdf",
+      "kind": "projected"
+    },
+    {
+      "date": "2028",
+      "title": "USDV completed",
+      "detail": "GAO cites NASA's estimate that SpaceX will complete the deorbit vehicle, a Dragon with an enlarged propulsive trunk, in 2028.",
+      "source_url": "https://www.gao.gov/assets/gao-26-107805.pdf",
+      "kind": "projected"
+    },
+    {
+      "date": "2027",
+      "title": "Go/no-go decision on deorbit vs extension",
+      "detail": "In 2027 NASA will assess whether to launch the USDV in 2029 or extend ISS operations.",
+      "source_url": "https://www.gao.gov/assets/gao-26-107805.pdf",
+      "kind": "projected"
+    },
+    {
+      "date": "2029-06",
+      "title": "USDV launches and attaches to the ISS (mid-2029)",
+      "detail": "NASA plans to launch the US Deorbit Vehicle in mid-2029 and attach it to the station.",
+      "source_url": "https://www.gao.gov/assets/gao-26-107805.pdf",
+      "note": "The month is approximate; GAO says 'mid-2029'. No USDV launch vehicle had been announced.",
+      "kind": "projected"
+    },
+    {
+      "date": "2030-12",
+      "title": "Final reentry burn (end of 2030 or early 2031)",
+      "detail": "The USDV performs the reentry burn that drives the ISS into a remote part of the ocean, where surviving pieces fall.",
+      "source_url": "https://www.gao.gov/assets/gao-26-107805.pdf",
+      "note": "GAO (17 June 2026) says 'end of 2030 or early 2031'. The 2022 transition report assumed January 2031 for budgeting.",
+      "kind": "projected"
+    },
+    {
+      "date": "2026-03-04",
+      "title": "Senate committee bill would extend ISS to 2032",
+      "detail": "The Senate Commerce Committee approved S. 933 (NASA Authorization Act of 2026), which would extend ISS operations to 30 September 2032; it is not law.",
+      "source_url": "https://www.commerce.senate.gov/press/dem/release/commerce-committee-passes-landmark-nasa-authorization-act/",
+      "secondary_source_url": "https://www.cbo.gov/publication/62561",
+      "note": "No full Senate or House passage was found as of October 2026.",
+      "kind": "projected"
+    },
+    {
+      "date": "2026-06-17",
+      "title": "GAO: structure certified through 2028, gap risk unassessed",
+      "detail": "GAO found the ISS structure analysed as safe through 2028 (NASA expects it could last to the late 2030s), costing about $3B a year, and that NASA had not assessed the risk of a gap in crewed presence.",
+      "source_url": "https://www.gao.gov/assets/gao-26-107805.pdf",
+      "kind": "historical"
+    }
+  ],
+
+  "successor_stations": [
+    {
+      "date": "2027",
+      "title": "Vast Haven-1",
+      "detail": "Vast's single-module station is 10.1 m long and 4.4 m wide (45 m3 habitable, 80 m3 pressurized), for 4 crew on 2-week visits, in a 425 km, 51.6 deg orbit; it launches on Falcon 9.",
+      "source_url": "https://www.vastspace.com/haven-1",
+      "status": "not launched; targeted 2027",
+      "note": "This has slipped from August 2025, then May 2026; Ars Technica reported the move to Q1 2027 in January 2026. https://arstechnica.com/space/2026/01/the-first-commercial-space-station-haven-1-is-now-undergoing-assembly-for-launch/",
+      "kind": "projected"
+    },
+    {
+      "date": "2028",
+      "title": "Vast Haven-2",
+      "detail": "Vast plans 16 m by 4.4 m modules launched on Falcon Heavy, the first operational in 2028, with a 9-module, 12-crew station (1,160 m3 pressurized) complete in 2032.",
+      "source_url": "https://www.vastspace.com/haven-2",
+      "status": "projected; depends on NASA commercial-station award",
+      "kind": "projected"
+    },
+    {
+      "date": "2027-12",
+      "title": "Axiom Station: PPTM attaches to ISS, then free-flies",
+      "detail": "Axiom's first module, the Payload Power Thermal Module, attaches to the ISS and later separates to join Habitat 1 as a two-module free-flyer.",
+      "source_url": "https://www.axiomspace.com/release/redwire-awarded-contract-to-provide-roll-out-solar-arrays-for-axiom-space",
+      "status": "in development",
+      "note": "Axiom (25 September 2025) said PPTM launches 'toward the end of 2027' and could be free-flying as early as 2028, with four modules by 2030. Later 2026 reporting puts PPTM in 2028 and the habitat in 2029 (e.g. https://spacenews.com/axiom-space-raises-additional-350-million/), so treat 2027 as optimistic.",
+      "kind": "projected"
+    },
+    {
+      "date": "2029",
+      "title": "Starlab (Voyager / Airbus JV)",
+      "detail": "Starlab is a single 8 m module with three decks, launched fully outfitted on one Starship, for 4 permanent crew (8 during handovers) at about 400 km.",
+      "source_url": "https://www.airbus.com/en/products-services/space/space-exploration/starlab",
+      "status": "passed NASA Commercial Critical Design Review on 2026-02-23; launch scheduled 2029",
+      "secondary_source_url": "https://s206.q4cdn.com/740209347/files/doc_news/Starlab-Completes-NASA-Commercial-Critical-Design-Review-2026.pdf",
+      "kind": "projected"
+    },
+    {
+      "date": "2021-10-25",
+      "title": "Orbital Reef (Blue Origin / Sierra Space)",
+      "detail": "Orbital Reef was announced as a station for about 10 crew at about 500 km in a mid-inclination orbit, launched on New Glenn, operating 'before 2030'.",
+      "source_url": "https://spaceflightnow.com/2021/10/25/blue-origin-and-sierra-space-team-up-for-commercial-space-station/",
+      "status": "design phase; no current launch date",
+      "note": "In October 2026 The Space Review described Blue Origin as low-profile but still pursuing it. https://www.thespacereview.com/article/5340/1",
+      "kind": "projected"
+    },
+    {
+      "date": "2026-10-09",
+      "title": "NASA commercial-station final RFP released",
+      "detail": "After proposing (24 March 2026) and dropping (June 2026) a government 'core module' idea, NASA issued a final RFP on 9 October 2026, with proposals due 8 December 2026 and at least two initial awards by April 2027.",
+      "source_url": "https://www.thespacereview.com/article/5340/1",
+      "secondary_source_url": "https://spacenews.com/nasa-abandons-core-module-concept-for-commercial-space-station-development/",
+      "status": "no Phase 2 awards made as of October 2026",
+      "note": "GAO (June 2026) says NASA expects about $1.0B to $1.5B over FY2026 to FY2031, possibly enough for only one station. https://www.gao.gov/assets/gao-26-107805.pdf",
+      "kind": "projected"
+    },
+    {
+      "date": "2021-04-29",
+      "title": "Tiangong (China Space Station): Tianhe core launched",
+      "detail": "A Long March 5B launched the Tianhe core module from Wenchang, the first of three modules.",
+      "source_url": "https://spacenews.com/china-launches-tianhe-space-station-core-module-into-orbit/",
+      "status": "operational",
+      "kind": "historical"
+    },
+    {
+      "date": "2022-10-31",
+      "title": "Tiangong completed with Mengtian",
+      "detail": "Mengtian (17.9 m, about 22 t) docked and completed the three-module T-shaped station after Wentian (July 2022).",
+      "source_url": "https://spacenews.com/final-module-docks-at-chinas-tiangong-space-station/",
+      "status": "operational",
+      "kind": "historical"
+    },
+    {
+      "date": "2026-10-26",
+      "title": "Tiangong orbit: about 384 km, 41.47 deg",
+      "detail": "Derived: the CelesTrak element set for Tianhe (NORAD 48274) at epoch 2026-10-26 gives a mean altitude of about 384 km and inclination 41.47 deg.",
+      "source_url": "https://celestrak.org/NORAD/elements/gp.php?CATNR=48274&FORMAT=json",
+      "status": "operational",
+      "kind": "historical"
+    },
+    {
+      "date": "2023-10",
+      "title": "Tiangong expansion to six modules",
+      "detail": "At IAC 2023 a CAST official said a multi-functional node with six docking ports would come first, growing the station to six modules and about 180 t; no launch date has been published.",
+      "source_url": "https://spacenews.com/china-to-send-new-modules-and-co-orbiting-spacecraft-to-tiangong-space-station/",
+      "status": "projected",
+      "kind": "projected"
+    },
+    {
+      "date": "2028-12",
+      "title": "Bharatiya Antariksh Station: BAS-1 module",
+      "detail": "India's cabinet approved the first module, BAS-1, to launch by December 2028 under an expanded Gaganyaan programme; five modules are targeted by 2035.",
+      "source_url": "https://www.narendramodi.in/amp/category/news/bharatiya-anatriksh-station",
+      "secondary_source_url": "https://www.globalsecurity.org/space/library/news/2026/space-260730-india-pib02.htm",
+      "status": "design phase (baseline design review done per July 2026 parliamentary reply)",
+      "note": "Wikipedia gives a planned orbit of 400 to 450 km at 51.5 deg, but no official ISRO orbit for BAS-1 was found.",
+      "kind": "projected"
+    }
+  ],
+
+  "starlink": {
+    "counts": [
+      {
+        "date": "2026-10-26",
+        "title": "13,042 launched; 11,166 in orbit; 11,151 working",
+        "detail": "McDowell's table (updated 2026-10-26 00:51 UTC) counts 13,042 launched (20 early V3 never reached orbit), 1,876 down, 11,166 in orbit and 10,022 in their final operational shells.",
+        "source_url": "https://planet4589.org/space/con/star/stats.html",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-10-26",
+        "title": "CelesTrak Starlink group: 11,109 element sets",
+        "detail": "CelesTrak's Starlink group held 11,109 element sets; its whole 'active' catalogue held 16,792.",
+        "source_url": "https://celestrak.org/NORAD/elements/gp.php?GROUP=starlink&FORMAT=json",
+        "kind": "historical"
+      }
+    ],
+    "gen1_shells_fcc": [
+      {
+        "date": "2021-04-27",
+        "title": "Gen1 shells (FCC 21-48)",
+        "detail": "The FCC set 4,408 Gen1 satellites: 1,584 at 550 km/53 deg, 1,584 at 540 km/53.2 deg, 720 at 570 km/70 deg, and 348 + 172 at 560 km/97.6 deg.",
+        "source_url": "https://docs.fcc.gov/public/attachments/FCC-21-48A1.pdf",
+        "kind": "historical"
+      }
+    ],
+    "gen2_shells_fcc": [
+      {
+        "date": "2022-12-01",
+        "title": "Gen2 partial grant: 7,500 satellites",
+        "detail": "The FCC approved 7,500 of the 29,988 requested Gen2 satellites at 525 km/53 deg, 530 km/43 deg and 535 km/33 deg, deferring the rest.",
+        "source_url": "https://docs.fcc.gov/public/attachments/FCC-22-91A1.pdf",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-01-09",
+        "title": "FCC approves 7,500 more Gen2 (total 15,000)",
+        "detail": "The FCC authorised another 7,500 Gen2 satellites, bringing Gen2 to 15,000, and added new shells from 340 km to 485 km plus direct-to-cell service.",
+        "source_url": "https://docs.fcc.gov/public/attachments/DOC-417881A1.pdf",
+        "kind": "historical"
+      }
+    ],
+    "shell_lowering": [
+      {
+        "date": "2026-01-01",
+        "title": "~4,400 satellites to move from ~550 km to ~480 km during 2026",
+        "detail": "SpaceX's Michael Nicolls said all Starlinks at ~550 km would drop to ~480 km over 2026, so failed satellites reenter in months rather than years.",
+        "source_url": "https://x.com/michaelnicollsx/status/2006783359834542393",
+        "secondary_source_url": "https://www.theregister.com/2026/01/02/starlink_lower_orbits/",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-10-26",
+        "title": "Where the shells actually sit now",
+        "detail": "Derived from CelesTrak: the main clusters are ~460-470 km at 53 deg (~4,300), ~480 km at 43 deg (~3,200), ~470 km at 97 deg (~1,450), ~470 and ~570 km at 70 deg, and ~360 km at 43/53 deg (direct-to-cell).",
+        "source_url": "https://celestrak.org/NORAD/elements/gp.php?GROUP=starlink&FORMAT=json",
+        "note": "These are researcher-binned mean altitudes (10 km bins, clusters of 100+ satellites), not SpaceX-published shell values. The ~550 km Gen1 shell no longer appears as a major cluster, consistent with the lowering. McDowell's per-shell plots: https://planet4589.org/space/con/star/hiplots.html",
+        "kind": "historical"
+      }
+    ],
+    "filings": [
+      {
+        "date": "2019-10-15",
+        "title": "~42,000 total requested",
+        "detail": "SpaceX asked the ITU for 30,000 more satellites on top of about 12,000 already FCC-approved, roughly 42,000 in all.",
+        "source_url": "https://spacenews.com/spacex-submits-paperwork-for-30000-more-starlink-satellites/",
+        "kind": "historical"
+      }
+    ],
+    "v3_on_starship": [
+      {
+        "date": "2026-09-28",
+        "title": "First Starlink V3 satellites deployed (Starship Flight 14)",
+        "detail": "Starship reached orbit and released 26 V3 satellites (about 1 Tbps down, 160 Gbps up each), all of which made contact; a full Starship can carry up to 60.",
+        "source_url": "https://www.lightreading.com/satellite/starship-reaches-orbit-releases-26-high-capacity-v3-starlink-satellites",
+        "note": "On 2026-10-26 McDowell shows the 26 V3s still raising orbit (24 ascending, 2 drifting).",
+        "kind": "historical"
+      },
+      {
+        "date": "2026-11",
+        "title": "Next V3 launch (Starship Flight 15)",
+        "detail": "Flight 15 had no official date as of late October 2026; unofficial trackers list NET November 2026.",
+        "source_url": "https://www.teslaoracle.com/2026/10/21/flight-15-catch-starlink-v3-si-1t-revenue-key-takeaways-from-elon-musks-spacex-spcx-q3-2026-earnings-call/",
+        "note": "This is a low-confidence secondary source; treat the date as unconfirmed.",
+        "kind": "projected"
+      }
+    ],
+    "projection_2030": "No official SpaceX or FCC figure for 2030 was found, so it is omitted."
+  },
+
+  "debris": {
+    "counts": [
+      {
+        "date": "2026-02-01",
+        "title": "ESA MASTER model: 68,450 objects >10 cm",
+        "detail": "ESA's 2026 report (issued 8 September 2026) estimates 68,450 objects over 10 cm (about 11,300 of them active payloads), 1.5 million from 1 to 10 cm and 230 million from 1 mm to 1 cm.",
+        "source_url": "https://www.sdo.esoc.esa.int/environment_report/Space_Environment_Report_latest.pdf",
+        "note": "These model estimates use the reference epoch of 1 February 2026. Earlier ESA figures (about 54,000 >10 cm, 1.2 million at 1-10 cm, 140 million <1 cm) came from an older population, so the editions differ.",
+        "kind": "projected"
+      },
+      {
+        "date": "2026-10-14",
+        "title": "About 47,000 objects regularly tracked",
+        "detail": "ESA's 'Space debris by the numbers' (updated 14 October 2026) gives about 47,000 tracked objects, about 19,440 satellites in space (about 15,900 functioning) and over 17,400 t in orbit.",
+        "source_url": "https://www.esa.int/Space_Safety/Space_Debris/Space_debris_by_the_numbers",
+        "secondary_source_url": "https://newspaceeconomy.ca/2026/10/20/what-do-esas-space-debris-statistics-reveal-about-earth-orbit/",
+        "note": "The ESA page renders its numbers with JavaScript and could not be read directly; the figures come from the secondary article quoting it.",
+        "kind": "historical"
+      },
+      {
+        "date": "2025",
+        "title": "2025 environment trend",
+        "detail": "ESA reports over 300 launches and 4,000 new payloads in 2025, fewer new fragments than 2024 (which added 3,000+ catalogued fragments from propulsion breakups), and about 9.8 accidental fragmentations a year.",
+        "source_url": "https://www.sdo.esoc.esa.int/environment_report/Space_Environment_Report_latest.pdf",
+        "kind": "historical"
+      }
+    ],
+    "events": [
+      {
+        "date": "2007-01-11",
+        "title": "Fengyun-1C destroyed by Chinese ASAT test",
+        "detail": "A ballistic interceptor destroyed the 960 kg weather satellite at about 850 km (98.6 deg), the worst LEO contamination in 50 years: 1,200+ catalogued pieces within two months and up to 35,000 estimated over 1 cm.",
+        "source_url": "https://orbitaldebris.jsc.nasa.gov/quarterly-news/pdfs/odqnv11i2.pdf",
+        "kind": "historical"
+      },
+      {
+        "date": "2009-02-10",
+        "title": "Iridium 33 / Cosmos 2251 collision",
+        "detail": "The first accidental collision of two intact satellites happened at 16:56 UTC, 790 km over northern Siberia, at more than 11 km/s; 823 pieces were catalogued by the end of March 2009.",
+        "source_url": "https://orbitaldebris.jsc.nasa.gov/quarterly-news/pdfs/odqnv13i2.pdf",
+        "kind": "historical"
+      },
+      {
+        "date": "2021-11-15",
+        "title": "Cosmos 1408 destroyed by Russian ASAT test",
+        "detail": "A direct-ascent missile destroyed the 1,750 kg satellite at about 490 x 465 km; more than 1,500 trackable fragments were seen, and 1,604 were catalogued by 7 March 2022.",
+        "source_url": "https://orbitaldebris.jsc.nasa.gov/quarterly-news/pdfs/odqnv26i1.pdf",
+        "kind": "historical"
+      },
+      {
+        "date": "2024-08-06",
+        "title": "Long March 6A upper stage breakup (Qianfan launch)",
+        "detail": "The about 5,800 kg upper stage broke up at 17:15 UTC in an 857 x 797 km, 89 deg orbit after deploying the first 18 Qianfan satellites; 283 large fragments were catalogued by 15 September 2024.",
+        "source_url": "https://orbitaldebris.jsc.nasa.gov/quarterly-news/pdfs/odqnv28i4.pdf",
+        "note": "Other counts (300+, 650+, 700+) reflect different dates and catalogues.",
+        "kind": "historical"
+      },
+      {
+        "date": "2024-10-19",
+        "title": "Intelsat 33e breaks up in GEO",
+        "detail": "The operational Intelsat 33e broke up at about 04:30 UTC in geostationary orbit (35,773 x 35,797 km); 18 fragments were catalogued by 13 January 2025.",
+        "source_url": "https://orbitaldebris.jsc.nasa.gov/quarterly-news/pdfs/odqnv29i1.pdf",
+        "kind": "historical"
+      }
+    ]
+  },
+
+  "other_orbits": [
+    {
+      "date": "2023-07-03",
+      "title": "GPS: ~20,200 km, 6 planes, 31 operational",
+      "detail": "GPS satellites fly in medium Earth orbit at about 20,200 km, circling twice a day in six planes; gps.gov counted 31 operational (snapshot of 3 July 2023).",
+      "source_url": "https://gps.gov/systems/gps/space",
+      "kind": "historical"
+    },
+    {
+      "date": "2026-10-26",
+      "title": "GPS now: 32 in CelesTrak 'gps-ops', ~55 deg",
+      "detail": "Derived: CelesTrak's operational-GPS group lists 32 satellites at a mean altitude of about 20,180 km and median inclination 54.9 deg.",
+      "source_url": "https://celestrak.org/NORAD/elements/gp.php?GROUP=gps-ops&FORMAT=json",
+      "kind": "historical"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Galileo: 23,222 km; SAT 33-34 entered service",
+      "detail": "Galileo slots sit at 23,222 km; SAT 33 and 34 entered service in 2026, completing the L14 pair, and four first-generation satellites remain to launch.",
+      "source_url": "https://www.esa.int/Applications/Satellite_navigation/Two_new_Galileo_satellites_enter_service",
+      "note": "CelesTrak's Galileo group lists 32 element sets: 30 near 23,200 km at about 55-57 deg, plus 2 in eccentric orbits (mean about 21,600 km, 49 deg). https://celestrak.org/NORAD/elements/gp.php?GROUP=galileo&FORMAT=json",
+      "kind": "historical"
+    },
+    {
+      "date": "2026-10-26",
+      "title": "GLONASS: 27 operational at ~19,100 km, ~65 deg",
+      "detail": "Derived: CelesTrak's operational-GLONASS group lists 27 satellites at about 19,100 km with inclinations of 64-66 deg.",
+      "source_url": "https://celestrak.org/NORAD/elements/gp.php?GROUP=glo-ops&FORMAT=json",
+      "kind": "historical"
+    },
+    {
+      "date": "2026-10-26",
+      "title": "BeiDou: mixed MEO, IGSO and GEO",
+      "detail": "Derived: CelesTrak's BeiDou group lists 53 satellites: 32 in MEO (~21,500 km, 54-57 deg), 12 inclined geosynchronous (IGSO) and 9 geostationary.",
+      "source_url": "https://celestrak.org/NORAD/elements/gp.php?GROUP=beidou&FORMAT=json",
+      "kind": "historical"
+    },
+    {
+      "date": "reference",
+      "title": "GEO belt altitude 35,786 km",
+      "detail": "Geostationary satellites orbit at 35,786 km above the equator, matching Earth's rotation.",
+      "source_url": "https://www.esa.int/Enabling_Support/Space_Transportation/Types_of_orbits",
+      "kind": "historical"
+    },
+    {
+      "date": "2026-10-26",
+      "title": "About 570 active geosynchronous satellites",
+      "detail": "Derived: CelesTrak's 'Active Geosynchronous' group lists 569 satellites, 558 of them near one revolution per day and 368 within 1 deg of the equator.",
+      "source_url": "https://celestrak.org/NORAD/elements/gp.php?GROUP=geo&FORMAT=json",
+      "kind": "historical"
+    }
+  ]
+}

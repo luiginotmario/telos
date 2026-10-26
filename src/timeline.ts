@@ -41,7 +41,8 @@ export function buildStops(body: BodyData, humans: HumansData | null): Stop[] {
   if (humans) {
     // Skip eras that collide with an existing event year (within 1%).
     for (const era of humans.eras) {
-      if (stops.some((s) => Math.abs(s.year - era.year) <= Math.max(1, Math.abs(TODAY_YEAR - era.year) * 0.01))) continue;
+      // orbit events (space age) sit alongside population eras rather than replacing them
+      if (stops.some((s) => !s.event?.orbit && Math.abs(s.year - era.year) <= Math.max(1, Math.abs(TODAY_YEAR - era.year) * 0.01))) continue;
       const t = tau(era.year);
       let i = ev.findIndex((x) => x.t > t);
       if (i < 0) i = ev.length;

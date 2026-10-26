@@ -938,6 +938,246 @@
       ]
     },
     {
+      "id": "sputnik",
+      "year": 1957.76,
+      "label": "4 October 1957",
+      "title": "Sputnik 1",
+      "line": "The first artificial satellite",
+      "detail": "The Soviet Union launched Sputnik 1, a 58 cm sphere that circled Earth every 96 minutes; the space age, and Earth's population of satellites, begins here.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.1,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 1,
+        "craters": 0,
+        "lights": 0.67,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA History – Sputnik and the origins of the Space Age",
+          "url": "https://history.nasa.gov/sputnik/"
+        }
+      ],
+      "orbit": {
+        "view": "globe"
+      }
+    },
+    {
+      "id": "iss-zarya",
+      "year": 1998.89,
+      "label": "20 November 1998",
+      "title": "Space station begins",
+      "line": "Zarya, the first ISS module, launches",
+      "detail": "A Proton rocket launched Zarya; two weeks later Space Shuttle Endeavour brought Unity, and assembly of the International Space Station began.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.1,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 1,
+        "craters": 0,
+        "lights": 0.869,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA – High-flying construction: building the ISS",
+          "url": "https://www.nasa.gov/history/iss20th-high-flying-construction/"
+        },
+        {
+          "title": "NASA – STS-88",
+          "url": "https://www.nasa.gov/mission/sts-88/"
+        }
+      ],
+      "orbit": {
+        "view": "globe",
+        "focus": "ISS"
+      }
+    },
+    {
+      "id": "iss-crewed",
+      "year": 2000.84,
+      "label": "2 November 2000",
+      "title": "Always someone up there",
+      "line": "Expedition 1 arrives",
+      "detail": "Bill Shepherd, Yuri Gidzenko and Sergei Krikalev docked in a Soyuz; people have lived aboard the ISS continuously ever since.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.1,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 1,
+        "craters": 0,
+        "lights": 0.878,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA – Expedition 1 arrives at the ISS",
+          "url": "https://www.nasa.gov/history/space-station-20th-expedition-1-arrives-at-the-international-space-station/"
+        }
+      ],
+      "orbit": {
+        "view": "globe",
+        "focus": "ISS"
+      }
+    },
+    {
+      "id": "iss-complete",
+      "year": 2011.53,
+      "label": "July 2011",
+      "title": "ISS assembly complete",
+      "line": "The last Space Shuttle flight, STS-135",
+      "detail": "With the final Shuttle missions the station reached its full span of 109 m, about the length of a football pitch, and some 420 tonnes.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.1,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 1,
+        "craters": 0,
+        "lights": 0.93,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA – STS-135, the Space Shuttle's grand finale",
+          "url": "https://www.nasa.gov/history/10-years-ago-sts-135-the-space-shuttles-grand-finale/"
+        },
+        {
+          "title": "NASA – Space station facts and figures",
+          "url": "https://www.nasa.gov/international-space-station/space-station-facts-and-figures/"
+        }
+      ],
+      "orbit": {
+        "view": "station",
+        "scene": "2011"
+      }
+    },
+    {
+      "id": "starlink-first",
+      "year": 2019.39,
+      "label": "24 May 2019",
+      "title": "Starlink begins",
+      "line": "60 satellites on one Falcon 9",
+      "detail": "SpaceX launched its first 60 Starlink satellites. By 26 October 2026 it had launched 13,042, of which 11,166 are still in orbit, more than all other active satellites combined.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.1,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 1,
+        "craters": 0,
+        "lights": 0.968,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Jonathan McDowell – Starlink statistics",
+          "url": "https://planet4589.org/space/con/star/stats.html"
+        }
+      ],
+      "orbit": {
+        "view": "globe"
+      }
+    },
+    {
+      "id": "demo-2",
+      "year": 2020.41,
+      "label": "31 May 2020",
+      "title": "Dragon brings astronauts",
+      "line": "Demo-2 docks: the first crewed Dragon",
+      "detail": "Doug Hurley and Bob Behnken docked Crew Dragon Endeavour to the forward port of Harmony, the first crew to reach orbit on a commercial spacecraft.",
+      "kind": "past",
+      "confidence": "established",
+      "projected_by": null,
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.1,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 1,
+        "craters": 0,
+        "lights": 0.973,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA – Crew Dragon docks to space station",
+          "url": "https://www.nasa.gov/blogs/spacestation/2020/05/31/crew-dragon-docks-to-space-station/"
+        }
+      ],
+      "orbit": {
+        "view": "station",
+        "scene": "demo2"
+      }
+    },
+    {
       "id": "today",
       "year": 2026,
       "label": "2026",
@@ -987,6 +1227,217 @@
           "url": "https://sdg.iisd.org/news/wmo-flagship-highlights-earths-energy-imbalance/"
         }
       ]
+    },
+    {
+      "id": "haven-1",
+      "year": 2027.4,
+      "label": "2027",
+      "title": "First commercial station",
+      "line": "Vast Haven-1, launched on a Falcon 9",
+      "detail": "Vast's single-module Haven-1, 10.1 m long, is planned for a 425 km, 51.6° orbit, hosting four crew for two-week visits; it has not launched yet.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "Vast",
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.1,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 1,
+        "craters": 0,
+        "lights": 1,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Vast – Haven-1",
+          "url": "https://www.vastspace.com/haven-1"
+        }
+      ],
+      "orbit": {
+        "view": "globe",
+        "focus": "Haven-1"
+      }
+    },
+    {
+      "id": "iss-lowering",
+      "year": 2028.4,
+      "label": "2028",
+      "title": "The ISS starts down",
+      "line": "Its orbit is allowed to sink",
+      "detail": "From early to mid-2028 NASA expects drag and Russian-segment thruster burns to begin lowering the station, ahead of a controlled re-entry.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA (GAO report)",
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.1,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 1,
+        "craters": 0,
+        "lights": 1,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "GAO-26-107805 – ISS transition",
+          "url": "https://www.gao.gov/assets/gao-26-107805.pdf"
+        }
+      ],
+      "orbit": {
+        "view": "station",
+        "scene": "lowering"
+      }
+    },
+    {
+      "id": "usdv",
+      "year": 2029.5,
+      "label": "Mid-2029",
+      "title": "SpaceX's deorbit vehicle docks",
+      "line": "A Dragon with an enlarged trunk",
+      "detail": "NASA picked SpaceX in June 2024 (up to $843 million) to build the US Deorbit Vehicle; it is planned to launch and attach to the ISS in mid-2029, a decision NASA confirms in 2027.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA, SpaceX",
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.1,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 1,
+        "craters": 0,
+        "lights": 1,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA – US Deorbit Vehicle selection",
+          "url": "https://www.nasa.gov/news-release/nasa-selects-international-space-station-us-deorbit-vehicle/"
+        },
+        {
+          "title": "GAO-26-107805 – ISS transition",
+          "url": "https://www.gao.gov/assets/gao-26-107805.pdf"
+        }
+      ],
+      "orbit": {
+        "view": "station",
+        "scene": "usdv"
+      }
+    },
+    {
+      "id": "iss-reentry",
+      "year": 2030.95,
+      "label": "End of 2030 – early 2031",
+      "title": "The ISS comes home",
+      "line": "A final burn over the South Pacific",
+      "detail": "With the crew gone, the deorbit vehicle fires to drive the station into the uninhabited South Pacific near Point Nemo; most of it burns up, surviving pieces fall to the ocean.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "NASA",
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.1,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 1,
+        "craters": 0,
+        "lights": 1,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "NASA – ISS deorbit analysis summary",
+          "url": "https://www.nasa.gov/wp-content/uploads/2024/06/iss-deorbit-analysis-summary.pdf"
+        },
+        {
+          "title": "GAO-26-107805 – ISS transition",
+          "url": "https://www.gao.gov/assets/gao-26-107805.pdf"
+        }
+      ],
+      "orbit": {
+        "view": "station",
+        "scene": "reentry"
+      }
+    },
+    {
+      "id": "after-iss",
+      "year": 2031.5,
+      "label": "2031",
+      "title": "After the ISS",
+      "line": "Commercial stations and Tiangong",
+      "detail": "Planned successors include Vast's Haven-2, Axiom Station and Starlab (on one Starship, 2029); China's Tiangong keeps flying and India plans BAS-1 for 2028. Dates are company and agency targets.",
+      "kind": "projected",
+      "confidence": "projection",
+      "projected_by": "Vast, Axiom, Voyager/Airbus, CMSA, ISRO",
+      "visual": {
+        "lava": 0,
+        "ocean": 1,
+        "ice": 0.1,
+        "clouds": 0.6,
+        "haze": 0,
+        "vegetation": 1,
+        "craters": 0,
+        "lights": 1,
+        "dust": 0,
+        "atmosphere": 1,
+        "atmosphere_tint": "#7fb2ff",
+        "surface_tint": null,
+        "base": "today",
+        "bands": 0,
+        "storm": 0,
+        "rings": 0
+      },
+      "sources": [
+        {
+          "title": "Airbus – Starlab",
+          "url": "https://www.airbus.com/en/products-services/space/space-exploration/starlab"
+        },
+        {
+          "title": "Vast – Haven-2",
+          "url": "https://www.vastspace.com/haven-2"
+        },
+        {
+          "title": "SpaceNews – Tiangong completed",
+          "url": "https://spacenews.com/final-module-docks-at-chinas-tiangong-space-station/"
+        }
+      ],
+      "orbit": {
+        "view": "globe",
+        "focus": "successors"
+      }
     },
     {
       "id": "ipcc-2100",

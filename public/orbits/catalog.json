@@ -1,0 +1,30 @@
+{
+ "epoch": "2026-10-26T03:00:00Z",
+ "count": 19470,
+ "stride": 12,
+ "kinds": {
+  "starlink": 0,
+  "oneweb": 1,
+  "leo": 2,
+  "meo": 3,
+  "geo": 4,
+  "debris": 5,
+  "station": 6,
+  "heo": 7
+ },
+ "counts": {
+  "leo": 4240,
+  "heo": 44,
+  "geo": 585,
+  "meo": 134,
+  "station": 2,
+  "oneweb": 651,
+  "starlink": 11136,
+  "debris": 2678
+ },
+ "named": {
+  "ISS": 19468,
+  "Tiangong": 19469
+ },
+ "source": "CelesTrak GP data (celestrak.org), active satellites, space stations and the Fengyun-1C, Iridium 33, Cosmos 2251 and Cosmos 1408 debris clouds"
+}
