@@ -195,6 +195,7 @@ export class PlanetView {
     this.zoomGoal = 1;
     this.focusAim = false;
     this.autoSurface = false;
+    this.autoSite = null;
     if (id !== "earth") this.specimen.close();
     const L = await this.load(id);
     if (this.current !== id) return;
@@ -661,6 +662,7 @@ export class PlanetView {
     document.body.setAttribute("data-station", "");
   }
   private stationStop = -1;
+  private autoSite: string | null = null;
 
   leaveStation() {
     this.station.exit();
@@ -982,7 +984,21 @@ export class PlanetView {
     // only once the timeline comes to rest: never yank the camera down mid-scroll
     const wantSurface = !!cb && cb.hasActivity && !this.moving && this.enterT > 0.95 && document.body.dataset.mode === "planet"
       && (this.autoSurface || this.ruler.settled);
-    if (wantSurface && !this.autoSurface) { this.autoSurface = true; this.builtTo2031 = true; this.userZoomed = false; this.requestDescent(); }
+    // landing moments (Apollo 11, Chang'e 6, Perseverance…) fly to the real site once the timeline
+    // rests there, close enough to see the ground and its pin; moving on hands back to the globe
+    const evNow = this.cur?.stops[Math.round(this.ruler.pos)]?.event;
+    const site = !wantSurface && !this.autoSurface && this.enterT > 0.95 && !this.moving && !this.station.active
+      && document.body.dataset.mode === "planet" ? evNow?.sites?.find((x) => x.status === "real") : undefined;
+    if (site && evNow && this.ruler.settled && this.autoSite !== evNow.id) {
+      this.autoSite = evNow.id;
+      this.aimAt(site.lat, site.lon);
+      this.zoomGoal = Math.min(2.3, this.maxZoom);
+      void this.globe(this.current).load("4k");
+    } else if (!site && this.autoSite && this.ruler.settled && !wantSurface) {
+      this.autoSite = null;
+      this.zoomGoal = 1; this.focusAim = false;
+    }
+    if (wantSurface && !this.autoSurface) { this.autoSite = null; this.autoSurface = true; this.builtTo2031 = true; this.userZoomed = false; this.requestDescent(); }
     else if (!wantSurface && this.autoSurface) {
       this.autoSurface = false;
       if (cb && !cb.hasActivity) { this.zoomGoal = 1; this.focusAim = false; this.userZoomed = false; }
