@@ -57,7 +57,7 @@ uniform vec3 uAtmTint, uSurfTint;
 
 uniform float uFogDensity; uniform vec3 uFogColor;
 uniform vec3 uHoleDir; uniform float uHoleCos;
-uniform float uLinearOut;
+uniform float uLinearOut; uniform float uGain;
 uniform vec4 uGlows[${MAX_GLOWS}];
 uniform int uGlowCount;
 
@@ -276,10 +276,12 @@ void main() {
   }
 
   // ── atmosphere rim ────────────────────────────────────────
-  float fres = pow(1.0 - max(dot(N, V), 0.0), 2.6);
-  float lit = smoothstep(-0.3, 0.6, dot(N, L));
-  col = mix(col, uAtmTint * (0.4 + 0.8 * lit), clamp(fres * uAtm * 0.85, 0.0, 1.0));
+  float fres = pow(1.0 - max(dot(N, V), 0.0), 3.2);
+  float lit = smoothstep(-0.1, 0.6, dot(N, L));
+  // airglow-free night side: the atmosphere only shows where it scatters sunlight
+  col = mix(col, uAtmTint * (0.35 + 0.8 * lit), clamp(fres * uAtm * 0.75 * (uDarkSpace > 0.5 ? lit : 1.0), 0.0, 1.0));
 
+  col *= uGain;   // exposure: the planet view sits a little brighter than the overview
   // aerial perspective (descent scene only)
   if (uFogDensity > 0.0) {
     float fd = distance(uCamPos, vWorldPos);
@@ -321,7 +323,7 @@ export function createPlanetMaterial(seed: number) {
     uGlowCount: { value: 0 },
     uFogDensity: { value: 0 }, uFogColor: { value: new THREE.Color(0.8, 0.65, 0.5) },
     uHoleDir: { value: new THREE.Vector3(0, 1, 0) }, uHoleCos: { value: 2 },
-    uLinearOut: LINEAR_OUT,
+    uLinearOut: LINEAR_OUT, uGain: { value: 1 },
   };
   const mat = new THREE.ShaderMaterial({ uniforms: u, vertexShader: vert, fragmentShader: frag, transparent: false });
   return { mat, u };

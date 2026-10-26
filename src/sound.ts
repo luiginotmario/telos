@@ -157,6 +157,62 @@ export class Sound {
     this.rumble.f.frequency.setTargetAtTime(140 + 260 * level, t, 0.1);
   }
 
+  private city: { hum: GainNode; hiss: GainNode; hissF: BiquadFilterNode; lfo: OscillatorNode } | null = null;
+  /**
+   * The settlement, heard from above: a machine hum (power, pumps, life support) and the hiss of
+   * traffic, both growing with how much is built, plus the odd distant clank of work.
+   * Over the Moon there is no air to carry sound, so only a faint structure-borne hum remains.
+   */
+  setSettlement(level: number, lunar: boolean, dt: number) {
+    const ctx = this.ctx;
+    if (!ctx || !this.enabled) return;
+    if (!this.city) {
+      if (level < 0.01) return;
+      const hum = new GainNode(ctx, { gain: 0 });
+      const lp = new BiquadFilterNode(ctx, { type: "lowpass", frequency: 240, Q: 0.4 });
+      // mains-like fundamental with a slightly detuned partner: slow beating reads as machinery
+      for (const [f, type, gain] of [[55, "sawtooth", 0.5], [55.6, "sawtooth", 0.4], [110.3, "sine", 0.35], [165, "sine", 0.12]] as const) {
+        const o = new OscillatorNode(ctx, { type, frequency: f });
+        const g = new GainNode(ctx, { gain });
+        o.connect(g).connect(lp); o.start();
+      }
+      lp.connect(hum).connect(this.bus);
+      const lfo = new OscillatorNode(ctx, { type: "sine", frequency: 0.07 });
+      const lfoG = new GainNode(ctx, { gain: 60 });
+      lfo.connect(lfoG).connect(lp.frequency); lfo.start();
+      const src = new AudioBufferSourceNode(ctx, { buffer: pinkNoise(ctx, 5), loop: true });
+      const hissF = new BiquadFilterNode(ctx, { type: "bandpass", frequency: 700, Q: 0.5 });
+      const hiss = new GainNode(ctx, { gain: 0 });
+      src.connect(hissF).connect(hiss).connect(this.bus);
+      src.start();
+      this.city = { hum, hiss, hissF, lfo };
+    }
+    const t = ctx.currentTime;
+    const k = Math.max(0, Math.min(1, level));
+    this.city.hum.gain.setTargetAtTime(db(lunar ? -40 : -31) * Math.sqrt(k), t, 0.4);
+    this.city.hiss.gain.setTargetAtTime(lunar ? 0 : db(-36) * k, t, 0.5);
+    this.city.hissF.frequency.setTargetAtTime(500 + 500 * k, t, 0.5);
+    // distant work: more of it as the city grows; none in vacuum
+    if (!lunar && k > 0.05 && Math.random() < dt * (0.25 + 2.2 * k)) this.clank(k);
+  }
+
+  private clank(k: number) {
+    const ctx = this.ctx!;
+    const t = ctx.currentTime + 0.01;
+    const dur = 0.25 + Math.random() * 0.35;
+    const src = new AudioBufferSourceNode(ctx, { buffer: pinkNoise(ctx, dur) });
+    const bp = new BiquadFilterNode(ctx, { type: "bandpass", frequency: 180 + Math.random() * 900, Q: 2 + Math.random() * 6 });
+    const g = new GainNode(ctx, { gain: 0 });
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(db(-38 + Math.random() * 6) * (0.5 + 0.5 * k), t + 0.006);
+    g.gain.setTargetAtTime(0, t + 0.01, dur * 0.25);
+    const pan = new StereoPannerNode(ctx, { pan: Math.random() * 1.6 - 0.8 });
+    src.connect(bp).connect(g).connect(pan).connect(this.bus);
+    const s = new GainNode(ctx, { gain: 0.5 });
+    pan.connect(s).connect(this.verbSend);
+    src.start(t); src.stop(t + dur);
+  }
+
   // ── ambience (NASA recordings / sonifications) ─────────────────
 
   private loadBuffer(id: string): Promise<AudioBuffer | null> {

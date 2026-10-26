@@ -22,15 +22,17 @@ const atmFrag = /* glsl */ `
 varying vec3 vN; varying vec3 vP;
 uniform vec3 uCamPos; uniform vec3 uLightDir; uniform vec3 uTint; uniform float uStrength; uniform float uDark; uniform float uOpacity; uniform float uLinearOut;
 void main(){
-  vec3 V = normalize(uCamPos - vP);
-  float rim = 1.0 - abs(dot(normalize(vN), V));
-  float a = pow(smoothstep(0.0, 1.0, rim), 5.0) * 1.0;
-  a *= 1.0 - smoothstep(0.92, 1.0, rim) * 0.85;
-  float lit = smoothstep(-0.4, 0.5, dot(normalize(vN), normalize(uLightDir)));
-  a *= mix(0.15, 1.0, lit) * uStrength * uOpacity;
-  vec3 c = uTint * (uDark > 0.5 ? 1.2 : 1.0);
+  vec3 N = normalize(vN), V = normalize(uCamPos - vP), L = normalize(uLightDir);
+  float rim = 1.0 - abs(dot(N, V));
+  // thin limb: rises sharply at the very edge, fades before the shell's own silhouette
+  float a = pow(smoothstep(0.55, 1.0, rim), 3.0) * (1.0 - smoothstep(0.965, 1.0, rim));
+  // only where sunlight reaches, with forward-scattering brightening toward the sun side
+  float lit = smoothstep(-0.25, 0.45, dot(N, L));
+  float fwd = pow(max(dot(-V, L), 0.0), 3.0);
+  a *= lit * (0.75 + 0.6 * fwd) * uStrength * uOpacity;
+  vec3 c = uTint * (uDark > 0.5 ? 1.1 : 1.0);
   if (uLinearOut > 0.5) c = pow(c, vec3(2.2));
-  gl_FragColor = vec4(c, a * (uDark > 0.5 ? 1.0 : 0.28));
+  gl_FragColor = vec4(c, a * (uDark > 0.5 ? 0.85 : 0.28));
 }`;
 
 const ringVert = /* glsl */ `
@@ -84,7 +86,7 @@ export class Globe {
       uStrength: { value: 0 }, uDark: { value: opts.dark ? 1 : 0 }, uOpacity: { value: 1 }, uLinearOut: LINEAR_OUT,
     };
     this.atm = new THREE.Mesh(
-      new THREE.SphereGeometry(1.035, 64, 32),
+      new THREE.SphereGeometry(1.025, 96, 48),
       new THREE.ShaderMaterial({
         uniforms: this.atmU, vertexShader: atmVert, fragmentShader: atmFrag, transparent: true, depthWrite: false,
         side: THREE.FrontSide, blending: opts.dark ? THREE.AdditiveBlending : THREE.NormalBlending,

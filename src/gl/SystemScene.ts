@@ -3,53 +3,17 @@ import * as Astro from "astronomy-engine";
 import { BODIES, type BodyDef, type BodyId } from "../bodies";
 import { Globe } from "./Globe";
 import { NOISE } from "./noise.glsl";
-import { loadMap } from "./textures";
+import { Sky, eqjToWorld } from "./Sky";
+import { Fleet } from "./Fleet";
 import { clamp, follow } from "../motion";
 
-const EQJ_ECL = Astro.Rotation_EQJ_ECL();
 const R_EARTH = 6371;
-
-/** EQJ (J2000 equator) vector → three.js world: ecliptic plane = XZ, ecliptic north = +Y. */
-function eqjToWorld(x: number, y: number, z: number, out = new THREE.Vector3()) {
-  const v = Astro.RotateVector(EQJ_ECL, new Astro.Vector(x, y, z, new Astro.AstroTime(0)));
-  return out.set(v.x, v.z, -v.y);
-}
 
 /** Display radius in AU. Sizes are enlarged (sqrt-compressed) so every world is visible. */
 export function displayRadius(def: BodyDef) {
   return 0.05 * Math.sqrt(def.radiusKm / R_EARTH);
 }
 const SUN_R = 0.2;
-
-const starVert = /* glsl */ `
-attribute float aMag; attribute float aCi;
-uniform float uScale; uniform float uFade;
-varying vec3 vCol; varying float vA;
-vec3 bvToRgb(float bv){
-  // Ballesteros (2012) B–V → temperature, then a Planckian-locus fit
-  float t = 4600.0 * (1.0/(0.92*bv + 1.7) + 1.0/(0.92*bv + 0.62));
-  t = clamp(t, 1500.0, 40000.0) / 100.0;
-  float r = t <= 66.0 ? 1.0 : clamp(1.292936 * pow(t - 60.0, -0.1332047), 0.0, 1.0);
-  float g = t <= 66.0 ? clamp(0.3900816 * log(t) - 0.6318414, 0.0, 1.0) : clamp(1.1298909 * pow(t - 60.0, -0.0755148), 0.0, 1.0);
-  float b = t >= 66.0 ? 1.0 : (t <= 19.0 ? 0.0 : clamp(0.5432068 * log(t - 10.0) - 1.1962541, 0.0, 1.0));
-  return vec3(r, g, b);
-}
-void main(){
-  vec4 mv = modelViewMatrix * vec4(position, 1.0);
-  gl_Position = projectionMatrix * mv;
-  float flux = pow(10.0, -0.4 * (aMag - 1.0));
-  gl_PointSize = clamp(uScale * (1.6 + 2.6 * sqrt(flux)), 1.5, 11.0);
-  vA = clamp(0.32 + 1.1 * sqrt(flux), 0.0, 1.0) * uFade;
-  vCol = mix(vec3(1.0), bvToRgb(aCi), 0.55);
-}`;
-const starFrag = /* glsl */ `
-varying vec3 vCol; varying float vA;
-void main(){
-  vec2 p = gl_PointCoord * 2.0 - 1.0; float d = dot(p, p);
-  float a = exp(-d * 4.0) * vA;
-  if (a < 0.003) discard;
-  gl_FragColor = vec4(vCol * a, a);
-}`;
 
 const sunFrag = /* glsl */ `
 varying vec3 vN; varying vec3 vP; uniform vec3 uCamPos; uniform float uTime;
@@ -81,8 +45,9 @@ export class SystemScene {
   private sun: THREE.Mesh;
   private sunU: Record<string, THREE.IUniform>;
   private glow: THREE.Mesh;
-  private starsU = { uScale: { value: 1 }, uFade: { value: 1 } };
-  private sky = new THREE.Group();
+  private sky = new Sky();
+  readonly fleet = new Fleet();
+  shipsInFlight = 0;
   date = new Date();
 
   // orbit camera
@@ -113,7 +78,8 @@ export class SystemScene {
     this.glow.scale.setScalar(SUN_R * 14);
     this.scene.add(this.glow);
 
-    this.scene.add(this.sky);
+    this.scene.add(this.sky.group);
+    this.scene.add(this.fleet.group);
 
     for (const def of BODIES) {
       const globe = new Globe(def, { dark: true, segments: 64 });
@@ -133,7 +99,6 @@ export class SystemScene {
       if (def.id !== "moon") p.orbit = this.makeOrbit(def);
       this.planets.push(p);
     }
-    void this.loadSky();
     this.setDate(new Date());
     this.bindInput();
   }
@@ -164,70 +129,9 @@ export class SystemScene {
     return line;
   }
 
-  private async loadSky() {
-    // Real stars: HYG v4 (CC BY-SA 4.0), mag ≤ 7, J2000 unit vectors.
-    try {
-      const [meta, buf] = await Promise.all([
-        fetch("/stars-meta.json").then((r) => r.json()),
-        fetch("/stars.bin").then((r) => r.arrayBuffer()),
-      ]);
-      const f = new Float32Array(buf);
-      const stride: number = meta.stride ?? meta.floats_per_star ?? 5;
-      const count = Math.floor(f.length / stride);
-      const pos = new Float32Array(count * 3), mag = new Float32Array(count), ci = new Float32Array(count);
-      const v = new THREE.Vector3();
-      for (let i = 0; i < count; i++) {
-        const o = i * stride;
-        eqjToWorld(f[o], f[o + 1], f[o + 2], v).multiplyScalar(2000);
-        pos.set([v.x, v.y, v.z], i * 3);
-        mag[i] = f[o + 3]; ci[i] = f[o + 4];
-      }
-      const g = new THREE.BufferGeometry();
-      g.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-      g.setAttribute("aMag", new THREE.BufferAttribute(mag, 1));
-      g.setAttribute("aCi", new THREE.BufferAttribute(ci, 1));
-      const pts = new THREE.Points(g, new THREE.ShaderMaterial({
-        uniforms: this.starsU, vertexShader: starVert, fragmentShader: starFrag,
-        transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-      }));
-      pts.frustumCulled = false;
-      this.sky.add(pts);
-    } catch { /* stars optional until assets land */ }
-
-    // Milky Way background (equirectangular, celestial J2000 coordinates)
-    const mw = await loadMap("sky", "color", "4k").catch(() => null) ?? await loadMilkyWay();
-    if (mw) {
-      mw.colorSpace = THREE.NoColorSpace;
-      const geo = new THREE.SphereGeometry(2500, 64, 32);
-      const m = new THREE.Mesh(geo, new THREE.ShaderMaterial({
-        uniforms: { uTex: { value: mw }, uFade: this.starsU.uFade },
-        vertexShader: `varying vec3 vD; void main(){ vD = position; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
-        fragmentShader: `
-          varying vec3 vD; uniform sampler2D uTex; uniform float uFade; uniform mat3 uToEqj;
-          void main(){
-            vec3 d = normalize(uToEqj * normalize(vD));
-            float ra = atan(d.y, d.x); float dec = asin(clamp(d.z, -1.0, 1.0));
-            // NASA SVS Deep Star Maps: RA increases to the left, 0h at centre
-            vec2 uv = vec2(0.5 - ra / 6.28318530718, 0.5 + dec / 3.14159265);
-            vec3 c = texture2D(uTex, uv).rgb;
-            // drop the map's noise floor so deep space stays black
-            c = max(c - 0.035, 0.0) * 1.1;
-            gl_FragColor = vec4(c * c * 1.6 * uFade, 1.0);
-          }`,
-        side: THREE.BackSide, depthWrite: false,
-      }));
-      // world → EQJ (inverse of eqjToWorld)
-      const w2e = new THREE.Matrix3();
-      const ex = eqjToWorld(1, 0, 0), ey = eqjToWorld(0, 1, 0), ez = eqjToWorld(0, 0, 1);
-      w2e.set(ex.x, ex.y, ex.z, ey.x, ey.y, ey.z, ez.x, ez.y, ez.z);
-      (m.material as THREE.ShaderMaterial).uniforms.uToEqj = { value: w2e };
-      m.renderOrder = -10;
-      this.sky.add(m);
-    }
-  }
-
   setDate(d: Date) {
     this.date = d;
+    this.shipsInFlight = this.fleet.setDate(d);
     const t = Astro.MakeTime(d);
     let earthPos = new THREE.Vector3();
     for (const p of this.planets) {
@@ -301,7 +205,8 @@ export class SystemScene {
     c.addEventListener("wheel", (e) => {
       if (document.body.dataset.mode !== "system" || this.locked) return;
       e.preventDefault();
-      this.distGoal = clamp(this.distGoal * Math.exp(e.deltaY * 0.0012), 0.6, 140);
+      if (!e.ctrlKey) return;                          // plain scroll moves time (main.ts); pinch zooms
+      this.distGoal = clamp(this.distGoal * Math.exp(e.deltaY * 0.01), 0.6, 140);
     }, { passive: false });
     // pinch
     const touches = new Map<number, { x: number; y: number }>();
@@ -358,12 +263,16 @@ export class SystemScene {
     this.camera.far = 6000;
     this.camera.updateProjectionMatrix();
     this.camera.lookAt(this.target);
-    this.sky.position.copy(this.camera.position);
+    this.sky.update(this.camera);
+    this.fleet.update();
 
+    // the Sun is drawn enlarged; shrink it as you come into the inner system so it doesn't swamp it
+    const sunK = clamp(this.dist * 0.011, 0.045, SUN_R) / SUN_R;
+    this.sun.scale.setScalar(sunK);
+    this.glow.scale.setScalar(SUN_R * 14 * sunK);
     this.sunU.uCamPos.value.copy(this.camera.position);
     this.sunU.uTime.value = t;
     this.glow.quaternion.copy(this.camera.quaternion);
-    this.starsU.uScale.value = Math.min(devicePixelRatio, 2);
 
     for (const p of this.planets) p.globe.update(t, this.camera);
     if (active) this.updateLabels();
@@ -425,11 +334,4 @@ function orient(globe: Globe, body: Astro.Body, t: Astro.AstroTime) {
   tq.makeBasis(X, P, Z);
   globe.tilt.quaternion.setFromRotationMatrix(tq);
   globe.spin.rotation.set(0, 0, 0);
-}
-
-async function loadMilkyWay(): Promise<THREE.Texture | null> {
-  for (const u of ["/textures/milkyway-4k.webp", "/textures/milkyway-4k.jpg", "/textures/milkyway-2k.webp"]) {
-    try { return await new THREE.TextureLoader().loadAsync(u); } catch { /* next */ }
-  }
-  return null;
 }

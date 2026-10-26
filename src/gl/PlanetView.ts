@@ -10,6 +10,7 @@ import type { EffectComposer } from "three/examples/jsm/postprocessing/EffectCom
 import type { N8AOPass } from "n8ao";
 import type { BokehPass } from "three/examples/jsm/postprocessing/BokehPass.js";
 import { LINEAR_OUT } from "./planetMaterial";
+import { Sky } from "./Sky";
 import { Ruler } from "../ui/Ruler";
 import { esc, swapContent } from "../ui/swap";
 import type { Shell } from "../ui/shell";
@@ -18,7 +19,8 @@ import { Spring, SPRING_FOLLOW, clamp, expoOut, follow, reducedMotion } from "..
 
 const FOV = 30;
 const SPECIMENS_ENABLED = false;
-const LIGHT = new THREE.Vector3(-0.5, 0.38, 0.78).normalize();
+// the Sun from the left and slightly behind: a lit crescent-to-gibbous face with a visible terminator
+const LIGHT = new THREE.Vector3(-0.72, 0.24, 0.65).normalize();
 
 interface Loaded { data: BodyData | null; humans: HumansData | null; stops: Stop[] }
 interface PinEl { el: HTMLElement; site: Site; year: number; dir: THREE.Vector3 }
@@ -55,6 +57,7 @@ export class PlanetView {
 
   // studio light for the miniature base (the globes light themselves in their shader)
   private sun = new THREE.DirectionalLight(0xfff4ea, 2.6);
+  private sky = new Sky(LINEAR_OUT);
   private bases = new Map<BodyId, BaseLayer>();
   private get base() { return this.bases.get(this.current) ?? null; }
   private focusAim = false;
@@ -79,18 +82,19 @@ export class PlanetView {
   constructor(private shell: Shell, private sound: Sound, renderer?: THREE.WebGLRenderer) {
     this.renderer = renderer ?? null;
     try { if (localStorage.getItem("telos:hinted")) document.body.setAttribute("data-hinted", ""); } catch { /* ignore */ }
-    this.scene.background = new THREE.Color(1, 1, 1);
+    this.scene.background = new THREE.Color(0, 0, 0);
+    this.scene.add(this.sky.group);
     this.sun.position.copy(LIGHT).multiplyScalar(5);
     this.sun.castShadow = true;
     this.sun.shadow.mapSize.set(4096, 4096);
     this.sun.shadow.bias = -0.00015;
     this.sun.shadow.normalBias = 0.0004;
     this.sun.shadow.radius = 4;
-    this.scene.add(this.sun, this.sun.target, new THREE.HemisphereLight(0xffffff, 0xd9c2ad, 1.25));
+    this.scene.add(this.sun, this.sun.target, new THREE.HemisphereLight(0xe9eef8, 0x6a5444, 0.9));
     if (renderer) {
       const pm = new THREE.PMREMGenerator(renderer);
       this.scene.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture;
-      this.scene.environmentIntensity = 0.55;
+      this.scene.environmentIntensity = 0.4;
       pm.dispose();
     }
     this.ruler = new Ruler(shell.ruler, sound);
@@ -112,8 +116,9 @@ export class PlanetView {
   globe(id: BodyId) {
     let g = this.globes.get(id);
     if (!g) {
-      g = new Globe(BODIES[bodyIndex(id)], { dark: false, segments: 160 });
+      g = new Globe(BODIES[bodyIndex(id)], { dark: true, segments: 160 });
       g.u.uLightDir.value.copy(LIGHT);
+      g.u.uGain.value = 1.22;
       // always blended, so fading never flips material state (no program re-acquire mid-motion)
       (g.mesh.material as THREE.ShaderMaterial).transparent = true;
       this.scene.add(g.root);
@@ -459,7 +464,9 @@ export class PlanetView {
   private framingZoom() {
     const b = this.base!;
     const extWorld = b.extentAt(this.year) * 2.2;
-    const d = clamp((extWorld * 1.5) / Math.tan(THREE.MathUtils.degToRad(FOV / 2)), 0.45, 4);
+    // FOV is vertical; on a portrait phone the width is what crops the city
+    const fit = Math.tan(THREE.MathUtils.degToRad(FOV / 2)) * Math.min(1, this.camera.aspect * 1.25);
+    const d = clamp((extWorld * 1.5) / fit, 0.45, 4);
     const approach = this.camDist / d;
     return clamp(2.2 * Math.pow(approach, 1 / 1.6), 5, 13);
   }
@@ -656,10 +663,14 @@ export class PlanetView {
     // over the surface keep depth tight (AO and DOF need precision); the horizon is ~√(2Rd) away
     this.camera.far = fk > 0.3 ? Math.max(6, d * 30) : 200;
     this.camera.updateProjectionMatrix();
+    this.sky.update(this.camera, this.enterT * 0.6);   // quieter sky behind a planet than in the overview
     for (const [id, b] of this.bases) {
       if (id === this.current) b.setYear(this.year);
       b.update(dt, t, this.camera, id === this.current && !this.moving && this.enterT > 0.5);
     }
+    // the city is heard only from over it, and louder as more of it stands
+    const hb = this.base;
+    this.sound.setSettlement(hb && document.body.dataset.mode === "planet" ? hb.built * this.focusK : 0, !!hb?.site.lunar, dt);
     // when the timeline reaches events on the surface, fly there; leave when it goes back
     const cb = this.base;
     const wantSurface = !!cb && cb.hasActivity && !this.moving && this.enterT > 0.95 && document.body.dataset.mode === "planet";

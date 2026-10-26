@@ -23,6 +23,8 @@ export function mountShell() {
 
       <section class="system-ui" id="system-ui">
         <p class="hint">Select a world</p>
+        <div class="caption sys-caption" id="sys-caption" aria-live="polite"></div>
+        <div class="ruler sys-ruler" id="sys-ruler"></div>
         <p class="date" id="system-date"></p>
         <p class="note">Planet sizes enlarged. Positions, orbits, tilts and stars are true for this date.</p>
       </section>
@@ -49,6 +51,8 @@ export function mountShell() {
     worlds: $("worlds"),
     sound: $<HTMLButtonElement>("sound"),
     systemDate: $("system-date"),
+    sysCaption: $("sys-caption"),
+    sysRuler: $("sys-ruler"),
     planetUi: $("planet-ui"),
     shadow: $("shadow"),
     story: $("story"),

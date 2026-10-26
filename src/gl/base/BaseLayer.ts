@@ -366,10 +366,13 @@ export class BaseLayer {
   setYear(y: number) { this.year = y; }
   get hasActivity() { return this.year >= this.site.firstYear - 0.05; }
 
+  /** How much of the plan is standing (0..1), for the city soundscape. */
+  built = 0;
+
   update(dt: number, t: number, cam: THREE.Camera, active: boolean) {
     const want = active && this.hasActivity;
     this.group.visible = want;
-    if (!want || !this.lives.length || !this.ao) { this.sound.setRumble(0); this.lastYear = this.year; return; }
+    if (!want || !this.lives.length || !this.ao) { this.sound.setRumble(0); this.built = 0; this.lastYear = this.year; return; }
     const y = this.year;
     const forward = y > this.lastYear;
     const slow = Math.abs(y - this.lastYear) / Math.max(dt, 1e-3) < 2.5;
@@ -434,6 +437,9 @@ export class BaseLayer {
     }
     for (const pool of this.pools.values()) pool.setCount(counts.get(pool) ?? 0);
     this.ao.setCount(aoCount);
+    let standing = 0;
+    for (const L of this.lives) if (L.on) standing++;
+    this.built = standing / this.lives.length;
     this.updateLanding(dt, t, cam);
     this.updateRobots(dt);
     this.updateTraffic(dt);

@@ -303,3 +303,58 @@ body[data-aerial] .scroll-hint { color: rgba(255,255,255,0.7); }
 }
 @media (prefers-reduced-motion: reduce) { .specimen, .specimen[data-open] { transform: none; filter: none; } }
 body[data-aerial] #labels .pin { display: none; }
+
+/* ── planets live in space: light-on-dark everywhere ───────────── */
+body[data-mode="planet"] {
+  --ink: #f3f2ef; --ink-2: rgba(255,255,255,0.62); --ink-3: rgba(255,255,255,0.36); --ink-4: rgba(255,255,255,0.14);
+  color: #fff;
+}
+body[data-mode="planet"] .shadow { display: none; }
+body[data-mode="planet"] .story p, body[data-mode="planet"] .story .facts dd { color: rgba(255,255,255,0.78); }
+body[data-mode="planet"] .cap h1 { color: #fff; }
+body[data-mode="planet"] .credits-btn { color: rgba(255,255,255,0.3); }
+body[data-mode="planet"] .pin i { background: #fff; box-shadow: 0 0 0 2px rgba(0,0,0,0.6); }
+body[data-mode="planet"] .pin[data-status="planned"] i { background: transparent; box-shadow: 0 0 0 1.5px #fff; }
+body[data-mode="planet"] .pin[data-status="projected"] i { border-color: #fff; }
+body[data-mode="planet"] .pin span { background: rgba(14,14,16,0.72); color: #fff; }
+/* the specimen panel becomes dark glass */
+.specimen { background: rgba(16,16,18,0.78); box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset, 0 24px 70px rgba(0,0,0,0.5); color: var(--ink); }
+.sp-stage { background: radial-gradient(120% 90% at 50% 30%, #2a2a2e 0%, #18181b 70%, #121214 100%) !important; }
+.sp-note, .sp-row dd { color: rgba(255,255,255,0.82) !important; }
+.sp-x { background: rgba(255,255,255,0.08); }
+
+/* ── overview timeline: Earth → Mars launch windows ── */
+.system-ui .sys-ruler { pointer-events: auto; top: auto; bottom: 64px; --ink: #fff; --ink-2: rgba(255,255,255,0.6); --ink-3: rgba(255,255,255,0.32); }
+.system-ui .sys-caption { position: absolute; left: 50%; top: auto; bottom: 132px; translate: -50% 0; width: min(460px, calc(100vw - 32px)); height: 44px; text-align: center; color: #fff; pointer-events: none; --ink: #fff; --ink-2: rgba(255,255,255,0.62); --ink-3: rgba(255,255,255,0.35); }
+.system-ui .hint { bottom: 186px; }
+.system-ui .date { bottom: 22px; }
+.system-ui .note { display: none; }
+
+/* ── veil: the orbit closes as the worlds load ─────────── */
+.veil {
+  position: fixed; inset: 0; z-index: 50; background: #000; color: #fff;
+  display: grid; place-items: center;
+  transition: opacity 1000ms var(--ease-expo) 160ms;
+}
+.veil-mark { display: grid; justify-items: center; gap: 14px; transition: opacity 520ms var(--ease-glide), filter 700ms var(--ease-glide), transform 900ms var(--ease-expo); }
+.veil svg { overflow: visible; }
+.veil-track { fill: none; stroke: rgba(255,255,255,0.12); stroke-width: 1; }
+.veil-arc { fill: none; stroke: rgba(255,255,255,0.86); stroke-width: 1.25; stroke-linecap: round; }
+.veil-body { fill: #fff; }
+.veil-word { margin: 6px 0 0; font-weight: 600; letter-spacing: -0.01em; font-size: 15px; }
+.veil-line { margin: 0; font-size: 12px; color: rgba(255,255,255,0.42); font-variant-numeric: tabular-nums; }
+.veil[data-state="lift"] { opacity: 0; pointer-events: none; }
+.veil[data-state="lift"] .veil-mark { opacity: 0; filter: blur(5px); transform: scale(1.06); }
+@media (prefers-reduced-motion: reduce) {
+  .veil, .veil-mark { transition: opacity 200ms linear; }
+  .veil[data-state="lift"] .veil-mark { filter: none; transform: none; }
+}
+
+/* ── phone: worlds get their own row; info clears the ruler; the site note wraps ── */
+@media (max-width: 640px) {
+  .chrome.top { grid-template-columns: 1fr auto; row-gap: 2px; }
+  .worlds { grid-column: 1 / -1; grid-row: 2; justify-self: center; max-width: 100%;
+    mask-image: linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent); }
+  .info { right: 10px; top: calc(var(--caption-y) - 3px); }
+  .aerial-note { white-space: normal; width: calc(100vw - 48px); text-align: center; line-height: 1.35; bottom: max(36px, env(safe-area-inset-bottom)); }
+}

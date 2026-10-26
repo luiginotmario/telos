@@ -5,11 +5,15 @@ import { PlanetView } from "./gl/PlanetView";
 import { SITES } from "./gl/base/BaseLayer";
 import { setAnisotropy, setUploader } from "./gl/textures";
 import { mountShell } from "./ui/shell";
+import { Ruler } from "./ui/Ruler";
+import { swapContent, esc } from "./ui/swap";
 import { mountCredits } from "./ui/credits";
+import { mountVeil } from "./ui/veil";
 import { Sound } from "./sound";
 import { clamp, easeInOutCubic, reducedMotion, smoothstep } from "./motion";
 
 const shell = mountShell();
+const veil = mountVeil();
 mountCredits();
 const sound = new Sound();
 const renderer = new THREE.WebGLRenderer({ canvas: shell.canvas, antialias: true, powerPreference: "high-performance" });
@@ -47,7 +51,7 @@ const comp = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMater
       vec3 a = texture2D(tA, vUv).rgb, b = texture2D(tB, vUv).rgb;
       // a thin luminous edge where the studio light meets space
       float edge = exp(-pow((d - uRadius + uFeather * 0.5) / (uFeather * 0.35), 2.0)) * step(0.001, uRadius);
-      gl_FragColor = vec4(mix(a, b, m) + vec3(1.0, 0.97, 0.92) * edge * 0.18 * (1.0 - m), 1.0);
+      gl_FragColor = vec4(mix(a, b, m) + vec3(1.0, 0.97, 0.92) * edge * 0.04 * (1.0 - m), 1.0);
     }`,
 }));
 const compScene = new THREE.Scene();
@@ -64,7 +68,7 @@ const DIVE = 1.7, RISE = 1.4;
 function setUiMode(m: "system" | "planet") {
   document.body.dataset.mode = m;
   planet.setActive(m === "planet");
-  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", m === "planet" ? "#ffffff" : "#000000");
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", "#000000");
 }
 
 function enterPlanet(id: BodyId) {
@@ -97,6 +101,62 @@ function exitPlanet() {
 }
 
 system.onSelect = enterPlanet;
+
+// ── overview timeline: today, then each Earth → Mars launch window ────────────
+// Stops sit mid-transfer, so landing on one shows its fleet in flight between the planets.
+const windows = system.fleet.windows;
+const sysStops: { date: Date; label: string; title: string; line: string; future: boolean }[] = [
+  { date: new Date(), label: "Today", title: "The solar system", line: "Positions true for this moment", future: false },
+  ...windows.map((w) => {
+    const mid = new Date(w.launch.getTime() + 0.62 * (w.arrive.getTime() - w.launch.getTime()));
+    const when = w.launch.toLocaleDateString("en-GB", { month: "short", year: "numeric", timeZone: "UTC" });
+    return {
+      date: mid, label: `${when} window`, future: true,
+      title: w.ships ? `${w.ships.toLocaleString("en-US")} Starship${w.ships > 1 ? "s" : ""} to Mars` : "No Starships",
+      line: w.note,
+    };
+  }),
+];
+const sysRuler = new Ruler(shell.sysRuler, sound);
+let sysStop = -1;
+function sysDateAt(p: number) {
+  const i = Math.max(0, Math.min(sysStops.length - 1, Math.floor(p))), j = Math.min(sysStops.length - 1, i + 1);
+  const t = p - i;
+  return new Date(sysStops[i].date.getTime() + (sysStops[j].date.getTime() - sysStops[i].date.getTime()) * t);
+}
+let sysDate: Date | null = null;   // null = live "now"
+sysRuler.onChange = (p) => {
+  sysDate = p < 0.01 ? null : sysDateAt(p);
+  system.setDate(sysDate ?? new Date());
+  const idx = Math.round(p);
+  if (idx !== sysStop) {
+    sysStop = idx;
+    const s = sysStops[idx];
+    swapContent(shell.sysCaption, "cap", `<h1>${esc(s.label)}</h1><p><b>${esc(s.title)}</b>${esc(s.line)}${s.future ? `<span class="proj">Projected</span>` : ""}</p>`, `sys:${idx}`);
+    // frame the inner system while fleets fly, the whole system at "today"
+    if (!system.locked) {
+      if (idx === 0) system.frame(null, 17);
+      else system.setView(system.fleet.centre(idx - 1), 2.7);
+    }
+  }
+};
+sysRuler.setStops(sysStops, ["Today", String(windows[windows.length - 1].launch.getUTCFullYear())], 0, "Earth to Mars launch windows");
+sysRuler.onChange(0);
+{
+  let acc = 0, last = 0;
+  addEventListener("wheel", (e) => {
+    if (document.body.dataset.mode !== "system" || e.ctrlKey || system.locked) return;
+    const dy = e.deltaMode === 1 ? e.deltaY * 32 : e.deltaY;
+    if (Math.sign(-dy) !== Math.sign(acc)) acc = 0;
+    acc += -dy;
+    const now = performance.now();
+    if (Math.abs(acc) >= 70 && now - last > 60) {
+      const dir = acc > 0 ? 1 : -1;
+      acc = 0; last = now;
+      sysRuler.goTo(sysRuler.stop + dir, true);
+    }
+  }, { passive: false });
+}
 
 shell.home.addEventListener("click", () => exitPlanet());
 shell.info.addEventListener("click", () => {
@@ -192,17 +252,20 @@ if (startId) {
   }
 } else {
   system.setView(new THREE.Vector3(), 90, true);
-  system.frame(null, 17);
   setUiMode("system");
+  // the fly-in starts as the veil lifts, so the first thing seen moving is the system arriving
+  void veil.done.then(() => { if (mode === "system" && !system.locked) system.frame(null, 17); });
   sound.playAmbient("sun", 0.22);
 }
-for (const b of BODIES) planet.preload(b.id);
+// close-up worlds stream in after the overview is up, so they don't hold the first frame
+if (startId) for (const b of BODIES) planet.preload(b.id);
+else void veil.done.then(() => { for (const b of BODIES) planet.preload(b.id); });
 renderer.compile(planet.scene, planet.camera);
 renderer.compile(system.scene, system.camera);
 
 if (import.meta.env.DEV) {
   (window as any).__telos = {
-    planet, system, renderer,
+    planet, system, renderer, sysRuler,
     stops: () => planet.stops.map((s, i) => `${i}: ${s.headline} · ${s.title}`),
     render: (n = 3) => { for (let i = 0; i < n; i++) tick(); },
     go: async (id: BodyId, i = -1) => { if (planet.current !== id) await planet.show(id, { instant: true }); planet.debugJump(i); },
@@ -226,17 +289,19 @@ function tick() {
   last = now;
   const t = now;
 
-  if (now - lastDate > 1) {
+  if (now - lastDate > 1 || sysDate) {
     lastDate = now;
-    const d = new Date();
-    system.setDate(d);
-    shell.systemDate.textContent = `${fmt.format(d)} UTC`;
+    const d = sysDate ?? new Date();
+    if (!sysDate) system.setDate(d);
+    shell.systemDate.textContent = sysDate ? d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }) : `${fmt.format(d)} UTC`;
   }
+  if (mode === "system") sysRuler.update(dt, now);
 
   const pr = renderer.getPixelRatio();
   const diag = Math.hypot(innerWidth, innerHeight) * pr;
 
   if (mode === "system") {
+    sound.setSettlement(0, false, dt);
     system.update(dt, t, true);
     renderer.setRenderTarget(null);
     renderer.render(system.scene, system.camera);
