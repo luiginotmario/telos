@@ -274,11 +274,24 @@ body[data-aerial] .scroll-hint { color: rgba(255,255,255,0.7); }
 .sp-x { position: absolute; right: 10px; top: 10px; z-index: 2; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; color: var(--ink-2); background: rgba(0,0,0,0.04); transition: background 160ms ease, transform 160ms var(--ease-glide); }
 .sp-x:active { transform: scale(0.94); }
 @media (hover: hover) and (pointer: fine) { .sp-x:hover { background: rgba(0,0,0,0.08); color: var(--ink); } }
-.sp-stage { position: relative; height: 300px; border-radius: 16px 16px 0 0; background: radial-gradient(120% 90% at 50% 30%, #fbfaf8 0%, #ebe6df 70%, #e2dcd4 100%); overflow: hidden; }
-.sp-stage canvas { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
-.sp-stage canvas:active { cursor: grabbing; }
-.sp-scale { position: absolute; left: 12px; top: 0; bottom: 0; pointer-events: none; }
-.sp-scale span { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 4px; font-size: 9.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; translate: 0 -50%; white-space: nowrap; }
+.sp-stage { position: relative; height: 340px; border-radius: 16px 16px 0 0; background: radial-gradient(120% 90% at 50% 30%, #fbfaf8 0%, #ebe6df 70%, #e2dcd4 100%); overflow: hidden; }
+/* figures stand on one floor (34px up, above the tags); --h is true height on the stage's metre scale */
+.sp-figs { position: absolute; left: 34px; right: 14px; top: 0; bottom: 34px; display: flex; justify-content: center; align-items: flex-end; gap: 6%; }
+.sp-fig { margin: 0; height: var(--h); display: flex; align-items: flex-end; position: relative;
+  opacity: 0; filter: blur(5px); transform: translateY(8px); }
+.sp-fig img { height: 100%; width: auto; display: block; user-select: none; -webkit-user-drag: none; }
+/* contact shadow so they stand rather than float */
+.sp-fig::after { content: ""; position: absolute; left: 10%; right: 10%; bottom: -3px; height: 8px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0,0,0,0.55), transparent); z-index: -1; }
+.sp-fig figcaption { position: absolute; left: 50%; bottom: -24px; translate: -50% 0; font-size: 10.5px; font-weight: 500; white-space: nowrap; color: var(--ink-2); }
+.sp-fig.b figcaption { color: var(--ink-3); }
+.sp-fig.uncertain img { opacity: 0.5; filter: saturate(0.6); }
+.specimen[data-open] .sp-fig { opacity: 1; filter: none; transform: none;
+  transition: opacity 600ms var(--ease-glide), filter 800ms var(--ease-glide), transform 900ms var(--ease-expo); }
+.specimen[data-open] .sp-fig.b { transition-delay: 70ms; }
+.sp-scale { position: absolute; left: 12px; right: 12px; top: 0; bottom: 34px; pointer-events: none; }
+.sp-scale span { position: absolute; left: 0; right: 0; display: flex; align-items: center; gap: 4px; font-size: 9.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; translate: 0 50%; white-space: nowrap; }
+.sp-scale span::after { content: ""; flex: 1; height: 1px; background: currentColor; opacity: 0.18; }
+.sp-art { margin: 0 0 8px; font-size: 10px; color: var(--ink-3); }
 .sp-scale i { width: 8px; height: 1px; background: var(--ink-3); }
 .sp-tags { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; justify-content: center; gap: 64px; font-size: 10.5px; font-weight: 500; color: var(--ink-2); pointer-events: none; }
 .sp-tags .b { color: var(--ink-3); }
@@ -301,7 +314,7 @@ body[data-aerial] .scroll-hint { color: rgba(255,255,255,0.7); }
   .specimen { right: 12px; left: 12px; width: auto; top: auto; bottom: 12px; translate: none; max-height: 70dvh; }
   .sp-stage { height: 240px; }
 }
-@media (prefers-reduced-motion: reduce) { .specimen, .specimen[data-open] { transform: none; filter: none; } }
+@media (prefers-reduced-motion: reduce) { .specimen, .specimen[data-open], .sp-fig { transform: none !important; filter: none !important; } }
 body[data-aerial] #labels .pin { display: none; }
 
 /* ── planets live in space: light-on-dark everywhere ───────────── */

@@ -18,7 +18,7 @@ import type { Sound } from "../sound";
 import { Spring, SPRING_FOLLOW, clamp, expoOut, follow, reducedMotion } from "../motion";
 
 const FOV = 30;
-const SPECIMENS_ENABLED = false;
+const SPECIMENS_ENABLED = true;
 // the Sun from the left and slightly behind: a lit crescent-to-gibbous face with a visible terminator
 const LIGHT = new THREE.Vector3(-0.72, 0.24, 0.65).normalize();
 
@@ -281,7 +281,7 @@ export class PlanetView {
     for (const p of this.people) { const el = p.el; el.dataset.state = "leave"; setTimeout(() => el.remove(), 260); }
     this.people = [];
     if (!era) return;
-    // early-human figures: off until the realistic models ship (the panel works; the bodies don't yet)
+    // early-human labels open the reconstruction beside a modern human
     if (SPECIMENS_ENABLED) void this.specimen.load().then(() => {
       if (this.peopleKey !== key) return;
       for (const p of this.people) {
