@@ -42,11 +42,17 @@ export class Specimen {
       <div class="sp-body"></div>`;
     document.body.appendChild(this.el);
     this.figsEl = this.el.querySelector(".sp-figs")!;
-    this.el.querySelector(".sp-x")!.addEventListener("click", () => this.close());
-    addEventListener("keydown", (e) => { if (e.key === "Escape" && this.isOpen) { e.stopImmediatePropagation(); this.close(); } }, { capture: true });
+    this.el.querySelector(".sp-x")!.addEventListener("click", () => { this.close(); this.onUserClose(); });
+    addEventListener("keydown", (e) => { if (e.key === "Escape" && this.isOpen) { e.stopImmediatePropagation(); this.close(); this.onUserClose(); } }, { capture: true });
   }
 
   get isOpen() { return this.el.hasAttribute("data-open"); }
+  /** the species on show ("" when closed) */
+  current = "";
+  /** the visitor closed it themselves (X or Escape) */
+  onUserClose: () => void = () => {};
+  /** species with a reconstruction to show */
+  static readonly FIGURES = new Set(["modern", "sapiens_early", "neanderthalensis", "denisova", "heidelbergensis", "floresiensis", "naledi", "erectus", "habilis", "sediba", "boisei"]);
 
   load() {
     const f = files["../../data/hominins.json"];
@@ -79,6 +85,7 @@ export class Specimen {
     if (!d) return;
     const sp = key === "modern" ? { ...d.modern, name: "Anatomically modern humans", note: "Same body as yours: this group is us.", known_from: "" } : d.species.find((s) => s.key === key);
     if (!sp) return;
+    this.current = key;
     this.el.setAttribute("aria-hidden", "false");
     // re-trigger the entrance when switching species while open
     this.el.removeAttribute("data-open"); void this.el.offsetWidth; this.el.setAttribute("data-open", "");
@@ -87,6 +94,7 @@ export class Specimen {
   }
 
   close() {
+    this.current = "";
     this.el.removeAttribute("data-open");
     this.el.setAttribute("aria-hidden", "true");
   }

@@ -436,3 +436,11 @@ body:has(.orbit-note[data-on]) .audio-credit { opacity: 0; }
 @media (hover: hover) and (pointer: fine) { .view-iss:hover { color: #fff; } .view-iss:hover svg { transform: translateX(2px); } }
 @media (max-width: 640px) { .view-iss { top: calc(max(18px, env(safe-area-inset-top)) + 70px); translate: none; } }
 @media (prefers-reduced-motion: reduce) { .view-iss { filter: none; transform: none; } }
+
+/* with the species panel open on mid-size screens, the caption and timeline re-centre in the space beside it */
+@media (min-width: 641px) and (max-width: 1240px) {
+  .planet-ui .caption, .planet-ui .ruler { transition: left 600ms var(--ease-expo); }
+  body:has(.specimen[data-open]) .planet-ui .caption,
+  body:has(.specimen[data-open]) .planet-ui .ruler { left: calc((100vw - 360px) / 2); }
+  body:has(.specimen[data-open]) .info { display: none; }
+}

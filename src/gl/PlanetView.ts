@@ -132,6 +132,8 @@ export class PlanetView {
     this.scene.background = new THREE.Color(0, 0, 0);
     this.scene.fog = this.fog;
     this.station.onExit = () => this.leaveStation();
+    // closed by hand: stay closed for this era (it reopens on another era with an earlier species)
+    this.specimen.onUserClose = () => { this.specimenDismissed.add(this.peopleKey); this.autoSpecimen = false; };
     addEventListener("keydown", (e) => { if (e.key === "Escape" && this.station.active) this.leaveStation(); });
     this.scene.add(this.sky.group);
     this.sun.position.copy(LIGHT).multiplyScalar(5);
@@ -340,12 +342,17 @@ export class PlanetView {
   private people: { el: HTMLElement; dir: THREE.Vector3; x: number; y: number; on: boolean }[] = [];
   private specimen = new Specimen();
   private peopleKey = "";
+  /** the earlier human species of the era on screen (shown automatically), and eras the visitor closed */
+  private eraSpecies: { key: string; label: string } | null = null;
+  private autoSpecimen = false;
+  private specimenDismissed = new Set<string>();
   private setPeople(era: Era | null) {
     const key = era ? String(era.year) : "";
     if (key === this.peopleKey) return;
     this.peopleKey = key;
     for (const p of this.people) { const el = p.el; el.dataset.state = "leave"; setTimeout(() => el.remove(), 260); }
     this.people = [];
+    this.eraSpecies = null;
     if (!era) return;
     // early-human labels open the reconstruction beside a modern human
     if (SPECIMENS_ENABLED) void this.specimen.load().then(() => {
@@ -353,6 +360,8 @@ export class PlanetView {
       for (const p of this.people) {
         const k = this.specimen.keyFor(p.el.dataset.name ?? "", era.year);
         if (k) { p.el.dataset.key = k; p.el.setAttribute("role", "button"); p.el.tabIndex = 0; }
+        // the first species that isn't us is the one this era is about
+        if (k && k !== "modern" && !this.eraSpecies && Specimen.FIGURES.has(k)) this.eraSpecies = { key: k, label: era.label };
       }
     });
     era.peoples.slice(0, 8).forEach((pp, i) => {
@@ -362,7 +371,7 @@ export class PlanetView {
       el.dataset.name = pp.name;
       el.style.transitionDelay = `${60 + i * 45}ms`;
       el.innerHTML = `<i></i><span>${esc(pp.name)}</span>`;
-      const open = () => { const k = el.dataset.key; if (k) void this.specimen.open(k, era.label); };
+      const open = () => { const k = el.dataset.key; if (k) { this.autoSpecimen = false; void this.specimen.open(k, era.label); } };
       el.addEventListener("click", open);
       el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
       this.shell.labels.appendChild(el);
@@ -1096,6 +1105,18 @@ export class PlanetView {
       if (m.path !== this.momentKey) {
         this.momentKey = m.path;
         this.onMoment(m.path, `${m.title && m.title !== m.world ? `${m.title} · ` : ""}${m.world} · Telos`);
+      }
+    }
+    // earlier humans: once the timeline rests on their era, stand them beside you (no hunting
+    // for the label); moving to an era without them puts the panel away again
+    if (this.current === "earth" && this.ruler.settled && document.body.dataset.mode === "planet" && !this.moving && this.enterT > 0.95) {
+      const sp = this.eraSpecies;
+      if (sp && !this.specimenDismissed.has(this.peopleKey) && this.specimen.current !== sp.key && (this.autoSpecimen || !this.specimen.isOpen)) {
+        this.autoSpecimen = true;
+        void this.specimen.open(sp.key, sp.label);
+      } else if (!sp && this.autoSpecimen && this.specimen.isOpen) {
+        this.autoSpecimen = false;
+        this.specimen.close();
       }
     }
     // landing moments (Apollo 11, Chang'e 6, Perseverance…) fly to the real site once the timeline
