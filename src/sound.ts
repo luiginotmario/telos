@@ -234,6 +234,53 @@ export class Sound {
     return p;
   }
 
+  private clips = new Map<string, { src: AudioBufferSourceNode; gain: GainNode }>();
+  private ducked = 1;
+  /**
+   * A recorded moment on top of the ambience: a launch, Sputnik's signal, the ISS radio.
+   * `radio` band-limits it like a voice loop; the planet's ambience ducks underneath.
+   */
+  async playClip(id: string, opts: { loop?: boolean; level?: number; radio?: boolean } = {}) {
+    const ctx = this.ctx;
+    if (!ctx || !this.enabled || this.clips.has(id)) return;
+    this.clips.set(id, null as never);                       // reserve: one instance per clip
+    const buf = await this.loadBuffer(id);
+    if (!buf || !this.clips.has(id)) { this.clips.delete(id); return; }
+    const src = new AudioBufferSourceNode(ctx, { buffer: buf, loop: !!opts.loop });
+    const gain = new GainNode(ctx, { gain: 0 });
+    let node: AudioNode = src;
+    if (opts.radio) {
+      const hp = new BiquadFilterNode(ctx, { type: "highpass", frequency: 320, Q: 0.7 });
+      const lp = new BiquadFilterNode(ctx, { type: "lowpass", frequency: 3200, Q: 0.7 });
+      node = src.connect(hp).connect(lp);
+    }
+    node.connect(gain).connect(this.ambient);
+    const t = ctx.currentTime;
+    gain.gain.setTargetAtTime(opts.level ?? 0.4, t + 0.05, 0.25);
+    src.start(t);
+    src.onended = () => { if (this.clips.get(id)?.src === src) this.clips.delete(id); };
+    this.clips.set(id, { src, gain });
+  }
+
+  stopClip(id: string, fade = 0.5) {
+    const c = this.clips.get(id);
+    this.clips.delete(id);
+    const ctx = this.ctx;
+    if (!c || !ctx) return;
+    const t = ctx.currentTime;
+    c.gain.gain.cancelScheduledValues(t);
+    c.gain.gain.setTargetAtTime(0, t, fade / 3);
+    c.src.stop(t + fade + 0.1);
+  }
+
+  /** Lower the planet's ambience under a recorded moment (1 = normal). */
+  duckAmbient(level: number) {
+    if (Math.abs(level - this.ducked) < 0.01 || !this.ctx || !this.current) return;
+    this.ducked = level;
+    this.current.gain.gain.setTargetAtTime(this.ambientLevel * level, this.ctx.currentTime, 0.4);
+  }
+  private ambientLevel = 0.32;
+
   /** Cross-fade to a body's sound. `null` fades out. */
   async playAmbient(id: string | null, level = 0.32) {
     this.wantAmbient = id;
@@ -256,7 +303,8 @@ export class Sound {
     src.connect(g).connect(this.ambient);
     const now = ctx.currentTime;
     g.gain.setValueAtTime(0, now);
-    g.gain.setTargetAtTime(level, now + 0.15, 0.8);
+    this.ambientLevel = level;
+    g.gain.setTargetAtTime(level * this.ducked, now + 0.15, 0.8);
     src.start(now, Math.random() * Math.max(0, buf.duration - 1));
     this.current = { id, src, gain: g };
   }

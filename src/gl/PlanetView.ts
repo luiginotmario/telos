@@ -9,6 +9,7 @@ import { OrbitLayer } from "./orbits/OrbitLayer";
 import { StationView, type StationScene } from "./orbits/StationView";
 import { Limb } from "./orbits/Limb";
 import { EarthPatch } from "./orbits/EarthPatch";
+import { Launch, LAUNCHES } from "./orbits/Launch";
 import { Specimen } from "../ui/Specimen";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
@@ -95,6 +96,10 @@ export class PlanetView {
   orbits: OrbitLayer | null = null;
   private limb: Limb | null = null;
   private patch: EarthPatch | null = null;
+  private launch: Launch | null = null;
+  private launchNote: HTMLElement | null = null;
+  private launchId: string | null = null;
+  private launchAim = 0;
   /** the ISS close up, entered from its label or from station moments on the timeline */
   readonly station = new StationView();
   private stationCam = new THREE.PerspectiveCamera(FOV, 1, 1e-6, 10);
@@ -171,7 +176,7 @@ export class PlanetView {
       void g.load("2k");
       const site = SITES.find((x) => x.body === id);
       if (site) this.bases.set(id, new BaseLayer(g, site, this.sound));
-      if (id === "earth") { this.orbits = new OrbitLayer(g); this.limb = new Limb(g.tilt); this.patch = new EarthPatch(g.spin); }
+      if (id === "earth") { this.orbits = new OrbitLayer(g); this.limb = new Limb(g.tilt); this.patch = new EarthPatch(g.spin); this.launch = new Launch(g.spin); }
     }
     return g;
   }
@@ -691,7 +696,8 @@ export class PlanetView {
   private autoSite: string | null = null;
   /** Earth's light: the real Sun at the orbit layer's moment, in world space */
   readonly earthLight = LIGHT.clone();
-  private earthSunMs = () => this.orbits?.simMs ?? Date.now();
+  // a launch is lit by the Sun of its own moment; otherwise the orbit layer's (now, sped up)
+  private earthSunMs = () => this.launch?.nowMs ?? this.orbits?.simMs ?? Date.now();
 
   leaveStation() {
     this.station.exit();
@@ -719,6 +725,11 @@ export class PlanetView {
     }
     if (st.active && (this.current !== "earth" || document.body.dataset.mode !== "planet")) this.leaveStation();
     st.stepK(dt);
+    // outside the station it's silent; what you hear is the radio loop between Houston and the crew
+    const radio = st.active && st.k.x > 0.5 && st.sceneName !== "reentry";
+    if (radio) void this.sound.playClip("iss-radio", { loop: true, level: 0.3, radio: true });
+    else this.sound.stopClip("iss-radio", 0.8);
+    this.sound.duckAmbient(radio || this.launchId ? 0.35 : 1);
     if (!st.visible) { this.stationNear = false; this.patch?.update(dt, 0, 0, new THREE.Vector3(1, 0, 0), false); return; }
 
     // where the station is, and its orbital frame (x forward, y zenith)
@@ -794,6 +805,46 @@ export class PlanetView {
 
   private orbitNote: HTMLElement | null = null;
   private issButton: HTMLButtonElement | null = null;
+  /** Launch moments: once the timeline rests on one, face the pad and fly it to orbit. */
+  private updateLaunch(dt: number) {
+    const L = this.launch!;
+    const ev = this.cur?.stops[Math.round(this.ruler.pos)]?.event;
+    const want = this.current === "earth" && document.body.dataset.mode === "planet" && !this.station.active ? ev?.orbit?.launch ?? null : null;
+    if (want && this.ruler.settled && this.launchId !== want && this.enterT > 0.95 && !this.moving) {
+      this.launchId = want;
+      this.sound.stopClip("launch-falcon9", 0.6);
+      this.sound.stopClip("sputnik");
+      const c = LAUNCHES[want];
+      // look down-range of the pad, so the climb crosses the globe toward the viewer's right
+      this.aimAt(c.lat + 6, c.lon + 14);
+      this.zoomGoal = Math.min(1.9, this.maxZoom);
+      L.play(want);
+      // the real sound: Falcon 9 lift-off (NASA KSC, Crew-10); Sputnik's signal once it's up
+      if (want === "starlink") void this.sound.playClip("launch-falcon9", { level: 0.55 });
+    } else if (!want && this.launchId) {
+      this.launchId = null;
+      L.stop();
+      this.sound.stopClip("launch-falcon9", 1.2);
+      this.sound.stopClip("sputnik");
+      if (!this.autoSite) { this.zoomGoal = 1; this.focusAim = false; }
+    }
+    L.update(dt, this.current === "earth" ? this.enterT : 0);
+    if (this.launchId === "sputnik" && L.inOrbit) void this.sound.playClip("sputnik", { loop: true, level: 0.32 });
+    // the camera follows the flight (a few times a second; the yaw spring smooths it)
+    if (L.playing && this.launchId && !this.drag && (this.launchAim -= dt) <= 0) {
+      this.launchAim = 0.25;
+      const h = L.headPos.clone().normalize();
+      this.aimAt(THREE.MathUtils.radToDeg(Math.asin(h.y)) * 0.8, THREE.MathUtils.radToDeg(Math.atan2(-h.z, h.x)) - 12);
+    }
+    if (!this.launchNote) {
+      this.launchNote = document.createElement("p");
+      this.launchNote.className = "orbit-note";
+      document.body.appendChild(this.launchNote);
+    }
+    this.launchNote.textContent = L.status;
+    this.launchNote.toggleAttribute("data-on", !!L.status && this.current === "earth" && document.body.dataset.mode === "planet");
+  }
+
   /** Labels for the crewed stations (and planned ones), clickable to fly to the ISS. */
   private updateOrbitLabels() {
     const O = this.orbits!;
@@ -1030,6 +1081,7 @@ export class PlanetView {
       this.orbits.update(dt, this.year, onEarth * THREE.MathUtils.smoothstep(this.year, 1956.5, 1958), sk, this.earthLight, this.zoom.x);
       this.updateStation(dt);
       this.updateOrbitLabels();
+      this.updateLaunch(dt);
     }
     // the city is heard only from over it, and louder as more of it stands
     const hb = this.base;

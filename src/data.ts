@@ -27,7 +27,7 @@ export interface TEvent {
   sites?: Site[];
   sources: Source[];
   /** Earth orbit events: what the camera shows (the whole swarm, or the station close up) */
-  orbit?: { view: "globe" | "station"; scene?: string; focus?: string };
+  orbit?: { view: "globe" | "station"; scene?: string; focus?: string; launch?: string };
 }
 
 export interface BodyData {

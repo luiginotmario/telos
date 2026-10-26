@@ -73,7 +73,7 @@ export class StationView {
     this.sun.shadow.normalBias = 0.04;
     this.hud = document.createElement("div");
     this.hud.className = "station-hud";
-    this.hud.innerHTML = `<button class="sh-back" aria-label="Back to Earth"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Earth</button><p class="sh-name"></p><p class="sh-line"></p><p class="sh-data"></p><p class="sh-credit">ISS model: NASA. Orbit: CelesTrak, real time</p>`;
+    this.hud.innerHTML = `<button class="sh-back" aria-label="Back to Earth"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Earth</button><p class="sh-name"></p><p class="sh-line"></p><p class="sh-data"></p><p class="sh-credit">ISS model: NASA. Orbit: CelesTrak, real time. Radio: Houston to the Expedition 74 crew, 5 June 2026, the all-clear after a debris pass (NASA)</p>`;
     document.body.appendChild(this.hud);
     this.hud.querySelector(".sh-back")!.addEventListener("click", () => this.onExit());
   }

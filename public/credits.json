@@ -122,6 +122,21 @@
           "what": "Uranus, Neptune",
           "who": "NASA/JPL/University of Iowa — Voyager 2 PWS (PDS VGPW_2001)",
           "url": "https://space.physics.uiowa.edu/plasma-wave/voyager/"
+        },
+        {
+          "what": "Sputnik 1's radio signal, October 1957",
+          "who": "NASA NSSDC, Sounds of the Space Age",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/sound/index.html"
+        },
+        {
+          "what": "Falcon 9 lift-off, Crew-10 (beach and causeway microphones)",
+          "who": "NASA Kennedy Space Center",
+          "url": "https://images.nasa.gov/details/KSC-20250314-AU-ILW01-0001-SpaceX_Crew-10_Live_Launch_Beach_LoS-L_Causeway_LoS-R-M11808"
+        },
+        {
+          "what": "Houston to the ISS crew, 5 June 2026",
+          "who": "NASA Johnson Space Center",
+          "url": "https://images.nasa.gov/details/06-05-26_MCC-H-calls-ISS-to-end-safe-haven"
         }
       ]
     },

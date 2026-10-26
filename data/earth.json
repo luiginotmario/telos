@@ -969,10 +969,15 @@
         {
           "title": "NASA History – Sputnik and the origins of the Space Age",
           "url": "https://history.nasa.gov/sputnik/"
+        },
+        {
+          "title": "NASA NSSDCA – Sputnik 1 (1957-001B)",
+          "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1957-001B"
         }
       ],
       "orbit": {
-        "view": "globe"
+        "view": "globe",
+        "launch": "sputnik"
       }
     },
     {
@@ -1132,10 +1137,15 @@
         {
           "title": "Jonathan McDowell – Starlink statistics",
           "url": "https://planet4589.org/space/con/star/stats.html"
+        },
+        {
+          "title": "SpaceX – Starlink mission (24 May 2019)",
+          "url": "https://www.spacex.com/launches/"
         }
       ],
       "orbit": {
-        "view": "globe"
+        "view": "globe",
+        "launch": "starlink"
       }
     },
     {
