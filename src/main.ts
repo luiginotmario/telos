@@ -4,6 +4,8 @@ import { SystemScene } from "./gl/SystemScene";
 import { PlanetView } from "./gl/PlanetView";
 import { SITES } from "./gl/base/BaseLayer";
 import { setAnisotropy, setUploader } from "./gl/textures";
+import { PostFX } from "./gl/PostFX";
+import { LINEAR_OUT } from "./gl/planetMaterial";
 import { mountShell } from "./ui/shell";
 import { Ruler } from "./ui/Ruler";
 import { swapContent, esc } from "./ui/swap";
@@ -27,6 +29,9 @@ const system = new SystemScene(shell.canvas, shell.labels);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const planet = new PlanetView(shell, sound, renderer);
+// every view renders linear light into one HDR buffer; PostFX blooms and tone-maps it
+const post = new PostFX(renderer);
+LINEAR_OUT.value = 1;
 
 
 
@@ -210,6 +215,7 @@ function resize() {
   compU.uFeather.value = 90 * pr;
   system.resize(w, h);
   planet.resize(w, h);
+  post.setSize(w, h, pr);
 }
 addEventListener("resize", resize);
 resize();
@@ -317,11 +323,12 @@ function tick() {
   if (mode === "system") {
     sound.setSettlement(0, false, dt);
     system.update(dt, t, true);
-    renderer.setRenderTarget(null);
+    post.begin();
     renderer.render(system.scene, system.camera);
+    post.present();
   } else if (mode === "planet") {
     planet.update(dt, t);
-    planet.render();
+    post.present(planet.render(post.hdr));
   } else {
     const dur = mode === "toPlanet" ? DIVE : RISE;
     const k = reducedMotion() ? 1 : clamp((now - tStart) / dur, 0, 1);
@@ -348,10 +355,10 @@ function tick() {
     compU.uRadius.value = reveal;
     renderer.setRenderTarget(rtA);
     renderer.render(system.scene, system.camera);
-    renderer.setRenderTarget(rtB);
-    renderer.render(planet.scene, planet.camera);
-    renderer.setRenderTarget(null);
+    compU.tB.value = planet.render(rtB);
+    post.begin();
     renderer.render(compScene, compCam);
+    post.present();
     if (k >= 1) {
       if (mode === "toPlanet") { mode = "planet"; planet.enterT = 1; }
       else { mode = "system"; system.locked = false; system.focus = null; system.dimOthers(null, 0); }

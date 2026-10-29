@@ -132,11 +132,11 @@ export class StationView {
     let m: THREE.MeshStandardMaterial;
     if (/pan-cels|goldcells/.test(name)) {
       // US arrays: one two-sided blanket — amber photovoltaic cells on its face, pale Kapton behind
-      m = new THREE.MeshPhysicalMaterial({ color: 0x5a3a12, roughness: 0.3, metalness: 0.55, clearcoat: 0.6, clearcoatRoughness: 0.2 });
+      m = new THREE.MeshPhysicalMaterial({ color: 0x6b3a08, roughness: 0.3, metalness: 0.55, clearcoat: 0.6, clearcoatRoughness: 0.2 });
       m.userData.twoTone = true;
     } else if (/pan-celback/.test(name)) {
       // NASA's model splits each blanket's triangles between "cells" and "back": same surface
-      m = new THREE.MeshPhysicalMaterial({ color: 0x5a3a12, roughness: 0.3, metalness: 0.55, clearcoat: 0.6, clearcoatRoughness: 0.2 });
+      m = new THREE.MeshPhysicalMaterial({ color: 0x6b3a08, roughness: 0.3, metalness: 0.55, clearcoat: 0.6, clearcoatRoughness: 0.2 });
       m.userData.twoTone = true;
     } else if (/panel-back|panel-sides|centrstruct/.test(name)) {
       m = new THREE.MeshStandardMaterial({ color: 0xcfc8b8, roughness: 0.7, metalness: 0.05 });
@@ -231,7 +231,7 @@ export class StationView {
         void main(){
           vec3 c = mix(vec3(1.0, 0.92, 0.75), vec3(1.0, 0.36, 0.08), smoothstep(0.0, 0.5, vAge));
           c = mix(c, vec3(0.6, 0.12, 0.04), smoothstep(0.5, 1.0, vAge));
-          gl_FragColor = vec4(c * vA, vA);
+          gl_FragColor = vec4(pow(c, vec3(2.2)) * vA * 3.0, vA);
         }`,
       transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
     });
@@ -424,8 +424,6 @@ export class StationView {
   async warm(r: THREE.WebGLRenderer) {
     await this.load();
     const rt = new THREE.WebGLRenderTarget(64, 64);
-    const tm = r.toneMapping;
-    r.toneMapping = THREE.ACESFilmicToneMapping;
     const hidden: THREE.Object3D[] = [];
     this.station.traverse((o) => { if (!o.visible) { hidden.push(o); o.visible = true; } });
     for (const kind of ["crew", "cargo", "deorbit"] as const) this.vehicle(`warm-${kind}`, kind);
@@ -435,21 +433,16 @@ export class StationView {
     await r.compileAsync(this.scene, this.cam).catch(() => {});
     r.render(this.scene, this.cam);          // shadow-map programs too
     r.setRenderTarget(prev);
-    r.toneMapping = tm;
     for (const o of hidden) o.visible = false;
     for (const kind of ["crew", "cargo", "deorbit"]) { const v = this.vehicles.get(`warm-${kind}`); if (v) v.visible = false; }
     rt.dispose();
   }
 
   render(r: THREE.WebGLRenderer) {
-    const prevTM = r.toneMapping, prevExp = r.toneMappingExposure;
-    r.toneMapping = THREE.ACESFilmicToneMapping;
-    r.toneMappingExposure = 1.05;
     const ac = r.autoClear;
     r.autoClear = false;
     r.clearDepth();
     r.render(this.scene, this.cam);
     r.autoClear = ac;
-    r.toneMapping = prevTM; r.toneMappingExposure = prevExp;
   }
 }

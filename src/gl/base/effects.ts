@@ -21,7 +21,7 @@ void main(){
   float a = edge * (1.0 - smoothstep(0.2, 1.0, along)) * (0.55 + 0.45 * n) * uThrottle;
   // shock diamonds near the exit
   a += edge * exp(-pow(fract(along * 7.0) - 0.5, 2.0) * 60.0) * (1.0 - smoothstep(0.0, 0.35, along)) * 0.35 * uThrottle;
-  gl_FragColor = vec4(c * a * 1.6, a);
+  gl_FragColor = vec4(pow(c, vec3(2.2)) * a * 3.2, a);   // a rocket flame is far brighter than white
 }`;
 
 export function createPlume() {
@@ -63,7 +63,7 @@ void main(){
   vec2 p = gl_PointCoord * 2.0 - 1.0; float d = dot(p, p);
   float a = exp(-d * 2.5) * vA;
   if (a < 0.004) discard;
-  gl_FragColor = vec4(uColor * vLit, a);
+  gl_FragColor = vec4(pow(uColor, vec3(2.2)) * vLit, a);
 }`;
 
 export function createDust(count = 1600) {

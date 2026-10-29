@@ -98,7 +98,7 @@ void main(){
   vec2 p = gl_PointCoord * 2.0 - 1.0; float d = dot(p, p);
   float a = exp(-d * 5.0) * vA;
   if (a < 0.01) discard;
-  gl_FragColor = vec4(vec3(1.0, 0.93, 0.82) * a, a);
+  gl_FragColor = vec4(pow(vec3(1.0, 0.93, 0.82), vec3(2.2)) * a * 1.6, a);
 }`;
 
 export class Fleet {
@@ -125,7 +125,7 @@ export class Fleet {
     this.pts.frustumCulled = false;
     const tg = new THREE.BufferGeometry();
     tg.setAttribute("position", new THREE.BufferAttribute(new Float32Array(this.max * 6), 3));
-    this.trails = new THREE.LineSegments(tg, new THREE.LineBasicMaterial({ color: 0xffd9a8, transparent: true, opacity: 0.16, blending: THREE.AdditiveBlending, depthWrite: false }));
+    this.trails = new THREE.LineSegments(tg, new THREE.LineBasicMaterial({ color: 0xffd9a8, transparent: true, opacity: 0.02, blending: THREE.AdditiveBlending, depthWrite: false }));
     this.trails.frustumCulled = false;
     this.group.add(this.pts, this.trails);
 
@@ -170,7 +170,7 @@ export class Fleet {
     const few = 1 - THREE.MathUtils.smoothstep(flying, 0, 240);
     this.u.uSize.value = 1 + 1.6 * few;
     const trail = 0.01 + 0.035 * few;
-    (this.trails.material as THREE.LineBasicMaterial).opacity = 0.16 + 0.4 * few;
+    (this.trails.material as THREE.LineBasicMaterial).opacity = Math.pow(0.16 + 0.4 * few, 2.2);
     this.windows.forEach((w, i) => {
       const arc = this.arcs[i];
       const line = this.paths[i];
@@ -178,7 +178,7 @@ export class Fleet {
       // routes fade in ahead of the window and out after the last arrival
       const vis = arc && w.ships > 0 ? THREE.MathUtils.smoothstep(t, w.launch.getTime() - 60 * DAY, w.launch.getTime()) * (1 - THREE.MathUtils.smoothstep(t, w.arrive.getTime() + 20 * DAY, w.arrive.getTime() + 80 * DAY)) : 0;
       line.visible = vis > 0.01;
-      (line.material as THREE.LineDashedMaterial).opacity = vis * 0.28;
+      (line.material as THREE.LineDashedMaterial).opacity = Math.pow(vis * 0.28, 2.2);   // linear-light blending
       if (!arc || !w.ships) return;
       // departures spread over ~a month; a few days apart in the early, small fleets
       const spread = Math.min(34, 6 + w.ships * 0.04) * DAY;

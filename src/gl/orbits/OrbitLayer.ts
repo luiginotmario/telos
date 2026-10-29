@@ -80,6 +80,7 @@ void main(){
   gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
   float size;
   vA = styleOf(p, float(gl_VertexID), vCol, size);
+  vA = pow(vA, 2.2);   // faintness authored for display; blending happens in linear light
   gl_PointSize = size * uScale;
   if (vA < 0.004) gl_Position = vec4(2.0, 2.0, 2.0, 1.0);   // cull
 }`;
@@ -112,7 +113,7 @@ void main(){
   gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
   float size;
   float head = styleOf(place(0.0), float(gl_VertexID / 2), vCol, size);
-  vA = head * (1.0 - aTail) * 0.38;
+  vA = pow(head * (1.0 - aTail) * 0.38, 2.2);
   // cull both ends together (one end alone would stretch the line to the cull point)
   if (head < 0.004 || aE1.z < 0.03 || aE0.y > 0.03) gl_Position = vec4(2.0, 2.0, 2.0, 1.0);
 }`;

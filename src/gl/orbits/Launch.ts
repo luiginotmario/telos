@@ -52,14 +52,14 @@ export class Launch {
     this.trail = new THREE.Line(tg, new THREE.ShaderMaterial({
       uniforms: this.u,
       vertexShader: `attribute float aF; varying float vF; void main(){ vF = aF; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
-      fragmentShader: `varying float vF; uniform float uA; void main(){ float a = pow(vF, 1.6) * uA; gl_FragColor = vec4(vec3(1.0, 0.82, 0.55) * a, a); }`,
+      fragmentShader: `varying float vF; uniform float uA; void main(){ float a = pow(vF, 1.6) * uA; gl_FragColor = vec4(pow(vec3(1.0, 0.82, 0.55), vec3(2.2)) * a * 2.2, a); }`,
       transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
     }));
     this.trail.frustumCulled = false;
     const dot = (size: number, col: string) => new THREE.ShaderMaterial({
       uniforms: { ...this.u, uSize: { value: size } },
       vertexShader: `uniform float uScale; uniform float uSize; void main(){ gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); gl_PointSize = uSize * uScale; }`,
-      fragmentShader: `uniform float uA; void main(){ float d = length(gl_PointCoord*2.0-1.0); float a = smoothstep(1.0, 0.0, d) * uA; gl_FragColor = vec4(${col} * a, a); }`,
+      fragmentShader: `uniform float uA; void main(){ float d = length(gl_PointCoord*2.0-1.0); float a = smoothstep(1.0, 0.0, d) * uA; gl_FragColor = vec4(pow(${col}, vec3(2.2)) * a * 2.5, a); }`,
       transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
     });
     const hg = new THREE.BufferGeometry();

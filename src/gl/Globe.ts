@@ -4,6 +4,7 @@ import type { Site, VisualN } from "../data";
 import { TODAY_YEAR, resolveVisual } from "../data";
 import { LINEAR_OUT, MAX_GLOWS, createPlanetMaterial, type PlanetUniforms } from "./planetMaterial";
 import { elevationRange, loadMap, loadPaleo } from "./textures";
+import { ATMOSPHERES, createAtmosphere } from "./atmosphere";
 
 // Axial tilts (deg), NASA fact sheets. Moon: 6.68° to its orbit plane.
 const TILT: Record<string, number> = {
@@ -59,6 +60,8 @@ export class Globe {
   readonly mesh: THREE.Mesh;
   readonly u: PlanetUniforms;
   readonly atm: THREE.Mesh;
+  /** the physical sky, for worlds with air (dark-space views) */
+  phys: { mesh: THREE.Mesh; u: ReturnType<typeof createAtmosphere>["u"]; def: import("./atmosphere").AtmosphereDef; todayTint: THREE.Color } | null = null;
   readonly atmU: Record<string, THREE.IUniform>;
   ring?: THREE.Mesh;
   ringU?: Record<string, THREE.IUniform>;
@@ -94,6 +97,17 @@ export class Globe {
     );
     this.atm.scale.y = 1 - def.flattening;
     this.atm.renderOrder = 2;
+    // worlds with air get the physical sky instead (in the dark-space views)
+    const phys = opts.dark ? ATMOSPHERES[def.id] : undefined;
+    if (phys) {
+      const a = createAtmosphere(phys, u.uLightDir);
+      // raw components, like the era visuals (no sRGB-to-linear conversion)
+      const hexv = parseInt(phys.today.tint.slice(1), 16);
+      this.phys = { ...a, def: phys, todayTint: new THREE.Color().setRGB(((hexv >> 16) & 255) / 255, ((hexv >> 8) & 255) / 255, (hexv & 255) / 255) };
+      a.mesh.renderOrder = 2;
+      this.atm = a.mesh;
+      u.uPhysAtm.value = 1;
+    }
 
     this.spin.add(this.mesh);
     this.tilt.add(this.spin, this.atm);
@@ -166,6 +180,13 @@ export class Globe {
     u.uAtmTint.value.setRGB(...v.atm); u.uSurfTint.value.setRGB(...v.tint);
     this.atmU.uTint.value.setRGB(...v.atm);
     this.atmU.uStrength.value = Math.min(1, v.atmosphere * 1.1);
+    if (this.phys) {
+      // eras scale today's air (thinner, thicker, hazier) relative to the timeline's present
+      const p = this.phys;
+      p.u.uDensity.value = Math.max(0, v.atmosphere / p.def.today.amount);
+      const c = new THREE.Color().setRGB(...v.atm);
+      p.u.uTint.value.setRGB(c.r / Math.max(0.05, p.todayTint.r), c.g / Math.max(0.05, p.todayTint.g), c.b / Math.max(0.05, p.todayTint.b));
+    }
     if (this.ringU) this.ringU.uAmount.value = this.def.id === "saturn" ? (v.rings || (v.baseMix > 0.5 ? 1 : 0)) : v.rings;
   }
 
@@ -201,6 +222,7 @@ export class Globe {
   setOpacity(o: number) {
     this.u.uOpacity.value = o;
     this.atmU.uOpacity.value = o;
+    if (this.phys) this.phys.u.uOpacity.value = o;
     if (this.ringU) this.ringU.uOpacity.value = o;
     this.tilt.visible = o > 0.002;
   }

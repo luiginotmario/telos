@@ -24,7 +24,8 @@ void main(){
   float limb = 1.0 - 0.6 * (1.0 - mu) - 0.2 * (1.0 - mu) * (1.0 - mu);
   float g = fbm(normalize(vN) * 18.0 + vec3(0.0, uTime * 0.05, 0.0)) * 0.5 + 0.5;
   vec3 c = mix(vec3(1.0, 0.62, 0.22), vec3(1.0, 0.93, 0.78), limb) * (0.9 + 0.14 * g);
-  gl_FragColor = vec4(c * (0.55 + 0.6 * limb), 1.0);
+  // linear light, far brighter than white: the photosphere is what makes the lens bloom
+  gl_FragColor = vec4(pow(c * (0.55 + 0.6 * limb), vec3(2.2)) * 6.0, 1.0);
 }`;
 const sunVert = /* glsl */ `varying vec3 vN; varying vec3 vP; void main(){ vN = normalize(mat3(modelMatrix)*normal); vec4 w = modelMatrix*vec4(position,1.0); vP = w.xyz; gl_Position = projectionMatrix*viewMatrix*w; }`;
 
@@ -33,7 +34,7 @@ varying vec2 vUv; uniform float uI;
 void main(){ vec2 p = vUv * 2.0 - 1.0; float d = length(p);
   float a = (0.5 * exp(-d * 7.0) + 0.22 * exp(-d * 2.6) + 0.06 * exp(-d * 1.1)) * uI;
   a *= smoothstep(1.0, 0.7, d);
-  gl_FragColor = vec4(vec3(1.0, 0.82, 0.6) * a, a); }`;
+  gl_FragColor = vec4(pow(vec3(1.0, 0.82, 0.6), vec3(2.2)) * a * 0.28, a); }`;
 const glowVert = /* glsl */ `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`;
 
 interface Planet { def: BodyDef; globe: Globe; orbit?: THREE.Line; label: HTMLButtonElement; r: number }
@@ -122,7 +123,7 @@ export class SystemScene {
       uniforms: { uO: { value: 1 } },
       vertexShader: `attribute float aT; varying float vT; void main(){ vT = aT; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
       // brightest just behind the planet (vT → 1), fading back along its path
-      fragmentShader: `varying float vT; uniform float uO; void main(){ float a = 0.05 + 0.25 * pow(vT, 3.0); gl_FragColor = vec4(vec3(1.0), a * uO); }`,
+      fragmentShader: `varying float vT; uniform float uO; void main(){ float a = 0.05 + 0.25 * pow(vT, 3.0); gl_FragColor = vec4(vec3(1.0), pow(a * uO, 2.2)); }`,
       transparent: true, depthWrite: false,
     }));
     this.scene.add(line);

@@ -27,7 +27,7 @@ void main(){
   float edge = smoothstep(0.0, 0.16, min(min(vUv.x, 1.0 - vUv.x), min(vUv.y, 1.0 - vUv.y)));
   float d = dot(normalize(vN), uSun);
   float day = smoothstep(-0.06, 0.25, d);
-  vec3 c = texture2D(uMap, vUv).rgb;
+  vec3 c = pow(texture2D(uMap, vUv).rgb, vec3(2.2));
   // VIIRS reflectance is already display-ready; shade only by the Sun's height
   c *= 0.25 + 0.85 * smoothstep(-0.05, 0.5, d);
   float a = edge * day * uA;

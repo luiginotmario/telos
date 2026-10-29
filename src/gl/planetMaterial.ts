@@ -61,7 +61,7 @@ uniform vec3 uAtmTint, uSurfTint;
 
 uniform float uFogDensity; uniform vec3 uFogColor;
 uniform vec3 uHoleDir; uniform float uHoleCos;
-uniform float uLinearOut; uniform float uGain;
+uniform float uLinearOut; uniform float uGain; uniform float uPhysAtm;
 uniform vec4 uGlows[${MAX_GLOWS}];
 uniform int uGlowCount;
 
@@ -101,6 +101,7 @@ float craterField(vec3 p) {
 }
 
 void main() {
+  vec3 emit = vec3(0.0);   // light brighter than white (linear), added after the encode: it blooms
   vec3 n = normalize(vObjN);
   if (dot(n, uHoleDir) > uHoleCos) discard;   // terrain patches cover this cap (descent scene)
   vec3 N = normalize(vWorldN);
@@ -223,6 +224,7 @@ void main() {
   vec3 H = normalize(L + V);
   float spec = pow(max(dot(N, H), 0.0), 140.0) * water * term;
   col += vec3(1.0, 0.97, 0.92) * spec * 0.28;
+  emit += vec3(1.0, 0.95, 0.86) * spec * 2.4;          // the Sun's glint off the sea
 
   // ── clouds ─────────────────────────────────────────────────
   if (uCloudAmt > 0.001) {
@@ -268,6 +270,7 @@ void main() {
     float lights = 0.0;
     if (uHasNight > 0.5) lights = texBlur(uNight, uv).r * uBaseMix;
     col += vec3(1.0, 0.72, 0.38) * lights * uLights * (0.15 + 1.4 * night);
+    emit += vec3(1.0, 0.45, 0.14) * lights * lights * uLights * night * 1.6;   // city cores glow
   }
   // site glows (bases, cities)
   for (int i = 0; i < ${MAX_GLOWS}; i++) {
@@ -281,7 +284,7 @@ void main() {
 
   // ── atmosphere rim ────────────────────────────────────────
   // a rim seen on the whole globe; from low orbit nearly everything grazes, so it fades out there
-  float fres = pow(1.0 - max(dot(N, V), 0.0), 3.2) * smoothstep(0.12, 0.9, vCamAlt);
+  float fres = pow(1.0 - max(dot(N, V), 0.0), 3.2) * smoothstep(0.12, 0.9, vCamAlt) * (1.0 - uPhysAtm);   // the physical sky does this
   float lit = smoothstep(-0.1, 0.6, dot(N, L));
   // airglow-free night side: the atmosphere only shows where it scatters sunlight
   col = mix(col, uAtmTint * (0.35 + 0.8 * lit), clamp(fres * uAtm * 0.75 * (uDarkSpace > 0.5 ? lit : 1.0), 0.0, 1.0));
@@ -295,7 +298,7 @@ void main() {
   if (uDarkSpace < 0.5) col = 1.0 - (1.0 - col) * (1.0 - 0.06) ; // gentle studio lift
   // authored + lit in display (sRGB) space; no tonemapping so the white studio stays white
   // when post-processing, hand the compositor linear light (it encodes to sRGB at the end)
-  if (uLinearOut > 0.5) col = pow(max(col, 0.0), vec3(2.2));
+  if (uLinearOut > 0.5) col = pow(max(col, 0.0), vec3(2.2)) + emit * uGain;
   gl_FragColor = vec4(col, uOpacity);
 }
 `;
@@ -328,7 +331,7 @@ export function createPlanetMaterial(seed: number) {
     uGlowCount: { value: 0 },
     uFogDensity: { value: 0 }, uFogColor: { value: new THREE.Color(0.8, 0.65, 0.5) },
     uHoleDir: { value: new THREE.Vector3(0, 1, 0) }, uHoleCos: { value: 2 },
-    uLinearOut: LINEAR_OUT, uGain: { value: 1 },
+    uLinearOut: LINEAR_OUT, uGain: { value: 1 }, uPhysAtm: { value: 0 },
   };
   const mat = new THREE.ShaderMaterial({ uniforms: u, vertexShader: vert, fragmentShader: frag, transparent: false });
   return { mat, u };

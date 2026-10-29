@@ -7,7 +7,6 @@ import { Globe, latLonToDir } from "./Globe";
 import { BaseLayer, SITES } from "./base/BaseLayer";
 import { OrbitLayer } from "./orbits/OrbitLayer";
 import { StationView, type StationScene } from "./orbits/StationView";
-import { Limb } from "./orbits/Limb";
 import { EarthPatch } from "./orbits/EarthPatch";
 import { Launch, LAUNCHES } from "./orbits/Launch";
 import { Specimen } from "../ui/Specimen";
@@ -94,7 +93,6 @@ export class PlanetView {
   private bases = new Map<BodyId, BaseLayer>();
   /** Earth's satellites, stations and debris (only Earth has one) */
   orbits: OrbitLayer | null = null;
-  private limb: Limb | null = null;
   private patch: EarthPatch | null = null;
   private launch: Launch | null = null;
   private launchNote: HTMLElement | null = null;
@@ -178,7 +176,7 @@ export class PlanetView {
       void g.load("2k");
       const site = SITES.find((x) => x.body === id);
       if (site) this.bases.set(id, new BaseLayer(g, site, this.sound));
-      if (id === "earth") { this.orbits = new OrbitLayer(g); this.limb = new Limb(g.tilt); this.patch = new EarthPatch(g.spin); this.launch = new Launch(g.spin); }
+      if (id === "earth") { this.orbits = new OrbitLayer(g); this.patch = new EarthPatch(g.spin); this.launch = new Launch(g.spin); }
     }
     return g;
   }
@@ -606,7 +604,9 @@ export class PlanetView {
     const b = new BokehPassC(this.scene, this.camera, { focus: 1, aperture: 0.0025, maxblur: 0.006 });
     b.enabled = !lowPower;
     c.addPass(b);
-    c.addPass(new OutputPassC());
+    // no output pass: the frame stays linear HDR and goes through the shared PostFX
+    c.renderToScreen = false;
+    void OutputPassC;
     c.setPixelRatio(Math.min(devicePixelRatio, 1.5));
     c.setSize(innerWidth, innerHeight);
     this.composer = c; this.ao = ao; this.bokeh = b;
@@ -669,11 +669,7 @@ export class PlanetView {
     if (this.current !== id || this.focusK > 0.3) return;
     // one off-screen composer pass picks up what compile() can't: AO depth/normal and shadow programs
     restore = reveal();
-    LINEAR_OUT.value = 1;
-    c.renderToScreen = false;
     c.render();
-    c.renderToScreen = true;
-    LINEAR_OUT.value = 0;
     restore();
   }
 
@@ -919,33 +915,34 @@ export class PlanetView {
     }
   }
 
-  /** Draw the planet view: post-processed over a surface, direct otherwise. */
-  render() {
+  /**
+   * Draw the planet view in linear light into `target`, and return the texture holding the
+   * frame (the surface composer's own buffer when it ran, otherwise `target`).
+   */
+  render(target: THREE.WebGLRenderTarget): THREE.Texture {
     const r = this.renderer!;
     if (this.station.visible && this.current === "earth") {
       // Earth and the swarm from the station's viewpoint, then the station itself in metres
       this.sky.update(this.stationCam, this.enterT * 0.6);
-      this.limb?.update(this.earthLight, this.stationCam, THREE.MathUtils.smoothstep(this.station.k.x, 0.4, 1));
-      r.setRenderTarget(null);
+      r.setRenderTarget(target);
       r.render(this.scene, this.stationCam);
       if (this.stationNear) this.station.render(r);
-      this.limb?.update(this.earthLight, this.stationCam, 0);
-      return;
+      return target.texture;
     }
     if (this.focusK > 0.3) this.ensureComposer();
     if (this.focusK > 0.3 && this.composer) {
+      // (the surface composer's AO and depth of field, still in linear light)
       const d = this.camera.position.distanceTo(this.camTarget);
       // AO reach grows a little as you come in, so close-ups get deeper contact shading
       this.ao!.configuration.aoRadius = clamp(38 - d * 30, 18, 40);
       const u = (this.bokeh as unknown as { uniforms: Record<string, THREE.IUniform> }).uniforms;
       u.focus.value = d; u.aperture.value = 0.0012 / Math.max(d, 0.05); u.maxblur.value = 0.0045;
-      LINEAR_OUT.value = 1;
       this.composer!.render();
-      LINEAR_OUT.value = 0;
-    } else {
-      r.setRenderTarget(null);
-      r.render(this.scene, this.camera);
+      return this.composer!.readBuffer.texture;
     }
+    r.setRenderTarget(target);
+    r.render(this.scene, this.camera);
+    return target.texture;
   }
 
   resize(w: number, h: number) {
